@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{9e4a7726-d9e7-4a41-abf3-ed6edf29d7e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{04d01c47-2a23-48bd-9143-f38a2e049fca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IronClad">
+      <UniqueIdentifier>{b9187be1-bc8b-4138-9e53-d3635599769b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IronClad\Assets">
+      <UniqueIdentifier>{450ecf52-218c-46bb-8a11-9402429acf5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IronClad\Entity">
+      <UniqueIdentifier>{94c918a2-a518-48dd-9969-9c982715ccfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IronClad\Math">
+      <UniqueIdentifier>{dd5b6dc9-bacf-49ac-a25f-30cf01ea2ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IronClad\Graphics">
+      <UniqueIdentifier>{d3620292-734f-44f2-bd1d-096255d25bf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IronClad\Utilities">
+      <UniqueIdentifier>{761d205b-4105-41c4-98f5-832a80bc32f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IronClad\Base">
+      <UniqueIdentifier>{c42c4b70-e048-474c-95a0-4d734050f9b4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Asset\Asset.hpp">
+      <Filter>Header Files\IronClad\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Asset\AssetManager.hpp">
+      <Filter>Header Files\IronClad\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Asset\Mesh.hpp">
+      <Filter>Header Files\IronClad\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Asset\Shader.hpp">
+      <Filter>Header Files\IronClad\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Asset\Texture.hpp">
+      <Filter>Header Files\IronClad\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Base\Errors.hpp">
+      <Filter>Header Files\IronClad\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Base\Types.hpp">
+      <Filter>Header Files\IronClad\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Entity\Animation.hpp">
+      <Filter>Header Files\IronClad\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Entity\Entity.hpp">
+      <Filter>Header Files\IronClad\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Entity\RigidBody.hpp">
+      <Filter>Header Files\IronClad\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\Effect.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\Framebuffer.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\Globals.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\Light.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\Material.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\MeshInstance.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\Scene.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\ShaderPair.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\Surface.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\VertexBuffer.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Graphics\Window.hpp">
+      <Filter>Header Files\IronClad\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Math\Line2.hpp">
+      <Filter>Header Files\IronClad\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Math\Math.hpp">
+      <Filter>Header Files\IronClad\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Math\MathDef.hpp">
+      <Filter>Header Files\IronClad\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Math\Matrix.hpp">
+      <Filter>Header Files\IronClad\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Math\Shapes.hpp">
+      <Filter>Header Files\IronClad\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Math\Vector2.hpp">
+      <Filter>Header Files\IronClad\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Math\Vector3.hpp">
+      <Filter>Header Files\IronClad\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Helper.hpp">
+      <Filter>Header Files\IronClad\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Loader.hpp">
+      <Filter>Header Files\IronClad\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Logging.hpp">
+      <Filter>Header Files\IronClad\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\SysEvent.hpp">
+      <Filter>Header Files\IronClad\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Timer.hpp">
+      <Filter>Header Files\IronClad\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\Utilities.hpp">
+      <Filter>Header Files\IronClad\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Level.hpp">
+      <Filter>Header Files\IronClad</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IronClad.hpp">
+      <Filter>Header Files\IronClad</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Debug\glfw.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\Default.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\Default.vs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\PointLight.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\GaussianBlurV.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\ShadowCaster.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\GaussianBlurH.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="include\Asset\AssetManager.inl">
+      <Filter>Header Files\IronClad\Assets</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\DLLMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
