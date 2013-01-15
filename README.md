@@ -7,18 +7,18 @@ I currently have a game work-in-progress called Praecursor being built using thi
 
 ## Features
 IronClad currently supports the following:
-- Full use of modern OpenGL features such as vertex array objects
-- Instanced geometry which allows for high-speed, batched rendering of many vertices
-- Per-pixel shader-based lighting (currently only point lights)
-- Optimized mesh loading
-- Entity wrapper for easily controllable mesh instances
-- Minimalistic physics system
-- Loading of a custom level format for easy scene creation
+* Full use of modern OpenGL features such as vertex array objects
+* Instanced geometry which allows for high-speed, batched rendering of many vertices
+* Per-pixel shader-based lighting (currently only point lights)
+* Optimized mesh loading
+* Entity wrapper for easily controllable mesh instances
+* Minimalistic physics system
+* Loading of a custom level format for easy scene creation
 
 ## Planned Features
 In the near future, IronClad will support:
-- Fully-featured level creation and control
-- More robust physics system
-- Variation in lighting
-- Shadow generation
-- Simple GUI creation
+* Fully-featured level creation and control
+* More robust physics system
+* Variation in lighting
+* Shadow generation
+* Simple GUI creation
