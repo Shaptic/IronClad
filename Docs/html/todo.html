@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3450 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3587 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -99,15 +99,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <dd>Implement a CCollidable in a separate Physics lib.  </dd>
 <dt><a class="anchor" id="_todo000012"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_frame_buffer.html#aab01d1b37e1f0f1e1f3779d78293f5cf">ic::gfx::CFrameBuffer::Init</a>  (const int width, const int height)</dt>
 <dd>Fix view-port setting / resetting.  </dd>
+<dt><a class="anchor" id="_todo000014"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a9eba1e017ef0873aae77e9c63f070f53">ic::gfx::CScene::AddLight</a>  (gfx::CLight *pLight)</dt>
+<dd>Make it actually find the ID of an existing light. </dd>
 <dt><a class="anchor" id="_todo000013"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a4ef3596e056e0b7db3fb2fd05a84dc3d">ic::gfx::CScene::Render</a>  ()</dt>
 <dd>Shadow generation. </dd>
-<dt><a class="anchor" id="_todo000015"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a0085ba6b27e2c3b65bc8569f039c5a67">ic::gfx::CVertexBuffer::AddData</a>  (vertex2_t *pVBuffer, uint32_t vsize, uint16_t *pIBuffer, uint16_t isize, uint32_t *voffset=NULL, uint32_t *ioffset=NULL)</dt>
+<dt><a class="anchor" id="_todo000016"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a0085ba6b27e2c3b65bc8569f039c5a67">ic::gfx::CVertexBuffer::AddData</a>  (vertex2_t *pVBuffer, uint32_t vsize, uint16_t *pIBuffer, uint16_t isize, uint32_t *voffset=NULL, uint32_t *ioffset=NULL)</dt>
 <dd>Fix buffers, only works once. </dd>
-<dt><a class="anchor" id="_todo000016"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a4c00f75fa3594174686cb80f6f0b73a7">ic::gfx::CVertexBuffer::FinalizeBuffer</a>  ()</dt>
+<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a4c00f75fa3594174686cb80f6f0b73a7">ic::gfx::CVertexBuffer::FinalizeBuffer</a>  ()</dt>
 <dd>Fix the VAO attribute ID locating. </dd>
-<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_window.html#a5ac234105c9c32c3ff4bcbe3c50e1b41">ic::gfx::CWindow::Create</a>  (const uint16_t width=800, const uint16_t height=600, const char *ptitle="OpenGL Window")</dt>
+<dt><a class="anchor" id="_todo000018"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_window.html#a5ac234105c9c32c3ff4bcbe3c50e1b41">ic::gfx::CWindow::Create</a>  (const uint16_t width=800, const uint16_t height=600, const char *ptitle="OpenGL Window")</dt>
 <dd>Make the window context consistent with the IRONCLAD_MINIMUM_GL_VERSION constant. </dd>
-<dt><a class="anchor" id="_todo000018"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_window.html#a36a06da206505a4b73f3acb021a00e1c">ic::gfx::CWindow::ToggleFullscreen</a>  ()</dt>
+<dt><a class="anchor" id="_todo000019"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_window.html#a36a06da206505a4b73f3acb021a00e1c">ic::gfx::CWindow::ToggleFullscreen</a>  ()</dt>
 <dd>Implement this. </dd>
 <dt><a class="anchor" id="_todo000005"></a>Global <a class="el" href="structic_1_1gfx_1_1_globals.html#a061c38f3a8d8b760e94c4ea52579accd">ic::gfx::Globals::Init</a>  (CWindow &amp;Window)</dt>
 <dd>Do NOT hardcore window size. </dd>
@@ -125,7 +127,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 8 2013 20:01:20 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 14 2013 20:18:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

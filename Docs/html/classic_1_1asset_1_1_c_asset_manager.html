@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3450 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3587 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -140,6 +140,8 @@ template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab84343414770e7e16f5ba94669e8ef75"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab84343414770e7e16f5ba94669e8ef75"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset_manager.html#ab84343414770e7e16f5ba94669e8ef75">Destroy</a> (T *pAsset)</td></tr>
 <tr class="memdesc:ab84343414770e7e16f5ba94669e8ef75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests destruction of an existing asset.  <a href="#ab84343414770e7e16f5ba94669e8ef75"></a><br/></td></tr>
+<tr class="memitem:aad4b9945b7c175e068435e84e3764eb1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset_manager.html#aad4b9945b7c175e068435e84e3764eb1">DestroyAll</a> ()</td></tr>
+<tr class="memdesc:aad4b9945b7c175e068435e84e3764eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destorys all assets.  <a href="#aad4b9945b7c175e068435e84e3764eb1"></a><br/></td></tr>
 <tr class="memitem:adb944ccbdf96fecff6562144cf2d4fff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb944ccbdf96fecff6562144cf2d4fff"></a>
 static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetAssetCount</b> ()</td></tr>
 </table>
@@ -220,6 +222,32 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="aad4b9945b7c175e068435e84e3764eb1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAssetManager::DestroyAll </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This should only be called by engine cleanup. </p>
+
+<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00060">60</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a504512b33d8ed3a8b342ae48d999ae56"></a>
 <div class="memitem">
 <div class="memproto">
@@ -250,7 +278,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>NULL if no asset exists, otherwise the asset. </dd></dl>
 
-<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00032">32</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00025">25</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -262,7 +290,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 8 2013 20:01:20 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 14 2013 20:18:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

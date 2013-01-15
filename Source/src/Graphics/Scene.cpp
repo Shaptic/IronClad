@@ -324,12 +324,23 @@ uint32_t CScene::PostProcessingRender(gfx::CEffect* pEffect,
     return Target.GetTexture();
 }
 
+/**
+ * @todo    Make it actually find the ID of an existing light.
+ **/
 uint16_t CScene::AddLight(gfx::CLight* pLight)
 {
     if(pLight == NULL) return -1;
 
-    mp_sceneLights.push_back(pLight);
-    return mp_sceneLights.size() - 1;
+    std::vector<gfx::CLight*>::iterator finder = std::find(
+        mp_sceneLights.begin(), mp_sceneLights.end(), pLight);
+
+    if(finder == mp_sceneLights.end())
+    {
+        mp_sceneLights.push_back(pLight);
+        return mp_sceneLights.size() - 1;
+    }
+
+    return -1;
 }
 
 void CScene::ShadowRender()

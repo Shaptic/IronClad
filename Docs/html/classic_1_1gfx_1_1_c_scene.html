@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3450 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3587 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -91,7 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">ic::gfx::CScene Class Reference</div>  </div>
 </div><!--header-->
@@ -112,12 +113,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a318a5c52e82de0ffe8d2594514b72c70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a mesh instance to be rendered in the current scene.  <a href="#a318a5c52e82de0ffe8d2594514b72c70"></a><br/></td></tr>
 <tr class="memitem:a3d0ee3b73fa8b89429add66c0a436945"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d0ee3b73fa8b89429add66c0a436945"></a>
 <a class="el" href="classic_1_1_c_entity.html">CEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>AddMesh</b> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh, <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Pos)</td></tr>
+<tr class="memitem:ac0c1c454b6e66751dd736b0306a848b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0c1c454b6e66751dd736b0306a848b9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>AddMesh</b> (<a class="el" href="classic_1_1_c_entity.html">asset::CEntity</a> *pEntity)</td></tr>
 <tr class="memitem:a9eba1e017ef0873aae77e9c63f070f53"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a9eba1e017ef0873aae77e9c63f070f53">AddLight</a> (<a class="el" href="classic_1_1gfx_1_1_c_light.html">gfx::CLight</a> *pLight)</td></tr>
 <tr class="memdesc:a9eba1e017ef0873aae77e9c63f070f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a pre-loaded light to the scene.  <a href="#a9eba1e017ef0873aae77e9c63f070f53"></a><br/></td></tr>
 <tr class="memitem:a52af56c1ee92648ad3bff17b7e23ebd0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a52af56c1ee92648ad3bff17b7e23ebd0">AddMaterialOverlay</a> (<a class="el" href="classic_1_1gfx_1_1_c_effect.html">CEffect</a> *pEffect)</td></tr>
 <tr class="memdesc:a52af56c1ee92648ad3bff17b7e23ebd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a material overlay to the scene.  <a href="#a52af56c1ee92648ad3bff17b7e23ebd0"></a><br/></td></tr>
-<tr class="memitem:a87ec25b9296c536b63b799afcd715af9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a87ec25b9296c536b63b799afcd715af9">RemoveLight</a> (const uint16_t id)</td></tr>
-<tr class="memdesc:a87ec25b9296c536b63b799afcd715af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an existing light from a scene.  <a href="#a87ec25b9296c536b63b799afcd715af9"></a><br/></td></tr>
+<tr class="memitem:a1374396edf40e675bad5965afdbd5aea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a1374396edf40e675bad5965afdbd5aea">RemoveLight</a> (const uint16_t id)</td></tr>
+<tr class="memdesc:a1374396edf40e675bad5965afdbd5aea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an existing light from a scene.  <a href="#a1374396edf40e675bad5965afdbd5aea"></a><br/></td></tr>
 <tr class="memitem:a7bda0eb5afdca3fdb9f18af775c13b34"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7bda0eb5afdca3fdb9f18af775c13b34"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>RemoveLight</b> (const <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> *pLight)</td></tr>
 <tr class="memitem:ad8feeaca649172e79d862ac36d61e697"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#ad8feeaca649172e79d862ac36d61e697">PanCamera</a> (const float dx, const float dy)</td></tr>
@@ -139,12 +142,17 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>MoveCamera</b> (const
 <tr class="memitem:a2bd853e0f52fb7a58f65480ea96e34fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bd853e0f52fb7a58f65480ea96e34fe"></a>
 std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a2bd853e0f52fb7a58f65480ea96e34fe">GetLights</a> ()</td></tr>
 <tr class="memdesc:a2bd853e0f52fb7a58f65480ea96e34fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves all of the lights in a scene. <br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:aee87fb4c359e26e62a9b83b45a48583f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aee87fb4c359e26e62a9b83b45a48583f"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A scene is the high-level rendering interface in IronClad, taking care of many details under the hood. Calls to AddMesh will add objects in various positions, and you can modify those directly for movement and other functions. Similarly, you can add scene-wide shaders, effects, lights.</p>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>There can only be a single scene created at a time, because meshes are loaded into the first scene's VBO, so if another Scene wants to use a certain mesh that's been loaded it cannot reference it since it is in another's. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00069">69</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00074">74</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="af20358a35e0524d7286a6b0fe54d416d"></a>
 <div class="memitem">
@@ -203,9 +211,10 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>Accessible ID of the scene light. </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>Accessible ID of the scene light.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>Make it actually find the ID of an existing light.</dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00328">328</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00330">330</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -231,7 +240,7 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if effect loaded successfully, FALSE on error in either. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00199">199</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00198">198</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -280,7 +289,7 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>The created CEntity* on success, NULL on error. </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>The created CEntity* on success, NULL on error. You may cast this value to <a class="el" href="classic_1_1_c_animation.html" title="An animate-able extension of the CEntity class.">CAnimation</a> / <a class="el" href="classic_1_1_c_rigid_body.html">CRigidBody</a> provided that you are SURE you passed the proper parameters. </dd></dl>
 
 </div>
 </div>
@@ -314,7 +323,7 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Pointer to light object, NULL if out of range. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00228">228</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00218">218</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -382,7 +391,7 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
 </dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classic_1_1gfx_1_1_c_scene.html#ad8feeaca649172e79d862ac36d61e697" title="Pans the camera around the scene.">PanCamera()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00193">193</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00183">183</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -427,30 +436,22 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
 </dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classic_1_1gfx_1_1_c_scene.html#aa9b881125d715c49e36c27f8edb115f3" title="Moves the camera to a certain position in the scene.">MoveCamera()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00179">179</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00169">169</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a87ec25b9296c536b63b799afcd715af9"></a>
+<a class="anchor" id="a1374396edf40e675bad5965afdbd5aea"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ic::gfx::CScene::RemoveLight </td>
+          <td class="memname">bool CScene::RemoveLight </td>
           <td>(</td>
           <td class="paramtype">const uint16_t&#160;</td>
           <td class="paramname"><em>id</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
@@ -460,7 +461,7 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if removed, FALSE if invalid id. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00146">146</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00524">524</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -479,7 +480,7 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
 <p>If, for example, you wanted to render off-screen, you'd bind the other FBO before calling this.</p>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>Shadow generation.</dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00081">81</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00080">80</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -505,7 +506,7 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns:</dt><dd>What the value was originally, BEFORE toggling. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00217">217</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00207">207</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -531,7 +532,7 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns:</dt><dd>What the value was originally, BEFORE toggling. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00210">210</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00200">200</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -542,7 +543,7 @@ std::vector&lt; <a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> 
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jan 8 2013 20:01:20 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 14 2013 20:18:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

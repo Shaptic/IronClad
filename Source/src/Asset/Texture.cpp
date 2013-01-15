@@ -38,7 +38,7 @@ void CTexture::Release()
     if(m_original)
     {
         g_Log.Flush();
-        g_Log << "[DEBUG] Deleted asset: " << m_filename << " (" << m_id << ")\n";
+        g_Log << "[INFO] Deleted asset: " << m_filename << " (" << m_id << ")\n";
         g_Log.PrintLastLog();
 
         glDeleteTextures(1, &m_texture);
