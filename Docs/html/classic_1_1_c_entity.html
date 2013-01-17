@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3587 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -91,7 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">ic::CEntity Class Reference</div>  </div>
 </div><!--header-->
@@ -116,39 +117,62 @@ Inheritance diagram for ic::CEntity:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a95e38f6cd5f59fd6da550ebd7d4fd8fa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95e38f6cd5f59fd6da550ebd7d4fd8fa"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CEntity</b> (bool caster=false)</td></tr>
-<tr class="memitem:a98cde21307a74ce175a716a890649bf2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a98cde21307a74ce175a716a890649bf2">LoadFromFile</a> (const char *pmesh_filename, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
+<tr class="memitem:aa0097d9fd67a0f8b4b1a2bfc70de7722"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0097d9fd67a0f8b4b1a2bfc70de7722"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const std::string &amp;filename) const </td></tr>
+<tr class="memitem:a98cde21307a74ce175a716a890649bf2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a98cde21307a74ce175a716a890649bf2">LoadFromFile</a> (const char *pmesh_filename, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
 <tr class="memdesc:a98cde21307a74ce175a716a890649bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a mesh instance into the entity.  <a href="#a98cde21307a74ce175a716a890649bf2"></a><br/></td></tr>
-<tr class="memitem:a2abfe9a5af93373eaa3bb3f44d70440a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2abfe9a5af93373eaa3bb3f44d70440a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (const std::string &amp;mesh_filename, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
-<tr class="memitem:acaff89af2c751ad22276f2ce609ce9e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#acaff89af2c751ad22276f2ce609ce9e7">LoadFromMesh</a> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
-<tr class="memdesc:acaff89af2c751ad22276f2ce609ce9e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a mesh instance from an un-offloaded mesh.  <a href="#acaff89af2c751ad22276f2ce609ce9e7"></a><br/></td></tr>
-<tr class="memitem:ac3be06baf8d7d1d85a92b36e07ed5a9b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#ac3be06baf8d7d1d85a92b36e07ed5a9b">Move</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Pos)</td></tr>
-<tr class="memdesc:ac3be06baf8d7d1d85a92b36e07ed5a9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the entity to a location.  <a href="#ac3be06baf8d7d1d85a92b36e07ed5a9b"></a><br/></td></tr>
+<tr class="memitem:a65b6175ab756952dcc38e2e5b5ca9189"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65b6175ab756952dcc38e2e5b5ca9189"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (const std::string &amp;mesh_filename, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
+<tr class="memitem:a77a2d00186d3111d3df2528f51becce3"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a77a2d00186d3111d3df2528f51becce3">LoadFromMesh</a> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
+<tr class="memdesc:a77a2d00186d3111d3df2528f51becce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a mesh instance from an un-offloaded mesh.  <a href="#a77a2d00186d3111d3df2528f51becce3"></a><br/></td></tr>
+<tr class="memitem:a794b2052df74cb04dcb9505ccb34b387"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a794b2052df74cb04dcb9505ccb34b387">Move</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Pos)</td></tr>
+<tr class="memdesc:a794b2052df74cb04dcb9505ccb34b387"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the entity to a location.  <a href="#a794b2052df74cb04dcb9505ccb34b387"></a><br/></td></tr>
 <tr class="memitem:a4c50684fd48cc28f522f38a0ae23f508"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c50684fd48cc28f522f38a0ae23f508"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Move</b> (const float x, const float y)</td></tr>
-<tr class="memitem:af1a970d16aabbdd561986ba4e28f1931"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931">Adjust</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Rate)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Move</b> (const float x, const float y)</td></tr>
+<tr class="memitem:af1a970d16aabbdd561986ba4e28f1931"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931">Adjust</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Rate)</td></tr>
 <tr class="memdesc:af1a970d16aabbdd561986ba4e28f1931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the entity at a rate.  <a href="#af1a970d16aabbdd561986ba4e28f1931"></a><br/></td></tr>
-<tr class="memitem:a61a0e54f3b558e76c6bb7ab8d7c99a23"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61a0e54f3b558e76c6bb7ab8d7c99a23"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Adjust</b> (const float dx, const float dy)</td></tr>
+<tr class="memitem:a342f51a7067b780509a82d4d88074b63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a342f51a7067b780509a82d4d88074b63"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Adjust</b> (const float dx, const float dy)</td></tr>
+<tr class="memitem:a80c8dbc2846706e15cdf67a71a6c0464"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464">SetMaterialOverride</a> (<a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *pTexture)</td></tr>
+<tr class="memdesc:a80c8dbc2846706e15cdf67a71a6c0464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables a texture override over the default.  <a href="#a80c8dbc2846706e15cdf67a71a6c0464"></a><br/></td></tr>
 <tr class="memitem:aad10dbc8ca09d0281a49794e9887476a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#aad10dbc8ca09d0281a49794e9887476a">ToggleRendering</a> ()</td></tr>
-<tr class="memdesc:aad10dbc8ca09d0281a49794e9887476a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for a collision.  <a href="#aad10dbc8ca09d0281a49794e9887476a"></a><br/></td></tr>
+<tr class="memdesc:aad10dbc8ca09d0281a49794e9887476a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles rendering.  <a href="#aad10dbc8ca09d0281a49794e9887476a"></a><br/></td></tr>
 <tr class="memitem:a84b7fbc1e635c6cd7f842f380df002eb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84b7fbc1e635c6cd7f842f380df002eb"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRenderable</b> () const </td></tr>
 <tr class="memitem:a431ef046e959bfb0f2ca747fcf718824"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a431ef046e959bfb0f2ca747fcf718824"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>CastsShadow</b> () const </td></tr>
+<tr class="memitem:a34ae7a9caf8fd5d5fb4e5cbdb1b63eaa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34ae7a9caf8fd5d5fb4e5cbdb1b63eaa"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasOverride</b> () const </td></tr>
 <tr class="memitem:ae0469bde47c2819daebacad06d4e0430"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0469bde47c2819daebacad06d4e0430"></a>
 <a class="el" href="classic_1_1gfx_1_1_c_mesh_instance.html">gfx::CMeshInstance</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetMesh</b> ()</td></tr>
+<tr class="memitem:a5f93b5f3961b6d2b4e86614f2b6d915e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f93b5f3961b6d2b4e86614f2b6d915e"></a>
+<a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetOverride</b> () const </td></tr>
 <tr class="memitem:aeab9a5502e5aec9d3d3ea6efd8ee45cf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeab9a5502e5aec9d3d3ea6efd8ee45cf"></a>
 const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPosition</b> () const </td></tr>
 <tr class="memitem:ac6641e7dfaaccb906b836af251d9b23c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6641e7dfaaccb906b836af251d9b23c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>GetX</b> () const </td></tr>
 <tr class="memitem:a3b262dad0e69e3240ab6f15b1df5e437"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b262dad0e69e3240ab6f15b1df5e437"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>GetY</b> () const </td></tr>
+<tr class="memitem:a06efca573df575b2db7ee99c40015dad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06efca573df575b2db7ee99c40015dad"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetW</b> () const </td></tr>
+<tr class="memitem:a546f2b1ca6d4c369785e3a3d739e4d52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a546f2b1ca6d4c369785e3a3d739e4d52"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetH</b> () const </td></tr>
 <tr class="memitem:a0aca84cbd4af2157fcbf4c6347715ee3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0aca84cbd4af2157fcbf4c6347715ee3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetShadowCasting</b> (bool flag)</td></tr>
 <tr class="memitem:a2b91de117f50c4aebbc991724fe84293"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b91de117f50c4aebbc991724fe84293"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh)</td></tr>
 <tr class="memitem:ad95d23ec505082e1af1b99c847bd638d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#ad95d23ec505082e1af1b99c847bd638d">GetTexture</a> () const </td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ac3bb90679364eb1e34adbc7f33a722c2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3bb90679364eb1e34adbc7f33a722c2"></a>
+<a class="el" href="classic_1_1gfx_1_1_c_mesh_instance.html">gfx::CMeshInstance</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_Mesh</b></td></tr>
+<tr class="memitem:a52e8839dda2d654db1cc79c0c12a0eba"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52e8839dda2d654db1cc79c0c12a0eba"></a>
+<a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mp_Override</b></td></tr>
+<tr class="memitem:aeba690ba937da5eabf82f7a1ff0f8ca3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeba690ba937da5eabf82f7a1ff0f8ca3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_render</b></td></tr>
+<tr class="memitem:a7ed1c316e81bbb8fee7a8f37ebd098fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ed1c316e81bbb8fee7a8f37ebd098fe"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Calculate width and height properly. </dd></dl>
@@ -159,6 +183,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
 <a class="anchor" id="af1a970d16aabbdd561986ba4e28f1931"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void CEntity::Adjust </td>
@@ -168,6 +195,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
@@ -176,7 +208,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00032">32</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Reimplemented in <a class="el" href="classic_1_1_c_rigid_body.html#a7993d6051ac744e1204cd2c9654b0821">ic::CRigidBody</a>.</p>
+
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00051">51</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -200,17 +234,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Bounds checking hehe. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Bounds checking hehe. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classic_1_1_c_animation.html#a9d7310efdf0b4b1d2887ba9b39db1c56">ic::CAnimation</a>.</p>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00140">140</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00147">147</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
 <a class="anchor" id="a98cde21307a74ce175a716a890649bf2"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool CEntity::LoadFromFile </td>
@@ -230,6 +267,11 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
@@ -240,11 +282,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if loaded, FALSE if not. </dd></dl>
 
+<p>Reimplemented in <a class="el" href="classic_1_1_c_rigid_body.html#aff76210f40db3ffcce60be1e83630b7d">ic::CRigidBody</a>.</p>
+
 <p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00007">7</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="acaff89af2c751ad22276f2ce609ce9e7"></a>
+<a class="anchor" id="a77a2d00186d3111d3df2528f51becce3"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -252,7 +296,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ic::CEntity::LoadFromMesh </td>
+          <td class="memname">bool CEntity::LoadFromMesh </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *&#160;</td>
           <td class="paramname"><em>pMesh</em>, </td>
@@ -271,7 +315,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -284,11 +328,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE on success, FALSE on error. </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00067">67</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Reimplemented in <a class="el" href="classic_1_1_c_rigid_body.html#a26dacdd9f409068f3c950b3042373312">ic::CRigidBody</a>.</p>
+
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00026">26</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac3be06baf8d7d1d85a92b36e07ed5a9b"></a>
+<a class="anchor" id="a794b2052df74cb04dcb9505ccb34b387"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -296,7 +342,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ic::CEntity::Move </td>
+          <td class="memname">void CEntity::Move </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;&#160;</td>
           <td class="paramname"><em>Pos</em></td><td>)</td>
@@ -305,7 +351,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -316,7 +362,34 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00077">77</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Reimplemented in <a class="el" href="classic_1_1_c_rigid_body.html#a2fddcd3f60dea8a3b64f33320771e6b6">ic::CRigidBody</a>.</p>
+
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00046">46</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a80c8dbc2846706e15cdf67a71a6c0464"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CEntity::SetMaterialOverride </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td>
+          <td class="paramname"><em>pTexture</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This will cause the default texture(s) on the mesh to be ignored during rendering, and this one to be used instead. Could potentially be useful for sprite animation.</p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">CTexture*</td><td>Texture to override mesh with </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00061">61</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -340,18 +413,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters:</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">T&amp;</td><td>Object to check collision with </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns:</dt><dd>TRUE if collide, FALSE if not. </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Implement a CCollidable in a separate Physics lib. </dd></dl>
-<p>Toggles rendering. Default is TRUE, of course. If set to FALSE, the CScene it's attached to will not render this entity.</p>
+<p>Default is TRUE, of course. If set to FALSE, the CScene it's attached to will not render this entity.</p>
 <dl class="section return"><dt>Returns:</dt><dd>The old state (TRUE if not rendering, etc). </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00112">112</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00103">103</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -362,7 +427,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 14 2013 20:18:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 16 2013 23:47:19 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

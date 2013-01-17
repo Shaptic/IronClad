@@ -46,8 +46,8 @@ namespace util
     *  Common uses would be frame-rate management or recording the 
     *  length of time that passes between the start and end of a frame.
     *  
-    * @todo    There are some errors with regulating frame-rate. 
-    *            In gDEBugger, it shows as maxing out at 45fps when set to 60fps.
+    * @todo There are some errors with regulating frame-rate. 
+    *       In gDEBugger, it shows as maxing out at 45fps when set to 60fps.
     **/
     class IRONCLAD_API CTimer
     {
@@ -82,9 +82,9 @@ namespace util
 
         /**
         * Pauses the program for some time to regulate frame rate.
-        *    This method should be called at the end of a frame after
-        *    all other operations have been completed in order to 
-        *    maintain a consistent frame rate.
+        *   This method should be called at the end of a frame after
+        *   all other operations have been completed in order to 
+        *   maintain a consistent frame rate.
         **/
         void Regulate()
         {
@@ -92,6 +92,14 @@ namespace util
 
             if(elapsed < 1000.0 / m_framerate)
                 sleep(1000.0 / m_framerate - elapsed);
+        }
+
+        /**
+         * Retrieves the amount of time (in ms) since the program started.
+         */
+        static inline double GetTimeElapsed()
+        {
+            return glfwGetTime();
         }
 
         inline int GetFramerate() const

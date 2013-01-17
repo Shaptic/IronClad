@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3587 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -111,28 +111,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_entity.html#ac3be06baf8d7d1d85a92b36e07ed5a9b" title="Moves the entity to a location.">CEntity::Move</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> y)</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Meh, really point-less premature optimization that ensures that</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="comment">// a new math::vector2_t won&#39;t be created every time Move() is called;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// it&#39;s created on the stack so it&#39;s honestly like one CPU instruction</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// but whatever man don&#39;t judge me.</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keyword">static</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a> Pos;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Pos.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a> = x; Pos.y = y;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#a157782718dad5b6a5d4a96fc20e28e23" title="Moves the mesh instance.">Move</a>(Pos);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1_c_entity.html#a98cde21307a74ce175a716a890649bf2" title="Loads a mesh instance into the entity.">CEntity::LoadFromFile</a>(<span class="keyword">const</span> std::string&amp; mesh_filename,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                           <a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html" title="A wrapper for OpenGL VBO&#39;s.">gfx::CVertexBuffer</a>&amp; VBO)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classic_1_1_c_entity.html#a98cde21307a74ce175a716a890649bf2" title="Loads a mesh instance into the entity.">LoadFromFile</a>(mesh_filename.c_str(), VBO);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="code" href="classic_1_1_c_entity.html#a77a2d00186d3111d3df2528f51becce3">   26</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1_c_entity.html#a77a2d00186d3111d3df2528f51becce3" title="Loads a mesh instance from an un-offloaded mesh.">CEntity::LoadFromMesh</a>(<a class="code" href="classic_1_1asset_1_1_c_mesh.html" title="A mesh.">asset::CMesh</a>* pMesh, <a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html" title="A wrapper for OpenGL VBO&#39;s.">gfx::CVertexBuffer</a>&amp; VBO)</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    m_Mesh.mp_ActiveMesh = pMesh;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordflow">return</span> m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#afcfd443c8b7a1139adacd3bf00b5741f" title="Loads the current instance into the GPU.">LoadIntoVBO</a>(VBO);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931">   32</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931" title="Moves the entity at a rate.">CEntity::Adjust</a>( <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Rate )</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_entity.html#a794b2052df74cb04dcb9505ccb34b387" title="Moves the entity to a location.">CEntity::Move</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> y)</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#a157782718dad5b6a5d4a96fc20e28e23" title="Moves the mesh instance.">Move</a>(m_Mesh.GetPosition() + Rate);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// [Update] I&#39;m keeping this here because I LOL @ my own stupidity:</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// </span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Meh, really pointless premature optimization that ensures that</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// a new math::vector2_t won&#39;t be created every time Move() is called;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// it&#39;s created on the stack so it&#39;s honestly like one CPU instruction</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// but whatever man don&#39;t judge me.</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">static</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a> Pos;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    Pos.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a> = x; Pos.y = y;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#a157782718dad5b6a5d4a96fc20e28e23" title="Moves the mesh instance.">Move</a>(Pos);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="classic_1_1_c_entity.html#a794b2052df74cb04dcb9505ccb34b387">   46</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_entity.html#a794b2052df74cb04dcb9505ccb34b387" title="Moves the entity to a location.">CEntity::Move</a>(<span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#a157782718dad5b6a5d4a96fc20e28e23" title="Moves the mesh instance.">Move</a>(Pos);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931">   51</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931" title="Moves the entity at a rate.">CEntity::Adjust</a>(<span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Rate)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#a157782718dad5b6a5d4a96fc20e28e23" title="Moves the mesh instance.">Move</a>(m_Mesh.GetPosition() + Rate);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931" title="Moves the entity at a rate.">CEntity::Adjust</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> dx, <span class="keyword">const</span> <span class="keywordtype">float</span> dy)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    this-&gt;<a class="code" href="classic_1_1_c_entity.html#a794b2052df74cb04dcb9505ccb34b387" title="Moves the entity to a location.">Move</a>(this-&gt;GetX() + dx, this-&gt;GetY() + dy);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="code" href="classic_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464">   61</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464" title="Enables a texture override over the default.">CEntity::SetMaterialOverride</a>(<a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>* pTexture)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    mp_Override = pTexture;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 14 2013 20:18:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 16 2013 23:47:19 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

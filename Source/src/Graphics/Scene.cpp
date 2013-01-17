@@ -212,6 +212,8 @@ bool CScene::AddMaterialOverlay(gfx::CEffect* pEffect)
 void CScene::StandardRender(CEntity* pEntity,
                             const math::matrix4x4_t& ModelView)
 {
+    if(!pEntity->IsRenderable()) return;
+
     gfx::surface_t* pSurface    = pEntity->GetMesh().GetSurfaces()[0];
     gfx::material_t* pMaterial  = pSurface->pMaterial;
 
@@ -542,4 +544,12 @@ bool CScene::RemoveLight(const gfx::CLight* pLight)
     }
 
     return false;
+}
+
+bool gfx::CScene::InsertMesh(const uint16_t position, CEntity* pEntity)
+{
+    if(mp_sceneObjects.size() < position) return false;
+
+    mp_sceneObjects.insert(mp_sceneObjects.begin() + position, pEntity);
+    return true;
 }

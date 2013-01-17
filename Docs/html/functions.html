@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3587 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -140,6 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </li>
 <li>Adjust()
 : <a class="el" href="classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931">ic::CEntity</a>
+, <a class="el" href="classic_1_1_c_rigid_body.html#a7993d6051ac744e1204cd2c9654b0821">ic::CRigidBody</a>
 </li>
 </ul>
 
@@ -242,17 +243,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>GetLights()
 : <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a2bd853e0f52fb7a58f65480ea96e34fe">ic::gfx::CScene</a>
 </li>
+<li>GetMeshWidth()
+: <a class="el" href="classic_1_1asset_1_1_c_mesh.html#ade7c90e77fb5a105b672e22c10f8054d">ic::asset::CMesh</a>
+</li>
 <li>GetNormalized()
 : <a class="el" href="structic_1_1math_1_1vector2__t.html#a3ddfbaa21f0e07c122378457641e96bf">ic::math::vector2_t</a>
 , <a class="el" href="structic_1_1math_1_1vector3__t.html#abaa832fec5e3d9395a7179050db3ad55">ic::math::vector3_t</a>
+</li>
+<li>GetQueuePosition()
+: <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a77f0855fc02222803dcb9ec52017745f">ic::gfx::CScene</a>
 </li>
 <li>GetSlope()
 : <a class="el" href="structic_1_1math_1_1line2__t.html#aff61cd9bc8006925eda063f58a33fcef">ic::math::line2_t</a>
 </li>
 <li>GetTexture()
-: <a class="el" href="classic_1_1gfx_1_1_c_frame_buffer.html#a318a37436700714fbbf86b80821b3b6e">ic::gfx::CFrameBuffer</a>
+: <a class="el" href="classic_1_1_c_animation.html#a9d7310efdf0b4b1d2887ba9b39db1c56">ic::CAnimation</a>
+, <a class="el" href="classic_1_1gfx_1_1_c_frame_buffer.html#a318a37436700714fbbf86b80821b3b6e">ic::gfx::CFrameBuffer</a>
 , <a class="el" href="classic_1_1_c_entity.html#ad95d23ec505082e1af1b99c847bd638d">ic::CEntity</a>
-, <a class="el" href="classic_1_1_c_animation.html#a9d7310efdf0b4b1d2887ba9b39db1c56">ic::CAnimation</a>
+</li>
+<li>GetTimeElapsed()
+: <a class="el" href="classic_1_1util_1_1_c_timer.html#aabd49eb265d8fa342e6cd924f246b564">ic::util::CTimer</a>
 </li>
 <li>GetVBO()
 : <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a38d42c04cdf19be01cc38d2d29ce72fb">ic::gfx::CVertexBuffer</a>
@@ -280,6 +290,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 , <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a7d7e9215f6b5331ffa01f9087d029d6f">ic::gfx::CVertexBuffer</a>
 , <a class="el" href="classic_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284">ic::gfx::CScene</a>
 </li>
+<li>InsertMesh()
+: <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a218cca1b0550487b3708f834e59f973e">ic::gfx::CScene</a>
+</li>
 <li>Intersects()
 : <a class="el" href="structic_1_1math_1_1line2__t.html#a6c4b96dce395182586c6c067d6a9df7e">ic::math::line2_t</a>
 </li>
@@ -300,11 +313,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>LoadFromFile()
 : <a class="el" href="classic_1_1asset_1_1_c_mesh.html#a7cdb394ca2aef20a1c3810127b237aab">ic::asset::CMesh</a>
 , <a class="el" href="classic_1_1_c_entity.html#a98cde21307a74ce175a716a890649bf2">ic::CEntity</a>
-, <a class="el" href="classic_1_1gfx_1_1_c_shader_pair.html#a8753adfae479beb7f72042001e3838cc">ic::gfx::CShaderPair</a>
+, <a class="el" href="classic_1_1_c_rigid_body.html#aff76210f40db3ffcce60be1e83630b7d">ic::CRigidBody</a>
 , <a class="el" href="classic_1_1asset_1_1_c_texture.html#a651af3869cc26244c639a3587c8281af">ic::asset::CTexture</a>
+, <a class="el" href="classic_1_1gfx_1_1_c_shader_pair.html#a8753adfae479beb7f72042001e3838cc">ic::gfx::CShaderPair</a>
 </li>
 <li>LoadFromMesh()
-: <a class="el" href="classic_1_1_c_entity.html#acaff89af2c751ad22276f2ce609ce9e7">ic::CEntity</a>
+: <a class="el" href="classic_1_1_c_rigid_body.html#a26dacdd9f409068f3c950b3042373312">ic::CRigidBody</a>
+, <a class="el" href="classic_1_1_c_entity.html#a77a2d00186d3111d3df2528f51becce3">ic::CEntity</a>
 </li>
 <li>LoadFromRaw()
 : <a class="el" href="classic_1_1asset_1_1_c_mesh.html#a8c0ab83858603d82fbecd8a1dfde1e3d">ic::asset::CMesh</a>
@@ -336,8 +351,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="structic_1_1util_1_1_system_event.html#ab598338e466904104cf283d090c15984">ic::util::SystemEvent</a>
 </li>
 <li>Move()
-: <a class="el" href="classic_1_1gfx_1_1_c_mesh_instance.html#a157782718dad5b6a5d4a96fc20e28e23">ic::gfx::CMeshInstance</a>
-, <a class="el" href="classic_1_1_c_entity.html#ac3be06baf8d7d1d85a92b36e07ed5a9b">ic::CEntity</a>
+: <a class="el" href="classic_1_1_c_entity.html#a794b2052df74cb04dcb9505ccb34b387">ic::CEntity</a>
+, <a class="el" href="classic_1_1_c_rigid_body.html#a2fddcd3f60dea8a3b64f33320771e6b6">ic::CRigidBody</a>
+, <a class="el" href="classic_1_1gfx_1_1_c_mesh_instance.html#a157782718dad5b6a5d4a96fc20e28e23">ic::gfx::CMeshInstance</a>
 </li>
 <li>MoveCamera()
 : <a class="el" href="classic_1_1gfx_1_1_c_scene.html#aa9b881125d715c49e36c27f8edb115f3">ic::gfx::CScene</a>
@@ -436,6 +452,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <li>RemoveLight()
 : <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a1374396edf40e675bad5965afdbd5aea">ic::gfx::CScene</a>
 </li>
+<li>RemoveMesh()
+: <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a93bf9bf7a1fd2e2d82d7b189c4107322">ic::gfx::CScene</a>
+</li>
 <li>Render()
 : <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a4ef3596e056e0b7db3fb2fd05a84dc3d">ic::gfx::CScene</a>
 </li>
@@ -446,8 +465,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 : <a class="el" href="classic_1_1gfx_1_1_c_window.html#a4ccbffba3f86cd57c17de35af786b5da">ic::gfx::CWindow</a>
 </li>
 <li>Rotate()
-: <a class="el" href="structic_1_1math_1_1vector2__t.html#ae24512d6ab957d34341e19a8940cf532">ic::math::vector2_t</a>
-, <a class="el" href="structic_1_1math_1_1line2__t.html#afec20ee633b476b60f4da607f3703f30">ic::math::line2_t</a>
+: <a class="el" href="structic_1_1math_1_1line2__t.html#afec20ee633b476b60f4da607f3703f30">ic::math::line2_t</a>
+, <a class="el" href="structic_1_1math_1_1vector2__t.html#ae24512d6ab957d34341e19a8940cf532">ic::math::vector2_t</a>
 </li>
 </ul>
 
@@ -455,6 +474,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
 <li>SetAnimationRate()
 : <a class="el" href="classic_1_1_c_animation.html#a8285e67a02a51ebcedc21fe560369763">ic::CAnimation</a>
+</li>
+<li>SetMaterialOverride()
+: <a class="el" href="classic_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464">ic::CEntity</a>
 </li>
 <li>SetMatrix()
 : <a class="el" href="classic_1_1gfx_1_1_c_effect.html#a1a21a99c4fb808bd583f04525909a66b">ic::gfx::CEffect</a>
@@ -534,7 +556,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 14 2013 20:18:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 16 2013 23:47:20 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

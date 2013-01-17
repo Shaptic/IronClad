@@ -30,14 +30,83 @@ namespace ic
     {
     public:
         CRigidBody() : m_vert(0.f), m_horz(0.f) {}
+
         ~CRigidBody(){}
 
-        void AddVerticalForce(const float dy)
+        bool LoadFromFile(const char* pmesh_filename,
+            gfx::CVertexBuffer& VBO)
+        {
+            bool val = CEntity::LoadFromFile(pmesh_filename, VBO);
+
+            m_CollisionBox.w = CEntity::GetW();
+            m_CollisionBox.h = CEntity::GetH();
+
+            return val;
+        }
+
+        bool LoadFromFile(const std::string& mesh_filename,
+            gfx::CVertexBuffer& VBO)
+        {
+            bool val = CEntity::LoadFromFile(mesh_filename, VBO);
+            
+            m_CollisionBox.w = CEntity::GetW();
+            m_CollisionBox.h = CEntity::GetH();
+
+            return val;
+        }
+
+        bool LoadFromMesh(asset::CMesh* pMesh, gfx::CVertexBuffer& VBO)
+        {
+            bool val = CEntity::LoadFromMesh(pMesh, VBO);
+
+            m_CollisionBox.w = CEntity::GetW();
+            m_CollisionBox.h = CEntity::GetH();
+
+            return val;
+        }
+
+        void CreateCollisionRect(const math::rect_t& Rect);
+        void CreateCollisionRect(const int w, const int h);
+        void CreateCollisionRect(const math::vector2_t& Pos, const int w, const int h);
+        void CreateCollisionRect(const float x, const float y, const int w, const int h);
+
+        void Move(const math::vector2_t& Pos)
+        {
+            CEntity::Move(Pos);
+
+            m_CollisionBox.x = Pos.x;
+            m_CollisionBox.y = Pos.y;
+        }
+
+        void Move(const float x, const float y)
+        {
+            CEntity::Move(x, y);
+
+            m_CollisionBox.x = x;
+            m_CollisionBox.y = y;
+        }
+
+        void Adjust(const math::vector2_t& Rate)
+        {
+            CEntity::Adjust(Rate);
+
+            m_CollisionBox.x += Rate.x;
+            m_CollisionBox.y += Rate.y;
+        }
+        void Adjust(const float dx, const float dy)
+        {
+            CEntity::Adjust(dx, dy);
+
+            m_CollisionBox.x += dx;
+            m_CollisionBox.y += dy;
+        }
+
+        void AddVForce(const float dy)
         {
             m_vert += dy;
         }
 
-        void AddHorizontalForce(const float dx)
+        void AddHForce(const float dx)
         {
             m_horz += dx;
         }
@@ -47,12 +116,28 @@ namespace ic
             m_horz = m_vert = 0.f;
         }
 
+        bool CheckCollision(const CEntity* Other) const
+        {
+            math::rect_t OtherBox;
+            OtherBox.x = Other->GetX();
+            OtherBox.y = Other->GetY();
+            OtherBox.w = Other->GetW();
+            OtherBox.h = Other->GetH();
+
+            return util::CheckCollision(m_CollisionBox, OtherBox);            
+        }
+        bool CheckCollision(const math::rect_t& Other) const
+        {
+            return util::CheckCollision(m_CollisionBox, Other);
+        }
+
         void Update()
         {
             this->Adjust(m_horz, m_vert);
         }
 
     private:
+        math::rect_t m_CollisionBox;
         float m_vert, m_horz;
     };
 }

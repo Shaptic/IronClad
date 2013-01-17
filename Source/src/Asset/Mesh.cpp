@@ -574,3 +574,29 @@ bool CMesh::LoadFromExisting(std::ifstream& in_file, const std::streampos pos)
 
     return true;
 }
+
+int asset::CMesh::GetMeshWidth() const
+{
+    int max_value = 0, min_value = 0;
+
+    for(size_t i = 0; i < m_vBuffer.size(); ++i)
+    {
+        max_value = max(max_value, m_vBuffer[i].Position.x);
+        min_value = min(min_value, m_vBuffer[i].Position.x);
+    }
+
+    return (max_value - min_value);
+}
+
+int asset::CMesh::GetMeshHeight() const
+{
+    int max_value = 0, min_value = 0;
+
+    for(size_t i = 0; i < m_vBuffer.size(); ++i)
+    {
+        max_value = max(max_value, m_vBuffer[i].Position.y);
+        min_value = min(min_value, m_vBuffer[i].Position.y);
+    }
+
+    return (max_value - min_value);
+}

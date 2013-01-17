@@ -5,7 +5,7 @@ var searchData=
   ['addmaterialoverlay',['AddMaterialOverlay',['../classic_1_1gfx_1_1_c_scene.html#a52af56c1ee92648ad3bff17b7e23ebd0',1,'ic::gfx::CScene']]],
   ['addmesh',['AddMesh',['../classic_1_1gfx_1_1_c_scene.html#a318a5c52e82de0ffe8d2594514b72c70',1,'ic::gfx::CScene']]],
   ['addsprite',['AddSprite',['../classic_1_1_c_animation.html#a9f758ee89c45164aa1ede3703861222a',1,'ic::CAnimation']]],
-  ['adjust',['Adjust',['../classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931',1,'ic::CEntity']]],
+  ['adjust',['Adjust',['../classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931',1,'ic::CEntity::Adjust()'],['../classic_1_1_c_rigid_body.html#a7993d6051ac744e1204cd2c9654b0821',1,'ic::CRigidBody::Adjust()']]],
   ['animation_2ehpp',['Animation.hpp',['../_animation_8hpp.html',1,'']]],
   ['asset_2ehpp',['Asset.hpp',['../_asset_8hpp.html',1,'']]],
   ['assetmanager_2ehpp',['AssetManager.hpp',['../_asset_manager_8hpp.html',1,'']]],

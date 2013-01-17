@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3587 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -133,38 +133,62 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>AddSprite</b> (const 
 <tr class="inherit_header pub_methods_classic_1_1_c_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classic_1_1_c_entity')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classic_1_1_c_entity.html">ic::CEntity</a></td></tr>
 <tr class="memitem:a95e38f6cd5f59fd6da550ebd7d4fd8fa inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95e38f6cd5f59fd6da550ebd7d4fd8fa"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CEntity</b> (bool caster=false)</td></tr>
-<tr class="memitem:a98cde21307a74ce175a716a890649bf2 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a98cde21307a74ce175a716a890649bf2">LoadFromFile</a> (const char *pmesh_filename, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
+<tr class="memitem:aa0097d9fd67a0f8b4b1a2bfc70de7722 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0097d9fd67a0f8b4b1a2bfc70de7722"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const std::string &amp;filename) const </td></tr>
+<tr class="memitem:a98cde21307a74ce175a716a890649bf2 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a98cde21307a74ce175a716a890649bf2">LoadFromFile</a> (const char *pmesh_filename, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
 <tr class="memdesc:a98cde21307a74ce175a716a890649bf2 inherit pub_methods_classic_1_1_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a mesh instance into the entity.  <a href="#a98cde21307a74ce175a716a890649bf2"></a><br/></td></tr>
-<tr class="memitem:a2abfe9a5af93373eaa3bb3f44d70440a inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2abfe9a5af93373eaa3bb3f44d70440a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (const std::string &amp;mesh_filename, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
-<tr class="memitem:acaff89af2c751ad22276f2ce609ce9e7 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#acaff89af2c751ad22276f2ce609ce9e7">LoadFromMesh</a> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
-<tr class="memdesc:acaff89af2c751ad22276f2ce609ce9e7 inherit pub_methods_classic_1_1_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a mesh instance from an un-offloaded mesh.  <a href="#acaff89af2c751ad22276f2ce609ce9e7"></a><br/></td></tr>
-<tr class="memitem:ac3be06baf8d7d1d85a92b36e07ed5a9b inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#ac3be06baf8d7d1d85a92b36e07ed5a9b">Move</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Pos)</td></tr>
-<tr class="memdesc:ac3be06baf8d7d1d85a92b36e07ed5a9b inherit pub_methods_classic_1_1_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the entity to a location.  <a href="#ac3be06baf8d7d1d85a92b36e07ed5a9b"></a><br/></td></tr>
+<tr class="memitem:a65b6175ab756952dcc38e2e5b5ca9189 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65b6175ab756952dcc38e2e5b5ca9189"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (const std::string &amp;mesh_filename, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
+<tr class="memitem:a77a2d00186d3111d3df2528f51becce3 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a77a2d00186d3111d3df2528f51becce3">LoadFromMesh</a> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
+<tr class="memdesc:a77a2d00186d3111d3df2528f51becce3 inherit pub_methods_classic_1_1_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a mesh instance from an un-offloaded mesh.  <a href="#a77a2d00186d3111d3df2528f51becce3"></a><br/></td></tr>
+<tr class="memitem:a794b2052df74cb04dcb9505ccb34b387 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a794b2052df74cb04dcb9505ccb34b387">Move</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Pos)</td></tr>
+<tr class="memdesc:a794b2052df74cb04dcb9505ccb34b387 inherit pub_methods_classic_1_1_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the entity to a location.  <a href="#a794b2052df74cb04dcb9505ccb34b387"></a><br/></td></tr>
 <tr class="memitem:a4c50684fd48cc28f522f38a0ae23f508 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c50684fd48cc28f522f38a0ae23f508"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Move</b> (const float x, const float y)</td></tr>
-<tr class="memitem:af1a970d16aabbdd561986ba4e28f1931 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931">Adjust</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Rate)</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Move</b> (const float x, const float y)</td></tr>
+<tr class="memitem:af1a970d16aabbdd561986ba4e28f1931 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931">Adjust</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Rate)</td></tr>
 <tr class="memdesc:af1a970d16aabbdd561986ba4e28f1931 inherit pub_methods_classic_1_1_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the entity at a rate.  <a href="#af1a970d16aabbdd561986ba4e28f1931"></a><br/></td></tr>
-<tr class="memitem:a61a0e54f3b558e76c6bb7ab8d7c99a23 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61a0e54f3b558e76c6bb7ab8d7c99a23"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Adjust</b> (const float dx, const float dy)</td></tr>
+<tr class="memitem:a342f51a7067b780509a82d4d88074b63 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a342f51a7067b780509a82d4d88074b63"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Adjust</b> (const float dx, const float dy)</td></tr>
+<tr class="memitem:a80c8dbc2846706e15cdf67a71a6c0464 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464">SetMaterialOverride</a> (<a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *pTexture)</td></tr>
+<tr class="memdesc:a80c8dbc2846706e15cdf67a71a6c0464 inherit pub_methods_classic_1_1_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables a texture override over the default.  <a href="#a80c8dbc2846706e15cdf67a71a6c0464"></a><br/></td></tr>
 <tr class="memitem:aad10dbc8ca09d0281a49794e9887476a inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#aad10dbc8ca09d0281a49794e9887476a">ToggleRendering</a> ()</td></tr>
-<tr class="memdesc:aad10dbc8ca09d0281a49794e9887476a inherit pub_methods_classic_1_1_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for a collision.  <a href="#aad10dbc8ca09d0281a49794e9887476a"></a><br/></td></tr>
+<tr class="memdesc:aad10dbc8ca09d0281a49794e9887476a inherit pub_methods_classic_1_1_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles rendering.  <a href="#aad10dbc8ca09d0281a49794e9887476a"></a><br/></td></tr>
 <tr class="memitem:a84b7fbc1e635c6cd7f842f380df002eb inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84b7fbc1e635c6cd7f842f380df002eb"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsRenderable</b> () const </td></tr>
 <tr class="memitem:a431ef046e959bfb0f2ca747fcf718824 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a431ef046e959bfb0f2ca747fcf718824"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>CastsShadow</b> () const </td></tr>
+<tr class="memitem:a34ae7a9caf8fd5d5fb4e5cbdb1b63eaa inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a34ae7a9caf8fd5d5fb4e5cbdb1b63eaa"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasOverride</b> () const </td></tr>
 <tr class="memitem:ae0469bde47c2819daebacad06d4e0430 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0469bde47c2819daebacad06d4e0430"></a>
 <a class="el" href="classic_1_1gfx_1_1_c_mesh_instance.html">gfx::CMeshInstance</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetMesh</b> ()</td></tr>
+<tr class="memitem:a5f93b5f3961b6d2b4e86614f2b6d915e inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f93b5f3961b6d2b4e86614f2b6d915e"></a>
+<a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetOverride</b> () const </td></tr>
 <tr class="memitem:aeab9a5502e5aec9d3d3ea6efd8ee45cf inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeab9a5502e5aec9d3d3ea6efd8ee45cf"></a>
 const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPosition</b> () const </td></tr>
 <tr class="memitem:ac6641e7dfaaccb906b836af251d9b23c inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6641e7dfaaccb906b836af251d9b23c"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>GetX</b> () const </td></tr>
 <tr class="memitem:a3b262dad0e69e3240ab6f15b1df5e437 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3b262dad0e69e3240ab6f15b1df5e437"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>GetY</b> () const </td></tr>
+<tr class="memitem:a06efca573df575b2db7ee99c40015dad inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06efca573df575b2db7ee99c40015dad"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetW</b> () const </td></tr>
+<tr class="memitem:a546f2b1ca6d4c369785e3a3d739e4d52 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a546f2b1ca6d4c369785e3a3d739e4d52"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>GetH</b> () const </td></tr>
 <tr class="memitem:a0aca84cbd4af2157fcbf4c6347715ee3 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0aca84cbd4af2157fcbf4c6347715ee3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetShadowCasting</b> (bool flag)</td></tr>
 <tr class="memitem:a2b91de117f50c4aebbc991724fe84293 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b91de117f50c4aebbc991724fe84293"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_classic_1_1_c_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classic_1_1_c_entity')"><img src="closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="classic_1_1_c_entity.html">ic::CEntity</a></td></tr>
+<tr class="memitem:ac3bb90679364eb1e34adbc7f33a722c2 inherit pro_attribs_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3bb90679364eb1e34adbc7f33a722c2"></a>
+<a class="el" href="classic_1_1gfx_1_1_c_mesh_instance.html">gfx::CMeshInstance</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_Mesh</b></td></tr>
+<tr class="memitem:a52e8839dda2d654db1cc79c0c12a0eba inherit pro_attribs_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a52e8839dda2d654db1cc79c0c12a0eba"></a>
+<a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>mp_Override</b></td></tr>
+<tr class="memitem:aeba690ba937da5eabf82f7a1ff0f8ca3 inherit pro_attribs_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeba690ba937da5eabf82f7a1ff0f8ca3"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_render</b></td></tr>
+<tr class="memitem:a7ed1c316e81bbb8fee7a8f37ebd098fe inherit pro_attribs_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7ed1c316e81bbb8fee7a8f37ebd098fe"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This class acts exactly like an entity, but contains the ability to easily switch between sprites either automatically after a certain period of time or manually. Currently, this is meant exclusively for simple, single-texture quad meshes, as that makes material binding much easier to implement correctly. Another limitation is that all of the animations in the sprite sheet must be the exact same size.</p>
@@ -251,7 +275,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000004">Todo:</a></b></dt><dd>Bounds checking hehe. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Bounds checking hehe. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classic_1_1_c_entity.html#ad95d23ec505082e1af1b99c847bd638d">ic::CEntity</a>.</p>
 
@@ -365,7 +389,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 14 2013 20:18:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 16 2013 23:47:19 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

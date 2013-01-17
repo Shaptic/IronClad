@@ -38,8 +38,12 @@ namespace ic
     class IRONCLAD_API CEntity
     {
     public:
-        CEntity(bool caster = false) : m_render(true), m_casts(caster) {}
+        CEntity(bool caster = false) : m_render(true), m_casts(caster),
+            mp_Override(NULL) {}
         ~CEntity();
+
+        inline bool operator==(const std::string& filename) const
+        { return this->GetTexture()->GetFilename() == filename; }
 
         /**
          * Loads a mesh instance into the entity.
@@ -49,12 +53,10 @@ namespace ic
          * 
          * @return  TRUE if loaded, FALSE if not.
          **/
-        bool LoadFromFile(const char* pmesh_filename,
-            gfx::CVertexBuffer& VBO);
-
-        inline bool LoadFromFile(const std::string& mesh_filename,
-            gfx::CVertexBuffer& VBO)
-        { return this->LoadFromFile(mesh_filename.c_str(), VBO); }
+        virtual bool LoadFromFile(const char* pmesh_filename,
+                                  gfx::CVertexBuffer& VBO);
+        virtual bool LoadFromFile(const std::string& mesh_filename,
+                                  gfx::CVertexBuffer& VBO);
 
         /**
          * Loads a mesh instance from an un-offloaded mesh.
@@ -64,44 +66,33 @@ namespace ic
          * 
          * @return  TRUE on success, FALSE on error.
          **/
-        inline bool LoadFromMesh(asset::CMesh* pMesh, gfx::CVertexBuffer& VBO)
-        {
-            m_Mesh.mp_ActiveMesh = pMesh;
-            return m_Mesh.LoadIntoVBO(VBO);
-        }
+        virtual bool LoadFromMesh(asset::CMesh* pMesh,
+                                  gfx::CVertexBuffer& VBO);
     
         /**
          * Moves the entity to a location.
          * @param   vector2_t&  New position
          **/
-        inline void Move(const math::vector2_t& Pos)
-        { m_Mesh.Move(Pos); }
-
-        void Move(const float x, const float y);
+        virtual void Move(const math::vector2_t& Pos);
+        virtual void Move(const float x, const float y);
 
         /**
          * Moves the entity at a rate.
          * @param   vector2_t&  Movement rate
          **/
-        void Adjust(const math::vector2_t& Rate);
-        void Adjust(const float dx, const float dy)
-        {
-            this->Move(this->GetMesh().GetPosition().x + dx,
-                       this->GetMesh().GetPosition().y + dy);
-        }
-
-        /**
-         * Checks for a collision.
-         * @param   T&  Object to check collision with
-         * @return  TRUE if collide, FALSE if not.
-         * @todo    Implement a CCollidable in a separate Physics lib.
-         **/
-        //bool CollidesWith(const CEntity& Object);
-        //bool CollidesWith(const CEntity* const pObject);
-        //bool CollidesWith(const math::vector2_t& Location);
-        //bool CollidesWith(const math::Rect& Rectangle);
-        //bool CollidesWith(const math::Rectf& Rectangle);
+        virtual void Adjust(const math::vector2_t& Rate);
+        virtual void Adjust(const float dx, const float dy);
         
+        /**
+         * Enables a texture override over the default.
+         *  This will cause the default texture(s) on the mesh to be
+         *  ignored during rendering, and this one to be used instead.
+         *  Could potentially be useful for sprite animation.
+         * 
+         * @param   CTexture*   Texture to override mesh with
+         **/
+        void SetMaterialOverride(asset::CTexture* pTexture);
+
         /**
          * Toggles rendering.
          *  Default is TRUE, of course. If set to FALSE, the CScene it's
@@ -118,8 +109,14 @@ namespace ic
         inline bool CastsShadow() const
         { return m_casts; }
 
+        inline bool HasOverride() const
+        { return mp_Override != NULL; }
+
         inline gfx::CMeshInstance& GetMesh()
         { return m_Mesh; }
+
+        inline asset::CTexture* GetOverride() const
+        { return mp_Override; }
 
         inline const math::vector2_t& GetPosition() const
         { return m_Mesh.GetPosition(); }
@@ -130,6 +127,16 @@ namespace ic
         inline int GetY() const 
         { return this->GetPosition().y; }
 
+        inline int GetW() const
+        {
+            return this->m_Mesh.GetDimensions().x;
+        }
+
+        inline int GetH() const
+        {
+            return this->m_Mesh.GetDimensions().y;
+        }
+
         inline void SetShadowCasting(bool flag)
         { m_casts = flag; }
 
@@ -138,11 +145,16 @@ namespace ic
 
         /// @todo   Bounds checking hehe.
         inline asset::CTexture* GetTexture() const
-        { return m_Mesh.GetSurfaces()[0]->pMaterial->pTexture; }
+        {
+            if(!this->HasOverride())
+                return m_Mesh.GetSurfaces()[0]->pMaterial->pTexture;
+            else
+                return this->GetOverride();
+        }
 
-    private:
+    protected:
         gfx::CMeshInstance  m_Mesh;
-        //math::Rect      m_CollisionBox;
+        asset::CTexture*    mp_Override;
 
         bool m_render, m_casts;
     };

@@ -19,6 +19,9 @@ bool CMeshInstance::LoadIntoVBO(gfx::CVertexBuffer& VBO)
 {
     if(!mp_ActiveMesh) return false;
 
-    return mp_ActiveMesh->Offload(
-        VBO.GetVertexBufferVec(), VBO.GetIndexBufferVec());    
+    m_Dimensions.x = mp_ActiveMesh->GetMeshWidth();
+    m_Dimensions.y = mp_ActiveMesh->GetMeshHeight();
+
+    return mp_ActiveMesh->Offload(VBO.GetVertexBufferVec(),
+                                  VBO.GetIndexBufferVec());    
 }

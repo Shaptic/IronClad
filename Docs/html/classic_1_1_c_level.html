@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3587 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -97,13 +97,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ic::CLevel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A level loader class.  
+ <a href="classic_1_1_c_level.html#details">More...</a></p>
+
+<p><code>#include &quot;<a class="el" href="_level_8hpp_source.html">Level.hpp</a>&quot;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a85cf49bc6abed9b9f2086dea8e45cade"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85cf49bc6abed9b9f2086dea8e45cade"></a>
+<tr class="memitem:ae29144df8ce4dbc9be604b67638e6071"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae29144df8ce4dbc9be604b67638e6071"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b> (<a class="el" href="classic_1_1gfx_1_1_c_window.html">gfx::CWindow</a> &amp;Window)</td></tr>
-<tr class="memitem:a4df2a2e955c2f4bd578de311f836ed66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4df2a2e955c2f4bd578de311f836ed66"></a>
+<tr class="memitem:ab6e1a90abc63e7972239ed06e37d97a8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab6e1a90abc63e7972239ed06e37d97a8"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (const std::string &amp;filename, <a class="el" href="classic_1_1gfx_1_1_c_scene.html">gfx::CScene</a> &amp;Scene)</td></tr>
+<tr class="memitem:a81880e976106f81018082b0b7bedaae8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a81880e976106f81018082b0b7bedaae8"></a>
+const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPlayerSpawn</b> () const </td></tr>
+<tr class="memitem:aac7748893a59c94141905c1c6fb93574"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac7748893a59c94141905c1c6fb93574"></a>
+const std::vector&lt; <a class="el" href="classic_1_1_c_rigid_body.html">CRigidBody</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetPhysicalEntities</b> () const </td></tr>
+<tr class="memitem:a6a2046e3f5e7752c2722726e226fe3d7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a2046e3f5e7752c2722726e226fe3d7"></a>
+const std::vector&lt; <a class="el" href="classic_1_1_c_entity.html">CEntity</a> * &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetEnemySpawns</b> () const </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
@@ -111,15 +122,19 @@ Data Fields</h2></td></tr>
 std::vector&lt; <a class="el" href="classic_1_1_c_entity.html">CEntity</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>mp_levelEntities</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_level_8hpp_source.html#l00033">33</a> of file <a class="el" href="_level_8hpp_source.html">Level.hpp</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+<div class="textblock"><p>This class loads and parses .iclvl files. It will generate lights and mesh instances for objects in the level.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Add control of physics-enabled objects</dd></dl>
+<dl class="section see"><dt>See also:</dt><dd>Docs/ICLvl.spec </dd></dl>
+
+<p>Definition at line <a class="el" href="_level_8hpp_source.html#l00043">43</a> of file <a class="el" href="_level_8hpp_source.html">Level.hpp</a>.</p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>IronClad/include/<a class="el" href="_level_8hpp_source.html">Level.hpp</a></li>
+<li>IronClad/src/<a class="el" href="_level_8cpp_source.html">Level.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 14 2013 20:18:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 16 2013 23:47:19 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

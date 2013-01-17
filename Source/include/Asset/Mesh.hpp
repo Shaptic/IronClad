@@ -94,7 +94,7 @@ namespace asset
          *          FALSE if some problem was encountered.
          **/
         void LoadFromRaw(const vertex2_t* pvertices, const uint32_t vsize,
-            const uint16_t* pindices, const uint32_t isize);
+                         const uint16_t* pindices,   const uint32_t isize);
 
         /**
          * Loads current vertex and index data into given buffers.
@@ -106,13 +106,27 @@ namespace asset
          *
          * @return  TRUE if successfully loaded, FALSE if not, or if
          *          LoadFromFile() has yet to be called.
+         *          
+         * @post    This mesh now contains no vertex/index data at all.
          **/   
-        bool Offload(
-            std::vector<vertex2_t>& vbo_buffer,
-            std::vector<uint16_t>&  ibo_buffer);
+        bool Offload(std::vector<vertex2_t>& vbo_buffer,
+                     std::vector<uint16_t>&  ibo_buffer);
 
         /**
-         * Only the CAssetManager class can create CAsset instances.
+         * Analyzes the mesh and returns the maximum width/height of it.
+         *  If the mesh is a non-quad, it will return the distance from
+         *  the right-most point to the left-most point.
+         *  If the mesh has been offloaded to the GPU, this will do 
+         *  absolutely nothing.
+         *
+         * @return  Maximum width/height, zero if no vertex data.
+         **/
+        int GetMeshWidth()  const;
+        int GetMeshHeight() const;
+
+        /**
+         * Only the CAssetManager and CMeshInstance class can create
+         * instances of CMesh assets.
          **/
         friend class CAssetManager;
         friend class gfx::CMeshInstance;
@@ -154,7 +168,7 @@ namespace asset
     };
 
     template<typename T>
-    bool IsIn(const std::vector<T>& data, T finder)
+    bool IsIn(const std::vector<T>& data, const T& finder)
     {
         for(size_t i = 0; i < data.size(); ++i)
             if(data[i] == finder) return true;

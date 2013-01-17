@@ -2,7 +2,7 @@ IronClad
 ========
 
 ## About
-IronClad is a personal project of mine. It is a 2D rendering / game engine wrapped around OpenGL.
+IronClad is a personal project of mine. It is a 2D rendering / game engine wrapped around OpenGL.  
 I currently have a game work-in-progress called Praecursor being built using this engine.
 
 ## Features

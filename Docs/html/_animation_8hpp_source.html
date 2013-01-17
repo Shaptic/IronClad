@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3587 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -113,7 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span>(!pTexture) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            mp_Textures.push_back(pTexture);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            mp_allTextures.push_back(pTexture);</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        }</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
@@ -136,7 +136,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keyword">        </span>{ <span class="keywordflow">return</span> mp_ActiveTexture; }</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        std::vector&lt;asset::CTexture*&gt;   mp_Textures;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        std::vector&lt;asset::CTexture*&gt;   mp_allTextures;</div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>*                mp_ActiveTexture;</div>
 <div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordtype">float</span>                           m_delay;</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        <span class="keywordtype">bool</span>                            m_enabled;</div>
@@ -148,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 14 2013 20:18:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jan 16 2013 23:47:19 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

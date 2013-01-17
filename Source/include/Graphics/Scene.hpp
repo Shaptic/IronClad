@@ -17,7 +17,7 @@
  *  limitations under the License.
  *
  * @addtogroup Graphics
- * @{
+ * @{p
  **/
 
 #ifndef IRON_CLAD__GRAPHICS__SCENE_HPP
@@ -102,7 +102,7 @@ namespace gfx
         bool Init();
 
         /**
-         * Adds a mesh instance to be rendered in the current scene.
+         * Adds an entity to be rendered in the current scene.
          *  This method will load the mesh (if it doesn't exist), and
          *  will create an instance of it at the specified position.
          * 
@@ -121,6 +121,54 @@ namespace gfx
         CEntity* AddMesh(asset::CMesh* pMesh, math::vector2_t& Pos);
         inline void AddMesh(asset::CEntity* pEntity)
         { mp_sceneObjects.push_back(pEntity); }
+
+        /**
+         * Adds an entity to be rendered in a specific order in the scene.
+         *  This method will insert an entity (provided it loaded
+         *  successfully) into the drawing queue at a certain position.
+         *  If the provided position does not exist, the entity will be
+         *  added at the end, just like CScene::AddMesh. 
+         *  Index data can be retrieved from the queue using
+         *  GetQueuePosition() or by searching yourself through the vector
+         *  returned by GetObjects().
+         *  
+         * @param   uint16_t        Position to insert entity at
+         * @param   std::string     Filename of mesh to load
+         * @param   math::vector2_t Position to place the instance
+         * @param   bool            Create a CAnimation (optional=false)
+         * @param   bool            Create a CRigidBody (optional=false)
+         * 
+         * @return  Entity that was inserted, NULL if failed to load.
+         * 
+         * @see     CScene::GetQueuePosition()
+         * @see     CScene::GetObjects()
+         **/
+        CEntity* InsertMesh(const uint16_t position, 
+            const std::string& filename, const math::vector2_t& Position,
+            bool animate = false, bool physical = false);
+        CEntity* InsertMesh(const uint16_t position,
+            asset::CMesh* pMesh, const math::vector2_t& Pos,
+            bool animate = false, bool physical = false);
+        bool InsertMesh(const uint16_t position, CEntity* pEntity);
+
+        /**
+         * Deletes an existing mesh entity from the scene.
+         *  This, as well as CScene::InsertMesh() should be used sparingly,
+         *  and preferably prior to the main game loop, since the
+         *  underlying container is an std::vector.
+         *
+         * @param   CEntity*    Entity to remove
+         * 
+         * @bool    TRUE if exists and removed, FALSE otherwise.
+         **/
+        bool RemoveMesh(const CEntity* pEntity)
+        {
+            int pos = this->GetQueuePosition(pEntity);
+            if(pos == -1) return false;
+
+            mp_sceneObjects.erase(mp_sceneObjects.begin() + pos);
+            return true;
+        }
         
         /**
          * Adds a pre-loaded light to the scene. 
@@ -219,10 +267,30 @@ namespace gfx
          { return mp_sceneLights.size() < id ? NULL : mp_sceneLights[id]; }
 
          /**
+          * Returns the position in the object queue of the object.
+          * 
+          * @param  CEntity*    Object to search for
+          * 
+          * @return -1 if object is not in queue, proper index otherwise.
+          **/
+         int GetQueuePosition(const CEntity* pEntity) const
+         {
+             for(size_t i = 0; i < mp_sceneObjects.size(); ++i)
+             {
+                 if(mp_sceneObjects[i] == pEntity) return i;
+             }
+
+             return -1;
+         }
+
+         /**
           * Retrieves all of the lights in a scene.
           **/
          inline std::vector<CLight*>& GetLights()
          { return mp_sceneLights; }
+
+         inline const std::vector<CEntity*>& GetObjects() const
+         { return mp_sceneObjects; }
 
          friend class CLevel;
 

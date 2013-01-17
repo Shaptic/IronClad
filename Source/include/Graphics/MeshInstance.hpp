@@ -98,11 +98,15 @@ namespace gfx
         inline const math::vector2_t& GetPosition() const
         { return m_Position; }
 
+        inline const math::vector2_t& GetDimensions() const
+        { return m_Dimensions; }
+
         friend class CEntity;
 
     private:
         asset::CMesh*       mp_ActiveMesh;
         math::vector2_t     m_Position;
+        math::vector2_t     m_Dimensions;
     };
 
 }   // namespace gfx

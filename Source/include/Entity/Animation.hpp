@@ -66,7 +66,7 @@ namespace ic
 
             if(!pTexture) return false;
             
-            mp_Textures.push_back(pTexture);
+            mp_allTextures.push_back(pTexture);
             return true;
         }
 
@@ -133,7 +133,7 @@ namespace ic
         { return mp_ActiveTexture; }
 
     private:
-        std::vector<asset::CTexture*>   mp_Textures;
+        std::vector<asset::CTexture*>   mp_allTextures;
         asset::CTexture*                mp_ActiveTexture;
         float                           m_delay;
         bool                            m_enabled;
