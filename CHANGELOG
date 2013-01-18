@@ -1,0 +1,20 @@
+CHANGELOG
+
+Project			:	IronClad
+Author			:	George Kudrayvtsev
+Current Version	:	1.0.2 alpha
+Last Updated	:	01.17.2012
+
+Version 1.0.3a (01.17.2012):
+ +  Physics bug fixes
+
+Version 1.0.2a (01.16.2012):
+ +	Texture overrides
+ +	Basic physics
+ *	Bug fixes
+
+Version 1.0.1a (01.14.2012):
+ *	Improved level loading
+
+Version 1.0.0a (01.10.2012):
+ *	Initial commit

@@ -51,7 +51,7 @@ namespace ic
 
         const math::vector2_t& GetPlayerSpawn() const
         {
-            return mp_PlayerSpawn->GetPosition();
+            return mp_PlayerSpawn;
         }
 
         const std::vector<CRigidBody*>& GetPhysicalEntities() const
@@ -75,7 +75,7 @@ namespace ic
 
         std::vector<CRigidBody*> mp_levelPhysics;
         std::vector<CEntity*> mp_levelESpawns;
-        CEntity* mp_PlayerSpawn;
+        math::vector2_t mp_PlayerSpawn;
 
         gfx::CWindow& m_Window;
 

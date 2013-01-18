@@ -166,9 +166,10 @@ bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
                             pLight->Init(gfx::IC_POINT_LIGHT, m_Window);
                         }
                         // Player spawn / enemy spawn / etc.
+                        // This does NOT work. Created before moved.
                         else if(attrib == 3 && value == 1)
                         {
-                            mp_PlayerSpawn = pEntity;
+                            mp_PlayerSpawn = pEntity->GetPosition();
                         }
                         else if(attrib == 4 && value == 1)
                         {

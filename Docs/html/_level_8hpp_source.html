@@ -116,7 +116,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; GetPlayerSpawn()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> mp_PlayerSpawn-&gt;GetPosition();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> mp_PlayerSpawn;</div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        }</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">const</span> std::vector&lt;CRigidBody*&gt;&amp; GetPhysicalEntities()<span class="keyword"> const</span></div>
@@ -140,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        std::vector&lt;CRigidBody*&gt; mp_levelPhysics;</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        std::vector&lt;CEntity*&gt; mp_levelESpawns;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* mp_PlayerSpawn;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a> mp_PlayerSpawn;</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_window.html" title="An OpenGL compatible window.">gfx::CWindow</a>&amp; m_Window;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
@@ -153,7 +153,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jan 16 2013 23:47:19 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Jan 17 2013 21:28:30 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>
