@@ -5,6 +5,15 @@ IronClad
 IronClad is a personal project of mine. It is a 2D rendering / game engine wrapped around OpenGL.  
 I currently have a game work-in-progress called Praecursor being built using this engine.
 
+## Instructions
+* Clone the repo
+* Copy Source/include to your project include directory
+* Copy Binaries/IronClad.lib to your project library directory
+* Copy Binaries/IronClad.dll to your project binary directory
+* In your source, add `#include "IronClad.hpp"`
+* Also, link the lib file
+* You're set!
+
 ## Features
 IronClad currently supports the following:
 * Full use of modern OpenGL features such as vertex array objects
