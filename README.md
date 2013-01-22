@@ -4,6 +4,8 @@ IronClad
 ## About
 IronClad is a personal project of mine. It is a 2D rendering / game engine wrapped around OpenGL.  
 I currently have a game work-in-progress called Praecursor being built using this engine.
+The binaries *will not* be updated as often as the source code, but feel free to build it yourself,
+since the .vcxproj file is included. Alternately, contact me and I'll upload a build immediately.
 
 ## Instructions
 * Clone the repo

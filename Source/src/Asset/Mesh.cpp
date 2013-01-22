@@ -184,18 +184,27 @@ bool CMesh::LoadFromStr(const char** data, const int size)
  * @warning This doesn't work properly, especially with materials.
  * @todo    Create a proper implementation of this.
  **/
-void CMesh::LoadFromRaw(
+bool CMesh::LoadFromRaw(
     const vertex2_t* pvertices, const uint32_t vsize,
     const uint16_t* pindices, const uint32_t isize)
 {
+    m_vBuffer.clear();
+    m_iBuffer.clear();
+
     for(size_t i = 0; i < vsize; ++i)
         m_vBuffer.push_back(pvertices[i]);
 
     for(size_t i = 0; i < isize; ++i)
         m_iBuffer.push_back(pindices[i]);
     
+    // Create a single surface with isize indices.
+    if(!this->LoadSurface(NULL, 0)) return false;
+    mp_Surfaces.back()->pMaterial->pTexture = asset::CAssetManager::Create<asset::CTexture>("DayZ_1.tga");
+    mp_Surfaces.back()->icount = isize;
+
     m_vcount = vsize;
     m_icount = isize;
+    return true;
 }
 
 bool CMesh::Offload(
@@ -243,7 +252,7 @@ void CMesh::MergeSurfaces()
 
     // Sort surfaces by material.
     std::sort(mp_Surfaces.begin(), mp_Surfaces.end(),
-        gfx::surface_t::SortByMaterial);
+              gfx::surface_t::SortByMaterial);
 
     // At this point, the surface vector is sorted by material.
 
@@ -581,8 +590,8 @@ int asset::CMesh::GetMeshWidth() const
 
     for(size_t i = 0; i < m_vBuffer.size(); ++i)
     {
-        max_value = max(max_value, m_vBuffer[i].Position.x);
-        min_value = min(min_value, m_vBuffer[i].Position.x);
+        max_value = math::max<int>(max_value, m_vBuffer[i].Position.x);
+        min_value = math::min<int>(min_value, m_vBuffer[i].Position.x);
     }
 
     return (max_value - min_value);
@@ -594,8 +603,8 @@ int asset::CMesh::GetMeshHeight() const
 
     for(size_t i = 0; i < m_vBuffer.size(); ++i)
     {
-        max_value = max(max_value, m_vBuffer[i].Position.y);
-        min_value = min(min_value, m_vBuffer[i].Position.y);
+        max_value = math::max<int>(max_value, m_vBuffer[i].Position.y);
+        min_value = math::min<int>(min_value, m_vBuffer[i].Position.y);
     }
 
     return (max_value - min_value);

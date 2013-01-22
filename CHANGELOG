@@ -2,8 +2,12 @@ CHANGELOG
 
 Project			:	IronClad
 Author			:	George Kudrayvtsev
-Current Version	:	1.0.2 alpha
+Current Version	:	1.0.4 alpha
 Last Updated	:	01.17.2012
+
+Version 1.0.4a (01.21.2012):
+ * Fixed physics bugs
+ * Fixed vector rotation bugs
 
 Version 1.0.3a (01.17.2012):
  +  Level contains more world info

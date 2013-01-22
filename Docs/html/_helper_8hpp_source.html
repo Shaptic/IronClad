@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3803 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -112,47 +112,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> std::string <a class="code" href="namespaceic_1_1util.html#a8999635107b7769af1442a25dbf10ced" title="Combine a C++ style string and a C string into one.">combine</a>(<span class="keyword">const</span> std::string&amp; str1, <span class="keyword">const</span> <span class="keywordtype">char</span>* str2);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> std::string <a class="code" href="namespaceic_1_1util.html#a8999635107b7769af1442a25dbf10ced" title="Combine a C++ style string and a C string into one.">combine</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str2, <span class="keyword">const</span> std::string&amp; str1);</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> std::vector&lt;std::string&gt; <a class="code" href="namespaceic_1_1util.html#a80c5e53506e6351b14e2ab5dc08342fe" title="Splits a string into individual parts at an special character.">split</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keywordtype">char</span> token);</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckCollision(<span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>&amp; oner, <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>&amp; two)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    {</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <span class="keywordtype">int</span> top2, bottom2, right2, left2;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        left2   = two.x;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        right2  = two.x + two.w;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        top2    = two.y;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        bottom2 = two.y + two.h;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">if</span>(oner.y + oner.h &lt; top2)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">if</span>(oner.y &gt; bottom2)</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">if</span>(oner.x + oner.w &lt; left2)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">if</span>(oner.x &gt; right2)</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckCollision(<span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; one, <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>&amp; two)</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordflow">return</span> CheckCollision(<a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>(one.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a>, one.y, 1, 1), two);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">bool</span> CheckCollision(<span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; one, <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; two)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordflow">return</span> CheckCollision(one, <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>(two.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a>, two.y, 1, 1));</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}   <span class="comment">// namespace util</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}   <span class="comment">// namespace ic</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__UTILS__HELPER_HPP</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}   <span class="comment">// namespace util</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__UTILS__HELPER_HPP</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 17 2013 21:28:30 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 21 2013 22:25:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

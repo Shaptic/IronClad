@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3803 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -132,9 +132,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">bool</span> Init();</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* AddMesh(<span class="keyword">const</span> std::string&amp; filename, <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos,</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* AddMesh(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos,</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            <span class="keywordtype">bool</span> anim = <span class="keyword">false</span>, <span class="keywordtype">bool</span> rigid = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* AddMesh(<a class="code" href="classic_1_1asset_1_1_c_mesh.html" title="A mesh.">asset::CMesh</a>* pMesh, <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* AddMesh(<a class="code" href="classic_1_1asset_1_1_c_mesh.html" title="A mesh.">asset::CMesh</a>* pMesh, <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos);</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> AddMesh(<a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">asset::CEntity</a>* pEntity)</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        { mp_sceneObjects.push_back(pEntity); }</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
@@ -182,72 +182,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00255"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_scene.html#a383297d7561c218fe4796d32a7089d7f">  255</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">bool</span> ToggleLighting()</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        { <span class="keywordflow">return</span> !(m_lighting = !m_lighting); }</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
-<div class="line"><a name="l00266"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_scene.html#a7adc41da5b241f97a769726c60978562">  266</a></span>&#160;         <span class="keyword">inline</span> <a class="code" href="classic_1_1gfx_1_1_c_light.html" title="Represents a light within a scene in IronClad.">CLight</a>* GetLightFromScene(<span class="keyword">const</span> int16_t <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_scene.html#a8fd05e4ee782d37be98a06f32821a81a">  266</a></span>&#160;         <span class="keyword">inline</span> <a class="code" href="classic_1_1gfx_1_1_c_light.html" title="Represents a light within a scene in IronClad.">CLight</a>* GetLightFromScene(<span class="keyword">const</span> uint16_t <span class="keywordtype">id</span>)</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;         { <span class="keywordflow">return</span> mp_sceneLights.size() &lt; <span class="keywordtype">id</span> ? NULL : mp_sceneLights[id]; }</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_scene.html#a77f0855fc02222803dcb9ec52017745f">  276</a></span>&#160;         <span class="keywordtype">int</span> GetQueuePosition(<span class="keyword">const</span> <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* pEntity)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="keyword">         </span>{</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;             <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; mp_sceneObjects.size(); ++i)</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;             {</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                 <span class="keywordflow">if</span>(mp_sceneObjects[i] == pEntity) <span class="keywordflow">return</span> i;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;             }</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;             <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;         }</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;</div>
-<div class="line"><a name="l00289"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_scene.html#a2bd853e0f52fb7a58f65480ea96e34fe">  289</a></span>&#160;         <span class="keyword">inline</span> std::vector&lt;CLight*&gt;&amp; GetLights()</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;         { <span class="keywordflow">return</span> mp_sceneLights; }</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;         <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;CEntity*&gt;&amp; GetObjects()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="keyword">         </span>{ <span class="keywordflow">return</span> mp_sceneObjects; }</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classic_1_1_c_level.html" title="A level loader class.">CLevel</a>;</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordtype">void</span> StandardRender(</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;            <a class="code" href="structic_1_1gfx_1_1surface__t.html" title="Describes a surface on a mesh.">gfx::surface_t</a>* pSurface,</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            <span class="keyword">const</span> <a class="code" href="classic_1_1math_1_1matrix4x4__t.html" title="4x4 matrix.">math::matrix4x4_t</a>&amp; ModelView);</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <span class="keywordtype">void</span> StandardRender(<a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* pEntity,</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;            <span class="keyword">const</span> <a class="code" href="classic_1_1math_1_1matrix4x4__t.html" title="4x4 matrix.">math::matrix4x4_t</a>&amp; ModelView);</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <span class="keywordtype">void</span> LightRender(<a class="code" href="classic_1_1gfx_1_1_c_light.html" title="Represents a light within a scene in IronClad.">gfx::CLight</a>* pEffect);</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        uint32_t PostProcessingRender(<a class="code" href="classic_1_1gfx_1_1_c_effect.html">gfx::CEffect</a>* pEffect,</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;            <a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html" title="A wrapper for the OpenGL frame-buffer object.">gfx::CFrameBuffer</a>&amp; Target, uint32_t source);</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <span class="keywordtype">void</span> ShadowRender();</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keywordtype">void</span> UpdateShadows(<span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; LightPosition);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;         <span class="keywordtype">int</span> GetQueuePosition(<span class="keyword">const</span> <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* pEntity) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;</div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_scene.html#a2bd853e0f52fb7a58f65480ea96e34fe">  281</a></span>&#160;         <span class="keyword">inline</span> std::vector&lt;CLight*&gt;&amp; GetLights()</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;         { <span class="keywordflow">return</span> mp_sceneLights; }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;         <span class="keyword">inline</span> <span class="keyword">const</span> std::vector&lt;CEntity*&gt;&amp; GetObjects()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="keyword">         </span>{ <span class="keywordflow">return</span> mp_sceneObjects; }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classic_1_1_c_level.html" title="A level loader class.">CLevel</a>;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <span class="keywordtype">void</span> StandardRender(</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;            <a class="code" href="structic_1_1gfx_1_1surface__t.html" title="Describes a surface on a mesh.">gfx::surface_t</a>* pSurface,</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;            <span class="keyword">const</span> <a class="code" href="classic_1_1math_1_1matrix4x4__t.html" title="4x4 matrix.">math::matrix4x4_t</a>&amp; ModelView);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keywordtype">void</span> StandardRender(<a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* pEntity,</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;            <span class="keyword">const</span> <a class="code" href="classic_1_1math_1_1matrix4x4__t.html" title="4x4 matrix.">math::matrix4x4_t</a>&amp; ModelView);</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        <span class="keywordtype">void</span> LightRender(<a class="code" href="classic_1_1gfx_1_1_c_light.html" title="Represents a light within a scene in IronClad.">gfx::CLight</a>* pEffect);</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        uint32_t PostProcessingRender(<a class="code" href="classic_1_1gfx_1_1_c_effect.html">gfx::CEffect</a>* pEffect,</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;            <a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html" title="A wrapper for the OpenGL frame-buffer object.">gfx::CFrameBuffer</a>&amp; Target, uint32_t source);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordtype">void</span> ShadowRender();</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordtype">void</span> UpdateShadows(<span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; LightPosition);</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keyword">static</span> material_t       m_ShadowShader;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        CWindow&amp;                m_Window;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        CVertexBuffer           m_GeometryVBO, m_ShadowVBO;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        CFrameBuffer            m_FBO, m_FBOSwap;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>         m_Camera;</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keyword">static</span> material_t       m_ShadowShader;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        CWindow&amp;                m_Window;</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        CVertexBuffer           m_GeometryVBO, m_ShadowVBO;</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        CFrameBuffer            m_FBO, m_FBOSwap;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        std::vector&lt;CEntity*&gt;   mp_sceneObjects;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        std::vector&lt;CEffect*&gt;   mp_sceneEffects;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        std::vector&lt;CLight*&gt;    mp_sceneLights;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        std::vector&lt;vertex2_t&gt;  m_shadowVertices;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        std::vector&lt;uint16_t&gt;   m_shadowIndices;</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>         m_Camera;</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        std::vector&lt;CEntity*&gt;   mp_sceneObjects;</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        std::vector&lt;CEffect*&gt;   mp_sceneEffects;</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        std::vector&lt;CLight*&gt;    mp_sceneLights;</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        std::vector&lt;vertex2_t&gt;  m_shadowVertices;</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        std::vector&lt;uint16_t&gt;   m_shadowIndices;</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        uint32_t m_geo_type;</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keywordtype">bool</span> m_lighting, m_postfx;</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    };</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;}   <span class="comment">// namespace gfx</span></div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;}   <span class="comment">// namespace ic</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__GRAPHICS__SCENE_HPP</span></div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        uint32_t m_geo_type;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        <span class="keywordtype">bool</span> m_lighting, m_postfx;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    };</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;}   <span class="comment">// namespace gfx</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__GRAPHICS__SCENE_HPP</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 17 2013 21:28:30 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 21 2013 22:25:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

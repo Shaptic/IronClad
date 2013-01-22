@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3803 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -164,37 +164,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00185"></a><span class="lineno"><a class="code" href="structic_1_1math_1_1vector2__t.html#af8f0242d5f511068d75489439d9e66e2">  185</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">float</span> Magnitude()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="keyword">        </span>{ <span class="keywordflow">return</span> sqrt(x * x + y * y); }</div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;</div>
-<div class="line"><a name="l00207"></a><span class="lineno"><a class="code" href="structic_1_1math_1_1vector2__t.html#ae24512d6ab957d34341e19a8940cf532">  207</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> Rotate(<span class="keyword">const</span> <span class="keywordtype">float</span> radians)</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        {</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;            x =  x * cos(radians) + y * sin(radians);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            y = -x * sin(radians) + y * cos(radians);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        }</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keywordtype">void</span> Translate(<a class="code" href="classic_1_1math_1_1matrix4x4__t.html" title="4x4 matrix.">matrix4x4_t</a>&amp; trans_mat);</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
-<div class="line"><a name="l00222"></a><span class="lineno"><a class="code" href="structic_1_1math_1_1vector2__t.html#aba7f82258c884054a6faeed434aca2d1">  222</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> Print()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            std::cout.setf(std::ios::fixed, std::ios::floatfield);</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            std::cout.precision(2);</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;&lt;&quot;</span> &lt;&lt; x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; y &lt;&lt; <span class="stringliteral">&quot;&gt;&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        }</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;</div>
-<div class="line"><a name="l00234"></a><span class="lineno"><a class="code" href="structic_1_1math_1_1vector2__t.html#a3ddfbaa21f0e07c122378457641e96bf">  234</a></span>&#160;        <span class="keyword">inline</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">vector2_t</a> GetNormalized()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            <span class="keywordtype">float</span> mag = this-&gt;Magnitude();</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">vector2_t</a>(x / mag, y / mag);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        }</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    };</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;}   <span class="comment">// namespace math</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="code" href="structic_1_1math_1_1vector2__t.html#ae24512d6ab957d34341e19a8940cf532">  210</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> Rotate(<span class="keyword">const</span> <span class="keywordtype">float</span> radians)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="keywordtype">float</span> c = cos(radians);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordtype">float</span> s = sin(radians);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            <span class="keywordtype">float</span> old_x = x;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;            x = x * c - y * s;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            y = old_x * s + y * c;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        }</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordtype">void</span> Translate(<span class="keyword">const</span> <a class="code" href="classic_1_1math_1_1matrix4x4__t.html" title="4x4 matrix.">matrix4x4_t</a>&amp; trans_mat);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;</div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="code" href="structic_1_1math_1_1vector2__t.html#a1e4fb17b374a19480d50c75dca8e3a1f">  241</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">float</span> Cross2D(<span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">vector2_t</a>&amp; Other)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keyword">        </span>{ <span class="keywordflow">return</span> (x * Other.y) - (y * Other.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a>); }</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__MATH__VECTOR_2_HPP</span></div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="code" href="structic_1_1math_1_1vector2__t.html#aba7f82258c884054a6faeed434aca2d1">  247</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> Print()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;            std::cout.setf(std::ios::fixed, std::ios::floatfield);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            std::cout.precision(2);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;            std::cout &lt;&lt; <span class="stringliteral">&quot;&lt;&quot;</span> &lt;&lt; x &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; y &lt;&lt; <span class="stringliteral">&quot;&gt;&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        }</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="code" href="structic_1_1math_1_1vector2__t.html#a3ddfbaa21f0e07c122378457641e96bf">  259</a></span>&#160;        <span class="keyword">inline</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">vector2_t</a> GetNormalized()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="keywordtype">float</span> mag = this-&gt;Magnitude();</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">vector2_t</a>(x / mag, y / mag);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    };</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;}   <span class="comment">// namespace math</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__MATH__VECTOR_2_HPP</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 17 2013 21:28:30 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 21 2013 22:25:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

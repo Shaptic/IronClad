@@ -11,7 +11,7 @@ gfx::CFrameBuffer* CFont::RenderText(const std::string& text)
 
     gfx::CFrameBuffer* pFbo = new gfx::CFrameBuffer;
     std::vector<uint32_t> textures;
-    uint32_t width, height;
+    //uint32_t width, height;
 
     textures.resize(text.length());
     glGenTextures(text.length(), &textures[0]);
@@ -31,8 +31,6 @@ gfx::CFrameBuffer* CFont::RenderText(const std::string& text)
             m_FontFace->glyph->bitmap.pixel_mode,
             GL_UNSIGNED_BYTE,
             m_FontFace->glyph->bitmap.buffer);
-
-
 
         glBindTexture(GL_TEXTURE_2D, 0);
     }

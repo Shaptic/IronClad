@@ -3,7 +3,7 @@
  *  Math/MathDef.hpp - Declarations and definitions of various math types.
  *
  * @author      George Kudrayvtsev (switch1440)
- * @version     1.0
+ * @version     1.1.2
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -86,7 +86,7 @@ namespace math
      **/
     inline float distance(
         const float start_x, const float start_y,
-        const float end_x, const float end_y,
+        const float end_x,   const float end_y,
         const bool do_sqrt = true)
     {
         float d =   (end_x - start_x) * (end_x - start_x) + 
@@ -103,10 +103,48 @@ namespace math
      * @param   T   Numeric type for max value
      **/
     template<typename T>
-    void clamp(T& val, T minimum, T maximum)
+    void clamp(T& val, const T& minimum, const T& maximum)
     {
         if(val > maximum)       val = maximum;
         else if(val < minimum)  val = minimum;
+    }
+
+// These macros get in the way of the following functions.
+#ifdef max
+#undef max
+#endif // max
+#ifdef min
+#undef min
+#endif // min
+
+    /**
+     * Returns the maximum of two values.
+     *  If a == b, returns b.
+     *  
+     * @param   T&  Value one
+     * @param   T&  Value two
+     * 
+     * @return  Max of value one and two.
+     **/
+    template<typename T>
+    const T& max(const T& a, const T& b)
+    {
+        return (a > b) ? a : b;
+    }
+
+    /**
+     * Returns the minimum of two values.
+     *  If a == b, returns b.
+     *  
+     * @param   T&  Value one
+     * @param   T&  Value two
+     * 
+     * @return  Min of value one and two.
+     **/
+    template<typename T>
+    const T& min(const T& a, const T& b)
+    {
+        return (a < b) ? a : b;
     }
 
 }   // namespace math

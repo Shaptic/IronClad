@@ -93,7 +93,7 @@ namespace asset
          * @return  TRUE if everything went right, 
          *          FALSE if some problem was encountered.
          **/
-        void LoadFromRaw(const vertex2_t* pvertices, const uint32_t vsize,
+        bool LoadFromRaw(const vertex2_t* pvertices, const uint32_t vsize,
                          const uint16_t* pindices,   const uint32_t isize);
 
         /**

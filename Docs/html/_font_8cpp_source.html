@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3803 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -105,7 +105,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html" title="A wrapper for the OpenGL frame-buffer object.">gfx::CFrameBuffer</a>* pFbo = <span class="keyword">new</span> <a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html" title="A wrapper for the OpenGL frame-buffer object.">gfx::CFrameBuffer</a>;</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    std::vector&lt;uint32_t&gt; textures;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    uint32_t width, height;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">//uint32_t width, height;</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    textures.resize(text.length());</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    glGenTextures(text.length(), &amp;textures[0]);</div>
@@ -126,17 +126,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            GL_UNSIGNED_BYTE,</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            m_FontFace-&gt;glyph-&gt;bitmap.buffer);</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        glBindTexture(GL_TEXTURE_2D, 0);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> pFbo;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        glBindTexture(GL_TEXTURE_2D, 0);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordflow">return</span> pFbo;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 17 2013 21:28:30 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 21 2013 22:25:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

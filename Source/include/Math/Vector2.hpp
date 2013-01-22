@@ -3,7 +3,7 @@
  *  Math/Vector2.hpp - Declarations for the 2D vector class.
  *
  * @author      George Kudrayvtsev (switch1440)
- * @version     1.0
+ * @version     1.0.3
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -202,19 +202,44 @@ namespace math
          *      x =  x * cos(d) + y * sin(d)
          *      y = -x * sin(d) + y * cos(d)
          *
-         * @param float The rotation angle in radians.
+         * @param   float   The rotation angle in radians.
+         * 
+         * @info    The coordinate system adjustment was removed.
+         * @bug     Rotation gives half the length needed for some reason?
          **/
         inline void Rotate(const float radians)
         {
-            x =  x * cos(radians) + y * sin(radians);
-            y = -x * sin(radians) + y * cos(radians);
+            float c = cos(radians);
+            float s = sin(radians);
+            float old_x = x;
+
+            x = x * c - y * s;
+            y = old_x * s + y * c;
         }
 
         /**
          * Translates the current vector by a matrix.
          * @param   matrix4x4_t&    Translation matrix
          **/
-        void Translate(matrix4x4_t& trans_mat);
+        void Translate(const matrix4x4_t& trans_mat);
+
+        /**
+         * Returns a scalar cross product value between two 2D vectors.
+         *  Given a vector v = <x1, y1> and a vector w = <x2, y2>, their
+         *  cross-product is determined as <0, 0, x1*y2 - y1*x2>.
+         *  So, this method returns the third component.
+         *
+         *  This value can be used to determine which side of a vector
+         *  another vector is on. If the return value is negative, the
+         *  "Other" vector is on the left (going ccw). If positive,
+         *  the vector is on the right (going c/w).
+         *
+         * @param   vector2_t&  Vector to test x-product on
+         *
+         * @return  2D cross product (z-component of 3D cross).
+         **/
+        inline float Cross2D(const vector2_t& Other) const
+        { return (x * Other.y) - (y * Other.x); }
 
         /**
          * Outputs the vector data to stdout in the format <x, y>.

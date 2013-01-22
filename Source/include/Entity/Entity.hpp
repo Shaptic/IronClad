@@ -128,14 +128,10 @@ namespace ic
         { return this->GetPosition().y; }
 
         inline int GetW() const
-        {
-            return this->m_Mesh.GetDimensions().x;
-        }
+        { return this->m_Mesh.GetDimensions().x; }
 
         inline int GetH() const
-        {
-            return this->m_Mesh.GetDimensions().y;
-        }
+        { return this->m_Mesh.GetDimensions().y; }
 
         inline void SetShadowCasting(bool flag)
         { m_casts = flag; }

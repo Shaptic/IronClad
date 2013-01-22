@@ -4,7 +4,7 @@
  *  a high-level interface containing information about a scene.
  *
  * @author      George Kudrayvtsev (switch1440)
- * @version     1.4
+ * @version     1.4.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -116,9 +116,9 @@ namespace gfx
          *          provided that you are SURE you passed the proper
          *          parameters.
          **/
-        CEntity* AddMesh(const std::string& filename, math::vector2_t& Pos,
+        CEntity* AddMesh(const std::string& filename, const math::vector2_t& Pos,
             bool anim = false, bool rigid = false);
-        CEntity* AddMesh(asset::CMesh* pMesh, math::vector2_t& Pos);
+        CEntity* AddMesh(asset::CMesh* pMesh, const math::vector2_t& Pos);
         inline void AddMesh(asset::CEntity* pEntity)
         { mp_sceneObjects.push_back(pEntity); }
 
@@ -259,11 +259,11 @@ namespace gfx
          * Retrieves a light from the scene using a unique ID.
          *  Light IDs are given when adding lights to scene.
          *  
-         * @param   int16_t     ID of light
+         * @param   uint16_t    ID of light
          * 
          * @return  Pointer to light object, NULL if out of range.
          **/
-         inline CLight* GetLightFromScene(const int16_t id)
+         inline CLight* GetLightFromScene(const uint16_t id)
          { return mp_sceneLights.size() < id ? NULL : mp_sceneLights[id]; }
 
          /**
@@ -273,15 +273,7 @@ namespace gfx
           * 
           * @return -1 if object is not in queue, proper index otherwise.
           **/
-         int GetQueuePosition(const CEntity* pEntity) const
-         {
-             for(size_t i = 0; i < mp_sceneObjects.size(); ++i)
-             {
-                 if(mp_sceneObjects[i] == pEntity) return i;
-             }
-
-             return -1;
-         }
+         int GetQueuePosition(const CEntity* pEntity) const;
 
          /**
           * Retrieves all of the lights in a scene.

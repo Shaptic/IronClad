@@ -39,7 +39,7 @@ bool CScene::Init()
 
 CEntity* CScene::AddMesh(
     const std::string& filename,
-    math::vector2_t& Pos,
+    const math::vector2_t& Pos,
     bool anim,
     bool rigid)
 {
@@ -60,7 +60,7 @@ CEntity* CScene::AddMesh(
     return pFinal;
 }
 
-CEntity* CScene::AddMesh(asset::CMesh* pMesh, math::vector2_t& Pos)
+CEntity* CScene::AddMesh(asset::CMesh* pMesh, const math::vector2_t& Pos)
 {
     CEntity* pFinal = new CEntity;
     if(!pFinal->LoadFromMesh(pMesh, m_GeometryVBO))
@@ -129,6 +129,8 @@ void CScene::Render()
         }
         else
         {
+            if(!mp_sceneObjects[i]->IsRenderable()) continue;
+
             // Render each surface.
             for(size_t j = 0; j < meshSurfaces.size(); ++j)
             {
@@ -242,7 +244,8 @@ void CScene::StandardRender(CEntity* pEntity,
             m_Window.GetProjectionMatrix());
     }
 
-    pEntity->GetTexture()->Bind();
+    if(pEntity->GetTexture() != NULL)
+        pEntity->GetTexture()->Bind();
 
     // Do rendering.
     glDrawElements(m_geo_type, pSurface->icount, GL_UNSIGNED_SHORT,
@@ -406,7 +409,7 @@ void CScene::UpdateShadows(const math::vector2_t& LightPosition)
 
         // We need to track which vertex is closest to the light source
         // in order to make the shadows render in a clock-wise order.
-        int16_t closest_vertex = -1;
+        uint16_t closest_vertex = 0;
 
         math::vector2_t Position = vertices[mindex].Position + m_Camera + 
             mp_sceneObjects[j]->GetMesh().GetPosition();
@@ -552,4 +555,14 @@ bool gfx::CScene::InsertMesh(const uint16_t position, CEntity* pEntity)
 
     mp_sceneObjects.insert(mp_sceneObjects.begin() + position, pEntity);
     return true;
+}
+
+int CScene::GetQueuePosition(const CEntity* pEntity) const
+{
+    for(size_t i = 0; i < mp_sceneObjects.size(); ++i)
+    {
+        if(mp_sceneObjects[i] == pEntity) return i;
+    }
+
+    return -1;
 }

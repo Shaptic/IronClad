@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3803 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -140,8 +140,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af8f0242d5f511068d75489439d9e66e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the current vector's magnitude.  <a href="#af8f0242d5f511068d75489439d9e66e2"></a><br/></td></tr>
 <tr class="memitem:ae24512d6ab957d34341e19a8940cf532"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structic_1_1math_1_1vector2__t.html#ae24512d6ab957d34341e19a8940cf532">Rotate</a> (const float radians)</td></tr>
 <tr class="memdesc:ae24512d6ab957d34341e19a8940cf532"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates the current vector using the rotation matrix.  <a href="#ae24512d6ab957d34341e19a8940cf532"></a><br/></td></tr>
-<tr class="memitem:a0ab9eef7c1940b4e8d4961cd906b7a5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structic_1_1math_1_1vector2__t.html#a0ab9eef7c1940b4e8d4961cd906b7a5e">Translate</a> (<a class="el" href="classic_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;trans_mat)</td></tr>
-<tr class="memdesc:a0ab9eef7c1940b4e8d4961cd906b7a5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translates the current vector by a matrix.  <a href="#a0ab9eef7c1940b4e8d4961cd906b7a5e"></a><br/></td></tr>
+<tr class="memitem:a6055835bcca568e0d36cbb2ffa20f102"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structic_1_1math_1_1vector2__t.html#a6055835bcca568e0d36cbb2ffa20f102">Translate</a> (const <a class="el" href="classic_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;trans_mat)</td></tr>
+<tr class="memdesc:a6055835bcca568e0d36cbb2ffa20f102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Translates the current vector by a matrix.  <a href="#a6055835bcca568e0d36cbb2ffa20f102"></a><br/></td></tr>
+<tr class="memitem:a1e4fb17b374a19480d50c75dca8e3a1f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structic_1_1math_1_1vector2__t.html#a1e4fb17b374a19480d50c75dca8e3a1f">Cross2D</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">vector2_t</a> &amp;Other) const </td></tr>
+<tr class="memdesc:a1e4fb17b374a19480d50c75dca8e3a1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a scalar cross product value between two 2D vectors.  <a href="#a1e4fb17b374a19480d50c75dca8e3a1f"></a><br/></td></tr>
 <tr class="memitem:aba7f82258c884054a6faeed434aca2d1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aba7f82258c884054a6faeed434aca2d1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structic_1_1math_1_1vector2__t.html#aba7f82258c884054a6faeed434aca2d1">Print</a> () const </td></tr>
 <tr class="memdesc:aba7f82258c884054a6faeed434aca2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outputs the vector data to stdout in the format &lt;x, y&gt;. <br/></td></tr>
@@ -240,6 +242,41 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a1e4fb17b374a19480d50c75dca8e3a1f"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ic::math::vector2_t::Cross2D </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structic_1_1math_1_1vector2__t.html">vector2_t</a> &amp;&#160;</td>
+          <td class="paramname"><em>Other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Given a vector v = &lt;x1, y1&gt; and a vector w = &lt;x2, y2&gt;, their cross-product is determined as &lt;0, 0, x1*y2 - y1*x2&gt;. So, this method returns the third component.</p>
+<p>This value can be used to determine which side of a vector another vector is on. If the return value is negative, the "Other" vector is on the left (going ccw). If positive, the vector is on the right (going c/w).</p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector2_t&amp;</td><td>Vector to test x-product on</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>2D cross product (z-component of 3D cross). </dd></dl>
+
+<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00241">241</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a3ddfbaa21f0e07c122378457641e96bf"></a>
 <div class="memitem">
 <div class="memproto">
@@ -262,7 +299,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 </div><div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="structic_1_1math_1_1vector2__t.html#a67721e92250fd9915bd2a6ac82200e11" title="Normalizes the current vector.">vector2_t::Normalize()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00234">234</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00259">259</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
 
 </div>
 </div>
@@ -705,23 +742,25 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 <p>So the final rotation in OpenGL would be: x = x * cos(d) + y * sin(d) y = -x * sin(d) + y * cos(d)</p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
-    <tr><td class="paramname">float</td><td>The rotation angle in radians. </td></tr>
+    <tr><td class="paramname">float</td><td>The rotation angle in radians.</td></tr>
   </table>
   </dd>
 </dl>
+<p>The coordinate system adjustment was removed. </p>
+<dl class="bug"><dt><b><a class="el" href="bug.html#_bug000002">Bug:</a></b></dt><dd>Rotation gives half the length needed for some reason? </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00207">207</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00210">210</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a0ab9eef7c1940b4e8d4961cd906b7a5e"></a>
+<a class="anchor" id="a6055835bcca568e0d36cbb2ffa20f102"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void ic::math::vector2_t::Translate </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classic_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classic_1_1math_1_1matrix4x4__t.html">matrix4x4_t</a> &amp;&#160;</td>
           <td class="paramname"><em>trans_mat</em></td><td>)</td>
           <td></td>
         </tr>
@@ -742,7 +781,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 17 2013 21:28:30 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 21 2013 22:25:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3769 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3803 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -124,8 +124,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (con
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromStr</b> (const char **data, const int lines)</td></tr>
 <tr class="memitem:af2dcc7d5b24bf73835ea6902da9a720f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af2dcc7d5b24bf73835ea6902da9a720f"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromExisting</b> (std::ifstream &amp;in_file, const std::streampos pos)</td></tr>
-<tr class="memitem:a8c0ab83858603d82fbecd8a1dfde1e3d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_mesh.html#a8c0ab83858603d82fbecd8a1dfde1e3d">LoadFromRaw</a> (const <a class="el" href="structic_1_1vertex2__t.html">vertex2_t</a> *pvertices, const uint32_t vsize, const uint16_t *pindices, const uint32_t isize)</td></tr>
-<tr class="memdesc:a8c0ab83858603d82fbecd8a1dfde1e3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a mesh directly from vertex and index data.  <a href="#a8c0ab83858603d82fbecd8a1dfde1e3d"></a><br/></td></tr>
+<tr class="memitem:a9956cd175b6c77dc33386cd5fe565276"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_mesh.html#a9956cd175b6c77dc33386cd5fe565276">LoadFromRaw</a> (const <a class="el" href="structic_1_1vertex2__t.html">vertex2_t</a> *pvertices, const uint32_t vsize, const uint16_t *pindices, const uint32_t isize)</td></tr>
+<tr class="memdesc:a9956cd175b6c77dc33386cd5fe565276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a mesh directly from vertex and index data.  <a href="#a9956cd175b6c77dc33386cd5fe565276"></a><br/></td></tr>
 <tr class="memitem:acc7716cdd8f5ec1da0ac64b08739ba09"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_mesh.html#acc7716cdd8f5ec1da0ac64b08739ba09">Offload</a> (std::vector&lt; <a class="el" href="structic_1_1vertex2__t.html">vertex2_t</a> &gt; &amp;vbo_buffer, std::vector&lt; uint16_t &gt; &amp;ibo_buffer)</td></tr>
 <tr class="memdesc:acc7716cdd8f5ec1da0ac64b08739ba09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads current vertex and index data into given buffers.  <a href="#acc7716cdd8f5ec1da0ac64b08739ba09"></a><br/></td></tr>
 <tr class="memitem:ade7c90e77fb5a105b672e22c10f8054d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_mesh.html#ade7c90e77fb5a105b672e22c10f8054d">GetMeshWidth</a> () const </td></tr>
@@ -174,7 +174,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetID</b> () cons
 <p>If the mesh is a non-quad, it will return the distance from the right-most point to the left-most point. If the mesh has been offloaded to the GPU, this will do absolutely nothing.</p>
 <dl class="section return"><dt>Returns:</dt><dd>Maximum width/height, zero if no vertex data. </dd></dl>
 
-<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00578">578</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00587">587</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -209,12 +209,12 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetID</b> () cons
 
 </div>
 </div>
-<a class="anchor" id="a8c0ab83858603d82fbecd8a1dfde1e3d"></a>
+<a class="anchor" id="a9956cd175b6c77dc33386cd5fe565276"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void CMesh::LoadFromRaw </td>
+          <td class="memname">bool CMesh::LoadFromRaw </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structic_1_1vertex2__t.html">vertex2_t</a> *&#160;</td>
           <td class="paramname"><em>pvertices</em>, </td>
@@ -296,7 +296,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetID</b> () cons
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if successfully loaded, FALSE if not, or if <a class="el" href="classic_1_1asset_1_1_c_mesh.html#a7cdb394ca2aef20a1c3810127b237aab" title="Loads a mesh from a file.">LoadFromFile()</a> has yet to be called.</dd></dl>
 <dl class="section post"><dt>Postcondition:</dt><dd>This mesh now contains no vertex/index data at all. </dd></dl>
 
-<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00201">201</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00210">210</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -307,7 +307,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetID</b> () cons
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jan 17 2013 21:28:30 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Jan 21 2013 22:25:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>
