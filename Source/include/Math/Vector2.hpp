@@ -205,7 +205,6 @@ namespace math
          * @param   float   The rotation angle in radians.
          * 
          * @info    The coordinate system adjustment was removed.
-         * @bug     Rotation gives half the length needed for some reason?
          **/
         inline void Rotate(const float radians)
         {

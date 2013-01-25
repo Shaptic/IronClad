@@ -64,6 +64,11 @@ namespace ic
             return mp_levelESpawns;
         }
 
+        const std::vector<gfx::CLight*>& GetLights() const
+        {
+            return mp_levelLights;
+        }
+
         std::vector<CEntity*> mp_levelEntities;
     private:
         //static const uint8_t   IC_LVL_INACTIVE      = 0x01;
@@ -73,9 +78,10 @@ namespace ic
         //static const uint8_t   IC_LVL_ENEMY_SPAWN   = 0x16;
         //static const uint8_t   IC_LVL_LIGHT         = 0x32;
 
-        std::vector<CRigidBody*> mp_levelPhysics;
-        std::vector<CEntity*> mp_levelESpawns;
-        math::vector2_t mp_PlayerSpawn;
+        std::vector<CRigidBody*>    mp_levelPhysics;
+        std::vector<CEntity*>       mp_levelESpawns;
+        std::vector<gfx::CLight*>   mp_levelLights;
+        math::vector2_t             mp_PlayerSpawn;
 
         gfx::CWindow& m_Window;
 

@@ -164,6 +164,7 @@ bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
                         {
                             pLight = new gfx::CLight;
                             pLight->Init(gfx::IC_POINT_LIGHT, m_Window);
+                            mp_levelLights.push_back(pLight);
                         }
                         // Player spawn / enemy spawn / etc.
                         // This does NOT work. Created before moved.

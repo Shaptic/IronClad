@@ -26,7 +26,7 @@
 
 namespace ic
 {
-    class CRigidBody : public CEntity
+    class IRONCLAD_API CRigidBody : public CEntity
     {
     public:
         CRigidBody() : m_vert(0.f), m_horz(0.f) {}
