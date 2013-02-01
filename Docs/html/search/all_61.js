@@ -9,5 +9,6 @@ var searchData=
   ['animation_2ehpp',['Animation.hpp',['../_animation_8hpp.html',1,'']]],
   ['asset_2ehpp',['Asset.hpp',['../_asset_8hpp.html',1,'']]],
   ['assetmanager_2ehpp',['AssetManager.hpp',['../_asset_manager_8hpp.html',1,'']]],
-  ['assets',['Assets',['../group___assets.html',1,'']]]
+  ['assets',['Assets',['../group___assets.html',1,'']]],
+  ['atoi',['atoi',['../namespaceic_1_1util.html#aeef8b87b77a0f7bd0ce8569b3c64df36',1,'ic::util']]]
 ];

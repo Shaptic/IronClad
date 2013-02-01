@@ -23,6 +23,18 @@ int util::num_len(const int number)
 }
 
 /**
+ * Coverts a C++ string to an integer value.
+ *  This just makes code a tiny bit shorter, and I don't have to worry
+ *  about calling c_str() every freaking time.
+ * @param   std::string String to convert
+ * @return  0 on failure, integer on success (which could be 0 of course).
+ **/
+int util::atoi(const std::string& str)
+{
+    return ::atoi(str.c_str());
+}
+
+/**
  * Convert a string to its uppercase equivalent.
  *  This directly modifies the original string argument.
  *  

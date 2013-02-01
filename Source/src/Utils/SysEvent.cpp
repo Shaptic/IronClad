@@ -26,8 +26,8 @@ void util::SystemEvent::Reset()
 {
     type    = IC_NO_EVENT;
     mpos    = math::vector2_t(-1, -1);
-    mbutton = -1;
-    symkey  = -1;
+    mbutton = IC_BUTTON_UNKNOWN;
+    symkey  = IC_KEY_UNKNOWN;
     key     = '\0';
 }
 
@@ -68,7 +68,7 @@ void CEventHandler::KeyboardCallback(const int key, const int action)
 {
     // If the key is in the ASCII range, set it to the printable
     // character in the event structure.
-    if(key >= GLFW_KEY_SPACE && key < 128)
+    if(key >= IC_KEY_SPACE && key < 128)
         ActiveEvent.key = (char)key;
 
     // Not printable, so set it to the symbol key.
@@ -121,7 +121,7 @@ int util::GetKeyState(const int key)
     return glfwGetKey(key) == GLFW_PRESS ? IC_KEYDOWN : IC_KEYUP;
 }
 
-int util::GetMouseState(const int button)
+int util::GetMouseState(const ButtonCode button)
 {
     return (glfwGetMouseButton(button) == GLFW_PRESS) ? 
         IC_MOUSEDOWN : IC_MOUSEUP;

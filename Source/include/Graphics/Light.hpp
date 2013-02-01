@@ -90,6 +90,8 @@ namespace gfx
         int m_brtloc, m_thetaloc, m_colloc, m_attloc, m_posloc;
     };
 
+    typedef std::vector<ic::gfx::CLight*> LightVector;
+
 }   // namespace gfx
 }   // namespace ic
 

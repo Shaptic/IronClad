@@ -51,6 +51,67 @@ namespace util
     };
 
     /**
+     * Describes the various key codes (incomplete).
+     * @see GL/glfw.h for a complete listing.
+     **/
+    enum IRONCLAD_API KeyCode
+    {
+        IC_KEY_UNKNOWN  = -1,
+        IC_KEY_SPACE    = 32,
+        IC_KEY_SPECIAL  = 256,
+        IC_KEY_ESC,
+        IC_KEY_F1,
+        IC_KEY_F2,
+        IC_KEY_F3,
+        IC_KEY_F4,
+        IC_KEY_F5,
+        IC_KEY_F6,
+        IC_KEY_F7,
+        IC_KEY_F8,
+        IC_KEY_F9,
+        IC_KEY_F10,
+        IC_KEY_F11,
+        IC_KEY_F12,
+        IC_KEY_UP       = GLFW_KEY_UP,
+        IC_KEY_DOWN,
+        IC_KEY_LEFT,
+        IC_KEY_RIGHT,
+        IC_KEY_LSHIFT,
+        IC_KEY_RSHIFT,
+        IC_KEY_LCTRL,
+        IC_KEY_RCTRL,
+        IC_KEY_LALT,
+        IC_KEY_RALT,
+        IC_KEY_TAB,
+        IC_KEY_ENTER,
+        IC_KEY_RETURN   = IC_KEY_ENTER,
+        IC_KEY_BSPACE   = GLFW_KEY_BACKSPACE,
+        IC_KEY_BACKSPACE= GLFW_KEY_BACKSPACE,
+        IC_KEY_PAUSE    = GLFW_KEY_PAUSE
+    };
+
+    /**
+     * Identifiers for mouse buttons.
+     * @see GL/glfw.h
+     **/
+    enum IRONCLAD_API ButtonCode
+    {
+        IC_BUTTON_UNKNOWN   = -1,
+        IC_BUTTON_1         = GLFW_MOUSE_BUTTON_1,
+        IC_BUTTON_2,
+        IC_BUTTON_3,
+        IC_BUTTON_4,
+        IC_BUTTON_5,
+        IC_BUTTON_6,
+        IC_BUTTON_7,
+        IC_BUTTON_8,
+        IC_BUTTONS_SUPPORTED,
+        IC_BUTTON_LEFT  = IC_BUTTON_1,
+        IC_BUTTON_RIGHT = IC_BUTTON_2,
+        IC_BUTTON_MIDDLE= IC_BUTTON_3
+    };
+
+    /**
      * Structure containing all elements of a system event in IronClad.
      **/
     struct IRONCLAD_API SystemEvent
@@ -140,24 +201,25 @@ namespace util
      * 
      * @return  IC_KEYDOWN if the key is currently being pressed,
      *          IC_KEYUP if it is not.
-     *  
-     * @todo    Make IronClad specific constants for non-printable chars.
+     *          
+     * @see     ic::KeyCode
      **/
     int IRONCLAD_API GetKeyState(const int key);
 
     /**
      * Retrieves the state of a certain mouse button.
      *  Acceptable buttons are specified by GLFW mouse button constants
-     *  GLFW_MOUSE_BUTTON_1 through 8.
+     *  GLFW_MOUSE_BUTTON_1 through 8, as well as the IronClad constants
+     *  IC_BUTTON_1..8, and IC_BUTTON_LEFT..MIDDLE.
      * 
      * @param   int     Mouse button to test state for
      * 
      * @return  IC_MOUSEDOWN if button is pressed, 
      *          IC_MOUSEUP if it is not.
      *          
-     * @todo    Make IronClad specific mouse button constants.
+     * @see     ic::ButtonCode
      **/
-    int IRONCLAD_API GetMouseState(const int button);
+    int IRONCLAD_API GetMouseState(const ButtonCode button);
 
     /**
      * Globally accessible CEventHandler singleton instance.

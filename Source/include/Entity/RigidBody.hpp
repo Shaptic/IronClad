@@ -42,7 +42,6 @@ namespace ic
 
         void Move(const math::vector2_t& Pos);
         void Move(const float x, const float y);
-
         void Adjust(const math::vector2_t& Rate);
         void Adjust(const float dx, const float dy);
 

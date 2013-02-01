@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3803 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3888 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -120,8 +120,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    type    = IC_NO_EVENT;</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    mpos    = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(-1, -1);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    mbutton = -1;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    symkey  = -1;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    mbutton = IC_BUTTON_UNKNOWN;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    symkey  = IC_KEY_UNKNOWN;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    key     = <span class="charliteral">&#39;\0&#39;</span>;</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
@@ -162,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// If the key is in the ASCII range, set it to the printable</span></div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="comment">// character in the event structure.</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span>(key &gt;= GLFW_KEY_SPACE &amp;&amp; key &lt; 128)</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span>(key &gt;= IC_KEY_SPACE &amp;&amp; key &lt; 128)</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        ActiveEvent.<a class="code" href="structic_1_1util_1_1_system_event.html#a63d4b006fdcadcbc058849d8251f1072" title="Printable keyboard character.">key</a> = (char)key;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// Not printable, so set it to the symbol key.</span></div>
@@ -215,7 +215,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">return</span> glfwGetKey(key) == GLFW_PRESS ? IC_KEYDOWN : IC_KEYUP;</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#ab369426bcfb672367bb541b8d4ad909b">  124</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespaceic_1_1util.html#ab369426bcfb672367bb541b8d4ad909b" title="Retrieves the state of a certain mouse button.">util::GetMouseState</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> button)</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a6dbcc5ccac362f68d3c863fc7260a4e7">  124</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespaceic_1_1util.html#a6dbcc5ccac362f68d3c863fc7260a4e7" title="Retrieves the state of a certain mouse button.">util::GetMouseState</a>(<span class="keyword">const</span> ButtonCode button)</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> (glfwGetMouseButton(button) == GLFW_PRESS) ? </div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        IC_MOUSEDOWN : IC_MOUSEUP;</div>
@@ -223,7 +223,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 21 2013 22:25:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 1 2013 14:16:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

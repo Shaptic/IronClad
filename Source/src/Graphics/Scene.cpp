@@ -557,6 +557,33 @@ bool gfx::CScene::InsertMesh(const uint16_t position, CEntity* pEntity)
     return true;
 }
 
+CEntity* gfx::CScene::InsertMesh(const uint16_t position, 
+                             const std::string& filename,
+                             const math::vector2_t& Position,
+                             bool animate, bool rigid)
+{
+    if(mp_sceneObjects.size() < position)
+        return this->AddMesh(filename, Position, animate, rigid);
+
+    CEntity* pFinal = NULL;
+
+    if (animate)    pFinal = new CAnimation;
+    else if (rigid) pFinal = new CRigidBody;
+    else            pFinal = new CEntity;
+
+    if(!pFinal->LoadFromFile(filename, m_GeometryVBO))
+    {
+        delete pFinal;
+        return (pFinal = NULL);
+    }
+
+    pFinal->Move(Position);
+
+    mp_sceneObjects.insert(mp_sceneObjects.begin() + position, pFinal);
+    return pFinal;
+}
+
+
 int CScene::GetQueuePosition(const CEntity* pEntity) const
 {
     for(size_t i = 0; i < mp_sceneObjects.size(); ++i)

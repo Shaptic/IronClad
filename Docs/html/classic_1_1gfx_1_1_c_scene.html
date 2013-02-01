@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3803 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3888 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -115,8 +115,8 @@ Public Member Functions</h2></td></tr>
 <a class="el" href="classic_1_1_c_entity.html">CEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>AddMesh</b> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh, const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Pos)</td></tr>
 <tr class="memitem:ac0c1c454b6e66751dd736b0306a848b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac0c1c454b6e66751dd736b0306a848b9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>AddMesh</b> (<a class="el" href="classic_1_1_c_entity.html">asset::CEntity</a> *pEntity)</td></tr>
-<tr class="memitem:a218cca1b0550487b3708f834e59f973e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classic_1_1_c_entity.html">CEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a218cca1b0550487b3708f834e59f973e">InsertMesh</a> (const uint16_t position, const std::string &amp;filename, const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Position, bool animate=false, bool physical=false)</td></tr>
-<tr class="memdesc:a218cca1b0550487b3708f834e59f973e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an entity to be rendered in a specific order in the scene.  <a href="#a218cca1b0550487b3708f834e59f973e"></a><br/></td></tr>
+<tr class="memitem:ac4d5a239e6ec70e8e55cef0c33a448ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classic_1_1_c_entity.html">CEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#ac4d5a239e6ec70e8e55cef0c33a448ef">InsertMesh</a> (const uint16_t position, const std::string &amp;filename, const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Position, bool animate=false, bool physical=false)</td></tr>
+<tr class="memdesc:ac4d5a239e6ec70e8e55cef0c33a448ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an entity to be rendered in a specific order in the scene.  <a href="#ac4d5a239e6ec70e8e55cef0c33a448ef"></a><br/></td></tr>
 <tr class="memitem:ae294cb392776fcf0d6e6a853f21ac417"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae294cb392776fcf0d6e6a853f21ac417"></a>
 <a class="el" href="classic_1_1_c_entity.html">CEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>InsertMesh</b> (const uint16_t position, <a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh, const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Pos, bool animate=false, bool physical=false)</td></tr>
 <tr class="memitem:ab15996866a099302a1e9f0ba964dd893"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab15996866a099302a1e9f0ba964dd893"></a>
@@ -147,6 +147,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>MoveCamera</b> (const
 <tr class="memdesc:a383297d7561c218fe4796d32a7089d7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles lighting.  <a href="#a383297d7561c218fe4796d32a7089d7f"></a><br/></td></tr>
 <tr class="memitem:a8fd05e4ee782d37be98a06f32821a81a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a8fd05e4ee782d37be98a06f32821a81a">GetLightFromScene</a> (const uint16_t id)</td></tr>
 <tr class="memdesc:a8fd05e4ee782d37be98a06f32821a81a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a light from the scene using a unique ID.  <a href="#a8fd05e4ee782d37be98a06f32821a81a"></a><br/></td></tr>
+<tr class="memitem:aeaa55951a6c98b1d26661ac2eb660185"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeaa55951a6c98b1d26661ac2eb660185"></a>
+const <a class="el" href="classic_1_1gfx_1_1_c_window.html">CWindow</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetWindow</b> () const </td></tr>
 <tr class="memitem:a0ec1b91f038e26098373fbcf586b99eb"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a0ec1b91f038e26098373fbcf586b99eb">GetQueuePosition</a> (const <a class="el" href="classic_1_1_c_entity.html">CEntity</a> *pEntity) const </td></tr>
 <tr class="memdesc:a0ec1b91f038e26098373fbcf586b99eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the position in the object queue of the object.  <a href="#a0ec1b91f038e26098373fbcf586b99eb"></a><br/></td></tr>
 <tr class="memitem:a2bd853e0f52fb7a58f65480ea96e34fe"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2bd853e0f52fb7a58f65480ea96e34fe"></a>
@@ -224,7 +226,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Accessible ID of the scene light.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>Make it actually find the ID of an existing light.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>Make it actually find the ID of an existing light.</dd></dl>
 
 <p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00335">335</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
@@ -360,7 +362,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>-1 if object is not in queue, proper index otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00560">560</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00587">587</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -388,12 +390,12 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a218cca1b0550487b3708f834e59f973e"></a>
+<a class="anchor" id="ac4d5a239e6ec70e8e55cef0c33a448ef"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classic_1_1_c_entity.html">CEntity</a>* ic::gfx::CScene::InsertMesh </td>
+          <td class="memname"><a class="el" href="classic_1_1_c_entity.html">CEntity</a> * gfx::CScene::InsertMesh </td>
           <td>(</td>
           <td class="paramtype">const uint16_t&#160;</td>
           <td class="paramname"><em>position</em>, </td>
@@ -444,6 +446,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a0ec1b91f038e26098373fbcf586b99eb" title="Returns the position in the object queue of the object.">CScene::GetQueuePosition()</a> </dd>
 <dd>
 CScene::GetObjects() </dd></dl>
+
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00560">560</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -582,7 +586,7 @@ CScene::GetObjects() </dd></dl>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>This, as well as <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a218cca1b0550487b3708f834e59f973e" title="Adds an entity to be rendered in a specific order in the scene.">CScene::InsertMesh()</a> should be used sparingly, and preferably prior to the main game loop, since the underlying container is an std::vector.</p>
+<p>This, as well as <a class="el" href="classic_1_1gfx_1_1_c_scene.html#ac4d5a239e6ec70e8e55cef0c33a448ef" title="Adds an entity to be rendered in a specific order in the scene.">CScene::InsertMesh()</a> should be used sparingly, and preferably prior to the main game loop, since the underlying container is an std::vector.</p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramname">CEntity*</td><td>Entity to remove</td></tr>
@@ -608,7 +612,7 @@ CScene::GetObjects() </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>If, for example, you wanted to render off-screen, you'd bind the other FBO before calling this.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>Shadow generation.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>Shadow generation.</dd></dl>
 
 <p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00080">80</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
@@ -673,7 +677,7 @@ CScene::GetObjects() </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 21 2013 22:25:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 1 2013 14:16:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

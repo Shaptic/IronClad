@@ -266,6 +266,9 @@ namespace gfx
          inline CLight* GetLightFromScene(const uint16_t id)
          { return mp_sceneLights.size() < id ? NULL : mp_sceneLights[id]; }
 
+         inline const CWindow& GetWindow() const 
+         { return m_Window; }
+
          /**
           * Returns the position in the object queue of the object.
           * 

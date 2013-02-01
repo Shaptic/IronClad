@@ -43,7 +43,7 @@ namespace ic
     class IRONCLAD_API CLevel
     {
     public:
-        CLevel(gfx::CWindow& Window);
+        CLevel(const gfx::CWindow& Window);
 
         ~CLevel();
 
@@ -83,7 +83,7 @@ namespace ic
         std::vector<gfx::CLight*>   mp_levelLights;
         math::vector2_t             mp_PlayerSpawn;
 
-        gfx::CWindow& m_Window;
+        const gfx::CWindow& m_Window;
 
         std::string m_filename;
     };

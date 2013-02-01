@@ -2,29 +2,32 @@ CHANGELOG
 
 Project			:	IronClad
 Author			:	George Kudrayvtsev
-Current Version	:	1.0.5 alpha
-Last Updated	:	01.25.2012
+Current Version	:	1.0.6 alpha
+Last Updated	:	02.01.2013
 
-Version 1.0.5a (01.25.2012):
+Version 1.0.6a (02.01.2013):
+ + Insert meshes into scenes easily, from file or existing
+
+Version 1.0.5a (01.25.2013):
  * Updated binaries
  * Fixed level loading
  * Physics bugfixes
 
-Version 1.0.4a (01.21.2012):
+Version 1.0.4a (01.21.2013):
  * Fixed physics bugs
  * Fixed vector rotation bugs
 
-Version 1.0.3a (01.17.2012):
+Version 1.0.3a (01.17.2013):
  +  Level contains more world info
  +  Physics bug fixes
 
-Version 1.0.2a (01.16.2012):
+Version 1.0.2a (01.16.2013):
  +	Texture overrides
  +	Basic physics
  *	Bug fixes
 
-Version 1.0.1a (01.14.2012):
+Version 1.0.1a (01.14.2013):
  *	Improved level loading
 
-Version 1.0.0a (01.10.2012):
+Version 1.0.0a (01.10.2013):
  *	Initial commit

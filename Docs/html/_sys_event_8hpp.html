@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3803 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3888 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -128,8 +128,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:af77c803ff641212036847bfd21781a3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads current mouse position into given variables.  <a href="#af77c803ff641212036847bfd21781a3f"></a><br/></td></tr>
 <tr class="memitem:ad096ec812b4bbd58bdfd9fdb8b469830"><td class="memItemLeft" align="right" valign="top">int <a class="el" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a">IRONCLAD_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceic_1_1util.html#ad096ec812b4bbd58bdfd9fdb8b469830">ic::util::GetKeyState</a> (const int key)</td></tr>
 <tr class="memdesc:ad096ec812b4bbd58bdfd9fdb8b469830"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the state of a certain key.  <a href="#ad096ec812b4bbd58bdfd9fdb8b469830"></a><br/></td></tr>
-<tr class="memitem:ab369426bcfb672367bb541b8d4ad909b"><td class="memItemLeft" align="right" valign="top">int <a class="el" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a">IRONCLAD_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceic_1_1util.html#ab369426bcfb672367bb541b8d4ad909b">ic::util::GetMouseState</a> (const int button)</td></tr>
-<tr class="memdesc:ab369426bcfb672367bb541b8d4ad909b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the state of a certain mouse button.  <a href="#ab369426bcfb672367bb541b8d4ad909b"></a><br/></td></tr>
+<tr class="memitem:a6dbcc5ccac362f68d3c863fc7260a4e7"><td class="memItemLeft" align="right" valign="top">int <a class="el" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a">IRONCLAD_API</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceic_1_1util.html#a6dbcc5ccac362f68d3c863fc7260a4e7">ic::util::GetMouseState</a> (const ButtonCode button)</td></tr>
+<tr class="memdesc:a6dbcc5ccac362f68d3c863fc7260a4e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the state of a certain mouse button.  <a href="#a6dbcc5ccac362f68d3c863fc7260a4e7"></a><br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -153,6 +153,92 @@ Variables</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IC_MOUSEUP</b></td></tr>
 <tr class="memitem:ab0c6cf418b36033e8adf7b96a343588d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab0c6cf418b36033e8adf7b96a343588d"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>IC_MOUSEMOVE</b></td></tr>
+<tr class="memitem:a256082dc6acf908a168ae43e30d8e75b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a256082dc6acf908a168ae43e30d8e75b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_UNKNOWN</b> = -1</td></tr>
+<tr class="memitem:a4c27fdc6035efeb253a238fc5011b0cd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4c27fdc6035efeb253a238fc5011b0cd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_SPACE</b> = 32</td></tr>
+<tr class="memitem:a1e0b3b699c8ebf47edce4f565e206715"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e0b3b699c8ebf47edce4f565e206715"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_SPECIAL</b> = 256</td></tr>
+<tr class="memitem:aa0b53d66bdd9d61d32f51eb0a5e6fff2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0b53d66bdd9d61d32f51eb0a5e6fff2"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_ESC</b></td></tr>
+<tr class="memitem:ae7cf29502cbe0837a52b611cdf9cc40e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae7cf29502cbe0837a52b611cdf9cc40e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F1</b></td></tr>
+<tr class="memitem:a890847064338727044334715dfe1d3b3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a890847064338727044334715dfe1d3b3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F2</b></td></tr>
+<tr class="memitem:aab023cf663e1e7858f2b2aea278ced9d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aab023cf663e1e7858f2b2aea278ced9d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F3</b></td></tr>
+<tr class="memitem:a76c8329fb5c95bfa539d8b58d2042dfc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a76c8329fb5c95bfa539d8b58d2042dfc"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F4</b></td></tr>
+<tr class="memitem:ab9e2de1ffef699f7e16fa384b8cee9c5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9e2de1ffef699f7e16fa384b8cee9c5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F5</b></td></tr>
+<tr class="memitem:a9558da45f3da2ac9dd677c45b257ddfa"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9558da45f3da2ac9dd677c45b257ddfa"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F6</b></td></tr>
+<tr class="memitem:a9a71cdacacdb7890f384240a3c3985bf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9a71cdacacdb7890f384240a3c3985bf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F7</b></td></tr>
+<tr class="memitem:a0708e79603e7f02fadaa90797405c0f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0708e79603e7f02fadaa90797405c0f4"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F8</b></td></tr>
+<tr class="memitem:a8a8b40402a0dcd7dee098b2927d1d20f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a8b40402a0dcd7dee098b2927d1d20f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F9</b></td></tr>
+<tr class="memitem:a2abf30d3897787e1c98aa3094ee39628"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2abf30d3897787e1c98aa3094ee39628"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F10</b></td></tr>
+<tr class="memitem:abfb2a72357335a1240e8063b9ce52d19"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abfb2a72357335a1240e8063b9ce52d19"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F11</b></td></tr>
+<tr class="memitem:a1a30a683291e70754c2ff06ff7e932dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1a30a683291e70754c2ff06ff7e932dd"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_F12</b></td></tr>
+<tr class="memitem:aaa4bbc79dfd9131f1774b86a59f07dc8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaa4bbc79dfd9131f1774b86a59f07dc8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_UP</b> = GLFW_KEY_UP</td></tr>
+<tr class="memitem:a8d873067bc08cafcb3b508f7946fa917"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d873067bc08cafcb3b508f7946fa917"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_DOWN</b></td></tr>
+<tr class="memitem:af0f398a391137a70b65d64b31582dbe6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af0f398a391137a70b65d64b31582dbe6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_LEFT</b></td></tr>
+<tr class="memitem:afdb6e2f65f76cb7758503b10f4d44b6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afdb6e2f65f76cb7758503b10f4d44b6a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_RIGHT</b></td></tr>
+<tr class="memitem:a1fc3affe9e5ff79c3085cc3caf67c3d1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1fc3affe9e5ff79c3085cc3caf67c3d1"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_LSHIFT</b></td></tr>
+<tr class="memitem:aac9b05cd83874c38025c2fa057c85d2e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aac9b05cd83874c38025c2fa057c85d2e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_RSHIFT</b></td></tr>
+<tr class="memitem:ace515bbe7e6320dc328f610ab14adca0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ace515bbe7e6320dc328f610ab14adca0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_LCTRL</b></td></tr>
+<tr class="memitem:a21004a7b1c914eeebe886f1b5f302b3b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21004a7b1c914eeebe886f1b5f302b3b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_RCTRL</b></td></tr>
+<tr class="memitem:a6ad3aac5a5a539a3871f0ec6ef673290"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ad3aac5a5a539a3871f0ec6ef673290"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_LALT</b></td></tr>
+<tr class="memitem:a685e833867c7ae9933fc70011de88563"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a685e833867c7ae9933fc70011de88563"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_RALT</b></td></tr>
+<tr class="memitem:a476dce39dd260e188f172251b296ddd3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a476dce39dd260e188f172251b296ddd3"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_TAB</b></td></tr>
+<tr class="memitem:a37222f08f6523f6b2bc943459a0bdc52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37222f08f6523f6b2bc943459a0bdc52"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_ENTER</b></td></tr>
+<tr class="memitem:a4febd771191557ee427347b3d7dce65b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4febd771191557ee427347b3d7dce65b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_RETURN</b> = IC_KEY_ENTER</td></tr>
+<tr class="memitem:a0b8ee4effdad7af867a6ac6eba6c0108"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b8ee4effdad7af867a6ac6eba6c0108"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_BSPACE</b> = GLFW_KEY_BACKSPACE</td></tr>
+<tr class="memitem:a635e46877274ec5028cf1f9485855101"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a635e46877274ec5028cf1f9485855101"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_KEY_BACKSPACE</b> = GLFW_KEY_BACKSPACE</td></tr>
+<tr class="memitem:a975894242c5e4cecfd2e6226a34edd4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a975894242c5e4cecfd2e6226a34edd4a"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_UNKNOWN</b> = -1</td></tr>
+<tr class="memitem:aea5497480944c3daf27c6c84d6c8beb9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aea5497480944c3daf27c6c84d6c8beb9"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_1</b> = GLFW_MOUSE_BUTTON_1</td></tr>
+<tr class="memitem:a534b433dec8eb285a3f7bd54d86f18ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a534b433dec8eb285a3f7bd54d86f18ab"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_2</b></td></tr>
+<tr class="memitem:aca677a220cd592b40bed5d89a3f94d03"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aca677a220cd592b40bed5d89a3f94d03"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_3</b></td></tr>
+<tr class="memitem:aeec0c0fad86a10e893de173658ec22f8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeec0c0fad86a10e893de173658ec22f8"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_4</b></td></tr>
+<tr class="memitem:a0b2317e841425072425ef50ad03b7637"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b2317e841425072425ef50ad03b7637"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_5</b></td></tr>
+<tr class="memitem:a549c54fc5c4f676cced8ae616e850a29"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a549c54fc5c4f676cced8ae616e850a29"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_6</b></td></tr>
+<tr class="memitem:acb0d03bbba410bec72e4c7f7de8be551"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acb0d03bbba410bec72e4c7f7de8be551"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_7</b></td></tr>
+<tr class="memitem:a04938e69395de165bcf5889c0f5a668d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04938e69395de165bcf5889c0f5a668d"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_8</b></td></tr>
+<tr class="memitem:afc22a20390dafdae802f72d995572695"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afc22a20390dafdae802f72d995572695"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTONS_SUPPORTED</b></td></tr>
+<tr class="memitem:a4d6bc55c19411a82f66d1a2186eb3714"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d6bc55c19411a82f66d1a2186eb3714"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_LEFT</b> = IC_BUTTON_1</td></tr>
+<tr class="memitem:ae49aa79bc04aeb0d997e1a8d3b9cc6ed"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae49aa79bc04aeb0d997e1a8d3b9cc6ed"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>IC_BUTTON_RIGHT</b> = IC_BUTTON_2</td></tr>
 <tr class="memitem:adeea7ec045cabf1dfe213f6d60cd5893"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adeea7ec045cabf1dfe213f6d60cd5893"></a>
 static CEventHandler &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceic_1_1util.html#adeea7ec045cabf1dfe213f6d60cd5893">ic::util::g_EventQueue</a> = CEventHandler::GetInstance()</td></tr>
 <tr class="memdesc:adeea7ec045cabf1dfe213f6d60cd5893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Globally accessible <a class="el" href="classic_1_1util_1_1_c_event_handler.html" title="Singleton class responsible for managing a queue of system events.">CEventHandler</a> singleton instance. <br/></td></tr>
@@ -173,7 +259,7 @@ static CEventHandler &amp;&#160;</td><td class="memItemRight" valign="bottom"><a
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 21 2013 22:25:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 1 2013 14:16:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

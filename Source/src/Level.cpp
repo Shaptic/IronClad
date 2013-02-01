@@ -2,7 +2,7 @@
 
 using namespace ic;
 
-CLevel::CLevel(gfx::CWindow& Window) : m_Window(Window)
+CLevel::CLevel(const gfx::CWindow& Window) : m_Window(Window)
 {
     mp_levelEntities.clear();
     m_filename.clear();

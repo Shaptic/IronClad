@@ -37,25 +37,25 @@
       <UniqueIdentifier>{c42c4b70-e048-474c-95a0-4d734050f9b4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{eb181c8a-c847-4689-9dbe-7642b79514c1}</UniqueIdentifier>
+      <UniqueIdentifier>{38f87bac-7984-4144-99f5-342d04f41d34}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Assets">
-      <UniqueIdentifier>{af222096-89eb-4bcb-9cbb-db082a29951e}</UniqueIdentifier>
+      <UniqueIdentifier>{e613484d-b49e-4d33-b01e-527fa2f75baa}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Entities">
-      <UniqueIdentifier>{8c880685-ac99-4107-8fd9-7d9b1b15fa2b}</UniqueIdentifier>
+      <UniqueIdentifier>{7c3f5139-e39b-42c0-8c14-4c22ce12ff9e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Fonts">
-      <UniqueIdentifier>{91f9fa21-32f1-4a03-b2b3-a3debc48f2b7}</UniqueIdentifier>
+      <UniqueIdentifier>{f8083e30-d289-4d18-ba82-f371110e3d8c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Graphics">
-      <UniqueIdentifier>{ca7f83f4-3afb-4059-9292-96800bdb0557}</UniqueIdentifier>
+      <UniqueIdentifier>{056ec743-d7b5-4b14-b4f2-b1b07faae614}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Math">
-      <UniqueIdentifier>{4b5b312a-333b-4c47-8251-49ddb51b4120}</UniqueIdentifier>
+      <UniqueIdentifier>{330f45e2-d7d3-44ab-ac14-cefb577b185a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Utilities">
-      <UniqueIdentifier>{21b175ca-d6f5-4a89-82b1-2b58cd0207a9}</UniqueIdentifier>
+      <UniqueIdentifier>{4216c4a7-09ee-4dc0-b530-dd04b06cc409}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

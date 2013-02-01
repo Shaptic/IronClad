@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3803 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3888 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -636,7 +636,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;}</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1gfx_1_1_c_scene.html#a218cca1b0550487b3708f834e59f973e" title="Adds an entity to be rendered in a specific order in the scene.">gfx::CScene::InsertMesh</a>(<span class="keyword">const</span> uint16_t position, <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* pEntity)</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1gfx_1_1_c_scene.html#ac4d5a239e6ec70e8e55cef0c33a448ef" title="Adds an entity to be rendered in a specific order in the scene.">gfx::CScene::InsertMesh</a>(<span class="keyword">const</span> uint16_t position, <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* pEntity)</div>
 <div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;{</div>
 <div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    <span class="keywordflow">if</span>(mp_sceneObjects.size() &lt; position) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;</div>
@@ -644,19 +644,46 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;}</div>
 <div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;</div>
-<div class="line"><a name="l00560"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_scene.html#a0ec1b91f038e26098373fbcf586b99eb">  560</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classic_1_1gfx_1_1_c_scene.html#a0ec1b91f038e26098373fbcf586b99eb" title="Returns the position in the object queue of the object.">CScene::GetQueuePosition</a>(<span class="keyword">const</span> <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* pEntity)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; mp_sceneObjects.size(); ++i)</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    {</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;        <span class="keywordflow">if</span>(mp_sceneObjects[i] == pEntity) <span class="keywordflow">return</span> i;</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    }</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;}</div>
+<div class="line"><a name="l00560"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_scene.html#ac4d5a239e6ec70e8e55cef0c33a448ef">  560</a></span>&#160;<a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* <a class="code" href="classic_1_1gfx_1_1_c_scene.html#ac4d5a239e6ec70e8e55cef0c33a448ef" title="Adds an entity to be rendered in a specific order in the scene.">gfx::CScene::InsertMesh</a>(<span class="keyword">const</span> uint16_t position, </div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;                             <span class="keyword">const</span> std::string&amp; filename,</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;                             <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Position,</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                             <span class="keywordtype">bool</span> animate, <span class="keywordtype">bool</span> rigid)</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;{</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;    <span class="keywordflow">if</span>(mp_sceneObjects.size() &lt; position)</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        <span class="keywordflow">return</span> this-&gt;AddMesh(filename, Position, animate, rigid);</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* pFinal = NULL;</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    <span class="keywordflow">if</span> (animate)    pFinal = <span class="keyword">new</span> <a class="code" href="classic_1_1_c_animation.html" title="An animate-able extension of the CEntity class.">CAnimation</a>;</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rigid) pFinal = <span class="keyword">new</span> <a class="code" href="classic_1_1_c_rigid_body.html">CRigidBody</a>;</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordflow">else</span>            pFinal = <span class="keyword">new</span> <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>;</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="keywordflow">if</span>(!pFinal-&gt;<a class="code" href="classic_1_1_c_entity.html#a98cde21307a74ce175a716a890649bf2" title="Loads a mesh instance into the entity.">LoadFromFile</a>(filename, m_GeometryVBO))</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    {</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;        <span class="keyword">delete</span> pFinal;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;        <span class="keywordflow">return</span> (pFinal = NULL);</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    }</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;    pFinal-&gt;<a class="code" href="classic_1_1_c_entity.html#a794b2052df74cb04dcb9505ccb34b387" title="Moves the entity to a location.">Move</a>(Position);</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    mp_sceneObjects.insert(mp_sceneObjects.begin() + position, pFinal);</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;    <span class="keywordflow">return</span> pFinal;</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;}</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;</div>
+<div class="line"><a name="l00587"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_scene.html#a0ec1b91f038e26098373fbcf586b99eb">  587</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="classic_1_1gfx_1_1_c_scene.html#a0ec1b91f038e26098373fbcf586b99eb" title="Returns the position in the object queue of the object.">CScene::GetQueuePosition</a>(<span class="keyword">const</span> <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* pEntity)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; mp_sceneObjects.size(); ++i)</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    {</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        <span class="keywordflow">if</span>(mp_sceneObjects[i] == pEntity) <span class="keywordflow">return</span> i;</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    }</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jan 21 2013 22:25:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 1 2013 14:16:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>
