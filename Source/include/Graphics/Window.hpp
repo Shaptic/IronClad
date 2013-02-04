@@ -136,16 +136,16 @@ namespace gfx
         inline bool GetFullscreen() const
         { return m_fullscreen; }
 
-        inline const float* GetProjectionMatrix() const
+        static const float* GetProjectionMatrix()
         { return m_ProjectionMatrix.GetMatrixPointer(); }
 
         static void ToggleVSYNC();
 
     private:
-        math::matrix4x4_t   m_ProjectionMatrix;
+        static math::matrix4x4_t   m_ProjectionMatrix;
 
-        uint16_t            m_width, m_height;
-        bool                m_fullscreen;
+        uint16_t    m_width, m_height;
+        bool        m_fullscreen;
     };
 }   // namespace gfx
 }   // namespace ic

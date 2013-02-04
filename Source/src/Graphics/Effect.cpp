@@ -18,7 +18,11 @@ bool CEffect::Init(const gfx::EffectType type)
     case IC_NO_EFFECT: 
         return m_Effect.LoadFromFile("Shaders/Default.vs",
             "Shaders/Default.fs");
-    
+
+    case IC_GRAYSCALE:
+        return m_Effect.LoadFromFile("Shaders/Default.vs",
+            "Shaders/FontRender.fs");
+
     default: return false;
     }
 }

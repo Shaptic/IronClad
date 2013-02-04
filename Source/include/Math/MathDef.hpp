@@ -75,6 +75,19 @@ namespace math
     }
 
     /**
+     * Adds an array of numbers together.
+     * @param   float*  Array of values
+     * @param   int     Size of array
+     * @return  Sum of array
+     **/
+    inline float sum(const float* nums, const int size)
+    {
+        float total = 0.f;
+        for(size_t i = 0; i < size; ++i) total += nums[i];
+        return total;
+    }
+
+    /**
      * Calculates the distance between two points.
      *  Since the square root is an expensive operation, it is optional.
      *  

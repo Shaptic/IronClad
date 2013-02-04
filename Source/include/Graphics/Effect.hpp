@@ -40,6 +40,7 @@ namespace gfx
         IC_NO_EFFECT = -1,
         IC_HORIZONTAL_GAUSSIAN_BLUR,
         IC_VERTICAL_GAUSSIAN_BLUR,
+        IC_GRAYSCALE,
         IC_EFFECT_COUNT
     };
 

@@ -25,6 +25,7 @@ IronClad currently supports the following:
 * Entity wrapper for easily controllable mesh instances
 * Minimalistic physics system
 * Loading of a custom level format for easy scene creation
+* Loading and rendering of TrueType fonts
 
 ## Planned Features
 In the near future, IronClad will support:

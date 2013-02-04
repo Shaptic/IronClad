@@ -52,6 +52,7 @@ namespace ic
 
         bool CheckCollision(const CEntity* Other) const;
         bool CheckCollision(const math::rect_t& Other) const;
+        bool CheckCollision(const math::vector2_t& Other) const;
 
         void Update();
 

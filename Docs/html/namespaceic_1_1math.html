@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3888 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -119,6 +119,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:a0aa74ee6a81cc4e348249855de7eca97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Easily convert degrees to radians.  <a href="#a0aa74ee6a81cc4e348249855de7eca97"></a><br/></td></tr>
 <tr class="memitem:adf876d8d0343478684fae2aaa8920a30"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceic_1_1math.html#adf876d8d0343478684fae2aaa8920a30">deg</a> (const float theta)</td></tr>
 <tr class="memdesc:adf876d8d0343478684fae2aaa8920a30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Easily convert radians to degrees.  <a href="#adf876d8d0343478684fae2aaa8920a30"></a><br/></td></tr>
+<tr class="memitem:a959837d59caf460069a4b9ac38b339cb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceic_1_1math.html#a959837d59caf460069a4b9ac38b339cb">sum</a> (const float *nums, const int size)</td></tr>
+<tr class="memdesc:a959837d59caf460069a4b9ac38b339cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an array of numbers together.  <a href="#a959837d59caf460069a4b9ac38b339cb"></a><br/></td></tr>
 <tr class="memitem:a642bcc40af50b0e0134898cf11886614"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceic_1_1math.html#a642bcc40af50b0e0134898cf11886614">distance</a> (const float start_x, const float start_y, const float end_x, const float end_y, const bool do_sqrt=true)</td></tr>
 <tr class="memdesc:a642bcc40af50b0e0134898cf11886614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the distance between two points.  <a href="#a642bcc40af50b0e0134898cf11886614"></a><br/></td></tr>
 <tr class="memitem:aedb2a5a3f3cc1afeb009006c7dde0f8d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
@@ -185,7 +187,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00106">106</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00119">119</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
 
 </div>
 </div>
@@ -283,7 +285,7 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00087">87</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00100">100</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
 
 </div>
 </div>
@@ -322,7 +324,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Max of value one and two. </dd></dl>
 
-<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00130">130</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00143">143</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
 
 </div>
 </div>
@@ -361,7 +363,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Min of value one and two. </dd></dl>
 
-<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00145">145</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00158">158</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
 
 </div>
 </div>
@@ -398,6 +400,50 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a959837d59caf460069a4b9ac38b339cb"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ic::math::sum </td>
+          <td>(</td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>nums</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">float*</td><td>Array of values </td></tr>
+    <tr><td class="paramname">int</td><td>Size of array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>Sum of array </dd></dl>
+
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00083">83</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+
+</div>
+</div>
 <hr/><h2>Variable Documentation</h2>
 <a class="anchor" id="aacf14422aed5e55a6183410203e9d267"></a>
 <div class="memitem">
@@ -426,7 +472,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 1 2013 14:16:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 3 2013 22:44:03 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

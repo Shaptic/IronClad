@@ -12,9 +12,6 @@
     <Filter Include="Shaders">
       <UniqueIdentifier>{9e4a7726-d9e7-4a41-abf3-ed6edf29d7e8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{04d01c47-2a23-48bd-9143-f38a2e049fca}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\IronClad">
       <UniqueIdentifier>{b9187be1-bc8b-4138-9e53-d3635599769b}</UniqueIdentifier>
     </Filter>
@@ -36,26 +33,8 @@
     <Filter Include="Header Files\IronClad\Base">
       <UniqueIdentifier>{c42c4b70-e048-474c-95a0-4d734050f9b4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{38f87bac-7984-4144-99f5-342d04f41d34}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Assets">
-      <UniqueIdentifier>{e613484d-b49e-4d33-b01e-527fa2f75baa}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Entities">
-      <UniqueIdentifier>{7c3f5139-e39b-42c0-8c14-4c22ce12ff9e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Fonts">
-      <UniqueIdentifier>{f8083e30-d289-4d18-ba82-f371110e3d8c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Graphics">
-      <UniqueIdentifier>{056ec743-d7b5-4b14-b4f2-b1b07faae614}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Math">
-      <UniqueIdentifier>{330f45e2-d7d3-44ab-ac14-cefb577b185a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Utilities">
-      <UniqueIdentifier>{4216c4a7-09ee-4dc0-b530-dd04b06cc409}</UniqueIdentifier>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3b546758-dd25-4664-a67c-21e76e020660}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +149,9 @@
     <ClInclude Include="include\IronClad.hpp">
       <Filter>Header Files\IronClad</Filter>
     </ClInclude>
+    <ClInclude Include="include\Fonts\Font.hpp">
+      <Filter>Header Files\IronClad</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\glfw.ico">
@@ -196,85 +178,13 @@
     <None Include="include\Asset\AssetManager.inl">
       <Filter>Header Files\IronClad\Assets</Filter>
     </None>
+    <None Include="..\Debug\Shaders\FontRender.fs">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DLLMain.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IronClad.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Level.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asset\AssetManager.cpp">
-      <Filter>Source Files\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asset\Mesh.cpp">
-      <Filter>Source Files\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asset\Shader.cpp">
-      <Filter>Source Files\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asset\Texture.cpp">
-      <Filter>Source Files\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Entity\Animation.cpp">
-      <Filter>Source Files\Engine\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Entity\Entity.cpp">
-      <Filter>Source Files\Engine\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Entity\RigidBody.cpp">
-      <Filter>Source Files\Engine\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Fonts\Font.cpp">
-      <Filter>Source Files\Engine\Fonts</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Effect.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Framebuffer.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Globals.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Light.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\MeshInstance.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Scene.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\ShaderPair.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\VertexBuffer.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Window.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Math\Line2.cpp">
-      <Filter>Source Files\Engine\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Math\Matrix.cpp">
-      <Filter>Source Files\Engine\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utils\Helper.cpp">
-      <Filter>Source Files\Engine\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utils\Loader.cpp">
-      <Filter>Source Files\Engine\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utils\Logging.cpp">
-      <Filter>Source Files\Engine\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utils\SysEvent.cpp">
-      <Filter>Source Files\Engine\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -5,6 +5,8 @@ using namespace ic;
 using gfx::CWindow;
 using util::g_Log;
 
+math::matrix4x4_t CWindow::m_ProjectionMatrix;
+
 CWindow::CWindow() : m_width(0),
     m_height(0), m_fullscreen(0) {}
 

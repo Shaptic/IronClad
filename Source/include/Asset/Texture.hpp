@@ -50,6 +50,9 @@ namespace asset
          **/
         bool LoadFromFile(const char* pfilename);
         bool LoadFromFile(const std::string& filename);
+        bool LoadFromRaw(const int iformat, const int format,
+                         const int w, const int h,
+                         const unsigned char* buffer);
 
         /**
          * Loads a Texture from an existing OpenGL texture handle.

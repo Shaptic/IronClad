@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3888 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -192,14 +192,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> m_CollisionBox.<a class="code" href="structic_1_1math_1_1rect__t.html#adbb769fdfdde7eed80fe5bdac9f99de1" title="Tests collision with another rectangle.">Collides</a>(Other);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">void</span> CRigidBody::Update()</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    this-&gt;<a class="code" href="classic_1_1_c_rigid_body.html#abbc7de0320c04b544786fa5a0a8708ce" title="Moves the entity at a rate.">Adjust</a>(m_horz, m_vert);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">bool</span> CRigidBody::CheckCollision(<span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Other)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> this-&gt;CheckCollision(<a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>(Other.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a>, Other.y, 1, 1));</div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">void</span> CRigidBody::Update()</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    this-&gt;<a class="code" href="classic_1_1_c_rigid_body.html#abbc7de0320c04b544786fa5a0a8708ce" title="Moves the entity at a rate.">Adjust</a>(m_horz, m_vert);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 1 2013 14:16:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 3 2013 22:44:02 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

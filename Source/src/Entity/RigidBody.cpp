@@ -98,6 +98,11 @@ bool CRigidBody::CheckCollision(const math::rect_t& Other) const
     return m_CollisionBox.Collides(Other);
 }
 
+bool CRigidBody::CheckCollision(const math::vector2_t& Other) const
+{
+    return this->CheckCollision(math::rect_t(Other.x, Other.y, 1, 1));
+}
+
 void CRigidBody::Update()
 {
     this->Adjust(m_horz, m_vert);

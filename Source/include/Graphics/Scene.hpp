@@ -278,6 +278,9 @@ namespace gfx
           **/
          int GetQueuePosition(const CEntity* pEntity) const;
 
+         inline void QueryCamera(math::vector2_t& Position) const 
+         { Position = m_Camera; }
+
          /**
           * Retrieves all of the lights in a scene.
           **/

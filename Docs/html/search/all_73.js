@@ -12,6 +12,7 @@ var searchData=
   ['shapes_2ehpp',['Shapes.hpp',['../_shapes_8hpp.html',1,'']]],
   ['split',['split',['../namespaceic_1_1util.html#a80c5e53506e6351b14e2ab5dc08342fe',1,'ic::util']]],
   ['start',['Start',['../classic_1_1util_1_1_c_timer.html#adf1dd17223e0692050947c73b8b00541',1,'ic::util::CTimer']]],
+  ['sum',['sum',['../namespaceic_1_1math.html#a959837d59caf460069a4b9ac38b339cb',1,'ic::math']]],
   ['surface_2ehpp',['Surface.hpp',['../_surface_8hpp.html',1,'']]],
   ['surface_5ft',['surface_t',['../structic_1_1gfx_1_1surface__t.html',1,'ic::gfx']]],
   ['symkey',['symkey',['../structic_1_1util_1_1_system_event.html#ae6223c0e4c307227a91b4f9843ea54bb',1,'ic::util::SystemEvent']]],

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3888 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -109,48 +109,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        IC_NO_EFFECT = -1,</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        IC_HORIZONTAL_GAUSSIAN_BLUR,</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        IC_VERTICAL_GAUSSIAN_BLUR,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        IC_EFFECT_COUNT</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    };</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_effect.html">   46</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> <a class="code" href="classic_1_1gfx_1_1_c_effect.html">CEffect</a></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_effect.html">CEffect</a>(){}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        ~<a class="code" href="classic_1_1gfx_1_1_c_effect.html">CEffect</a>(){}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">bool</span> Init(<span class="keyword">const</span> <a class="code" href="namespaceic_1_1gfx.html#adf79e6a0a5d612031dc42f12573ad25f" title="All of the effects supported by IronClad&#39;s shader bundle.">EffectType</a> type);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <span class="keywordtype">float</span>* pvalues, <span class="keyword">const</span> uint32_t size);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <span class="keywordtype">int</span>*   pvalues, <span class="keyword">const</span> uint32_t size);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <span class="keywordtype">float</span>  value);        </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <span class="keywordtype">int</span>    value);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">bool</span> SetMatrix(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <a class="code" href="classic_1_1math_1_1matrix4x4__t.html" title="4x4 matrix.">math::matrix4x4_t</a>&amp; Mat);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">bool</span> SetMatrix(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <span class="keywordtype">float</span>* pvalues);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_effect.html#ab2d13ce7c943be3044cbdf3f589fe79c">   83</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> Enable()</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        { m_Effect.Bind(); }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_effect.html#ac1b329c4f8fe3e74546ca8829fccac9c">   89</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> Disable()</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        { m_Effect.Unbind(); }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">int</span> GetLocation(<span class="keyword">const</span> <span class="keywordtype">char</span>* pvar);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a> m_Effect;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        std::map&lt;uint32_t, uint32_t&gt; m_UniformHash;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    };</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}   <span class="comment">// namespace gfx</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}   <span class="comment">// namespace ic</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__GRAPHICS__EFFECT_HPP</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        IC_GRAYSCALE,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        IC_EFFECT_COUNT</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    };</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_effect.html">   47</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> <a class="code" href="classic_1_1gfx_1_1_c_effect.html">CEffect</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_effect.html">CEffect</a>(){}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        ~<a class="code" href="classic_1_1gfx_1_1_c_effect.html">CEffect</a>(){}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordtype">bool</span> Init(<span class="keyword">const</span> <a class="code" href="namespaceic_1_1gfx.html#adf79e6a0a5d612031dc42f12573ad25f" title="All of the effects supported by IronClad&#39;s shader bundle.">EffectType</a> type);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <span class="keywordtype">float</span>* pvalues, <span class="keyword">const</span> uint32_t size);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <span class="keywordtype">int</span>*   pvalues, <span class="keyword">const</span> uint32_t size);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <span class="keywordtype">float</span>  value);        </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keywordtype">bool</span> SetParameter(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <span class="keywordtype">int</span>    value);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">bool</span> SetMatrix(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <a class="code" href="classic_1_1math_1_1matrix4x4__t.html" title="4x4 matrix.">math::matrix4x4_t</a>&amp; Mat);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">bool</span> SetMatrix(<span class="keyword">const</span> <span class="keywordtype">char</span>* pname, <span class="keyword">const</span> <span class="keywordtype">float</span>* pvalues);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_effect.html#ab2d13ce7c943be3044cbdf3f589fe79c">   84</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> Enable()</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        { m_Effect.Bind(); }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_effect.html#ac1b329c4f8fe3e74546ca8829fccac9c">   90</a></span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span> Disable()</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        { m_Effect.Unbind(); }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">int</span> GetLocation(<span class="keyword">const</span> <span class="keywordtype">char</span>* pvar);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a> m_Effect;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        std::map&lt;uint32_t, uint32_t&gt; m_UniformHash;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    };</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}   <span class="comment">// namespace gfx</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__GRAPHICS__EFFECT_HPP</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 1 2013 14:16:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 3 2013 22:44:02 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

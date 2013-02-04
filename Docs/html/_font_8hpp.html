@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 3888 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -98,11 +98,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <p><a class="el" href="_font_8hpp.html" title="Fonts/Font.hpp - A wrapper for an instance of a .ttf font using the FreeType 2 API.">Fonts/Font.hpp</a> - A wrapper for an instance of a .ttf font using the FreeType 2 API.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;ft2build.h&quot;</code><br/>
+<div class="textblock"><code>#include &lt;map&gt;</code><br/>
+<code>#include &quot;ft2build.h&quot;</code><br/>
 <code>#include &quot;freetype/freetype.h&quot;</code><br/>
+<code>#include &quot;freetype/ftglyph.h&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_errors_8hpp_source.html">Base/Errors.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_types_8hpp_source.html">Base/Types.hpp</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="_framebuffer_8hpp_source.html">Graphics/Framebuffer.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_vertex_buffer_8hpp_source.html">Graphics/Vertexbuffer.hpp</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="_globals_8hpp_source.html">Graphics/Globals.hpp</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="_entity_8hpp_source.html">Entity/Entity.hpp</a>&quot;</code><br/>
 </div>
 <p><a href="_font_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -110,6 +113,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1font_1_1_c_font.html">ic::font::CFont</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><b>ic::font::CFont::Glyph</b></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -132,7 +136,7 @@ Namespaces</h2></td></tr>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 1 2013 14:16:07 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 3 2013 22:44:02 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>
