@@ -2,8 +2,16 @@ CHANGELOG
 
 Project			:	IronClad
 Author			:	George Kudrayvtsev
-Current Version	:	1.1.0 alpha
-Last Updated	:	02.03.2013
+Current Version	:	1.1.5 alpha
+Last Updated	:	02.08.2013
+
+Version 1.1.5a (02.03.2013):
+ +  Animation support begun
+ +  Texture assets can load sub-images
+ +  Scene can render as wire-mesh
+ +  Fancier debug logging
+ *  Scene bug fixes
+ *  Minor font bug fix, '~' bitmap loads now 
 
 Version 1.1.0a (02.03.2013):
  +  TrueType font rendering added

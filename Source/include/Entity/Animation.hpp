@@ -23,6 +23,7 @@
 #ifndef IRON_CLAD__ANIMATION_HPP
 #define IRON_CLAD__ANIMATION_HPP
 
+#include "Utils/Utilities.hpp"
 #include "Entity.hpp"
 
 namespace ic
@@ -48,8 +49,8 @@ namespace ic
 
         /**
          * Load a custom animation file.
-         *  This will load an .icanim file that specifies texture locations
-         *  in a sprite sheet and various dimensions for all of them.
+         *  This will load an .icanim image file, which internally
+         *  specifies sprite dimensions in the sheet.
          * 
          * @param   std::string     Filename
          * 
@@ -58,17 +59,11 @@ namespace ic
          * @warning Loading animations is currently a relatively slow
          *          process that involves a lot of texture manipulation,
          *          so call this sparingly, preferably on load.
+         *          
+         * @see     Docs/ICAnim.spec
          **/
-        bool LoadAnimationFromFile(const std::string& filename)
-        { 
-            asset::CTexture* pTexture = 
-                asset::CAssetManager::Create<asset::CTexture>(filename);
-
-            if(!pTexture) return false;
-            
-            mp_allTextures.push_back(pTexture);
-            return true;
-        }
+        bool LoadFromFile(const std::string& filename,
+                          gfx::CVertexBuffer& VBO);
 
         /**
          * Adds a sprite to the animation queue.
@@ -129,10 +124,18 @@ namespace ic
          **/
         void Update();
 
-        inline asset::CTexture* GetTexture() const
-        { return mp_ActiveTexture; }
+        //inline asset::CTexture* GetTexture() const
+        //{ return mp_ActiveTexture; }
 
     private:
+        struct AnimationHeader
+        {
+            uint16_t width;         // 2 bytes * 4 fields = 8 bytes.
+            uint16_t height;
+            uint16_t columns;
+            uint16_t rows;
+        };
+
         std::vector<asset::CTexture*>   mp_allTextures;
         asset::CTexture*                mp_ActiveTexture;
         float                           m_delay;

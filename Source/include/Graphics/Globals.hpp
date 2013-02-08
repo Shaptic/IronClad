@@ -25,6 +25,7 @@
 
 #include "Base/Types.hpp"
 
+#include "Asset/Texture.hpp"
 #include "Graphics/Window.hpp"
 #include "Graphics/VertexBuffer.hpp"
 #include "Graphics/Effect.hpp"
@@ -44,6 +45,8 @@ namespace gfx
 
         static CEffect          g_DefaultEffect;
         static CVertexBuffer    g_FullscreenVBO;
+
+        static asset::CTexture* g_WhiteTexture;
 
         static vertex2_t        g_FullscreenVertices[4];
         static uint16_t         g_FullscreenIndices[6];

@@ -17,8 +17,9 @@ T* CAssetManager::Create(const char* pfilename)
         if(pAsset->LoadFromFile(pfilename))
         {
             g_Log.Flush();
-            g_Log << "[INFO] Loaded asset: " << pfilename;
-            g_Log << " (" << pAsset->GetID() << ")\n";
+            g_Log << "[INFO] Loaded asset:      (";
+            g_Log.SetWidth(10) << pAsset->GetID() << ") ";
+            g_Log << pfilename << "\n";
             g_Log.PrintLastLog();
 
             CAssetManager::s_allAssets.push_back(pAsset);
@@ -27,7 +28,9 @@ T* CAssetManager::Create(const char* pfilename)
         else
         {
             g_Log.Flush();
-            g_Log << "[ERROR] Failed to load asset: " << pfilename << "\n";
+            g_Log << "[ERROR] Failed to load:   (";
+            g_Log.SetWidth(10) << pAsset->GetID() << ") ";
+            g_Log << pfilename << "\n";
             g_Log.PrintLastLog();
 
             delete pAsset;
@@ -37,8 +40,8 @@ T* CAssetManager::Create(const char* pfilename)
 
     // The asset already exists, return it.
     g_Log.Flush();
-    g_Log << "[INFO] Retrieved asset: " << pfilename;
-    g_Log << " (" << pFinder->GetID()  << ")\n";
+    g_Log << "[INFO] Retrieved asset:   (";
+    g_Log.SetWidth(10) << pFinder->GetID() << ") " << pfilename << "\n";
     g_Log.PrintLastLog();
 
     return pFinder;
@@ -57,8 +60,8 @@ T* CAssetManager::Create()
     CAssetManager::s_allAssets.push_back(pResult);
     
     g_Log.Flush();
-    g_Log << "[INFO] Created unloaded asset (";
-    g_Log << pResult->GetID() << ")\n";
+    g_Log << "[INFO] Created new asset: (";
+    g_Log.SetWidth(10) << pResult->GetID() << ")\n";
     g_Log.PrintLastLog();
 
     return pResult;
@@ -73,8 +76,9 @@ bool CAssetManager::Destroy(T* pAsset)
         {
             // Log stuff.
             g_Log.Flush();
-            g_Log << "[INFO] Deleting asset: " << pAsset->GetFilename();
-            g_Log << " (" << pAsset->GetID() << ")\n";
+            g_Log << "[INFO] Deleting asset: (";
+            g_Log.SetWidth(10) << pAsset->GetID() << ") ";
+            g_Log << pAsset->GetFilename() << "\n";
             g_Log.PrintLastLog();
 
             // Delete asset.

@@ -28,6 +28,7 @@
  * 
  * @todo    Geometry shader.
  * @todo    Shadows.
+ * @todo    Make CFont inherit CAsset.
  * 
  **/
 
@@ -50,8 +51,9 @@
 #include "Asset/AssetManager.hpp"
 #include "Graphics/Globals.hpp"
 #include "Graphics/Scene.hpp"
-#include "Utils/SysEvent.hpp"
 #include "Entity/Entity.hpp"
+#include "Entity/Animation.hpp"
+#include "Utils/SysEvent.hpp"
 #include "Utils/Timer.hpp"
 #include "Level.hpp"
 

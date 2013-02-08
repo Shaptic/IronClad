@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4160 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -120,6 +120,8 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (const std::string &amp;filename)</td></tr>
 <tr class="memitem:a1b7bfd1b262113c58ab5ea53816230b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b7bfd1b262113c58ab5ea53816230b6"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromRaw</b> (const int iformat, const int format, const int w, const int h, const unsigned char *buffer)</td></tr>
+<tr class="memitem:af4672a8f66bf2f1d94bb919721ec4de7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af4672a8f66bf2f1d94bb919721ec4de7"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadSubFromRaw</b> (const int format, const int xoff, const int yoff, const int w, const int h, const unsigned char *buffer)</td></tr>
 <tr class="memitem:ae0abad0e317111a817f2b0c54ec03c08"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_texture.html#ae0abad0e317111a817f2b0c54ec03c08">LoadFromTexture</a> (const uint32_t texture)</td></tr>
 <tr class="memdesc:ae0abad0e317111a817f2b0c54ec03c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a Texture from an existing OpenGL texture handle.  <a href="#ae0abad0e317111a817f2b0c54ec03c08"></a><br/></td></tr>
 <tr class="memitem:a1c21d8a6d303719b13122dd865826307"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c21d8a6d303719b13122dd865826307"></a>
@@ -141,6 +143,8 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetH</b> ()</td><
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetFilename</b> () const </td></tr>
 <tr class="memitem:a69c394c1706dda75f58ebf22422cb174 inherit pub_methods_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69c394c1706dda75f58ebf22422cb174"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetID</b> () const </td></tr>
+<tr class="memitem:abcbee9791f8b8882c1808d64c4a8b59d inherit pub_methods_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcbee9791f8b8882c1808d64c4a8b59d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFilename</b> (const std::string &amp;filename)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
@@ -231,7 +235,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 3 2013 22:44:03 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 8 2013 01:31:23 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

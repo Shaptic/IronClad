@@ -82,7 +82,7 @@ namespace ic
      **/
     struct IRONCLAD_API vertex2_t
     {
-        vertex2_t(){}
+        vertex2_t() : Color(1.f, 1.f, 1.f, 1.f) {}
         vertex2_t(const vertex2_t& Copy)
         {
             Position = Copy.Position;

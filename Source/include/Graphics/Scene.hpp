@@ -256,6 +256,16 @@ namespace gfx
         { return !(m_lighting = !m_lighting); }
 
         /**
+         * Toggles wire-mesh rendering.
+         * @return  What the value was originally, BEFORE toggling.
+         **/
+        inline bool ToggleWireMesh()
+        { return !(m_geo_type == GL_TRIANGLES ?
+                   m_geo_type = GL_LINE_STRIP :
+                   m_geo_type = GL_TRIANGLES );
+        }
+
+        /**
          * Retrieves a light from the scene using a unique ID.
          *  Light IDs are given when adding lights to scene.
          *  

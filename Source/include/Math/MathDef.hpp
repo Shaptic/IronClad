@@ -80,7 +80,7 @@ namespace math
      * @param   int     Size of array
      * @return  Sum of array
      **/
-    inline float sum(const float* nums, const int size)
+    inline float sum(const float* nums, const uint32_t size)
     {
         float total = 0.f;
         for(size_t i = 0; i < size; ++i) total += nums[i];

@@ -23,6 +23,7 @@ IronClad currently supports the following:
 * Per-pixel shader-based lighting (currently only point lights)
 * Optimized mesh loading
 * Entity wrapper for easily controllable mesh instances
+* Customized entity animation
 * Minimalistic physics system
 * Loading of a custom level format for easy scene creation
 * Loading and rendering of TrueType fonts

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4160 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -185,16 +185,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">if</span>(m_original)</div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a0db30eeee76ea4de7515c333530d288a" title="Writes pending data to the file.">Flush</a>();</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a> &lt;&lt; <span class="stringliteral">&quot;[INFO] Deleted asset: &quot;</span> &lt;&lt; m_filename &lt;&lt; <span class="stringliteral">&quot; (&quot;</span> &lt;&lt; m_id &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a>.PrintLastLog();</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        glDeleteShader(m_shader);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    }</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        CAsset::Release();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        glDeleteShader(m_shader);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 3 2013 22:44:02 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 8 2013 01:31:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

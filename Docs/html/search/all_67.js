@@ -16,7 +16,7 @@ var searchData=
   ['getnormalized',['GetNormalized',['../structic_1_1math_1_1vector2__t.html#a3ddfbaa21f0e07c122378457641e96bf',1,'ic::math::vector2_t::GetNormalized()'],['../structic_1_1math_1_1vector3__t.html#abaa832fec5e3d9395a7179050db3ad55',1,'ic::math::vector3_t::GetNormalized()']]],
   ['getqueueposition',['GetQueuePosition',['../classic_1_1gfx_1_1_c_scene.html#a0ec1b91f038e26098373fbcf586b99eb',1,'ic::gfx::CScene']]],
   ['getslope',['GetSlope',['../structic_1_1math_1_1line2__t.html#aff61cd9bc8006925eda063f58a33fcef',1,'ic::math::line2_t']]],
-  ['gettexture',['GetTexture',['../classic_1_1_c_animation.html#a9d7310efdf0b4b1d2887ba9b39db1c56',1,'ic::CAnimation::GetTexture()'],['../classic_1_1_c_entity.html#ad95d23ec505082e1af1b99c847bd638d',1,'ic::CEntity::GetTexture()'],['../classic_1_1gfx_1_1_c_frame_buffer.html#a318a37436700714fbbf86b80821b3b6e',1,'ic::gfx::CFrameBuffer::GetTexture()']]],
+  ['gettexture',['GetTexture',['../classic_1_1_c_entity.html#a69da4a75eff87f350426eb06ae7e5b60',1,'ic::CEntity::GetTexture()'],['../classic_1_1gfx_1_1_c_frame_buffer.html#a318a37436700714fbbf86b80821b3b6e',1,'ic::gfx::CFrameBuffer::GetTexture()']]],
   ['gettimeelapsed',['GetTimeElapsed',['../classic_1_1util_1_1_c_timer.html#aabd49eb265d8fa342e6cd924f246b564',1,'ic::util::CTimer']]],
   ['getvbo',['GetVBO',['../classic_1_1gfx_1_1_c_vertex_buffer.html#a38d42c04cdf19be01cc38d2d29ce72fb',1,'ic::gfx::CVertexBuffer']]],
   ['getvboffset',['GetVBOffset',['../classic_1_1gfx_1_1_c_vertex_buffer.html#a8b65a9789c028e69b17966790c9cfc10',1,'ic::gfx::CVertexBuffer']]],

@@ -6,6 +6,8 @@ using namespace ic::gfx;
 CEffect         Globals::g_DefaultEffect;
 CVertexBuffer   Globals::g_FullscreenVBO;
 
+asset::CTexture* Globals::g_WhiteTexture;
+
 vertex2_t       Globals::g_FullscreenVertices[4];
 uint16_t        Globals::g_FullscreenIndices[6] = {0, 1, 3, 3, 2, 1};
 
@@ -21,6 +23,11 @@ bool Globals::Init(CWindow& Window)
     g_DefaultEffect.SetMatrix("proj", Window.GetProjectionMatrix());
     g_DefaultEffect.SetMatrix("mv", math::IDENTITY);
     g_DefaultEffect.Disable();
+
+    const unsigned char white[] = {'\xff', '\xff', '\xff', '\xff'};
+    g_WhiteTexture = asset::CAssetManager::Create<asset::CTexture>();
+    g_WhiteTexture->SetFilename("Global white texture");
+    g_WhiteTexture->LoadFromRaw(GL_RGBA, GL_RGBA, 1, 1, white);
 
     g_FullscreenVBO.SetType(GL_STATIC_DRAW);
     LoadVBODefaults();

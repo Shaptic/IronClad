@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4160 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -134,8 +134,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno"><a class="code" href="structic_1_1vertex2__t.html">   83</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> <a class="code" href="structic_1_1vertex2__t.html" title="Represents a vertex in 2 dimensions in the graphics pipeline.">vertex2_t</a></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="structic_1_1vertex2__t.html" title="Represents a vertex in 2 dimensions in the graphics pipeline.">vertex2_t</a>(){}</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <a class="code" href="structic_1_1vertex2__t.html" title="Represents a vertex in 2 dimensions in the graphics pipeline.">vertex2_t</a>(<span class="keyword">const</span> <a class="code" href="structic_1_1vertex2__t.html" title="Represents a vertex in 2 dimensions in the graphics pipeline.">vertex2_t</a>&amp; Copy)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="structic_1_1vertex2__t.html" title="Represents a vertex in 2 dimensions in the graphics pipeline.">vertex2_t</a>() : Color(1.f, 1.f, 1.f, 1.f) {}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        vertex2_t(<span class="keyword">const</span> vertex2_t&amp; Copy)</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            Position = Copy.Position;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            TexCoord = Copy.TexCoord;</div>
@@ -171,7 +171,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 3 2013 22:44:02 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 8 2013 01:31:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

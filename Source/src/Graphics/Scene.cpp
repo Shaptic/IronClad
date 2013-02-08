@@ -244,7 +244,11 @@ void CScene::StandardRender(CEntity* pEntity,
             m_Window.GetProjectionMatrix());
     }
 
-    if(pEntity->GetTexture() != NULL)
+    if(m_geo_type == GL_LINE_STRIP ||
+       m_geo_type == GL_LINE_LOOP  ||
+       m_geo_type == GL_LINES)          Globals::g_WhiteTexture->Bind();
+
+    else if(pEntity->GetTexture() != NULL)
         pEntity->GetTexture()->Bind();
 
     // Do rendering.

@@ -91,9 +91,7 @@ void CShader::Release()
 {
     if(m_original)
     {
-        g_Log.Flush();
-        g_Log << "[INFO] Deleted asset: " << m_filename << " (" << m_id << ")\n";
-        g_Log.PrintLastLog();
+        CAsset::Release();
         glDeleteShader(m_shader);
     }
 }

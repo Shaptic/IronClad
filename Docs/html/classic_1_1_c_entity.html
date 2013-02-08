@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4160 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -161,7 +161,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>GetH</b> () const </td
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetShadowCasting</b> (bool flag)</td></tr>
 <tr class="memitem:a2b91de117f50c4aebbc991724fe84293"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b91de117f50c4aebbc991724fe84293"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh)</td></tr>
-<tr class="memitem:ad95d23ec505082e1af1b99c847bd638d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#ad95d23ec505082e1af1b99c847bd638d">GetTexture</a> () const </td></tr>
+<tr class="memitem:a69da4a75eff87f350426eb06ae7e5b60"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a69da4a75eff87f350426eb06ae7e5b60">GetTexture</a> () const </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -176,7 +176,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Calculate width and height properly. </dd></dl>
-<dl class="section warning"><dt>Warning:</dt><dd><a class="el" href="classic_1_1_c_entity.html#ad95d23ec505082e1af1b99c847bd638d">CEntity::GetTexture()</a> has potential for out-of-bounds. </dd></dl>
+<dl class="section warning"><dt>Warning:</dt><dd><a class="el" href="classic_1_1_c_entity.html#a69da4a75eff87f350426eb06ae7e5b60">CEntity::GetTexture()</a> has potential for out-of-bounds. </dd></dl>
 
 <p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00038">38</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
@@ -210,11 +210,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 
 <p>Reimplemented in <a class="el" href="classic_1_1_c_rigid_body.html#abbc7de0320c04b544786fa5a0a8708ce">ic::CRigidBody</a>.</p>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00051">51</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00045">45</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad95d23ec505082e1af1b99c847bd638d"></a>
+<a class="anchor" id="a69da4a75eff87f350426eb06ae7e5b60"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -222,7 +222,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a>* ic::CEntity::GetTexture </td>
+          <td class="memname">virtual <a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a>* ic::CEntity::GetTexture </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -230,13 +230,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Bounds checking hehe. </dd></dl>
-
-<p>Reimplemented in <a class="el" href="classic_1_1_c_animation.html#a9d7310efdf0b4b1d2887ba9b39db1c56">ic::CAnimation</a>.</p>
 
 <p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00143">143</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
@@ -330,7 +328,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 
 <p>Reimplemented in <a class="el" href="classic_1_1_c_rigid_body.html#a999b5c5e2e218818f75809f20363d38c">ic::CRigidBody</a>.</p>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00026">26</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00020">20</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -364,7 +362,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 
 <p>Reimplemented in <a class="el" href="classic_1_1_c_rigid_body.html#a1d6ff2c87340288ca6d698507d29f928">ic::CRigidBody</a>.</p>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00046">46</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00040">40</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -389,7 +387,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00061">61</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00055">55</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -427,7 +425,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 3 2013 22:44:03 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 8 2013 01:31:23 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -8,13 +8,7 @@ bool CEntity::LoadFromFile(
     const char* pmesh_filename,
     gfx::CVertexBuffer& VBO)
 {
-    if(m_Mesh.LoadMesh(pmesh_filename))
-    {
-        m_Mesh.LoadIntoVBO(VBO);
-        return true;
-    }
-
-    return false;
+    return m_Mesh.LoadMesh(pmesh_filename) && m_Mesh.LoadIntoVBO(VBO);
 }
 
 bool CEntity::LoadFromFile(const std::string& mesh_filename,

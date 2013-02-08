@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4160 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -129,6 +129,8 @@ virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile<
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetFilename</b> () const </td></tr>
 <tr class="memitem:a69c394c1706dda75f58ebf22422cb174"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69c394c1706dda75f58ebf22422cb174"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetID</b> () const </td></tr>
+<tr class="memitem:abcbee9791f8b8882c1808d64c4a8b59d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcbee9791f8b8882c1808d64c4a8b59d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFilename</b> (const std::string &amp;filename)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -137,9 +139,9 @@ Static Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a293d51c8b87496bbd07d91393b46785a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a293d51c8b87496bbd07d91393b46785a"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset.html#a293d51c8b87496bbd07d91393b46785a">Release</a> ()=0</td></tr>
-<tr class="memdesc:a293d51c8b87496bbd07d91393b46785a"><td class="mdescLeft">&#160;</td><td class="mdescRight">This should free the current asset if and only if it is the original (m_original == true). <br/></td></tr>
+<tr class="memitem:a77864397045a289c8ef634496e2244c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77864397045a289c8ef634496e2244c0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset.html#a77864397045a289c8ef634496e2244c0">Release</a> ()</td></tr>
+<tr class="memdesc:a77864397045a289c8ef634496e2244c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This should free the current asset if and only if it is the original (m_original == true). <br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -159,7 +161,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Throughout the IronClad engine, the only assets used will be textures and fonts. Assets contain a unique ID generated on creation that can provide fast access to it in the <a class="el" href="classic_1_1asset_1_1_c_asset_manager.html" title="Loads, finds, creates, and manages assets.">CAssetManager</a>. The alternative is comparing filenames to find the respective asset, which can be much slower. Assets know if they are the "original" asset, or simply a copy using data from another asset. This allows deletion of the asset data to only occur on destruction if m_original = TRUE. The <a class="el" href="classic_1_1asset_1_1_c_asset_manager.html" title="Loads, finds, creates, and manages assets.">CAssetManager</a> class takes care of figuring this out. </p>
 
-<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00055">55</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00056">56</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="ab78f4b46ddd9892ade8428eea89aba32"></a>
 <div class="memitem">
@@ -201,7 +203,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>The hash value. </dd></dl>
 
-<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00079">79</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00080">80</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
 
 </div>
 </div>
@@ -211,7 +213,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 3 2013 22:44:03 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 8 2013 01:31:23 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

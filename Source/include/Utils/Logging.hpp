@@ -30,6 +30,7 @@
 #include <fstream>
 #include <sstream>
 #include <iostream>
+#include <iomanip>
 #include <string>
 
 #ifdef _WIN32
@@ -70,7 +71,7 @@ namespace util
          * @return A reference to the CLogging class so that streaming
          *  can be grouped together.
          **/
-        template<class T> CLogging& operator<< (const T& data);
+        template<class T> CLogging& operator<<(const T& data);
 
         /**
          * Closes the logging file.
@@ -89,6 +90,14 @@ namespace util
         void PrintLastLog() const;
         std::string GetLastLog() const;
 
+        /**
+         * Sets the width of the next string, filling it with spaces.
+         *  Works similarly to std::setw()
+         *
+         * @param   int     Length of string, -1 to reset
+         **/
+        CLogging& SetWidth(const int w);
+
         static CLogging& GetInstance()
         {
             static CLogging g_Log("Engine.log");
@@ -98,15 +107,17 @@ namespace util
     private:
         CLogging(const char* p_filename);
         CLogging(const CLogging& Log);
-        void operator= (const CLogging& Log);
+        void operator=(const CLogging& Log);
 
         std::stringstream m_log;
         std::ofstream m_file;
+        int m_width;
     };
 
-    template<class T> CLogging& CLogging::operator<< (const T& data)
+    template<class T> CLogging& CLogging::operator<<(const T& data)
     {
-        m_log << data;
+        m_log << std::setfill('0') << std::setw(m_width) << data;
+        m_width = -1;
         return (*this);
     }
 

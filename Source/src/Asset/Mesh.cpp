@@ -199,7 +199,7 @@ bool CMesh::LoadFromRaw(
     
     // Create a single surface with isize indices.
     if(!this->LoadSurface(NULL, 0)) return false;
-    mp_Surfaces.back()->pMaterial->pTexture = asset::CAssetManager::Create<asset::CTexture>("DayZ_1.tga");
+    mp_Surfaces.back()->pMaterial->pTexture = gfx::Globals::g_WhiteTexture;
     mp_Surfaces.back()->icount = isize;
 
     m_vcount = vsize;
@@ -496,9 +496,7 @@ void CMesh::Release()
 {
     if(m_original)
     {
-        g_Log.Flush();
-        g_Log << "[INFO] Deleted asset: " << m_filename << " (" << m_id << ")\n";
-        g_Log.PrintLastLog();
+        CAsset::Release();
         m_iBuffer.clear();
         m_vBuffer.clear();
     }
@@ -577,7 +575,6 @@ bool CMesh::LoadFromExisting(std::ifstream& in_file, const std::streampos pos)
     this->MergeSurfaces();
 
     // Assign final attributes.
-    m_filename.clear();
     m_vcount    = m_vBuffer.size();
     m_icount    = m_iBuffer.size();
 

@@ -1,68 +1,97 @@
 #include "Fonts/Font.hpp"
 
 using namespace ic;
+using util::g_Log;
 using font::CFont;
 
 FT_Library   CFont::m_Library;
-gfx::CEffect CFont::m_FontRender;
 
 bool CFont::Initialize()
 {
     if(FT_Init_FreeType(&m_Library) != 0)       return false;
-    if(!m_FontRender.Init(gfx::IC_GRAYSCALE))   return false;
-
-    m_FontRender.Enable();
-    m_FontRender.SetMatrix("mv", math::IDENTITY);
-    m_FontRender.SetMatrix("proj", gfx::CWindow::GetProjectionMatrix());
-    m_FontRender.Disable();
-
     return true;
 }
 
 bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
 {
+    g_Log.Flush();
+    g_Log << "[INFO] Loading font:      " << filename << "\n";
+    g_Log.PrintLastLog();
+
+    if(!m_FontRender.Init(gfx::IC_GRAYSCALE))   return false;
+
+    m_FontRender.Enable();
+    if(!m_FontRender.SetMatrix("mv", math::IDENTITY) || 
+       !m_FontRender.SetMatrix("proj", gfx::CWindow::GetProjectionMatrix()))
+        return false;
+    m_FontRender.Disable();
+
     if(FT_New_Face(m_Library, filename.c_str(), 0, &m_FontFace) != 0)
         return false;
 
+    // Set the size of the font face.
+    // Since the function expects a size in 1/64 pixels, we multiply
+    // by 64 (same as left-shifting 6 bits) before passing.
+    // The 96 represents a 96-dpi font bitmap.
     if(FT_Set_Char_Size(m_FontFace, size << 6, size << 6, 96, 96) != 0)
         return false;
 
+    // For logging :)
+    std::stringstream ss;
+
     // Load all printable characters.
-    for(size_t i = ' '; i < '~'; ++i)
+    // If you visit an ASCII table (like www.asciitable.com) you will see
+    // that the only valid values for printing are the space character all
+    // the way up to the tilde (~).
+    for(size_t i = ' '; i <= '~'; ++i)
     {
-        FT_BBox  bbox;
         FT_Glyph glyph;
 
+        // Locate the index of the character in the font face.
         uint32_t index = FT_Get_Char_Index(m_FontFace, i);
         if(index == 0) continue;
 
+        // Load the glyph into the font face.
         FT_Load_Glyph(m_FontFace, index, FT_LOAD_RENDER);
+
+        // Render the glyph as a mono-chrome bitmap.
         FT_Render_Glyph(m_FontFace->glyph, FT_RENDER_MODE_NORMAL);
+
+        // Put the glyph in the glyph slot into an actual glyph struct.
         FT_Get_Glyph(m_FontFace->glyph, &glyph);
-        FT_Glyph_Get_CBox(glyph, 3, &bbox);
 
         FT_GlyphSlot slot = m_FontFace->glyph;
         FT_Bitmap& bitmap = slot->bitmap;
 
+        // Bitmap dimensions
         uint32_t w = bitmap.width;
         uint32_t h = bitmap.rows;
 
+        // Create the OpenGL bitmap texture handle.
         asset::CTexture* pTexture = 
             asset::CAssetManager::Create<asset::CTexture>();
 
-        // Our buffer has two channels, red and green. These
-        // represent the gray scale value in the bitmap and the
-        // alpha value for aliasing.
+        // Log filename as font_name:char
+        ss << filename << ":" << (char)i;
+        pTexture->SetFilename(ss.str());
+        ss.str(std::string());
+
+        // We need to copy the data over to a new buffer in order
+        // to properly pass it to the GPU.
         unsigned char* data = new unsigned char[w * h];
-        //memset(data, NULL, w * h *  sizeof(unsigned char));
+        memset(data, NULL, w * h *  sizeof(unsigned char));
         memcpy(data, bitmap.buffer, sizeof(unsigned char) * w * h);
 
         // Alignment for pixels needs to be at 1 byte.
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
         pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, data);
-        glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
-        delete[] data;
 
+        // Restore default alignment value. I haven't actually tested this
+        // part so it may or may not actually be the default.
+        glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+
+        // Delete bitmap buffers        
+        delete[] data;
         FT_Done_Glyph(glyph);
 
         Glyph render_glyph;
@@ -74,9 +103,7 @@ bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
         mp_glyphTextures[i] = render_glyph;
     }
 
-    FT_Done_Face(m_FontFace);
-
-    return true;
+    return FT_Done_Face(m_FontFace) == 0;
 }
 
 math::rect_t CFont::RenderText(const std::string& text, const math::vector2_t& Pos)
@@ -91,42 +118,63 @@ math::rect_t CFont::RenderText(const std::string& text, const math::vector2_t& P
 
     // Vertex buffer size, index buffer size.
     uint16_t vlen = text.length() << 2;
-    uint16_t ilen = text.length() * ((1 << 2) + 2);
+    uint16_t ilen = text.length() * 6;
 
     // Create buffers and zero them.
     vertex2_t* verts = new vertex2_t[vlen];
-    uint16_t*  inds  = new uint16_t[ilen];
+    uint16_t*  inds  = new uint16_t [ilen];
 
-    memset(inds, NULL,  sizeof(uint16_t)  * ilen);
+    memset(inds,  NULL, sizeof(uint16_t)  * ilen);
     memset(verts, NULL, sizeof(vertex2_t) * vlen);
 
     // Track width and max height.
     int max_w = 0, max_h = 0;
 
-    // Fill up buffers.
+    // The x-position to start the next character at.
     int32_t last_w = Pos.x;
+
+    // Fill up buffers. Each character needs 4 vertices, so
+    // we increment by 4 each iteration then compensate for
+    // that throughout the loop.
     for(size_t i = 0; i < vlen; i += 4)
     {
-        math::rect_t Dim = mp_glyphTextures[text[i>>2]].dim;
+        // Retrieve dimensions from the dictionary.
+        // Since we're doing i += 4, the index in the text string
+        // would be text[i / 4].
+        rect_t Dim = mp_glyphTextures[text[i >> 2]].dim;
 
         float w = last_w;
         float h = Dim.y;
-        last_w  = w + /*Dim.x + */ Dim.w;
+        last_w  = w + Dim.w;    // Increase until next char by the
+        // bitmap's horizontal advance value.
 
-        verts[i].Position   = math::vector2_t(w, Pos.y - Dim.h);
-        verts[i+1].Position = math::vector2_t(last_w, Pos.y - Dim.h);
-        verts[i+2].Position = math::vector2_t(last_w, Pos.y - Dim.h + h);
-        verts[i+3].Position = math::vector2_t(w, Pos.y - Dim.h + h);
+        // [i]      : top left
+        // [i + 1]  : top right
+        // [i + 2]  : bottom right
+        // [i + 3]  : bottom left
+        verts[i].Position   = math::vector2_t(w,        Pos.y - Dim.h);
+        verts[i+1].Position = math::vector2_t(last_w,   Pos.y - Dim.h);
+        verts[i+2].Position = math::vector2_t(last_w,   Pos.y - Dim.h + h);
+        verts[i+3].Position = math::vector2_t(w,        Pos.y - Dim.h + h);
 
+        // Load up the bitmap texture coordinates moving counter-clockwise
+        // from the origin.
         verts[i].TexCoord   = math::vector2_t(0, 0);
         verts[i+1].TexCoord = math::vector2_t(1, 0);
         verts[i+2].TexCoord = math::vector2_t(1, 1);
         verts[i+3].TexCoord = math::vector2_t(0, 1);
 
+        // The vertices all use the font color.
+        // See CFont::SetColor()
         for(size_t j = i; j < i + 4; ++j)
-            verts[j].Color = m_Color;//color4f_t(1.f, 1.f, 1.f, 1.f);
+            verts[j].Color = m_Color;
 
+        // The index in the buffer that we need is i / 4 * 6, since 
+        // i / 4 gives us the current character, and each character
+        // needs 6 indices.
         int x = (i >> 2) * 6;
+
+        // Assign the values.
         inds[x]   = i;
         inds[x+1] = i + 1;
         inds[x+2] = i + 3;
@@ -134,8 +182,9 @@ math::rect_t CFont::RenderText(const std::string& text, const math::vector2_t& P
         inds[x+4] = i + 2;
         inds[x+5] = i + 1;
 
+        // Keep track of the overall dimensions.
         max_w += Dim.w;
-        max_h  = math::max<int>(max_h, Dim.h + h);
+        max_h  = ic::math::max<int>(max_h, Dim.h + h);
     }
 
     // Tally up dimensions.

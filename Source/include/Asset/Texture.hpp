@@ -53,6 +53,9 @@ namespace asset
         bool LoadFromRaw(const int iformat, const int format,
                          const int w, const int h,
                          const unsigned char* buffer);
+        bool LoadSubFromRaw(const int format, const int xoff,
+                            const int yoff, const int w, const int h,
+                            const unsigned char* buffer);
 
         /**
          * Loads a Texture from an existing OpenGL texture handle.

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4160 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -145,6 +145,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>MoveCamera</b> (const
 <tr class="memdesc:a93bc46f020888f76d10322d1a8be0bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles post-processing.  <a href="#a93bc46f020888f76d10322d1a8be0bca"></a><br/></td></tr>
 <tr class="memitem:a383297d7561c218fe4796d32a7089d7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a383297d7561c218fe4796d32a7089d7f">ToggleLighting</a> ()</td></tr>
 <tr class="memdesc:a383297d7561c218fe4796d32a7089d7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles lighting.  <a href="#a383297d7561c218fe4796d32a7089d7f"></a><br/></td></tr>
+<tr class="memitem:a311dc9513159c68796216623e62756e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a311dc9513159c68796216623e62756e5">ToggleWireMesh</a> ()</td></tr>
+<tr class="memdesc:a311dc9513159c68796216623e62756e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles wire-mesh rendering.  <a href="#a311dc9513159c68796216623e62756e5"></a><br/></td></tr>
 <tr class="memitem:a8fd05e4ee782d37be98a06f32821a81a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a8fd05e4ee782d37be98a06f32821a81a">GetLightFromScene</a> (const uint16_t id)</td></tr>
 <tr class="memdesc:a8fd05e4ee782d37be98a06f32821a81a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a light from the scene using a unique ID.  <a href="#a8fd05e4ee782d37be98a06f32821a81a"></a><br/></td></tr>
 <tr class="memitem:aeaa55951a6c98b1d26661ac2eb660185"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeaa55951a6c98b1d26661ac2eb660185"></a>
@@ -230,7 +232,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 <dl class="section return"><dt>Returns:</dt><dd>Accessible ID of the scene light.</dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000012">Todo:</a></b></dt><dd>Make it actually find the ID of an existing light.</dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00335">335</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00339">339</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -339,7 +341,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Pointer to light object, NULL if out of range. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00266">266</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00276">276</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -364,7 +366,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>-1 if object is not in queue, proper index otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00587">587</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00591">591</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -449,7 +451,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 <dd>
 CScene::GetObjects() </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00560">560</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00564">564</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -563,7 +565,7 @@ CScene::GetObjects() </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if removed, FALSE if invalid id. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00529">529</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00533">533</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -672,6 +674,32 @@ CScene::GetObjects() </dd></dl>
 
 </div>
 </div>
+<a class="anchor" id="a311dc9513159c68796216623e62756e5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ic::gfx::CScene::ToggleWireMesh </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns:</dt><dd>What the value was originally, BEFORE toggling. </dd></dl>
+
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00262">262</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>IronClad/include/Graphics/<a class="el" href="_scene_8hpp_source.html">Scene.hpp</a></li>
 <li>IronClad/src/Graphics/<a class="el" href="_scene_8cpp_source.html">Scene.cpp</a></li>
@@ -679,7 +707,7 @@ CScene::GetObjects() </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 3 2013 22:44:03 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 8 2013 01:31:23 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

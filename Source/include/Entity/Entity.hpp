@@ -140,7 +140,7 @@ namespace ic
         { m_Mesh.mp_ActiveMesh = pMesh; }
 
         /// @todo   Bounds checking hehe.
-        inline asset::CTexture* GetTexture() const
+        virtual asset::CTexture* GetTexture() const
         {
             if(!this->HasOverride())
                 return m_Mesh.GetSurfaces()[0]->pMaterial->pTexture;

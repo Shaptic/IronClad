@@ -55,6 +55,8 @@ namespace gfx
          **/
         bool LoadMesh(asset::CMesh* pMesh);
         bool LoadMesh(const std::string& filename);
+        bool LoadMesh(const vertex2_t* verts, const uint16_t vsize,
+                      const uint16_t*  inds,  const uint16_t isize);
 
         /**
          * Loads the current instance into the GPU.

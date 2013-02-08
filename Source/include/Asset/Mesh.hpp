@@ -26,6 +26,7 @@
 #include <algorithm>
 
 #include "Utils/Utilities.hpp"
+#include "Graphics/Globals.hpp"
 #include "Graphics/Surface.hpp"
 #include "AssetManager.hpp"
 #include "Texture.hpp"
@@ -57,7 +58,7 @@ namespace asset
      *  significant amount of time, based on the size of the mesh and the
      *  amount of surface merging that must take place.
      **/
-    class IRONCLAD_API CMesh : CAsset
+    class IRONCLAD_API CMesh : public CAsset
     {
     public:
         CMesh(bool orig=false) : CAsset(orig), m_vcount(0), m_icount(0) {}

@@ -15,11 +15,12 @@ CLevel::~CLevel()
 
 bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
 {
+    std::stringstream ss;
     std::ifstream file;
     std::string line;
 
     file.open(filename);
-    if(!file.is_open()) return false;
+    if(!file.is_open()) return false;    
 
     while(std::getline(file, line))
     {
@@ -52,6 +53,9 @@ bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
                     // Load mesh from existing stream.
                     asset::CMesh* pMesh = 
                         asset::CAssetManager::Create<asset::CMesh>();
+                    ss << filename << ":Mesh";
+                    pMesh->SetFilename(ss.str());
+                    ss.str(std::string());
 
                     if(!pMesh->LoadFromExisting(file, end))
                     {

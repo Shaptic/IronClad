@@ -2,7 +2,7 @@
 
 using ic::util::CLogging;
 
-CLogging::CLogging(const char* p_filename)
+CLogging::CLogging(const char* p_filename) : m_width(-1)
 {
     time_t now;
     time(&now);
@@ -17,8 +17,7 @@ CLogging::CLogging(const char* p_filename)
 
 CLogging::~CLogging()
 {
-    if(!m_file.is_open())
-        return;
+    if(!m_file.is_open()) return;
 
     time_t now;
     time(&now);
@@ -49,7 +48,7 @@ void CLogging::Flush()
 {
     // Don't write things with [DEBUG] tag in the release build.
 #ifdef _DEBUG
-    m_file << m_log.str();    
+    m_file << m_log.str();
 #else
     if(m_log.str().find("[DEBUG]") == std::string::npos)
         m_file << m_log.str();
@@ -72,4 +71,10 @@ void CLogging::PrintLastLog() const
 std::string CLogging::GetLastLog() const
 {
     return m_log.str();
+}
+
+CLogging& CLogging::SetWidth(const int w)
+{
+    m_width = w;
+    return (*this);
 }

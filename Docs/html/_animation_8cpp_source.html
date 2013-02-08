@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4044 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4160 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,10 +95,90 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_animation_8hpp.html" title="Animation.hpp - A basic abstraction of animation functions like loading a sprite sheet and switching ...">Entity/Animation.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>ic;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="code" href="classic_1_1_c_animation.html#adbf8d3e80147c3e3066d638d1d9933fd">    6</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1_c_animation.html#adbf8d3e80147c3e3066d638d1d9933fd" title="Load a custom animation file.">CAnimation::LoadFromFile</a>(<span class="keyword">const</span> std::string&amp; filename,</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;                              <a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html" title="A wrapper for OpenGL VBO&#39;s.">gfx::CVertexBuffer</a>&amp; VBO)</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    std::ifstream anim(filename, std::ios::binary);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    CAnimation::AnimationHeader header;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    memset(&amp;header, NULL, <span class="keyword">sizeof</span> header);</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span>(!anim.is_open()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">// Read header</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    anim &gt;&gt; header.width;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    anim &gt;&gt; header.height;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    anim &gt;&gt; header.columns;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    anim &gt;&gt; header.rows;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// Get file size.</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> std::streampos begin = anim.tellg();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    anim.seekg(0, std::ios::end);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">const</span> std::streampos end = anim.tellg();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    anim.seekg(begin);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="comment">// Texture data.</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">char</span>* data = <span class="keyword">new</span> <span class="keywordtype">char</span>[end - begin];</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    anim.read(data, end - begin);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    GLFWimage img;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    glfwReadMemoryImage(data, end - begin, &amp;img, 0);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    uint16_t w = (header.width);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    uint16_t h = (header.height);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    uint16_t sprite_w = (1.f * w) / (header.columns);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    uint16_t sprite_h = (1.f * h) / (header.rows);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="structic_1_1vertex2__t.html" title="Represents a vertex in 2 dimensions in the graphics pipeline.">vertex2_t</a> quad_v[4];</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    uint16_t  quad_i[6] = {0, 1, 3, 3, 2, 1};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    quad_v[0].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0,         0);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    quad_v[1].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(sprite_w,  0);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    quad_v[2].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(sprite_w,  sprite_h);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    quad_v[3].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0,         sprite_h);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a0db30eeee76ea4de7515c333530d288a" title="Writes pending data to the file.">Flush</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a> &lt;&lt; <span class="stringliteral">&quot;[DEBUG] Loading animation file. &quot;</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a> &lt;&lt; (w / sprite_w) * (h / sprite_h) &lt;&lt; <span class="stringliteral">&quot; expected.\n&quot;</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a>.PrintLastLog();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::stringstream ss;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; w; i += sprite_w)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> j = 0; j &lt; h; j += sprite_h)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>* pTexture = </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                asset::CAssetManager::Create&lt;asset::CTexture&gt;();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            ss &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; i * sprite_w &lt;&lt; <span class="stringliteral">&quot;x&quot;</span> &lt;&lt; j * sprite_h;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            pTexture-&gt;SetFilename(ss.str());</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            ss.str(std::string());</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            pTexture-&gt;LoadSubFromRaw(img.Format, </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                i * sprite_w, </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                j * sprite_h,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                sprite_w, sprite_h,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                img.Data);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            mp_allTextures.push_back(pTexture);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    glfwFreeImage(&amp;img);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    this-&gt;<a class="code" href="classic_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464" title="Enables a texture override over the default.">SetMaterialOverride</a>(mp_allTextures[0]);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="comment">//if(mp_allTextures.size() &gt; 0) mp_ActiveTexture = mp_allTextures[0];</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">return</span> m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#a206f316728268b9d6d427feec3a358a2" title="Loads a mesh asset.">LoadMesh</a>(quad_v, 4, quad_i, 6);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 3 2013 22:44:02 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Feb 8 2013 01:31:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>
