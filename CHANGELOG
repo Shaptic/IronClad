@@ -2,10 +2,18 @@ CHANGELOG
 
 Project			:	IronClad
 Author			:	George Kudrayvtsev
-Current Version	:	1.1.5 alpha
-Last Updated	:	02.08.2013
+Current Version	:	1.2.0 alpha
+Last Updated	:	02.09.2013
 
-Version 1.1.5a (02.03.2013):
+Version 1.2.0a (02.09.2013):
+ +  Animation beta stage complete
+ *  Modified default fragment shader to accept texture coordinate offset
+
+Version 1.1.6a (02.08.2013):
+ *  Improved asset loading and logging
+ *  Animation support improved
+
+Version 1.1.5a (02.07.2013):
  +  Animation support begun
  +  Texture assets can load sub-images
  +  Scene can render as wire-mesh

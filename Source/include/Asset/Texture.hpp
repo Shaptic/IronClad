@@ -53,9 +53,6 @@ namespace asset
         bool LoadFromRaw(const int iformat, const int format,
                          const int w, const int h,
                          const unsigned char* buffer);
-        bool LoadSubFromRaw(const int format, const int xoff,
-                            const int yoff, const int w, const int h,
-                            const unsigned char* buffer);
 
         /**
          * Loads a Texture from an existing OpenGL texture handle.
@@ -68,7 +65,9 @@ namespace asset
          * Binds the texture to the OpenGL state for use.
          **/
         inline void Bind()
-        { glBindTexture(GL_TEXTURE_2D, m_texture); }
+        {
+            glBindTexture(GL_TEXTURE_2D, m_texture);
+        }
 
         /**
          * Unbinds the texture from OpenGL.

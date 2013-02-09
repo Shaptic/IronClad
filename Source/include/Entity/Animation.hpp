@@ -24,6 +24,7 @@
 #define IRON_CLAD__ANIMATION_HPP
 
 #include "Utils/Utilities.hpp"
+#include "Graphics/Framebuffer.hpp"
 #include "Entity.hpp"
 
 namespace ic
@@ -44,7 +45,8 @@ namespace ic
     class CAnimation : public CEntity
     {
     public:
-        CAnimation(){}
+        CAnimation() : m_last(util::CTimer::GetTimeElapsed()),
+            m_delay(1.f) {}
         ~CAnimation(){}
 
         /**
@@ -124,9 +126,6 @@ namespace ic
          **/
         void Update();
 
-        //inline asset::CTexture* GetTexture() const
-        //{ return mp_ActiveTexture; }
-
     private:
         struct AnimationHeader
         {
@@ -136,10 +135,12 @@ namespace ic
             uint16_t rows;
         };
 
-        std::vector<asset::CTexture*>   mp_allTextures;
-        asset::CTexture*                mp_ActiveTexture;
-        float                           m_delay;
-        bool                            m_enabled;
+        math::vector2_t m_TexcDim;
+        AnimationHeader m_SheetDetails;
+        float           m_delay;
+        float           m_last;
+        bool            m_enabled;
+        int             m_tc_loc;
     };
 }
 

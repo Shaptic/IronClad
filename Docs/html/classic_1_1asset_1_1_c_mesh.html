@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4160 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4206 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -139,6 +139,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>GetMeshHeight</b> () c
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetFilename</b> () const </td></tr>
 <tr class="memitem:a69c394c1706dda75f58ebf22422cb174 inherit pub_methods_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69c394c1706dda75f58ebf22422cb174"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetID</b> () const </td></tr>
+<tr class="memitem:a7eacd5b265875a74ea812702cb28bb56 inherit pub_methods_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7eacd5b265875a74ea812702cb28bb56"></a>
+virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetError</b> () const </td></tr>
 <tr class="memitem:abcbee9791f8b8882c1808d64c4a8b59d inherit pub_methods_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcbee9791f8b8882c1808d64c4a8b59d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFilename</b> (const std::string &amp;filename)</td></tr>
 </table><table class="memberdecls">
@@ -158,6 +160,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="inherit_header pro_attribs_classic_1_1asset_1_1_c_asset"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classic_1_1asset_1_1_c_asset')"><img src="closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="classic_1_1asset_1_1_c_asset.html">ic::asset::CAsset</a></td></tr>
 <tr class="memitem:ac539c6062eff9eb6c1e7b4070a353e9f inherit pro_attribs_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac539c6062eff9eb6c1e7b4070a353e9f"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_filename</b></td></tr>
+<tr class="memitem:a12d9025f7daab123f5f620ccacfeb8a5 inherit pro_attribs_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a12d9025f7daab123f5f620ccacfeb8a5"></a>
+std::string&#160;</td><td class="memItemRight" valign="bottom"><b>m_last_error</b></td></tr>
 <tr class="memitem:a61aa1d778b13819d50e256d6c446eef6 inherit pro_attribs_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61aa1d778b13819d50e256d6c446eef6"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_id</b></td></tr>
 <tr class="memitem:a656d6d3ce21a9c6943265240c160e7ec inherit pro_attribs_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a656d6d3ce21a9c6943265240c160e7ec"></a>
@@ -183,7 +187,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 <p>If the mesh is a non-quad, it will return the distance from the right-most point to the left-most point. If the mesh has been offloaded to the GPU, this will do absolutely nothing.</p>
 <dl class="section return"><dt>Returns:</dt><dd>Maximum width/height, zero if no vertex data. </dd></dl>
 
-<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00584">584</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00592">592</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -267,7 +271,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 <dl class="section warning"><dt>Warning:</dt><dd>This doesn't work properly, especially with materials. </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000009">Todo:</a></b></dt><dd>Create a proper implementation of this. </dd></dl>
 
-<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00187">187</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00195">195</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -305,7 +309,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if successfully loaded, FALSE if not, or if <a class="el" href="classic_1_1asset_1_1_c_mesh.html#a7cdb394ca2aef20a1c3810127b237aab" title="Loads a mesh from a file.">LoadFromFile()</a> has yet to be called.</dd></dl>
 <dl class="section post"><dt>Postcondition:</dt><dd>This mesh now contains no vertex/index data at all. </dd></dl>
 
-<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00210">210</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00218">218</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
 
 </div>
 </div>
@@ -316,7 +320,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 8 2013 01:31:23 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 9 2013 00:21:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

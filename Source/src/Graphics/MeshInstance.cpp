@@ -27,7 +27,7 @@ bool CMeshInstance::LoadIntoVBO(gfx::CVertexBuffer& VBO)
 }
 
 bool CMeshInstance::LoadMesh(const vertex2_t* verts, const uint16_t vsize,
-                             const uint16_t* inds, const uint16_t isize)
+                             const uint16_t*  inds,  const uint16_t isize)
 {
     mp_ActiveMesh = asset::CAssetManager::Create<asset::CMesh>();
     mp_ActiveMesh->SetFilename("Raw mesh");

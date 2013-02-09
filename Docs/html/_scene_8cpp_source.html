@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4160 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4206 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -344,7 +344,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="comment">// Do rendering.</span></div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    glDrawElements(m_geo_type, pSurface-&gt;icount, GL_UNSIGNED_SHORT,</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        (<span class="keywordtype">void</span>*)(<span class="keyword">sizeof</span>(uint16_t)*(pSurface-&gt;start)));</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                   (<span class="keywordtype">void</span>*)(<span class="keyword">sizeof</span>(uint16_t)*(pSurface-&gt;start)));</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="comment">// Unbind shader / texture.</span></div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    glBindTexture(GL_TEXTURE_2D, 0);</div>
@@ -607,7 +607,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;</div>
 <div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;    <span class="comment">// Add shadow data to the VBO.</span></div>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;    m_ShadowVBO.<a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a0085ba6b27e2c3b65bc8569f039c5a67" title="Adds data to the VBO.">AddData</a>(&amp;m_shadowVertices[0], m_shadowVertices.size(),</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        &amp;m_shadowIndices[0], m_shadowIndices.size());</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;                        &amp;m_shadowIndices[0],  m_shadowIndices.size());</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;</div>
 <div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    m_shadowIndices.clear();</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    m_shadowVertices.clear();</div>
@@ -649,9 +649,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;}</div>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;</div>
 <div class="line"><a name="l00564"></a><span class="lineno"><a class="code" href="classic_1_1gfx_1_1_c_scene.html#ac4d5a239e6ec70e8e55cef0c33a448ef">  564</a></span>&#160;<a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>* <a class="code" href="classic_1_1gfx_1_1_c_scene.html#ac4d5a239e6ec70e8e55cef0c33a448ef" title="Adds an entity to be rendered in a specific order in the scene.">gfx::CScene::InsertMesh</a>(<span class="keyword">const</span> uint16_t position, </div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                             <span class="keyword">const</span> std::string&amp; filename,</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;                             <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Position,</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;                             <span class="keywordtype">bool</span> animate, <span class="keywordtype">bool</span> rigid)</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;                                 <span class="keyword">const</span> std::string&amp; filename,</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;                                 <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Position,</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;                                 <span class="keywordtype">bool</span> animate, <span class="keywordtype">bool</span> rigid)</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;{</div>
 <div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="keywordflow">if</span>(mp_sceneObjects.size() &lt; position)</div>
 <div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;        <span class="keywordflow">return</span> this-&gt;AddMesh(filename, Position, animate, rigid);</div>
@@ -687,7 +687,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Feb 8 2013 01:31:22 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Feb 9 2013 00:21:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -88,6 +88,14 @@ namespace math
     }
 
     /**
+     * Returns a random integer in the range [min, max]
+     **/
+    inline int randint(const int max, const int min)
+    {
+        return (min + rand() * (max - min) / RAND_MAX);
+    }
+
+    /**
      * Calculates the distance between two points.
      *  Since the square root is an expensive operation, it is optional.
      *  

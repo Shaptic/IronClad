@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['setanimationrate',['SetAnimationRate',['../classic_1_1_c_animation.html#a8285e67a02a51ebcedc21fe560369763',1,'ic::CAnimation']]],
+  ['setanimationrate',['SetAnimationRate',['../classic_1_1_c_animation.html#ab723bed1244bc591b9ed155ce7450182',1,'ic::CAnimation']]],
   ['setmaterialoverride',['SetMaterialOverride',['../classic_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464',1,'ic::CEntity']]],
   ['setmatrix',['SetMatrix',['../classic_1_1gfx_1_1_c_effect.html#a1a21a99c4fb808bd583f04525909a66b',1,'ic::gfx::CEffect']]],
   ['setparameter',['SetParameter',['../classic_1_1gfx_1_1_c_effect.html#a683389b7fe38a10ec31ba75532de5089',1,'ic::gfx::CEffect']]],

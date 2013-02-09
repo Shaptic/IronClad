@@ -107,3 +107,8 @@ void CRigidBody::Update()
 {
     this->Adjust(m_horz, m_vert);
 }
+
+math::vector2_t CRigidBody::GetForces() const
+{
+    return math::vector2_t(m_horz, m_vert);
+}

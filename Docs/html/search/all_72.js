@@ -1,6 +1,7 @@
 var searchData=
 [
   ['rad',['rad',['../namespaceic_1_1math.html#a0aa74ee6a81cc4e348249855de7eca97',1,'ic::math']]],
+  ['randint',['randint',['../namespaceic_1_1math.html#ac785a9baf769300e52bd07221f168d00',1,'ic::math']]],
   ['rect_5ft',['rect_t',['../structic_1_1math_1_1rect__t.html',1,'ic::math']]],
   ['regulate',['Regulate',['../classic_1_1util_1_1_c_timer.html#aa2a91b9f3f1adef8e2f532c6306c6f14',1,'ic::util::CTimer']]],
   ['release',['Release',['../classic_1_1asset_1_1_c_asset.html#a77864397045a289c8ef634496e2244c0',1,'ic::asset::CAsset']]],

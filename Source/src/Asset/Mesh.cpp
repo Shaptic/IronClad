@@ -15,7 +15,11 @@ bool CMesh::LoadFromFile(const char* pfilename)
     std::string     line;
 
     file.open(pfilename);
-    if(!file.is_open()) return false;
+    if(!file.is_open())
+    {
+        m_last_error = "File does not exist";
+        return false;
+    }
 
     while(std::getline(file, line))
     {
@@ -79,7 +83,11 @@ bool CMesh::LoadFromFile(const char* pfilename)
         }
         else if(splitLine[0] == "[surface]")
         {
-            if(!this->LoadSurface(file)) return false;
+            if(!this->LoadSurface(file))
+            {
+                m_last_error = "Surface failed to load";
+                return false;
+            }
         }
     }
 
@@ -186,7 +194,7 @@ bool CMesh::LoadFromStr(const char** data, const int size)
  **/
 bool CMesh::LoadFromRaw(
     const vertex2_t* pvertices, const uint32_t vsize,
-    const uint16_t* pindices, const uint32_t isize)
+    const uint16_t*  pindices,  const uint32_t isize)
 {
     m_vBuffer.clear();
     m_iBuffer.clear();

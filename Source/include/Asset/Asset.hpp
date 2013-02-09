@@ -57,6 +57,7 @@ namespace asset
     {
     public:
         CAsset(bool original = false) : m_original(original),
+            m_last_error("No error"),
             m_id(Hash((char*)this, sizeof(CAsset))) {}
         ~CAsset(){}
 
@@ -68,6 +69,9 @@ namespace asset
 
         inline uint32_t GetID() const
         { return m_id; }
+
+        inline virtual const std::string& GetError() const
+        { return m_last_error; }
 
         /**
          * Calculates a hash for a given value.
@@ -108,13 +112,14 @@ namespace asset
         virtual void Release()
         {
             util::g_Log.Flush();
-            util::g_Log << "[INFO] Deleted asset: (";
+            util::g_Log << "[INFO] Deleted asset:     (";
             util::g_Log.SetWidth(10);
             util::g_Log << m_id << ") " << m_filename << "\n";
             util::g_Log.PrintLastLog();
         }
 
         std::string m_filename;
+        std::string m_last_error;
         uint32_t    m_id;
         bool        m_original;
     };

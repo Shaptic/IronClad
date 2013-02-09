@@ -31,6 +31,7 @@ T* CAssetManager::Create(const char* pfilename)
             g_Log << "[ERROR] Failed to load:   (";
             g_Log.SetWidth(10) << pAsset->GetID() << ") ";
             g_Log << pfilename << "\n";
+            g_Log << "[ERROR] Log: " << pAsset->GetError() << "\n";
             g_Log.PrintLastLog();
 
             delete pAsset;
@@ -76,13 +77,12 @@ bool CAssetManager::Destroy(T* pAsset)
         {
             // Log stuff.
             g_Log.Flush();
-            g_Log << "[INFO] Deleting asset: (";
+            g_Log << "[INFO] Deleting asset:    (";
             g_Log.SetWidth(10) << pAsset->GetID() << ") ";
             g_Log << pAsset->GetFilename() << "\n";
             g_Log.PrintLastLog();
 
-            // Delete asset.
-            pAsset->Release();
+            // Delete asset, destructor should handle resource de-alloc.
             delete pAsset;
             pAsset = NULL;
 

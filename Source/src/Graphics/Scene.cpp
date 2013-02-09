@@ -253,7 +253,7 @@ void CScene::StandardRender(CEntity* pEntity,
 
     // Do rendering.
     glDrawElements(m_geo_type, pSurface->icount, GL_UNSIGNED_SHORT,
-        (void*)(sizeof(uint16_t)*(pSurface->start)));
+                   (void*)(sizeof(uint16_t)*(pSurface->start)));
 
     // Unbind shader / texture.
     glBindTexture(GL_TEXTURE_2D, 0);
@@ -519,7 +519,7 @@ void CScene::UpdateShadows(const math::vector2_t& LightPosition)
 
     // Add shadow data to the VBO.
     m_ShadowVBO.AddData(&m_shadowVertices[0], m_shadowVertices.size(),
-        &m_shadowIndices[0], m_shadowIndices.size());
+                        &m_shadowIndices[0],  m_shadowIndices.size());
 
     m_shadowIndices.clear();
     m_shadowVertices.clear();
@@ -562,9 +562,9 @@ bool gfx::CScene::InsertMesh(const uint16_t position, CEntity* pEntity)
 }
 
 CEntity* gfx::CScene::InsertMesh(const uint16_t position, 
-                             const std::string& filename,
-                             const math::vector2_t& Position,
-                             bool animate, bool rigid)
+                                 const std::string& filename,
+                                 const math::vector2_t& Position,
+                                 bool animate, bool rigid)
 {
     if(mp_sceneObjects.size() < position)
         return this->AddMesh(filename, Position, animate, rigid);

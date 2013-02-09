@@ -56,6 +56,8 @@ namespace ic
 
         void Update();
 
+        math::vector2_t GetForces() const;
+
     private:
         math::rect_t m_CollisionBox;
         float m_vert, m_horz;

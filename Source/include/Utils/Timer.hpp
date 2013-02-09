@@ -95,12 +95,10 @@ namespace util
         }
 
         /**
-         * Retrieves the amount of time (in ms) since the program started.
+         * Retrieves the amount of time (in sec) since the program started.
          */
         static inline double GetTimeElapsed()
-        {
-            return glfwGetTime();
-        }
+        { return glfwGetTime(); }
 
         inline int GetFramerate() const
         { return m_framerate; }

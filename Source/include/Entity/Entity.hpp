@@ -121,10 +121,10 @@ namespace ic
         inline const math::vector2_t& GetPosition() const
         { return m_Mesh.GetPosition(); }
 
-        inline int GetX() const 
+        inline float GetX() const 
         { return this->GetPosition().x; }
 
-        inline int GetY() const 
+        inline float GetY() const 
         { return this->GetPosition().y; }
 
         inline int GetW() const

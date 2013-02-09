@@ -26,6 +26,7 @@
 #include "Logging.hpp"
 #include "Loader.hpp"
 #include "SysEvent.hpp"
+#include "Timer.hpp"
 
 #endif // IRON_CLAD__UTILS__UTILITIES_HPP
 
