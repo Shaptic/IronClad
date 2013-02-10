@@ -1,9 +1,23 @@
 CHANGELOG
 
-Project			:	IronClad
-Author			:	George Kudrayvtsev
-Current Version	:	1.2.0 alpha
-Last Updated	:	02.09.2013
+Project         :	IronClad
+Author          :	George Kudrayvtsev
+Current Version	:	1.2.1 alpha
+Last Updated	:	02.10.2013
+
+Version 1.2.1a (02.10.2013):
+ +  Mesh rotation support (in progress)
+ +  Mesh horizontal / vertical flipping support
+ +  Animation entities support sprite sheet override
+ +  New shader for animation
+ *  Animatable entities are physical objects now
+ *  Animation bug fixes 
+ *  Player spawn loads in level properly
+ *  Actual player is not created on player spawn, meaning that the player
+    sprite, when specified as an attribute in the level editor, is not
+    actually used, and is merely a placeholder for the location.
+    The actual player animations / sprite(s) should be loaded separately
+    from the engine. 
 
 Version 1.2.0a (02.09.2013):
  +  Animation beta stage complete

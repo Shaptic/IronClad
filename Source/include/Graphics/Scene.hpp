@@ -300,6 +300,9 @@ namespace gfx
          inline const std::vector<CEntity*>& GetObjects() const
          { return mp_sceneObjects; }
 
+         inline CVertexBuffer& GetGeometryBuffer()
+         { return m_GeometryVBO; }
+
          friend class CLevel;
 
     private:

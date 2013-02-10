@@ -7,6 +7,7 @@ var searchData=
   ['addsprite',['AddSprite',['../classic_1_1_c_animation.html#a9f758ee89c45164aa1ede3703861222a',1,'ic::CAnimation']]],
   ['adjust',['Adjust',['../classic_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931',1,'ic::CEntity::Adjust()'],['../classic_1_1_c_rigid_body.html#abbc7de0320c04b544786fa5a0a8708ce',1,'ic::CRigidBody::Adjust()']]],
   ['animation_2ehpp',['Animation.hpp',['../_animation_8hpp.html',1,'']]],
+  ['animationheader',['AnimationHeader',['../structic_1_1_c_animation_1_1_animation_header.html',1,'ic::CAnimation']]],
   ['asset_2ehpp',['Asset.hpp',['../_asset_8hpp.html',1,'']]],
   ['assetmanager_2ehpp',['AssetManager.hpp',['../_asset_manager_8hpp.html',1,'']]],
   ['assets',['Assets',['../group___assets.html',1,'']]],

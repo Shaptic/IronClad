@@ -28,6 +28,7 @@
 #include "Asset/AssetManager.hpp"
 #include "Asset/Mesh.hpp"
 #include "Graphics/Scene.hpp"
+#include "Entity/Animation.hpp"
 
 namespace ic
 {

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4206 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4355 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -113,19 +113,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span>font</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classic_1_1font_1_1_c_font.html">   42</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classic_1_1font_1_1_c_font.html">CFont</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classic_1_1font_1_1_c_font.html">   42</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> <a class="code" href="classic_1_1font_1_1_c_font.html">CFont</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classic_1_1font_1_1_c_font.html">CFont</a>(){}</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        ~<a class="code" href="classic_1_1font_1_1_c_font.html">CFont</a>(){}</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="classic_1_1font_1_1_c_font.html#a1c16b05a66d334d5ddc810dcbb75f8c7" title="Initializes the FreeType library.">Initialize</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> Initialize();</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classic_1_1font_1_1_c_font.html#a443f618faca95e8678c211986fd42756" title="Loads a TrueType font.">LoadFromFile</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> uint16_t size);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> uint16_t size);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classic_1_1font_1_1_c_font.html#a85cc2c47a984502662ada6b2086d603c" title="Resizes the font.">Resize</a>(<span class="keyword">const</span> uint32_t size);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">bool</span> Resize(<span class="keyword">const</span> uint32_t size);</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> <a class="code" href="classic_1_1font_1_1_c_font.html#af21659728b34f6dcf9747b5964390a58" title="Renders text on the current framebuffer.">RenderText</a>(<span class="keyword">const</span> std::string&amp; text,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> RenderText(<span class="keyword">const</span> std::string&amp; text,</div>
 <div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordtype">void</span> SetFontColor(<span class="keyword">const</span> <a class="code" href="structic_1_1color4f__t.html" title="Represents a 32-bit floating point color (RGBA).">color4f_t</a>&amp; Color);</div>
@@ -162,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 9 2013 00:21:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 10 2013 00:27:38 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

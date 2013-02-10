@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4206 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4355 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -91,7 +91,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">ic::CRigidBody Class Reference</div>  </div>
 </div><!--header-->
@@ -103,6 +104,7 @@ Inheritance diagram for ic::CRigidBody:</div>
   <img src="classic_1_1_c_rigid_body.png" usemap="#ic::CRigidBody_map" alt=""/>
   <map id="ic::CRigidBody_map" name="ic::CRigidBody_map">
 <area href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality." alt="ic::CEntity" shape="rect" coords="0,0,94,24"/>
+<area href="classic_1_1_c_animation.html" title="An animate-able extension of the CEntity class." alt="ic::CAnimation" shape="rect" coords="0,112,94,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -135,7 +137,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>CheckCollision</b> (c
 <tr class="memitem:add0678615e46575049d3c9d1331d7527"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add0678615e46575049d3c9d1331d7527"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>CheckCollision</b> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Other) const </td></tr>
 <tr class="memitem:a379aa36855738edcfe2f0724697a9f55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a379aa36855738edcfe2f0724697a9f55"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
 <tr class="memitem:ab1352ba860cfb3f087cd47ec3747f5fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1352ba860cfb3f087cd47ec3747f5fb"></a>
 <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetForces</b> () const </td></tr>
 <tr class="inherit_header pub_methods_classic_1_1_c_entity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classic_1_1_c_entity')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classic_1_1_c_entity.html">ic::CEntity</a></td></tr>
@@ -143,6 +145,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></t
 &#160;</td><td class="memItemRight" valign="bottom"><b>CEntity</b> (bool caster=false)</td></tr>
 <tr class="memitem:aa0097d9fd67a0f8b4b1a2bfc70de7722 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa0097d9fd67a0f8b4b1a2bfc70de7722"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const std::string &amp;filename) const </td></tr>
+<tr class="memitem:ad73bffa0ff22e1c313ed8d6a7dff5f03 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad73bffa0ff22e1c313ed8d6a7dff5f03"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Rotate</b> (const float degrees, const RotationAxis axis)</td></tr>
+<tr class="memitem:a84d3361e44a3488001722a2786c8c2f0 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84d3361e44a3488001722a2786c8c2f0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>AdjustRotation</b> (const float dtheta, const RotationAxis axis)</td></tr>
+<tr class="memitem:a74efb15375b7a22721c96f5826759eea inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74efb15375b7a22721c96f5826759eea"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FlipV</b> ()</td></tr>
+<tr class="memitem:a28fe3df69c90a0c89c0b7aa01321c178 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28fe3df69c90a0c89c0b7aa01321c178"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FlipH</b> ()</td></tr>
 <tr class="memitem:a80c8dbc2846706e15cdf67a71a6c0464 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464">SetMaterialOverride</a> (<a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *pTexture)</td></tr>
 <tr class="memdesc:a80c8dbc2846706e15cdf67a71a6c0464 inherit pub_methods_classic_1_1_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables a texture override over the default.  <a href="#a80c8dbc2846706e15cdf67a71a6c0464"></a><br/></td></tr>
 <tr class="memitem:aad10dbc8ca09d0281a49794e9887476a inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#aad10dbc8ca09d0281a49794e9887476a">ToggleRendering</a> ()</td></tr>
@@ -163,6 +173,8 @@ const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</
 float&#160;</td><td class="memItemRight" valign="bottom"><b>GetX</b> () const </td></tr>
 <tr class="memitem:a081aedc8e04bab450a83613f33303acb inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a081aedc8e04bab450a83613f33303acb"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>GetY</b> () const </td></tr>
+<tr class="memitem:aec3f2d96a72493ab0d412419ae089832 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec3f2d96a72493ab0d412419ae089832"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GetD</b> (const RotationAxis axis) const </td></tr>
 <tr class="memitem:a06efca573df575b2db7ee99c40015dad inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06efca573df575b2db7ee99c40015dad"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>GetW</b> () const </td></tr>
 <tr class="memitem:a546f2b1ca6d4c369785e3a3d739e4d52 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a546f2b1ca6d4c369785e3a3d739e4d52"></a>
@@ -173,8 +185,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetShadowCasting</b> 
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMesh</b> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh)</td></tr>
 <tr class="memitem:a69da4a75eff87f350426eb06ae7e5b60 inherit pub_methods_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a69da4a75eff87f350426eb06ae7e5b60">GetTexture</a> () const </td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
+<tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:ae65842a71c4bbfc7d6cd1668155d75d4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae65842a71c4bbfc7d6cd1668155d75d4"></a>
+<a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_CollisionBox</b></td></tr>
+<tr class="memitem:ab792e6c6d7dfba375aa42adef81ecbc1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab792e6c6d7dfba375aa42adef81ecbc1"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>m_vert</b></td></tr>
+<tr class="memitem:a9d174a36c283db3009118b6a6aa33bc7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9d174a36c283db3009118b6a6aa33bc7"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>m_horz</b></td></tr>
 <tr class="inherit_header pro_attribs_classic_1_1_c_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classic_1_1_c_entity')"><img src="closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="classic_1_1_c_entity.html">ic::CEntity</a></td></tr>
 <tr class="memitem:ac3bb90679364eb1e34adbc7f33a722c2 inherit pro_attribs_classic_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac3bb90679364eb1e34adbc7f33a722c2"></a>
 <a class="el" href="classic_1_1gfx_1_1_c_mesh_instance.html">gfx::CMeshInstance</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_Mesh</b></td></tr>
@@ -356,7 +374,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 9 2013 00:21:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 10 2013 00:27:38 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4206 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4355 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -102,7 +102,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    std::ifstream anim(filename, std::ios::binary);</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    CAnimation::AnimationHeader&amp; header = m_SheetDetails;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="structic_1_1_c_animation_1_1_animation_header.html">CAnimation::AnimationHeader</a>&amp; header = m_SheetDetails;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    memset(&amp;header, NULL, <span class="keyword">sizeof</span> header);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">if</span>(!anim.is_open()) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -146,10 +146,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    quad_v[2].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(sprite_w,  sprite_h);</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    quad_v[3].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0,         sprite_h);</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    quad_v[0].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0.f,           m_TexcDim.y);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    quad_v[1].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(m_TexcDim.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a>,   m_TexcDim.y);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    quad_v[2].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(m_TexcDim.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a>,   0.f);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    quad_v[3].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0.f,           0.f);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    quad_v[0].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0.f,   1.f);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    quad_v[1].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(1.f,   1.f);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    quad_v[2].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(1.f,   0.f);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    quad_v[3].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0.f,   0.f);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a0db30eeee76ea4de7515c333530d288a" title="Writes pending data to the file.">Flush</a>();</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a> &lt;&lt; <span class="stringliteral">&quot;[DEBUG] Loading animation file. &quot;</span>;</div>
@@ -161,69 +161,90 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>* pTexture = asset::CAssetManager::Create&lt;asset::CTexture&gt;();</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    pTexture-&gt;SetFilename(filename);</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    pTexture-&gt;LoadFromRaw(img.Format, img.Format, w, h, img.Data);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    glfwFreeImage(&amp;img);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="comment">// Load mesh</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#a206f316728268b9d6d427feec3a358a2" title="Loads a mesh asset.">LoadMesh</a>(quad_v, 4, quad_i, 6);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Load whole atlas into surface, then load custom shader.</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pTexture = pTexture;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a>* pShader = m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pShader;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">if</span>(pShader == NULL)</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        pShader = <span class="keyword">new</span> <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordflow">if</span>(!pShader-&gt;<a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html#a8753adfae479beb7f72042001e3838cc" title="Loads a pair of shader files.">LoadFromFile</a>(<span class="stringliteral">&quot;Shaders/Default.vs&quot;</span>, <span class="stringliteral">&quot;Shaders/Default.fs&quot;</span>))</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="comment">// The shader contains an offset so that the texture coordinates</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// can be shifted to reflect the current sprite.</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    pShader-&gt;Bind();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    m_tc_loc = pShader-&gt;GetUniformLocation(<span class="stringliteral">&quot;tc_offset&quot;</span>);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    glUniform2f(m_tc_loc, 0.f, 0.f);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    pShader-&gt;Unbind();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pShader = pShader;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#afcfd443c8b7a1139adacd3bf00b5741f" title="Loads the current instance into the GPU.">LoadIntoVBO</a>(VBO);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="classic_1_1_c_animation.html#a27d866dedbbd4dacc55152031873f622">   98</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1_c_animation.html#a27d866dedbbd4dacc55152031873f622" title="Iterates the current texture to the next one in the queue.">CAnimation::NextSprite</a>()</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;{</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">int</span> current = 0;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keywordflow">if</span>(++current &gt; m_SheetDetails.rows * m_SheetDetails.columns)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    {</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        current = 0;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">// Adjust for current texture</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a>* pShader = m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pShader;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    pShader-&gt;Bind();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    glUniform2f(m_tc_loc, current * m_TexcDim.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a>, current * m_TexcDim.y);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    pShader-&gt;Unbind();</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">return</span> (current &gt; 0);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno"><a class="code" href="classic_1_1_c_animation.html#a2d282321233f293a7e7fd780eac52236">  116</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_animation.html#a2d282321233f293a7e7fd780eac52236" title="Updates the current time delta value.">CAnimation::Update</a>()</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;{</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">if</span>((<a class="code" href="classic_1_1util_1_1_c_timer.html#aabd49eb265d8fa342e6cd924f246b564" title="Retrieves the amount of time (in sec) since the program started.">util::CTimer::GetTimeElapsed</a>()) - m_last &gt;= m_delay)</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    {</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;        this-&gt;<a class="code" href="classic_1_1_c_animation.html#a27d866dedbbd4dacc55152031873f622" title="Iterates the current texture to the next one in the queue.">NextSprite</a>();</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        m_last = <a class="code" href="classic_1_1util_1_1_c_timer.html#aabd49eb265d8fa342e6cd924f246b564" title="Retrieves the amount of time (in sec) since the program started.">util::CTimer::GetTimeElapsed</a>();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;}</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;</div>
-<div class="line"><a name="l00125"></a><span class="lineno"><a class="code" href="classic_1_1_c_animation.html#ab723bed1244bc591b9ed155ce7450182">  125</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_animation.html#ab723bed1244bc591b9ed155ce7450182" title="Sets the rate of animation.">CAnimation::SetAnimationRate</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> delta)</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;{</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    m_delay = delta;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;}</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    header.pTexture = pTexture;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    glfwFreeImage(&amp;img);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="comment">// Load mesh</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#a206f316728268b9d6d427feec3a358a2" title="Loads a mesh asset.">LoadMesh</a>(quad_v, 4, quad_i, 6);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="comment">// Load whole atlas into surface, then load custom shader.</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pTexture = pTexture;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a>* pShader = m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pShader;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">if</span>(pShader == NULL)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        pShader = <span class="keyword">new</span> <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">if</span>(!pShader-&gt;<a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html#a8753adfae479beb7f72042001e3838cc" title="Loads a pair of shader files.">LoadFromFile</a>(<span class="stringliteral">&quot;Shaders/Default.vs&quot;</span>, <span class="stringliteral">&quot;Shaders/Animate.fs&quot;</span>))</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="comment">// The shader contains an offset so that the texture coordinates</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// can be shifted to reflect the current sprite.</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    pShader-&gt;Bind();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    m_tc_loc = pShader-&gt;GetUniformLocation(<span class="stringliteral">&quot;tc_offset&quot;</span>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    m_tc_str = pShader-&gt;GetUniformLocation(<span class="stringliteral">&quot;tc_start&quot;</span>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    glUniform2f(m_tc_loc, m_TexcDim.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a>, m_TexcDim.y);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    pShader-&gt;Unbind();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pShader = pShader;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="comment">// Rigid body collision.</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    m_CollisionBox.w = m_SheetDetails.width  / m_SheetDetails.columns;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    m_CollisionBox.h = m_SheetDetails.height / m_SheetDetails.rows;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <span class="keywordflow">return</span> m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#afcfd443c8b7a1139adacd3bf00b5741f" title="Loads the current instance into the GPU.">LoadIntoVBO</a>(VBO);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="code" href="classic_1_1_c_animation.html#a27d866dedbbd4dacc55152031873f622">  104</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1_c_animation.html#a27d866dedbbd4dacc55152031873f622" title="Iterates the current texture to the next one in the queue.">CAnimation::NextSprite</a>()</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span>(++m_active &gt;= this-&gt;GetAnimationCount())</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        ++m_loops_done;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        m_active = 0;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a0db30eeee76ea4de7515c333530d288a" title="Writes pending data to the file.">Flush</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a> &lt;&lt; <span class="stringliteral">&quot;[DEBUG] Rendering texture[&quot;</span> &lt;&lt; (int)m_active &lt;&lt; <span class="stringliteral">&quot;]: &quot;</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a> &lt;&lt; m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pTexture-&gt;GetFilename() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>.PrintLastLog();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="comment">// Adjust for current texture</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a>* pShader = m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pShader;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    pShader-&gt;Bind();</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    glUniform2f(m_tc_str, m_active * m_TexcDim.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a>, (m_active) * m_TexcDim.y);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    glUniform2f(m_tc_loc, m_TexcDim.<a class="code" href="structic_1_1math_1_1vector2__t.html#a670f0557ed2c0552ac269fc42c1656aa" title="The vector components.">x</a>, m_TexcDim.y);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    pShader-&gt;Unbind();</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> (m_active &gt; 0);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="code" href="classic_1_1_c_animation.html#a2d282321233f293a7e7fd780eac52236">  127</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_animation.html#a2d282321233f293a7e7fd780eac52236" title="Updates the current time delta value.">CAnimation::Update</a>()</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;{</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    <a class="code" href="classic_1_1_c_animation.html#a2d282321233f293a7e7fd780eac52236" title="Updates the current time delta value.">CRigidBody::Update</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classic_1_1util_1_1_c_timer.html#aabd49eb265d8fa342e6cd924f246b564" title="Retrieves the amount of time (in sec) since the program started.">util::CTimer::GetTimeElapsed</a>() - m_last &gt;= m_delay &amp;&amp; m_enabled)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        this-&gt;<a class="code" href="classic_1_1_c_animation.html#a27d866dedbbd4dacc55152031873f622" title="Iterates the current texture to the next one in the queue.">NextSprite</a>();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        m_last = <a class="code" href="classic_1_1util_1_1_c_timer.html#aabd49eb265d8fa342e6cd924f246b564" title="Retrieves the amount of time (in sec) since the program started.">util::CTimer::GetTimeElapsed</a>();</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="code" href="classic_1_1_c_animation.html#ab723bed1244bc591b9ed155ce7450182">  138</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classic_1_1_c_animation.html#ab723bed1244bc591b9ed155ce7450182" title="Sets the rate of animation.">CAnimation::SetAnimationRate</a>(<span class="keyword">const</span> <span class="keywordtype">float</span> delta)</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;{</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    m_delay = delta;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="keywordtype">void</span> CAnimation::AttachNewSpriteSheet(<span class="keyword">const</span> AnimationHeader&amp; Header)</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pTexture = Header.pTexture;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    m_SheetDetails  = Header;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    m_TexcDim       = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(1.f / Header.columns, 1.f / Header.rows);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    m_loops_done    = 0;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 9 2013 00:21:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 10 2013 00:27:38 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

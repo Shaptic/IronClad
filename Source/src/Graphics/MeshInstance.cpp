@@ -3,6 +3,13 @@
 using namespace ic;
 using gfx::CMeshInstance;
 
+CMeshInstance::CMeshInstance() : mp_ActiveMesh(NULL),
+    m_RotationZ(1.f, 0.f), m_RotationX(1.f, 0.f), m_RotationY(1.f, 0.f),
+    m_hflip(false), m_vflip(false)
+{
+    memset(m_degrees, 0, sizeof(m_degrees));
+}
+
 bool CMeshInstance::LoadMesh(asset::CMesh* pMesh)
 {
     if(pMesh) mp_ActiveMesh = pMesh;
@@ -29,6 +36,9 @@ bool CMeshInstance::LoadIntoVBO(gfx::CVertexBuffer& VBO)
 bool CMeshInstance::LoadMesh(const vertex2_t* verts, const uint16_t vsize,
                              const uint16_t*  inds,  const uint16_t isize)
 {
+    if(mp_ActiveMesh != NULL)
+        asset::CAssetManager::Destroy<asset::CMesh>(mp_ActiveMesh);
+
     mp_ActiveMesh = asset::CAssetManager::Create<asset::CMesh>();
     mp_ActiveMesh->SetFilename("Raw mesh");
     return mp_ActiveMesh->LoadFromRaw(verts, vsize, inds, isize);

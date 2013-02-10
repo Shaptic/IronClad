@@ -52,10 +52,10 @@ bool CAnimation::LoadFromFile(const std::string& filename,
     quad_v[2].Position = math::vector2_t(sprite_w,  sprite_h);
     quad_v[3].Position = math::vector2_t(0,         sprite_h);
 
-    quad_v[0].TexCoord = math::vector2_t(0.f,           m_TexcDim.y);
-    quad_v[1].TexCoord = math::vector2_t(m_TexcDim.x,   m_TexcDim.y);
-    quad_v[2].TexCoord = math::vector2_t(m_TexcDim.x,   0.f);
-    quad_v[3].TexCoord = math::vector2_t(0.f,           0.f);
+    quad_v[0].TexCoord = math::vector2_t(0.f,   1.f);
+    quad_v[1].TexCoord = math::vector2_t(1.f,   1.f);
+    quad_v[2].TexCoord = math::vector2_t(1.f,   0.f);
+    quad_v[3].TexCoord = math::vector2_t(0.f,   0.f);
 
     g_Log.Flush();
     g_Log << "[DEBUG] Loading animation file. ";
@@ -67,6 +67,7 @@ bool CAnimation::LoadFromFile(const std::string& filename,
     asset::CTexture* pTexture = asset::CAssetManager::Create<asset::CTexture>();
     pTexture->SetFilename(filename);
     pTexture->LoadFromRaw(img.Format, img.Format, w, h, img.Data);
+    header.pTexture = pTexture;
 
     glfwFreeImage(&img);
 
@@ -80,7 +81,7 @@ bool CAnimation::LoadFromFile(const std::string& filename,
     if(pShader == NULL)
     {
         pShader = new gfx::CShaderPair;
-        if(!pShader->LoadFromFile("Shaders/Default.vs", "Shaders/Default.fs"))
+        if(!pShader->LoadFromFile("Shaders/Default.vs", "Shaders/Animate.fs"))
             return false;
     }
     
@@ -88,34 +89,46 @@ bool CAnimation::LoadFromFile(const std::string& filename,
     // can be shifted to reflect the current sprite.
     pShader->Bind();
     m_tc_loc = pShader->GetUniformLocation("tc_offset");
-    glUniform2f(m_tc_loc, 0.f, 0.f);
+    m_tc_str = pShader->GetUniformLocation("tc_start");
+    glUniform2f(m_tc_loc, m_TexcDim.x, m_TexcDim.y);
     pShader->Unbind();
     m_Mesh.GetSurfaces()[0]->pMaterial->pShader = pShader;
+
+    // Rigid body collision.
+    m_CollisionBox.w = m_SheetDetails.width  / m_SheetDetails.columns;
+    m_CollisionBox.h = m_SheetDetails.height / m_SheetDetails.rows;
 
     return m_Mesh.LoadIntoVBO(VBO);
 }
 
 bool CAnimation::NextSprite()
 {
-    static int current = 0;
-    
-    if(++current > m_SheetDetails.rows * m_SheetDetails.columns)
+    if(++m_active >= this->GetAnimationCount())
     {
-        current = 0;
+        ++m_loops_done;
+        m_active = 0;
     }
+
+    util::g_Log.Flush();
+    util::g_Log << "[DEBUG] Rendering texture[" << (int)m_active << "]: ";
+    util::g_Log << m_Mesh.GetSurfaces()[0]->pMaterial->pTexture->GetFilename() << "\n";
+    util::g_Log.PrintLastLog();
 
     // Adjust for current texture
     gfx::CShaderPair* pShader = m_Mesh.GetSurfaces()[0]->pMaterial->pShader;
     pShader->Bind();
-    glUniform2f(m_tc_loc, current * m_TexcDim.x, current * m_TexcDim.y);
+    glUniform2f(m_tc_str, m_active * m_TexcDim.x, (m_active) * m_TexcDim.y);
+    glUniform2f(m_tc_loc, m_TexcDim.x, m_TexcDim.y);
     pShader->Unbind();
 
-    return (current > 0);
+    return (m_active > 0);
 }
 
 void CAnimation::Update()
 {
-    if((util::CTimer::GetTimeElapsed()) - m_last >= m_delay)
+    CRigidBody::Update();
+
+    if(util::CTimer::GetTimeElapsed() - m_last >= m_delay && m_enabled)
     {
         this->NextSprite();
         m_last = util::CTimer::GetTimeElapsed();
@@ -125,4 +138,12 @@ void CAnimation::Update()
 void CAnimation::SetAnimationRate(const float delta)
 {
     m_delay = delta;
+}
+
+void CAnimation::AttachNewSpriteSheet(const AnimationHeader& Header)
+{
+    m_Mesh.GetSurfaces()[0]->pMaterial->pTexture = Header.pTexture;
+    m_SheetDetails  = Header;
+    m_TexcDim       = math::vector2_t(1.f / Header.columns, 1.f / Header.rows);
+    m_loops_done    = 0;
 }

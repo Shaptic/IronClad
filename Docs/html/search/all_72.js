@@ -12,5 +12,8 @@ var searchData=
   ['reset',['Reset',['../structic_1_1util_1_1_system_event.html#af042026772b0b6f98f85c98ff081cecf',1,'ic::util::SystemEvent']]],
   ['resize',['Resize',['../classic_1_1font_1_1_c_font.html#a85cc2c47a984502662ada6b2086d603c',1,'ic::font::CFont::Resize()'],['../classic_1_1gfx_1_1_c_window.html#a4ccbffba3f86cd57c17de35af786b5da',1,'ic::gfx::CWindow::Resize()']]],
   ['rigidbody_2ehpp',['RigidBody.hpp',['../_rigid_body_8hpp.html',1,'']]],
-  ['rotate',['Rotate',['../structic_1_1math_1_1line2__t.html#afec20ee633b476b60f4da607f3703f30',1,'ic::math::line2_t::Rotate()'],['../structic_1_1math_1_1vector2__t.html#ae24512d6ab957d34341e19a8940cf532',1,'ic::math::vector2_t::Rotate()']]]
+  ['rotate',['Rotate',['../structic_1_1math_1_1line2__t.html#afec20ee633b476b60f4da607f3703f30',1,'ic::math::line2_t::Rotate()'],['../structic_1_1math_1_1vector2__t.html#ae24512d6ab957d34341e19a8940cf532',1,'ic::math::vector2_t::Rotate()']]],
+  ['rotatex',['RotateX',['../classic_1_1gfx_1_1_c_mesh_instance.html#ad7a50f5ecf4e94da320a5141ab97ff67',1,'ic::gfx::CMeshInstance']]],
+  ['rotatey',['RotateY',['../classic_1_1gfx_1_1_c_mesh_instance.html#a26ceb068105ad2782b8a8f6a8832e3cc',1,'ic::gfx::CMeshInstance']]],
+  ['rotatez',['RotateZ',['../classic_1_1gfx_1_1_c_mesh_instance.html#a030e886e92268bb827f805abe6eb001d',1,'ic::gfx::CMeshInstance']]]
 ];

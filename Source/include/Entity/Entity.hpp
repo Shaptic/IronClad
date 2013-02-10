@@ -29,6 +29,13 @@
 
 namespace ic
 {
+    enum RotationAxis
+    {
+        IC_X_AXIS,
+        IC_Y_AXIS,
+        IC_Z_AXIS
+    };
+
     /**
      * A wrapper for the mesh instances with additional functionality.
      * 
@@ -82,7 +89,48 @@ namespace ic
          **/
         virtual void Adjust(const math::vector2_t& Rate);
         virtual void Adjust(const float dx, const float dy);
+
+        virtual void Rotate(const float degrees, const RotationAxis axis)
+        {
+            switch(axis)
+            {
+            case IC_X_AXIS:
+                m_Mesh.RotateX(degrees);
+                break;
+
+            case IC_Y_AXIS:
+                m_Mesh.RotateY(degrees);
+                break;
+
+            case IC_Z_AXIS:
+                m_Mesh.RotateZ(degrees);
+                break;
+            }
+        }
+        virtual void AdjustRotation(const float dtheta, const RotationAxis axis)
+        {
+            switch(axis)
+            {
+            case IC_X_AXIS:
+                m_Mesh.RotateX(m_Mesh.GetRotationX() + dtheta);
+                break;
+
+            case IC_Y_AXIS:
+                m_Mesh.RotateY(m_Mesh.GetRotationY() + dtheta);
+                break;
+
+            case IC_Z_AXIS:
+                m_Mesh.RotateZ(m_Mesh.GetRotationZ() + dtheta);
+                break;
+            }
+        }
+
+        void FlipV() { m_Mesh.VFlip(); }
+        void FlipH() { m_Mesh.HFlip(); }
         
+        // Does nothing, but could be implemented in inheriting classes.
+        virtual void Update(){}
+
         /**
          * Enables a texture override over the default.
          *  This will cause the default texture(s) on the mesh to be
@@ -127,12 +175,20 @@ namespace ic
         inline float GetY() const 
         { return this->GetPosition().y; }
 
+        inline float GetD(const RotationAxis axis) const
+        {
+            if(axis == IC_X_AXIS) return m_Mesh.GetRotationX();
+            if(axis == IC_Y_AXIS) return m_Mesh.GetRotationY();
+            if(axis == IC_Y_AXIS) return m_Mesh.GetRotationZ();
+            return 0.f;
+        }
+
         inline int GetW() const
-        { return this->m_Mesh.GetDimensions().x; }
+        { return m_Mesh.GetDimensions().x; }
 
         inline int GetH() const
-        { return this->m_Mesh.GetDimensions().y; }
-
+        { return m_Mesh.GetDimensions().y; }
+        
         inline void SetShadowCasting(bool flag)
         { m_casts = flag; }
 

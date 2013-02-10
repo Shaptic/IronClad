@@ -54,11 +54,11 @@ namespace ic
         bool CheckCollision(const math::rect_t& Other) const;
         bool CheckCollision(const math::vector2_t& Other) const;
 
-        void Update();
+        virtual void Update();
 
         math::vector2_t GetForces() const;
 
-    private:
+    protected:
         math::rect_t m_CollisionBox;
         float m_vert, m_horz;
     };

@@ -39,7 +39,7 @@ namespace ic
 {
 namespace font
 {
-    class CFont
+    class IRONCLAD_API CFont
     {
     public:
         CFont(){}
@@ -60,7 +60,7 @@ namespace font
         /**
          * Loads a TrueType font.
          *  Here, all of the printable characters in the ASCII table
-         *  are loaded as bitmaps, then are turned into renderable
+         *  are loaded as bitmaps, then are turned into render-able
          *  textures in GPU memory. Their dimensions are stored for
          *  rendering later on.
          *

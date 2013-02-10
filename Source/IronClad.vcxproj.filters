@@ -36,6 +36,27 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{3b546758-dd25-4664-a67c-21e76e020660}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{21ef4c40-223d-4c4b-a52c-f75f785f0592}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Assets">
+      <UniqueIdentifier>{058be346-2695-4f9c-89d9-454ff562551d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Entities">
+      <UniqueIdentifier>{756e7885-7e9f-424d-a1e6-dbdbdcde8e08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Fonts">
+      <UniqueIdentifier>{6bf769ad-cefa-4e2b-bd0e-379ffc0a0d51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Graphics">
+      <UniqueIdentifier>{503ea2b4-6170-4c90-85e1-3c6400a73132}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Math">
+      <UniqueIdentifier>{e7860e44-e8f4-42d7-97e9-afd1fbdbbbab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Utilities">
+      <UniqueIdentifier>{09c64ee7-eb65-4391-a945-0335613d9093}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -181,10 +202,88 @@
     <None Include="..\Debug\Shaders\FontRender.fs">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\Debug\Shaders\Animate.fs">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DLLMain.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\IronClad.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Level.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Asset\AssetManager.cpp">
+      <Filter>Source Files\Engine\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Asset\Mesh.cpp">
+      <Filter>Source Files\Engine\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Asset\Shader.cpp">
+      <Filter>Source Files\Engine\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Asset\Texture.cpp">
+      <Filter>Source Files\Engine\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\Animation.cpp">
+      <Filter>Source Files\Engine\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\Entity.cpp">
+      <Filter>Source Files\Engine\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity\RigidBody.cpp">
+      <Filter>Source Files\Engine\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Fonts\Font.cpp">
+      <Filter>Source Files\Engine\Fonts</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Effect.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Framebuffer.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Globals.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Light.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\MeshInstance.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Scene.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\ShaderPair.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\VertexBuffer.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Graphics\Window.cpp">
+      <Filter>Source Files\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math\Line2.cpp">
+      <Filter>Source Files\Engine\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Math\Matrix.cpp">
+      <Filter>Source Files\Engine\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utils\Helper.cpp">
+      <Filter>Source Files\Engine\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utils\Loader.cpp">
+      <Filter>Source Files\Engine\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utils\Logging.cpp">
+      <Filter>Source Files\Engine\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Utils\SysEvent.cpp">
+      <Filter>Source Files\Engine\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

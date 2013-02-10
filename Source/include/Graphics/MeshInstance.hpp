@@ -45,7 +45,7 @@ namespace gfx
     class IRONCLAD_API CMeshInstance
     {
     public:
-        CMeshInstance() : mp_ActiveMesh(NULL) {}
+        CMeshInstance();
         ~CMeshInstance() {}
 
         /**
@@ -81,6 +81,58 @@ namespace gfx
         }
 
         /**
+         * Rotates the mesh instance.
+         * @param   float   Degrees to rotate
+         **/
+        void RotateX(float degrees)
+        {
+            while(degrees > 360.f)  degrees -= 360.f;
+            while(degrees < 0.f)    degrees += 360.f;
+
+            m_degrees[0]  = degrees;
+            m_RotationX.x = cos(math::rad(degrees));
+            m_RotationX.y = sin(math::rad(degrees));
+        }
+
+        /**
+         * Rotates the mesh instance.
+         * @param   float   Degrees to rotate
+         **/
+        void RotateY(float degrees)
+        {
+            while(degrees > 360.f)  degrees -= 360.f;
+            while(degrees < 0.f)    degrees += 360.f;
+
+            m_degrees[1]  = degrees;
+            m_RotationY.x = cos(math::rad(degrees));
+            m_RotationY.y = sin(math::rad(degrees));
+        }
+
+        /**
+         * Rotates the mesh instance.
+         * @param   float   Degrees to rotate
+         **/
+        void RotateZ(float degrees)
+        {
+            while(degrees > 360.f)  degrees -= 360.f;
+            while(degrees < 0.f)    degrees += 360.f;
+
+            m_degrees[1]  = degrees;
+            m_RotationZ.x = cos(math::rad(degrees));
+            m_RotationZ.y = sin(math::rad(degrees));
+        }
+
+        bool VFlip()
+        {
+            return (m_vflip = !m_vflip);
+        }
+
+        bool HFlip()
+        {
+            return (m_hflip = !m_hflip);
+        }
+
+        /**
          * Loads instance position data into an existing model-view matrix.
          *  The old system used to have each CMeshInstance contain its own
          *  model-view matrix, and simply do a call to GetPositionMatrix(),
@@ -92,13 +144,28 @@ namespace gfx
          * @param   math::matrix4x4_t&  Model-view matrix to load into
          **/
         inline void LoadPositionMatrix(math::matrix4x4_t& MVMatrix)
-        { MVMatrix[0][3] = m_Position.x; MVMatrix[1][3] = m_Position.y; }
+        {
+            MVMatrix[1][1] = m_vflip ? -1.f : 1.f;
+            MVMatrix[0][0] = m_hflip ? -1.f : 1.f;
+
+            MVMatrix[0][3] =  m_Position.x;
+            MVMatrix[1][3] =  m_Position.y;
+        }
 
         inline std::vector<gfx::surface_t*>& GetSurfaces() const
         { return mp_ActiveMesh->mp_Surfaces; }
 
         inline const math::vector2_t& GetPosition() const
         { return m_Position; }
+
+        inline float GetRotationX() const
+        { return m_degrees[0]; }
+
+        inline float GetRotationY() const
+        { return m_degrees[1]; }
+
+        inline float GetRotationZ() const
+        { return m_degrees[2]; }
 
         inline const math::vector2_t& GetDimensions() const
         { return m_Dimensions; }
@@ -109,6 +176,11 @@ namespace gfx
         asset::CMesh*       mp_ActiveMesh;
         math::vector2_t     m_Position;
         math::vector2_t     m_Dimensions;
+        math::vector2_t     m_RotationX;
+        math::vector2_t     m_RotationY;
+        math::vector2_t     m_RotationZ;
+        float               m_degrees[3];
+        bool                m_vflip, m_hflip;
     };
 
 }   // namespace gfx

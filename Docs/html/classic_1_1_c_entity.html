@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4206 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4355 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -108,8 +108,8 @@ Inheritance diagram for ic::CEntity:</div>
  <div class="center">
   <img src="classic_1_1_c_entity.png" usemap="#ic::CEntity_map" alt=""/>
   <map id="ic::CEntity_map" name="ic::CEntity_map">
-<area href="classic_1_1_c_animation.html" title="An animate-able extension of the CEntity class." alt="ic::CAnimation" shape="rect" coords="0,56,94,80"/>
-<area href="classic_1_1_c_rigid_body.html" alt="ic::CRigidBody" shape="rect" coords="104,56,198,80"/>
+<area href="classic_1_1_c_rigid_body.html" alt="ic::CRigidBody" shape="rect" coords="0,56,94,80"/>
+<area href="classic_1_1_c_animation.html" title="An animate-able extension of the CEntity class." alt="ic::CAnimation" shape="rect" coords="0,112,94,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -133,6 +133,16 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Move</b> (con
 <tr class="memdesc:af1a970d16aabbdd561986ba4e28f1931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the entity at a rate.  <a href="#af1a970d16aabbdd561986ba4e28f1931"></a><br/></td></tr>
 <tr class="memitem:a342f51a7067b780509a82d4d88074b63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a342f51a7067b780509a82d4d88074b63"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Adjust</b> (const float dx, const float dy)</td></tr>
+<tr class="memitem:ad73bffa0ff22e1c313ed8d6a7dff5f03"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad73bffa0ff22e1c313ed8d6a7dff5f03"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Rotate</b> (const float degrees, const RotationAxis axis)</td></tr>
+<tr class="memitem:a84d3361e44a3488001722a2786c8c2f0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a84d3361e44a3488001722a2786c8c2f0"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>AdjustRotation</b> (const float dtheta, const RotationAxis axis)</td></tr>
+<tr class="memitem:a74efb15375b7a22721c96f5826759eea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a74efb15375b7a22721c96f5826759eea"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FlipV</b> ()</td></tr>
+<tr class="memitem:a28fe3df69c90a0c89c0b7aa01321c178"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a28fe3df69c90a0c89c0b7aa01321c178"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>FlipH</b> ()</td></tr>
+<tr class="memitem:a117bcfed032ab3eed397af1d0738464c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a117bcfed032ab3eed397af1d0738464c"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
 <tr class="memitem:a80c8dbc2846706e15cdf67a71a6c0464"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464">SetMaterialOverride</a> (<a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *pTexture)</td></tr>
 <tr class="memdesc:a80c8dbc2846706e15cdf67a71a6c0464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables a texture override over the default.  <a href="#a80c8dbc2846706e15cdf67a71a6c0464"></a><br/></td></tr>
 <tr class="memitem:aad10dbc8ca09d0281a49794e9887476a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_entity.html#aad10dbc8ca09d0281a49794e9887476a">ToggleRendering</a> ()</td></tr>
@@ -153,6 +163,8 @@ const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</
 float&#160;</td><td class="memItemRight" valign="bottom"><b>GetX</b> () const </td></tr>
 <tr class="memitem:a081aedc8e04bab450a83613f33303acb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a081aedc8e04bab450a83613f33303acb"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>GetY</b> () const </td></tr>
+<tr class="memitem:aec3f2d96a72493ab0d412419ae089832"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec3f2d96a72493ab0d412419ae089832"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GetD</b> (const RotationAxis axis) const </td></tr>
 <tr class="memitem:a06efca573df575b2db7ee99c40015dad"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06efca573df575b2db7ee99c40015dad"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>GetW</b> () const </td></tr>
 <tr class="memitem:a546f2b1ca6d4c369785e3a3d739e4d52"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a546f2b1ca6d4c369785e3a3d739e4d52"></a>
@@ -178,7 +190,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 <div class="textblock"><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Todo:</a></b></dt><dd>Calculate width and height properly. </dd></dl>
 <dl class="section warning"><dt>Warning:</dt><dd><a class="el" href="classic_1_1_c_entity.html#a69da4a75eff87f350426eb06ae7e5b60">CEntity::GetTexture()</a> has potential for out-of-bounds. </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00038">38</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00045">45</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
 <a class="anchor" id="af1a970d16aabbdd561986ba4e28f1931"></a>
 <div class="memitem">
@@ -236,7 +248,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 </div><div class="memdoc">
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Bounds checking hehe. </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00143">143</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00199">199</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -414,7 +426,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 <p>Default is TRUE, of course. If set to FALSE, the CScene it's attached to will not render this entity.</p>
 <dl class="section return"><dt>Returns:</dt><dd>The old state (TRUE if not rendering, etc). </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00103">103</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00151">151</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -425,7 +437,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Feb 9 2013 00:21:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Feb 10 2013 00:27:38 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

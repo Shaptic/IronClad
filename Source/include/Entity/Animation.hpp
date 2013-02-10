@@ -25,7 +25,7 @@
 
 #include "Utils/Utilities.hpp"
 #include "Graphics/Framebuffer.hpp"
-#include "Entity.hpp"
+#include "RigidBody.hpp"
 
 namespace ic
 {
@@ -42,11 +42,21 @@ namespace ic
      *  
      * @todo    Expand animation abilities to non-quad meshes.
      **/
-    class CAnimation : public CEntity
+    class IRONCLAD_API CAnimation : public CRigidBody
     {
     public:
+        struct AnimationHeader
+        {
+            uint16_t width;         // 2 bytes * 4 fields = 8 bytes.
+            uint16_t height;
+            uint16_t columns;
+            uint16_t rows;
+
+            asset::CTexture* pTexture;
+        };
+
         CAnimation() : m_last(util::CTimer::GetTimeElapsed()),
-            m_delay(1.f) {}
+            m_delay(1.f), m_loops_done(0) {}
         ~CAnimation(){}
 
         /**
@@ -66,6 +76,8 @@ namespace ic
          **/
         bool LoadFromFile(const std::string& filename,
                           gfx::CVertexBuffer& VBO);
+
+        void AttachNewSpriteSheet(const AnimationHeader& Header);
 
         /**
          * Adds a sprite to the animation queue.
@@ -95,7 +107,8 @@ namespace ic
          *
          * @param   bool    Enable / Disable animation
          **/
-        void EnableAnimation(bool flag);
+        void EnableAnimation(bool flag)
+        { m_enabled = flag; }
 
         /**
          * Sets the rate of animation.
@@ -124,23 +137,31 @@ namespace ic
          *  This method will accurately measure time elapsed between 
          *  texture switches and will switch accordingly if necessary.
          **/
-        void Update();
+        virtual void Update();
+
+        uint32_t GetLoopCount() const
+        { return m_loops_done; }
+
+        uint16_t GetAnimationCount() const 
+        { return m_SheetDetails.rows * m_SheetDetails.columns; }
+
+        AnimationHeader& GetHeader()
+        { return m_SheetDetails; }
+
+        void SetAnimation(const uint8_t index)
+        {
+            m_active = (math::min<int>(index, this->GetAnimationCount()))-2;
+            this->NextSprite();
+        }
 
     private:
-        struct AnimationHeader
-        {
-            uint16_t width;         // 2 bytes * 4 fields = 8 bytes.
-            uint16_t height;
-            uint16_t columns;
-            uint16_t rows;
-        };
-
         math::vector2_t m_TexcDim;
         AnimationHeader m_SheetDetails;
+        uint8_t         m_active;
         float           m_delay;
         float           m_last;
         bool            m_enabled;
-        int             m_tc_loc;
+        int             m_tc_loc, m_tc_str, m_loops_done;
     };
 }
 

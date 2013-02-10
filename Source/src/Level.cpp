@@ -31,6 +31,9 @@ bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
             CEntity* pEntity    = NULL;
             gfx::CLight* pLight = NULL;
 
+            bool is_pspawn = false;
+            bool is_espawn = false;
+
             while(std::getline(file, line) && line != "[end]")
             {
                 if(line == "[mesh]")
@@ -159,6 +162,12 @@ bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
                             pEntity = new CRigidBody;
                             mp_levelPhysics.push_back((CRigidBody*)pEntity);
                         }
+                        else if(attrib == 0 && value == 2)
+                        {
+                            pEntity = new CAnimation;
+                            mp_levelEntities.push_back(pEntity);
+                            mp_levelPhysics.push_back((CAnimation*)pEntity);
+                        }
                         // Motion
                         else if(attrib == 1 && value == 1)
                         {
@@ -174,7 +183,7 @@ bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
                         // This does NOT work. Created before moved.
                         else if(attrib == 3 && value == 1)
                         {
-                            mp_PlayerSpawn = pEntity->GetPosition();
+                            is_pspawn = true;
                         }
                         else if(attrib == 4 && value == 1)
                         {
@@ -195,6 +204,11 @@ bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
                     float x = atof(splitLines[0].c_str());
                     float y = atof(splitLines[1].c_str());
 
+                    if(is_pspawn)
+                    {
+                        mp_PlayerSpawn.x = x;
+                        mp_PlayerSpawn.y = y;
+                    }
                     if(pEntity != NULL) pEntity->Move(x, y);
                 }
             }
