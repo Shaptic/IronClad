@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4355 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -110,29 +110,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    srand((uint32_t)time(NULL));</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// Initialize FreeType2 library.</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// Initialize GLFW.</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span>(glfwInit() == GL_FALSE) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;}</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">bool</span> ic::Quit()</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="classic_1_1asset_1_1_c_asset_manager.html#aad4b9945b7c175e068435e84e3764eb1" title="Destorys all assets.">ic::asset::CAssetManager::DestroyAll</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">ic::util::g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a0db30eeee76ea4de7515c333530d288a" title="Writes pending data to the file.">Flush</a>();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">ic::util::g_Log</a> &lt;&lt; <span class="stringliteral">&quot;[INFO] Quitting IronClad engine.\n&quot;</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">ic::util::g_Log</a>.PrintLastLog();</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">ic::util::g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a640b285876ef035f08f5b75ef2a862a3" title="Closes the logging file.">Close</a>();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    glfwTerminate();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classic_1_1font_1_1_c_font.html#a1c16b05a66d334d5ddc810dcbb75f8c7" title="Initializes the FreeType library.">ic::font::CFont::Initialize</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// Initialize GLFW.</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span>(glfwInit() == GL_FALSE) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">bool</span> ic::Quit()</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    ic::font::CFont::DeInitialize();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="classic_1_1asset_1_1_c_asset_manager.html#aad4b9945b7c175e068435e84e3764eb1" title="Destorys all assets.">ic::asset::CAssetManager::DestroyAll</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">ic::util::g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a0db30eeee76ea4de7515c333530d288a" title="Writes pending data to the file.">Flush</a>();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">ic::util::g_Log</a> &lt;&lt; <span class="stringliteral">&quot;[INFO] Quitting IronClad engine.\n&quot;</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">ic::util::g_Log</a>.PrintLastLog();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">ic::util::g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a640b285876ef035f08f5b75ef2a862a3" title="Closes the logging file.">Close</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    glfwTerminate();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 10 2013 00:27:38 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 21 2013 22:48:48 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

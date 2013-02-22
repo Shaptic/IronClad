@@ -23,5 +23,8 @@ var searchData=
   ['getvertexbuffer',['GetVertexBuffer',['../classic_1_1gfx_1_1_c_vertex_buffer.html#ab5755fa6149e473f650bd57bbf425e13',1,'ic::gfx::CVertexBuffer']]],
   ['globals',['Globals',['../structic_1_1gfx_1_1_globals.html',1,'ic::gfx']]],
   ['globals_2ehpp',['Globals.hpp',['../_globals_8hpp.html',1,'']]],
-  ['graphics',['Graphics',['../group___graphics.html',1,'']]]
+  ['glyph',['Glyph',['../structic_1_1font_1_1_glyph.html',1,'ic::font']]],
+  ['glyph_2ehpp',['Glyph.hpp',['../_glyph_8hpp.html',1,'']]],
+  ['graphics',['Graphics',['../group___graphics.html',1,'']]],
+  ['gui',['GUI',['../group___g_u_i.html',1,'']]]
 ];

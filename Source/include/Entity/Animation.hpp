@@ -64,39 +64,25 @@ namespace ic
          *  This will load an .icanim image file, which internally
          *  specifies sprite dimensions in the sheet.
          * 
-         * @param   std::string     Filename
+         * @param   std::string         Filename
+         * @param   gfx::CVertexBuffer  Vertex buffer to load quad-mesh into
          * 
          * @return  TRUE on success, FALSE on failure
-         * 
-         * @warning Loading animations is currently a relatively slow
-         *          process that involves a lot of texture manipulation,
-         *          so call this sparingly, preferably on load.
-         *          
          * @see     Docs/ICAnim.spec
          **/
         bool LoadFromFile(const std::string& filename,
                           gfx::CVertexBuffer& VBO);
 
-        void AttachNewSpriteSheet(const AnimationHeader& Header);
-
         /**
-         * Adds a sprite to the animation queue.
-         *  This will load a sprite sheet and pull a texture out of the
-         *  file at the specified dimensions.
+         * Replaces the current texture and dimensions.
+         *  This will pass new texture coordinate offsets to the fragment shader,
+         *  as well as give the renderer a new texture to work with.
+         *  At times, this causes a single frame of texture artifacts, for 
+         *  which the cause is currently unknown.
          * 
-         * @param   std::string     Sprite sheet filename
-         * @param   math::rect_t    Dimenions of needed sprite
-         * 
-         * @return  TRUE on success, FALSE on failure.
-         * 
-         * @warning Loading animations is currently a relatively slow
-         *          process that involves a lot of texture manipulation,
-         *          so call this sparingly, preferably on load.
+         * @param   AnimationHeader Header containing texture / dimension data
          **/
-        bool AddSprite(const std::string& filename,
-                       const math::rect_t& dimensions);
-        bool AddSprite(const void* raw_pixels,
-                       const math::rect_t& dimensions);
+        void SwapSpriteSheet(const AnimationHeader& Header);
 
         /**
          * Toggles animation.
@@ -155,13 +141,14 @@ namespace ic
         }
 
     private:
-        math::vector2_t m_TexcDim;
-        AnimationHeader m_SheetDetails;
-        uint8_t         m_active;
-        float           m_delay;
-        float           m_last;
-        bool            m_enabled;
-        int             m_tc_loc, m_tc_str, m_loops_done;
+        math::vector2_t m_TexcDim;          // Calculated texture dimensions
+        AnimationHeader m_SheetDetails;     // Internal sprite sheet details
+        uint8_t         m_active;           // Currently active sprite
+        float           m_delay;            // Delay between texture swaps
+        float           m_last;             // Time since last Next/PrevSprite() call
+        bool            m_enabled;          // Is animation enabled?
+        int             m_tc_loc, m_tc_str; // Shader uniform locations
+        int             m_loops_done;       // Loops completed
     };
 }
 

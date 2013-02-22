@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4355 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -109,60 +109,68 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_globals_8hpp.html" title="Graphics/Globals.hpp - Contains static pseudo-global variables that are used in multiple subsystems...">Graphics/Globals.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8hpp.html" title="Entity.hpp - Defines the high-level CEntity class, which wraps up CMeshInstance&#39;s in a more user-frie...">Entity/Entity.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span>ic</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span>font</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_glyph_8hpp.html" title="Fonts/Glyph.hpp - Defines a structure to hold glyph data.">Glyph.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">namespace </span>ic</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classic_1_1font_1_1_c_font.html">   42</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> <a class="code" href="classic_1_1font_1_1_c_font.html">CFont</a></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classic_1_1font_1_1_c_font.html">CFont</a>(){}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        ~<a class="code" href="classic_1_1font_1_1_c_font.html">CFont</a>(){}</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> Initialize();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> uint16_t size);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">bool</span> Resize(<span class="keyword">const</span> uint32_t size);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> RenderText(<span class="keyword">const</span> std::string&amp; text,</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                                <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordtype">void</span> SetFontColor(<span class="keyword">const</span> <a class="code" href="structic_1_1color4f__t.html" title="Represents a 32-bit floating point color (RGBA).">color4f_t</a>&amp; Color);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <span class="keywordtype">void</span> SetFontColor(<span class="keyword">const</span> <span class="keywordtype">float</span> r, <span class="keyword">const</span> <span class="keywordtype">float</span> g, <span class="keyword">const</span> <span class="keywordtype">float</span> b);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span>font</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="classic_1_1font_1_1_c_font.html">   44</a></span>&#160;    <span class="keyword">class </span><a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> <a class="code" href="classic_1_1font_1_1_c_font.html">CFont</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <a class="code" href="classic_1_1font_1_1_c_font.html">CFont</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        ~<a class="code" href="classic_1_1font_1_1_c_font.html">CFont</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span> Initialize();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">void</span> DeInitialize();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordtype">bool</span> LoadFromFile(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> uint16_t size);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">bool</span> Resize(<span class="keyword">const</span> uint32_t size);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> RenderText(<span class="keyword">const</span> std::string&amp; text,</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                                <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos);</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        <span class="keyword">static</span> FT_Library   m_Library;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span>         m_initialized;</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keyword">struct </span>Glyph</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>* pTexture;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>     dim;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        };</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <a class="code" href="structic_1_1color4f__t.html" title="Represents a 32-bit floating point color (RGBA).">ic::color4f_t</a>   m_Color;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_effect.html">gfx::CEffect</a>    m_FontRender;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        FT_Face         m_FontFace;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        std::map&lt;char, Glyph&gt; mp_glyphTextures;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        std::string m_filename;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        uint16_t    m_size;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keywordtype">bool</span>        m_loaded;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    };</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}   <span class="comment">// namespace font</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;}   <span class="comment">// namespace ic</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__FONTS__FONT_HPP</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> RenderCached();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> CacheText(<span class="keyword">const</span> std::string&amp; text,</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;                               <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordtype">void</span> SetFontColor(<span class="keyword">const</span> <a class="code" href="structic_1_1color4f__t.html" title="Represents a 32-bit floating point color (RGBA).">color4f_t</a>&amp; Color);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordtype">void</span> SetFontColor(<span class="keyword">const</span> <span class="keywordtype">float</span> r, <span class="keyword">const</span> <span class="keywordtype">float</span> g, <span class="keyword">const</span> <span class="keywordtype">float</span> b);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        uint32_t GetTextWidth(<span class="keyword">const</span> <span class="keywordtype">char</span>* text);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        uint32_t GetTextHeight(<span class="keyword">const</span> <span class="keywordtype">char</span>* text);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keyword">static</span> FT_Library   s_Library;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keyword">static</span> <span class="keywordtype">bool</span>         s_initialized;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <a class="code" href="structic_1_1color4f__t.html" title="Represents a 32-bit floating point color (RGBA).">ic::color4f_t</a>       m_Color;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_effect.html">gfx::CEffect</a>        m_FontRender;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html" title="A wrapper for OpenGL VBO&#39;s.">gfx::CVertexBuffer</a>  m_Cache;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>        m_CacheSize;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        FT_Face             m_FontFace;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        std::map&lt;char, Glyph&gt; mp_glyphTextures;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        std::string m_last_text;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        std::string m_filename;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        uint16_t    m_size;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keywordtype">bool</span>        m_loaded;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    };</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}   <span class="comment">// namespace font</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__FONTS__FONT_HPP</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 10 2013 00:27:38 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 21 2013 22:48:48 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

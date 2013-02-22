@@ -95,10 +95,12 @@
     <ClInclude Include="include\Asset\Texture.hpp" />
     <ClInclude Include="include\Base\Errors.hpp" />
     <ClInclude Include="include\Base\Types.hpp" />
+    <ClInclude Include="include\Button.hpp" />
     <ClInclude Include="include\Entity\Animation.hpp" />
     <ClInclude Include="include\Entity\Entity.hpp" />
     <ClInclude Include="include\Entity\RigidBody.hpp" />
     <ClInclude Include="include\Fonts\Font.hpp" />
+    <ClInclude Include="include\Fonts\Glyph.hpp" />
     <ClInclude Include="include\Graphics\Effect.hpp" />
     <ClInclude Include="include\Graphics\Framebuffer.hpp" />
     <ClInclude Include="include\Graphics\Globals.hpp" />

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4355 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -173,24 +173,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keyword">inline</span> <span class="keywordtype">void</span>* GetTemporaryBuffer(<span class="keyword">const</span> <span class="keywordtype">int</span> buffer_type)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="keyword">        </span>{ <span class="keywordflow">return</span> glMapBuffer(buffer_type, GL_READ_ONLY); }</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        std::vector&lt;vertex2_t&gt;  m_vertexBuffer;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        std::vector&lt;uint16_t&gt;   m_indexBuffer;</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        std::vector&lt;uint16_t&gt;   m_enabledAttributes;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        uint32_t    m_vbo, m_ibo, m_vao, m_bo_type;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        uint32_t    m_vertex_count, m_index_count;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    };</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;}   <span class="comment">// namespace gfx</span></div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;}   <span class="comment">// namespace ic</span></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__GRAPHICS__VERTEX_BUFFER_HPP</span></div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <span class="keyword">inline</span> uint32_t GetError()<span class="keyword"> const </span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword">        </span>{ <span class="keywordflow">return</span> m_last_error; }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        std::vector&lt;vertex2_t&gt;  m_vertexBuffer;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        std::vector&lt;uint16_t&gt;   m_indexBuffer;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        std::vector&lt;uint16_t&gt;   m_enabledAttributes;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        uint32_t    m_vbo, m_ibo, m_vao, m_bo_type;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        uint32_t    m_vertex_count, m_index_count;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        uint32_t    m_last_error;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    };</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;}   <span class="comment">// namespace gfx</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__GRAPHICS__VERTEX_BUFFER_HPP</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 10 2013 00:27:38 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 21 2013 22:48:48 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

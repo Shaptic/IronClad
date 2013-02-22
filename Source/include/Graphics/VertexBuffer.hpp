@@ -190,6 +190,9 @@ namespace gfx
         inline void* GetTemporaryBuffer(const int buffer_type) const
         { return glMapBuffer(buffer_type, GL_READ_ONLY); }
 
+        inline uint32_t GetError() const 
+        { return m_last_error; }
+
     private:
         std::vector<vertex2_t>  m_vertexBuffer;
         std::vector<uint16_t>   m_indexBuffer;
@@ -197,6 +200,7 @@ namespace gfx
 
         uint32_t    m_vbo, m_ibo, m_vao, m_bo_type;
         uint32_t    m_vertex_count, m_index_count;
+        uint32_t    m_last_error;
     };
 
 }   // namespace gfx

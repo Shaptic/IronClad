@@ -3,7 +3,7 @@
  *	Fonts/Font.hpp - A wrapper for an instance of a .ttf font using the FreeType 2 API.
  *
  * @author      George Kudrayvtsev (switch1440)
- * @version     1.0
+ * @version     1.1.2
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -35,6 +35,8 @@
 #include "Graphics/Globals.hpp"
 #include "Entity/Entity.hpp"
 
+#include "Glyph.hpp"
+
 namespace ic
 {
 namespace font
@@ -42,8 +44,8 @@ namespace font
     class IRONCLAD_API CFont
     {
     public:
-        CFont(){}
-        ~CFont(){}
+        CFont();
+        ~CFont();
 
         /**
          * Initializes the FreeType library.
@@ -56,6 +58,7 @@ namespace font
          * @return  TRUE on success, FALSE on failure.
          **/
         static bool Initialize();
+        static void DeInitialize();
 
         /**
          * Loads a TrueType font.
@@ -65,7 +68,7 @@ namespace font
          *  rendering later on.
          *
          * @param   std::string     Font filename
-         * @paarm   uint16_t        Font size       (optional=12)
+         * @param   uint16_t        Font size
          *
          * @pre     CFont::Initialize() must have been called.
          *
@@ -91,7 +94,7 @@ namespace font
         bool Resize(const uint32_t size);
 
         /**
-         * Renders text on the current framebuffer.
+         * Renders text on the current frame buffer.
          *  Given a string, this function will render it at 
          *  the given position. A VBO will be created, vertex
          *  information generated, and then each character will
@@ -114,26 +117,55 @@ namespace font
         math::rect_t RenderText(const std::string& text,
                                 const math::vector2_t& Pos);
 
+        /**
+         * Renders a string stored with CacheText().
+         *  This method is much more efficient than a generic call to
+         *  RenderText(). This is largely due to the fact that the glyph
+         *  vertices are already stored in a vertex buffer and can thus
+         *  immediately begin to be rendered. If you only have a single
+         *  string to be rendered, you should use this method.
+         *  
+         * @return  Rectangle representing rendered text dimensions.
+         **/
+        math::rect_t RenderCached();
+
+        /**
+         * Caches a string of text in a buffer for rendering.
+         *  This will store a series of glyph vertices in a vertex
+         *  buffer for later immediate rendering.
+         *
+         * @param   std::string     Text to render
+         * @param   math::vector2_t Position to start rendering
+         *
+         * @return  Rectangle representing rendered text dimensions.
+         *
+         * @see GetTextWidth()
+         * @see GetTextHeight()
+         * @see RenderText()
+         **/
+        math::rect_t CacheText(const std::string& text,
+                               const math::vector2_t& Pos);
+
         void SetFontColor(const color4f_t& Color);
         void SetFontColor(const float r, const float g, const float b);
 
+        uint32_t GetTextWidth(const char* text);
+        uint32_t GetTextHeight(const char* text);
+
     private:
-        static FT_Library   m_Library;
-        static bool         m_initialized;
+        static FT_Library   s_Library;
+        static bool         s_initialized;
 
-        struct Glyph
-        {
-            asset::CTexture* pTexture;
-            math::rect_t     dim;
-        };
+        ic::color4f_t       m_Color;
+        gfx::CEffect        m_FontRender;
+        gfx::CVertexBuffer  m_Cache;
+        math::rect_t        m_CacheSize;
 
-        ic::color4f_t   m_Color;
-        gfx::CEffect    m_FontRender;
-
-        FT_Face         m_FontFace;
+        FT_Face             m_FontFace;
 
         std::map<char, Glyph> mp_glyphTextures;
         
+        std::string m_last_text;
         std::string m_filename;
         uint16_t    m_size;
         

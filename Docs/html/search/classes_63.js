@@ -3,6 +3,7 @@ var searchData=
   ['canimation',['CAnimation',['../classic_1_1_c_animation.html',1,'ic']]],
   ['casset',['CAsset',['../classic_1_1asset_1_1_c_asset.html',1,'ic::asset']]],
   ['cassetmanager',['CAssetManager',['../classic_1_1asset_1_1_c_asset_manager.html',1,'ic::asset']]],
+  ['cbutton',['CButton',['../classic_1_1gui_1_1_c_button.html',1,'ic::gui']]],
   ['ceffect',['CEffect',['../classic_1_1gfx_1_1_c_effect.html',1,'ic::gfx']]],
   ['centity',['CEntity',['../classic_1_1_c_entity.html',1,'ic']]],
   ['ceventhandler',['CEventHandler',['../classic_1_1util_1_1_c_event_handler.html',1,'ic::util']]],

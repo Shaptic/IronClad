@@ -40,6 +40,7 @@
   #include <iostream>
 #endif // _WIN32
 
+#include "Base/Errors.hpp"
 #include "Base/Types.hpp"
 
 namespace ic
@@ -98,6 +99,9 @@ namespace util
          **/
         CLogging& SetWidth(const int w);
 
+        inline bool ToggleStdout()
+        { return (m_print = !m_print); }
+
         static CLogging& GetInstance()
         {
             static CLogging g_Log("Engine.log");
@@ -112,6 +116,7 @@ namespace util
         std::stringstream m_log;
         std::ofstream m_file;
         int m_width;
+        bool m_print;
     };
 
     template<class T> CLogging& CLogging::operator<<(const T& data)

@@ -8,5 +8,6 @@ var searchData=
   ['setwidth',['SetWidth',['../classic_1_1util_1_1_c_logging.html#ad1585cc8d138ee6ca00084f5386a97bd',1,'ic::util::CLogging']]],
   ['split',['split',['../namespaceic_1_1util.html#a80c5e53506e6351b14e2ab5dc08342fe',1,'ic::util']]],
   ['start',['Start',['../classic_1_1util_1_1_c_timer.html#adf1dd17223e0692050947c73b8b00541',1,'ic::util::CTimer']]],
-  ['sum',['sum',['../namespaceic_1_1math.html#a54e3c01c019247eae51ee9b0ca1fcfe9',1,'ic::math']]]
+  ['sum',['sum',['../namespaceic_1_1math.html#a54e3c01c019247eae51ee9b0ca1fcfe9',1,'ic::math']]],
+  ['swapspritesheet',['SwapSpriteSheet',['../classic_1_1_c_animation.html#a3834dc1a95c39be71ef1b0250524f6f4',1,'ic::CAnimation']]]
 ];

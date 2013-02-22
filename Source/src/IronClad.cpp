@@ -52,6 +52,7 @@ bool ic::Init()
     srand((uint32_t)time(NULL));
 
     // Initialize FreeType2 library.
+    ic::font::CFont::Initialize();
 
     // Initialize GLFW.
     if(glfwInit() == GL_FALSE) return false;
@@ -61,6 +62,7 @@ bool ic::Init()
 
 bool ic::Quit()
 {
+    ic::font::CFont::DeInitialize();
     ic::asset::CAssetManager::DestroyAll();
 
     ic::util::g_Log.Flush();

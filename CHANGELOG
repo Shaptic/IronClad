@@ -2,8 +2,15 @@ CHANGELOG
 
 Project         :	IronClad
 Author          :	George Kudrayvtsev
-Current Version	:	1.2.1 alpha
-Last Updated	:	02.10.2013
+Current Version	:	1.2.2 alpha
+Last Updated	:	02.21.2013
+
+Version 1.2.2a (02.21.2013):
+ *  Font library cleanup
+ +  Font string caching support
+ +  GUI button support in progress
+ +  Windows MessageBox popup on errors
+ +  Toggling stdout logs
 
 Version 1.2.1a (02.10.2013):
  +  Mesh rotation support (in progress)

@@ -16,6 +16,7 @@ var searchData=
   ['sum',['sum',['../namespaceic_1_1math.html#a54e3c01c019247eae51ee9b0ca1fcfe9',1,'ic::math']]],
   ['surface_2ehpp',['Surface.hpp',['../_surface_8hpp.html',1,'']]],
   ['surface_5ft',['surface_t',['../structic_1_1gfx_1_1surface__t.html',1,'ic::gfx']]],
+  ['swapspritesheet',['SwapSpriteSheet',['../classic_1_1_c_animation.html#a3834dc1a95c39be71ef1b0250524f6f4',1,'ic::CAnimation']]],
   ['symkey',['symkey',['../structic_1_1util_1_1_system_event.html#ae6223c0e4c307227a91b4f9843ea54bb',1,'ic::util::SystemEvent']]],
   ['sysevent_2ehpp',['SysEvent.hpp',['../_sys_event_8hpp.html',1,'']]],
   ['systemevent',['SystemEvent',['../structic_1_1util_1_1_system_event.html',1,'ic::util']]]

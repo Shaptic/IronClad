@@ -7,6 +7,7 @@ var searchData=
   ['removelight',['RemoveLight',['../classic_1_1gfx_1_1_c_scene.html#a1374396edf40e675bad5965afdbd5aea',1,'ic::gfx::CScene']]],
   ['removemesh',['RemoveMesh',['../classic_1_1gfx_1_1_c_scene.html#a93bf9bf7a1fd2e2d82d7b189c4107322',1,'ic::gfx::CScene']]],
   ['render',['Render',['../classic_1_1gfx_1_1_c_scene.html#a4ef3596e056e0b7db3fb2fd05a84dc3d',1,'ic::gfx::CScene']]],
+  ['rendercached',['RenderCached',['../classic_1_1font_1_1_c_font.html#aae947b5fc8441a51ef5bf25a19a20953',1,'ic::font::CFont']]],
   ['rendertext',['RenderText',['../classic_1_1font_1_1_c_font.html#af21659728b34f6dcf9747b5964390a58',1,'ic::font::CFont']]],
   ['reset',['Reset',['../structic_1_1util_1_1_system_event.html#af042026772b0b6f98f85c98ff081cecf',1,'ic::util::SystemEvent']]],
   ['resize',['Resize',['../classic_1_1font_1_1_c_font.html#a85cc2c47a984502662ada6b2086d603c',1,'ic::font::CFont::Resize()'],['../classic_1_1gfx_1_1_c_window.html#a4ccbffba3f86cd57c17de35af786b5da',1,'ic::gfx::CWindow::Resize()']]],

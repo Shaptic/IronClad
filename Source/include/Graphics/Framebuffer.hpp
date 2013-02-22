@@ -83,6 +83,7 @@ namespace gfx
         { return m_texture; }
 
     private:
+        math::vector2_t m_View;
         uint32_t m_fbo, m_db;
         uint32_t m_texture;
     };

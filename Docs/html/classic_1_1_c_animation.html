@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4355 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -121,12 +121,8 @@ Data Structures</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adbf8d3e80147c3e3066d638d1d9933fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_animation.html#adbf8d3e80147c3e3066d638d1d9933fd">LoadFromFile</a> (const std::string &amp;filename, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
 <tr class="memdesc:adbf8d3e80147c3e3066d638d1d9933fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load a custom animation file.  <a href="#adbf8d3e80147c3e3066d638d1d9933fd"></a><br/></td></tr>
-<tr class="memitem:af796a7993a69ce6b00d6955b15fc2dd3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af796a7993a69ce6b00d6955b15fc2dd3"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>AttachNewSpriteSheet</b> (const <a class="el" href="structic_1_1_c_animation_1_1_animation_header.html">AnimationHeader</a> &amp;Header)</td></tr>
-<tr class="memitem:a9f758ee89c45164aa1ede3703861222a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_animation.html#a9f758ee89c45164aa1ede3703861222a">AddSprite</a> (const std::string &amp;filename, const <a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> &amp;dimensions)</td></tr>
-<tr class="memdesc:a9f758ee89c45164aa1ede3703861222a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a sprite to the animation queue.  <a href="#a9f758ee89c45164aa1ede3703861222a"></a><br/></td></tr>
-<tr class="memitem:a6a691b4900b9af2b602ed1c7268974f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6a691b4900b9af2b602ed1c7268974f5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>AddSprite</b> (const void *raw_pixels, const <a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> &amp;dimensions)</td></tr>
+<tr class="memitem:a3834dc1a95c39be71ef1b0250524f6f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_animation.html#a3834dc1a95c39be71ef1b0250524f6f4">SwapSpriteSheet</a> (const <a class="el" href="structic_1_1_c_animation_1_1_animation_header.html">AnimationHeader</a> &amp;Header)</td></tr>
+<tr class="memdesc:a3834dc1a95c39be71ef1b0250524f6f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the current texture and dimensions.  <a href="#a3834dc1a95c39be71ef1b0250524f6f4"></a><br/></td></tr>
 <tr class="memitem:a1c5ae3c351cc41efed6a74ee65134916"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_animation.html#a1c5ae3c351cc41efed6a74ee65134916">EnableAnimation</a> (bool flag)</td></tr>
 <tr class="memdesc:a1c5ae3c351cc41efed6a74ee65134916"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles animation.  <a href="#a1c5ae3c351cc41efed6a74ee65134916"></a><br/></td></tr>
 <tr class="memitem:ab723bed1244bc591b9ed155ce7450182"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1_c_animation.html#ab723bed1244bc591b9ed155ce7450182">SetAnimationRate</a> (const float delta)</td></tr>
@@ -242,42 +238,6 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 
 <p>Definition at line <a class="el" href="_animation_8hpp_source.html#l00045">45</a> of file <a class="el" href="_animation_8hpp_source.html">Animation.hpp</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a9f758ee89c45164aa1ede3703861222a"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool ic::CAnimation::AddSprite </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>filename</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> &amp;&#160;</td>
-          <td class="paramname"><em>dimensions</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>This will load a sprite sheet and pull a texture out of the file at the specified dimensions.</p>
-<dl class="params"><dt>Parameters:</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">std::string</td><td>Sprite sheet filename </td></tr>
-    <tr><td class="paramname"><a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a></td><td>Dimenions of needed sprite</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns:</dt><dd>TRUE on success, FALSE on failure.</dd></dl>
-<dl class="section warning"><dt>Warning:</dt><dd>Loading animations is currently a relatively slow process that involves a lot of texture manipulation, so call this sparingly, preferably on load. </dd></dl>
-
-</div>
-</div>
 <a class="anchor" id="a1c5ae3c351cc41efed6a74ee65134916"></a>
 <div class="memitem">
 <div class="memproto">
@@ -307,7 +267,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_animation_8hpp_source.html#l00110">110</a> of file <a class="el" href="_animation_8hpp_source.html">Animation.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_animation_8hpp_source.html#l00096">96</a> of file <a class="el" href="_animation_8hpp_source.html">Animation.hpp</a>.</p>
 
 </div>
 </div>
@@ -345,12 +305,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 <p>This will load an .icanim image file, which internally specifies sprite dimensions in the sheet.</p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
-    <tr><td class="paramname">std::string</td><td>Filename</td></tr>
+    <tr><td class="paramname">std::string</td><td>Filename </td></tr>
+    <tr><td class="paramname"><a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html" title="A wrapper for OpenGL VBO&#39;s.">gfx::CVertexBuffer</a></td><td>Vertex buffer to load quad-mesh into</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>TRUE on success, FALSE on failure</dd></dl>
-<dl class="section warning"><dt>Warning:</dt><dd>Loading animations is currently a relatively slow process that involves a lot of texture manipulation, so call this sparingly, preferably on load.</dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>TRUE on success, FALSE on failure </dd></dl>
 <dl class="section see"><dt>See also:</dt><dd>Docs/ICAnim.spec </dd></dl>
 
 <p>Reimplemented from <a class="el" href="classic_1_1_c_rigid_body.html">ic::CRigidBody</a>.</p>
@@ -408,7 +368,32 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 </div><div class="memdoc">
 <p>The internal sprites will iterate as this limit is reached. It is absolutely essential that you call <a class="el" href="classic_1_1_c_animation.html#a2d282321233f293a7e7fd780eac52236" title="Updates the current time delta value.">Update()</a> at the end of each frame in order to track this value properly. </p>
 
-<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00138">138</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00137">137</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3834dc1a95c39be71ef1b0250524f6f4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CAnimation::SwapSpriteSheet </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structic_1_1_c_animation_1_1_animation_header.html">AnimationHeader</a> &amp;&#160;</td>
+          <td class="paramname"><em>Header</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>This will pass new texture coordinate offsets to the fragment shader, as well as give the renderer a new texture to work with. At times, this causes a single frame of texture artifacts, for which the cause is currently unknown.</p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"><a class="el" href="structic_1_1_c_animation_1_1_animation_header.html">AnimationHeader</a></td><td>Header containing texture / dimension data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00142">142</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
 
 </div>
 </div>
@@ -436,7 +421,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 
 <p>Reimplemented from <a class="el" href="classic_1_1_c_rigid_body.html">ic::CRigidBody</a>.</p>
 
-<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00127">127</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00126">126</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
 
 </div>
 </div>
@@ -447,7 +432,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_casts</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Feb 10 2013 00:27:38 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 21 2013 22:48:49 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

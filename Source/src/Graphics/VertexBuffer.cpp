@@ -3,7 +3,8 @@
 using namespace ic;
 using gfx::CVertexBuffer;
 
-CVertexBuffer::CVertexBuffer() : m_vertex_count(0), m_index_count(0)
+CVertexBuffer::CVertexBuffer() : m_vertex_count(0), m_index_count(0),
+    m_last_error(GL_NO_ERROR)
 {
     // Clear everything.
     m_vertexBuffer.clear();
@@ -41,7 +42,7 @@ bool CVertexBuffer::Bind()
         m_enabledAttributes.end(),
         glEnableVertexAttribArray);
 
-    return (glGetError() == GL_NO_ERROR);
+    return ((m_last_error = glGetError()) == GL_NO_ERROR);
 }
 
 bool CVertexBuffer::Unbind()
@@ -57,7 +58,7 @@ bool CVertexBuffer::Unbind()
     glBindBuffer(GL_ARRAY_BUFFER, 0);    
     glBindVertexArray(0);
     
-    return (glGetError() == GL_NO_ERROR);
+    return ((m_last_error = glGetError()) == GL_NO_ERROR);
 }
 
 void CVertexBuffer::Draw()
@@ -208,7 +209,7 @@ void CVertexBuffer::FinalizeBuffer()
 
 void CVertexBuffer::Clear()
 {
-    this->Bind();
+    if(!this->Bind()) return;
 
     glBufferData(GL_ARRAY_BUFFER, 0, NULL, GL_STATIC_DRAW);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0, NULL, GL_STATIC_DRAW);
@@ -229,5 +230,5 @@ bool CVertexBuffer::Init()
     glGenBuffers(1, &m_vbo);
     glGenBuffers(1, &m_ibo);
 
-    return true;
+    return ((m_last_error = glGetError()) == GL_NO_ERROR);
 }

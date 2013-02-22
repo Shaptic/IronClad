@@ -13,6 +13,11 @@ CFrameBuffer::~CFrameBuffer()
 
 bool CFrameBuffer::Init(const int width, const int height)
 {
+    // Get old view port dimensions.
+    GLint view[4];
+    glGetIntegerv(GL_VIEWPORT, view);
+    m_View.x = view[2]; m_View.y = view[3];
+
     // Create texture and allocate memory for full-screen on it.
     glGenTextures(1, &m_texture);
     glBindTexture(GL_TEXTURE_2D, m_texture);
@@ -39,7 +44,6 @@ bool CFrameBuffer::Init(const int width, const int height)
     uint32_t status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
 
     // Set up attributes.
-    /// @todo Fix view-port setting / resetting.
     glViewport(0, 0, width, height);
 
     // Unbind everything.
@@ -58,6 +62,7 @@ void CFrameBuffer::Enable()
 void CFrameBuffer::Disable()
 {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glViewport(0, 0, m_View.x, m_View.y);
 }
 
 void CFrameBuffer::Clear()

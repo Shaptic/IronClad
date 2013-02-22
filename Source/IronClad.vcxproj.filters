@@ -36,26 +36,32 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{3b546758-dd25-4664-a67c-21e76e020660}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\IronClad\Fonts">
+      <UniqueIdentifier>{d49323a1-c283-46ee-9900-85df5325dfaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\IronClad\GUI">
+      <UniqueIdentifier>{542b4730-cc00-47ca-960e-e2c0fa998cc8}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{21ef4c40-223d-4c4b-a52c-f75f785f0592}</UniqueIdentifier>
+      <UniqueIdentifier>{0334ab78-ea58-4dd0-af75-88d38d809396}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Assets">
-      <UniqueIdentifier>{058be346-2695-4f9c-89d9-454ff562551d}</UniqueIdentifier>
+      <UniqueIdentifier>{ff06a258-2d28-4092-b8d4-f5d1e0d3cb57}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Entities">
-      <UniqueIdentifier>{756e7885-7e9f-424d-a1e6-dbdbdcde8e08}</UniqueIdentifier>
+      <UniqueIdentifier>{08756d85-7692-4af7-9bec-1e1fcacbde54}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Fonts">
-      <UniqueIdentifier>{6bf769ad-cefa-4e2b-bd0e-379ffc0a0d51}</UniqueIdentifier>
+      <UniqueIdentifier>{fa2aea9e-3dc7-4c17-8850-68dc2baaeae4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Graphics">
-      <UniqueIdentifier>{503ea2b4-6170-4c90-85e1-3c6400a73132}</UniqueIdentifier>
+      <UniqueIdentifier>{01726411-5603-4d65-812d-a4ea315f88a9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Math">
-      <UniqueIdentifier>{e7860e44-e8f4-42d7-97e9-afd1fbdbbbab}</UniqueIdentifier>
+      <UniqueIdentifier>{45f72004-961c-43c6-b8a8-32c66f64ceac}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Utilities">
-      <UniqueIdentifier>{09c64ee7-eb65-4391-a945-0335613d9093}</UniqueIdentifier>
+      <UniqueIdentifier>{13434950-ab60-45bd-869c-7e7fcea04214}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -171,7 +177,13 @@
       <Filter>Header Files\IronClad</Filter>
     </ClInclude>
     <ClInclude Include="include\Fonts\Font.hpp">
-      <Filter>Header Files\IronClad</Filter>
+      <Filter>Header Files\IronClad\Fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Fonts\Glyph.hpp">
+      <Filter>Header Files\IronClad\Fonts</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Button.hpp">
+      <Filter>Header Files\IronClad\GUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

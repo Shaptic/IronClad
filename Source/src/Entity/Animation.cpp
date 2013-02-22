@@ -117,8 +117,7 @@ bool CAnimation::NextSprite()
     // Adjust for current texture
     gfx::CShaderPair* pShader = m_Mesh.GetSurfaces()[0]->pMaterial->pShader;
     pShader->Bind();
-    glUniform2f(m_tc_str, m_active * m_TexcDim.x, (m_active) * m_TexcDim.y);
-    glUniform2f(m_tc_loc, m_TexcDim.x, m_TexcDim.y);
+    glUniform2f(m_tc_str, m_active * m_TexcDim.x, m_active * m_TexcDim.y);
     pShader->Unbind();
 
     return (m_active > 0);
@@ -140,10 +139,16 @@ void CAnimation::SetAnimationRate(const float delta)
     m_delay = delta;
 }
 
-void CAnimation::AttachNewSpriteSheet(const AnimationHeader& Header)
+void CAnimation::SwapSpriteSheet(const AnimationHeader& Header)
 {
     m_Mesh.GetSurfaces()[0]->pMaterial->pTexture = Header.pTexture;
     m_SheetDetails  = Header;
     m_TexcDim       = math::vector2_t(1.f / Header.columns, 1.f / Header.rows);
     m_loops_done    = 0;
+
+    // Adjust for new texture dimensions.
+    gfx::CShaderPair* pShader = m_Mesh.GetSurfaces()[0]->pMaterial->pShader;
+    pShader->Bind();
+    glUniform2f(m_tc_loc, m_TexcDim.x, m_TexcDim.y);
+    pShader->Unbind();
 }

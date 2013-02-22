@@ -2,7 +2,7 @@
 
 using ic::util::CLogging;
 
-CLogging::CLogging(const char* p_filename) : m_width(-1)
+CLogging::CLogging(const char* p_filename) : m_width(-1), m_print(true)
 {
     time_t now;
     time(&now);
@@ -50,6 +50,8 @@ void CLogging::Flush()
 #ifdef _DEBUG
     m_file << m_log.str();
 #else
+    if(m_log.str().find("[ERROR]") != std::string::npos)
+        handle_error(m_log.str());
     if(m_log.str().find("[DEBUG]") == std::string::npos)
         m_file << m_log.str();
 #endif // _DEBUG
@@ -60,6 +62,8 @@ void CLogging::Flush()
 
 void CLogging::PrintLastLog() const
 {
+    if(!m_print) return;
+
     // Only print to stdout in debug builds.
 #ifdef _DEBUG
     std::cout << m_log.str();

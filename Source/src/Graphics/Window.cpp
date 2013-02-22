@@ -40,10 +40,10 @@ bool CWindow::Create(
         m_fullscreen ? GLFW_FULLSCREEN : GLFW_WINDOW) == GL_FALSE)
     {
         g_Log.Flush();
-        g_Log << "[ERROR] Failed to create OpenGL window!" << ".\n";
+        g_Log << "[ERROR] Failed to create OpenGL window!\n";
         g_Log.PrintLastLog();
 
-        handle_error(g_Log.GetLastLog());
+        handle_error(g_Log.GetLastLog(), "OpenGL error", false);
         return false;
     }
 
@@ -68,7 +68,8 @@ bool CWindow::Create(
     g_Log << "[INFO] OpenGL renderer: " << prenderer    << "\n";
     g_Log.PrintLastLog();
 
-    // Check for a supported OpenGL version.
+    // Check for a supported OpenGL version, in release.
+#ifndef _DEBUG
     if(majv + minv / 10.0f < IRONCLAD_MINIMUM_GL_VERSION)
     {
         g_Log.Flush();
@@ -78,6 +79,7 @@ bool CWindow::Create(
         handle_error(g_Log.GetLastLog());
         return false;
     }
+#endif // _DEBUG
 
     // Set up a 2D perspective.
     glClearColor(0, 0, 0, 1);
