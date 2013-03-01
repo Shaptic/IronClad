@@ -57,9 +57,10 @@ namespace asset
         /**
          * Loads a Texture from an existing OpenGL texture handle.
          * @param   uint32_t    OpenGL texture handle
+         * @param   bool        Copy the texture or use existing handle? (optional=false)
          * @return  Always TRUE, unless given texture <= 0.
          **/
-        bool LoadFromTexture(const uint32_t texture);
+        bool LoadFromTexture(const uint32_t texture, const bool copy = false);
 
         /**
          * Binds the texture to the OpenGL state for use.

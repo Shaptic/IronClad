@@ -2,8 +2,13 @@ CHANGELOG
 
 Project         :	IronClad
 Author          :	George Kudrayvtsev
-Current Version	:	1.2.4 alpha
-Last Updated	:	03.01.2013
+Current Version	:	1.2.5 alpha
+Last Updated	:	03.0 .2013
+
+Version 1.2.5a (03.0 .2013):
+ +  Texture handles can be copied
+ +  Buttons support hover and click effects
+ +  High-level menu class
 
 Version 1.2.4a (03.01.2013):
  *  Bug fixes

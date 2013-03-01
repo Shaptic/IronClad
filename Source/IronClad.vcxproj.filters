@@ -40,25 +40,25 @@
       <UniqueIdentifier>{542b4730-cc00-47ca-960e-e2c0fa998cc8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{d36a90cc-b270-4999-b149-02c232ba9472}</UniqueIdentifier>
+      <UniqueIdentifier>{44c397c5-71b0-4d8d-a510-ee0724d5b076}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Assets">
-      <UniqueIdentifier>{9f90bfde-2224-43e5-beb0-69e7e1f24a85}</UniqueIdentifier>
+      <UniqueIdentifier>{af3358cc-5b78-4498-9e8a-8f2009087221}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Entities">
-      <UniqueIdentifier>{194b2707-7c91-43ac-adef-fa2571c4997f}</UniqueIdentifier>
+      <UniqueIdentifier>{1aa7c1c8-29ef-4948-8539-7071f3f71dcd}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Graphics">
-      <UniqueIdentifier>{06dc8d51-ad5a-4984-9ce1-1b64b6d0ba5d}</UniqueIdentifier>
+      <UniqueIdentifier>{7500604d-f003-4022-b638-216a4f9a0eee}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Math">
-      <UniqueIdentifier>{d71944cc-dd5d-41fb-91d3-5032165d0edc}</UniqueIdentifier>
+      <UniqueIdentifier>{149581e3-d0c6-445c-b91c-c96ae65b734c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Utilities">
-      <UniqueIdentifier>{531cff51-7b73-46ac-a0ff-6525891bcc13}</UniqueIdentifier>
+      <UniqueIdentifier>{494041b8-0e4b-4bb5-ad7c-1ff7c3268f24}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\GUI">
-      <UniqueIdentifier>{4d07d60c-2501-427b-b00c-fbfe128291a8}</UniqueIdentifier>
+      <UniqueIdentifier>{b5a7951c-1fdd-4f2c-958a-c9777ee1c938}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +182,9 @@
     <ClInclude Include="include\GUI\Glyph.hpp">
       <Filter>Header Files\IronClad\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="include\GUI\Menu.hpp">
+      <Filter>Header Files\IronClad\GUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\glfw.ico">
@@ -295,6 +298,9 @@
       <Filter>Source Files\Engine\GUI</Filter>
     </ClCompile>
     <ClCompile Include="src\GUI\Font.cpp">
+      <Filter>Source Files\Engine\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\Menu.cpp">
       <Filter>Source Files\Engine\GUI</Filter>
     </ClCompile>
   </ItemGroup>

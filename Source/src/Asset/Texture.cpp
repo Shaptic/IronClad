@@ -69,18 +69,43 @@ bool CTexture::LoadFromRaw(const int iformat,
     return true;
 }
 
-bool ic::asset::CTexture::LoadFromTexture(const uint32_t texture)
+bool ic::asset::CTexture::LoadFromTexture(const uint32_t texture,
+                                          const bool copy)
 {
     if(texture == 0) return false;
     
-    m_texture = texture;
+    // The 'copy' flag creates a whole new texture from the given handle.
+    // This is useful if you are going to change the data in 'texture,'
+    // but don't want the change reflected in the other entities using it.
+    if(copy)
+    {
+        int w, h;
+        glBindTexture(GL_TEXTURE_2D, texture);
+        glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH,  &w);
+        glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &h);
 
-    this->Bind();
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH,  &m_width);
-    glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &m_height);
-    this->Unbind();
+        unsigned char* data = new unsigned char[w * h * 4];
+        glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+        // Since we made a new texture, we need to make sure it gets 
+        // cleaned up properly by the asset manager.
+        m_original = true;
+        m_id = Hash((char*)data, w * h);
+
+        return this->LoadFromRaw(GL_RGBA, GL_RGBA, w, h, data);
+    }
+    else
+    {
+        m_texture = texture;
+
+        this->Bind();
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_WIDTH,  &m_width);
+        glGetTexLevelParameteriv(GL_TEXTURE_2D, 0, GL_TEXTURE_HEIGHT, &m_height);
+        this->Unbind();
+    }
 
     return true;
 }

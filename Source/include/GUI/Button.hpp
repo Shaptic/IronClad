@@ -1,6 +1,6 @@
 /**
  * @file
- *	Button.hpp - Defines a button class for use in dynamic menus.
+ *	GUI/Button.hpp - Defines a button class for use in dynamic menus.
  *
  * @author      George Kudrayvtsev (switch1440)
  * @version     1.0
@@ -56,28 +56,36 @@ namespace gui
          *  the text rendering interfering, and physics can be done for
          *  collision with the mouse and whatnot.
          *  
-         * @param   char*   Texture filename
+         * @param   char*   Filename for regular texture
          * @param   rect_t  Dimensions to resize the texture to
          * @param   char*   Text to render on the button
-         * @param   CScene  Scene to load button geometry into
+         * @param   CScene& Scene to load button geometry into
+         * @param   char*   Filename for texture on mouse hover (optional=NULL)
+         * @param   char*   Filename for texture on mouse click (optional=NULL)
          * 
          * @return  TRUE if everything successful, FALSE if any errors.
          *          It will also return FALSE if the text is too tall / wide
          *          for the given dimensions.
          **/
-        bool Create(const char* texture,
+        bool Create(const char* main_texture,
                     const math::rect_t& Dim,
                     const char* text,
-                    gfx::CScene& Scene);
+                    gfx::CScene& Scene,
+                    const char* hover_texture = NULL,
+                    const char* click_texture = NULL);
 
         bool LoadFont(CFont& pFont);
+
+        void SwitchToMain() { m_Entity.SetMaterialOverride(mp_Textures[0]); }
+        void SwitchToHover(){ m_Entity.SetMaterialOverride(mp_Textures[1]); }
+        void SwitchToClick(){ m_Entity.SetMaterialOverride(mp_Textures[2]); }
 
         inline CRigidBody& GetEntity()
         { return m_Entity; }
 
     private:
         gfx::CFrameBuffer   m_FBO;
-        asset::CTexture*    mp_Texture;        
+        asset::CTexture*    mp_Textures[3];
         math::rect_t        m_Dimensions;
         math::vector2_t     m_Pos;
 

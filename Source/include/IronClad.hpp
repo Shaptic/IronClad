@@ -54,8 +54,7 @@
 #include "Entity/Animation.hpp"
 #include "Utils/SysEvent.hpp"
 #include "Utils/Timer.hpp"
-#include "GUI/Font.hpp"
-#include "GUI/Button.hpp"
+#include "GUI/Menu.hpp"
 #include "Level.hpp"
 
 namespace ic

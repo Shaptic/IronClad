@@ -112,6 +112,7 @@
     <ClInclude Include="include\GUI\Button.hpp" />
     <ClInclude Include="include\GUI\Font.hpp" />
     <ClInclude Include="include\GUI\Glyph.hpp" />
+    <ClInclude Include="include\GUI\Menu.hpp" />
     <ClInclude Include="include\IronClad.hpp" />
     <ClInclude Include="include\Level.hpp" />
     <ClInclude Include="include\Math\Line2.hpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="src\Graphics\Window.cpp" />
     <ClCompile Include="src\GUI\Button.cpp" />
     <ClCompile Include="src\GUI\Font.cpp" />
+    <ClCompile Include="src\GUI\Menu.cpp" />
     <ClCompile Include="src\IronClad.cpp" />
     <ClCompile Include="src\Level.cpp" />
     <ClCompile Include="src\Math\Line2.cpp" />

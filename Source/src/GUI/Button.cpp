@@ -1,27 +1,39 @@
 #include "GUI/Button.hpp"
 
 using namespace ic;
+
+using asset::CAssetManager;
+using asset::CTexture;
+using asset::CMesh;
+
 using gui::CButton;
 using gui::CFont;
 
-CButton::CButton() : m_align(IC_ALIGN_CENTER), mp_Texture(NULL)
+CButton::CButton() : m_align(IC_ALIGN_CENTER)
 {
-    mp_Texture = asset::CAssetManager::Create<asset::CTexture>();
+    for(short i = 0; i < 3; ++i)
+        mp_Textures[i] = CAssetManager::Create<CTexture>();
 }
 
 CButton::~CButton()
 {
-    asset::CAssetManager::Destroy<asset::CTexture>(mp_Texture);
+    for(short i = 0; i < 3; ++i)
+        CAssetManager::Destroy<CTexture>(mp_Textures[i]);
 }
 
-bool CButton::Create(const char* texture, const math::rect_t& Dim,
-                     const char* text, gfx::CScene& Scene)
+bool CButton::Create(const char* texture,   const math::rect_t& Dim,
+                     const char* text,      gfx::CScene& Scene,
+                     const char* on_hover,   const char* on_down)
 {
     gfx::CVertexBuffer VBO;
     gfx::CFrameBuffer& FBO = m_FBO;
 
-    asset::CTexture* pTexture = asset::CAssetManager::Create<asset::CTexture>(texture);            
-    asset::CMesh*    pMesh    = asset::CAssetManager::Create<asset::CMesh>();
+    CTexture* pMainTexture  = CAssetManager::Create<CTexture>(texture);
+    CTexture* pHoverTexture = (on_hover == NULL) ? NULL : 
+                              CAssetManager::Create<CTexture>(on_hover);
+    CTexture* pClickTexture = (on_down == NULL)  ? NULL : 
+                              CAssetManager::Create<CTexture>(on_down);
+    CMesh*    pMesh         = CAssetManager::Create<CMesh>();
 
     vertex2_t quad_v[4];
 
@@ -59,11 +71,11 @@ bool CButton::Create(const char* texture, const math::rect_t& Dim,
     // For without FBOs.
     //m_Pos = math::vector2_t(Dim.x + x_off, Dim.y + Dim.h - y_off);
 
-    if( pTexture == NULL || pMesh == NULL || mp_Texture == NULL || 
-        !pMesh->LoadFromRaw(quad_v, 4, gfx::Globals::g_FullscreenIndices, 6))
+    if(pMainTexture == NULL || pMesh == NULL || mp_Textures[0] == NULL || 
+      !pMesh->LoadFromRaw(quad_v, 4, gfx::Globals::g_FullscreenIndices, 6))
     {
-        asset::CAssetManager::Destroy<asset::CTexture>(pTexture);
-        asset::CAssetManager::Destroy<asset::CMesh>(pMesh);
+        CAssetManager::Destroy<CTexture>(pMainTexture);
+        CAssetManager::Destroy<CMesh>(pMesh);
         return false;
     }
 
@@ -80,9 +92,6 @@ bool CButton::Create(const char* texture, const math::rect_t& Dim,
     pMesh->LoadFromRaw(quad_v, 4, gfx::Globals::g_FullscreenIndices, 6);
     m_Entity.LoadFromMesh(pMesh, Scene.GetGeometryBuffer());
 
-    // Cache text for speedier rendering.
-    //m_Font.CacheText(text, m_Pos);
-
     // Adjust shader matrices to fit FBO.
     gfx::Globals::g_DefaultEffect.Enable();
     gfx::Globals::g_DefaultEffect.SetMatrix("mv", math::IDENTITY);
@@ -90,24 +99,63 @@ bool CButton::Create(const char* texture, const math::rect_t& Dim,
         math::matrix4x4_t::Projection2D(Dim.w, Dim.h, 10, -10));
 
     // Draw the button texture and restore screen matrix.
-    pTexture->Bind();
+    pMainTexture->Bind();
     VBO.Draw();
+    pMainTexture->Unbind();
+
+    // Cache text for speedier rendering.
+    m_Font.SetProjection(Dim.w, Dim.h, 10, -10);
+    m_Font.CacheText(text, m_Pos);
+    
+    // Render the font onto the button texture.
+    m_Font.RenderCached();
+
+    // Get texture from FBO.
+    mp_Textures[0]->LoadFromTexture(FBO.GetTexture(), true);
+    mp_Textures[0]->SetFilename(std::string(texture) + ":GUI");
+
+    // Repeat for the hover-texture.
+    if(pHoverTexture != NULL)
+    {
+        gfx::Globals::g_DefaultEffect.Enable();
+        pHoverTexture->Bind();
+        VBO.Draw();
+        pMainTexture->Unbind();
+
+        // Render the font onto the button texture.
+        m_Font.RenderCached();
+
+        // Get texture from FBO.
+        mp_Textures[1]->LoadFromTexture(FBO.GetTexture(), true);
+        mp_Textures[1]->SetFilename(std::string(texture) + ":GUI_Hover");
+    }
+
+    // Repeat for the click-texture.
+    if(pClickTexture != NULL)
+    {        
+        gfx::Globals::g_DefaultEffect.Enable();
+        pClickTexture->Bind();
+        VBO.Draw();
+        pClickTexture->Unbind();
+
+        // Render the font onto the button texture.
+        m_Font.RenderCached();
+        m_Font.SetProjection(gfx::CWindow::GetProjectionMatrixC());
+
+        // Get texture from FBO.
+        mp_Textures[2]->LoadFromTexture(FBO.GetTexture(), true);
+        mp_Textures[2]->SetFilename(std::string(texture) + ":GUI_Click");
+    }
+
+    gfx::Globals::g_DefaultEffect.Enable();
     gfx::Globals::g_DefaultEffect.SetMatrix("proj", 
         gfx::CWindow::GetProjectionMatrix());
-    pTexture->Unbind();
-
-    // Render the font onto the button texture.
-    m_Font.SetProjection(Dim.w, Dim.h, 10, -10);
-    m_Font.RenderText(text, m_Pos);
-    m_Font.SetProjection(gfx::CWindow::GetProjectionMatrixC());
 
     VBO.Clear();
     FBO.Disable();
+    gfx::Globals::g_DefaultEffect.Disable();
 
-    // Get texture from FBO.
-    mp_Texture->LoadFromTexture(FBO.GetTexture());
-    mp_Texture->SetFilename(std::string(texture) + ":GUI");
-    m_Entity.SetMaterialOverride(mp_Texture);
+    m_Entity.SetMaterialOverride(mp_Textures[0]);
     m_Entity.Move(Dim.x, Dim.y);
     
     m_text = text;

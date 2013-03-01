@@ -146,6 +146,8 @@ namespace gui
         math::rect_t CacheText(const std::string& text,
                                const math::vector2_t& Pos);
 
+        bool IsLoaded() const { return m_loaded; }
+
         void SetFontColor(const color4f_t& Color);
         void SetFontColor(const float r, const float g, const float b);
 

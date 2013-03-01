@@ -37,8 +37,8 @@ bool CFrameBuffer::Init(const uint16_t width, const uint16_t height)
     glBindRenderbuffer(GL_RENDERBUFFER, m_db);
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, 
                           width, height);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, 
-                          GL_RENDERBUFFER, m_db);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER,  GL_DEPTH_ATTACHMENT, 
+                              GL_RENDERBUFFER, m_db);
 
     // Check for awesomeness.
     uint32_t status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
@@ -47,7 +47,7 @@ bool CFrameBuffer::Init(const uint16_t width, const uint16_t height)
     m_ThisView.x = width; m_ThisView.y = height;
 
     // Unbind everything.
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glBindFramebuffer(GL_FRAMEBUFFER,   0);
     glBindRenderbuffer(GL_RENDERBUFFER, 0);
     glBindTexture(GL_TEXTURE_2D, 0);
 
