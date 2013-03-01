@@ -10,7 +10,7 @@ var searchData=
   ['getlength',['GetLength',['../structic_1_1math_1_1line2__t.html#aece9082f434264187ba58f8d4b9ebb88',1,'ic::math::line2_t']]],
   ['getlightfromscene',['GetLightFromScene',['../classic_1_1gfx_1_1_c_scene.html#a8fd05e4ee782d37be98a06f32821a81a',1,'ic::gfx::CScene']]],
   ['getlights',['GetLights',['../classic_1_1gfx_1_1_c_scene.html#a2bd853e0f52fb7a58f65480ea96e34fe',1,'ic::gfx::CScene']]],
-  ['getmeshwidth',['GetMeshWidth',['../classic_1_1asset_1_1_c_mesh.html#ade7c90e77fb5a105b672e22c10f8054d',1,'ic::asset::CMesh']]],
+  ['getmeshwidth',['GetMeshWidth',['../classic_1_1asset_1_1_c_mesh.html#a9d0c7f53db1f133cc7ab4c16a9f32816',1,'ic::asset::CMesh']]],
   ['getmouseposition',['GetMousePosition',['../namespaceic_1_1util.html#a1c02bc3b75d3a924b7dd8e8f531a9240',1,'ic::util::GetMousePosition()'],['../namespaceic_1_1util.html#af77c803ff641212036847bfd21781a3f',1,'ic::util::GetMousePosition(int &amp;x, int &amp;y)']]],
   ['getmousestate',['GetMouseState',['../namespaceic_1_1util.html#a6dbcc5ccac362f68d3c863fc7260a4e7',1,'ic::util']]],
   ['getnormalized',['GetNormalized',['../structic_1_1math_1_1vector2__t.html#a3ddfbaa21f0e07c122378457641e96bf',1,'ic::math::vector2_t::GetNormalized()'],['../structic_1_1math_1_1vector3__t.html#abaa832fec5e3d9395a7179050db3ad55',1,'ic::math::vector3_t::GetNormalized()']]],
@@ -23,7 +23,7 @@ var searchData=
   ['getvertexbuffer',['GetVertexBuffer',['../classic_1_1gfx_1_1_c_vertex_buffer.html#ab5755fa6149e473f650bd57bbf425e13',1,'ic::gfx::CVertexBuffer']]],
   ['globals',['Globals',['../structic_1_1gfx_1_1_globals.html',1,'ic::gfx']]],
   ['globals_2ehpp',['Globals.hpp',['../_globals_8hpp.html',1,'']]],
-  ['glyph',['Glyph',['../structic_1_1font_1_1_glyph.html',1,'ic::font']]],
+  ['glyph',['Glyph',['../structic_1_1gui_1_1_glyph.html',1,'ic::gui']]],
   ['glyph_2ehpp',['Glyph.hpp',['../_glyph_8hpp.html',1,'']]],
   ['graphics',['Graphics',['../group___graphics.html',1,'']]],
   ['gui',['GUI',['../group___g_u_i.html',1,'']]]

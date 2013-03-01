@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4668 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -109,13 +109,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">return</span> m_Effect.LoadFromFile(<span class="stringliteral">&quot;Shaders/Default.vs&quot;</span>,</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="stringliteral">&quot;Shaders/GaussianBlurH.fs&quot;</span>);</div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">case</span> IC_NO_EFFECT: </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">case</span> IC_GRAYSCALE:</div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <span class="keywordflow">return</span> m_Effect.LoadFromFile(<span class="stringliteral">&quot;Shaders/Default.vs&quot;</span>,</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="stringliteral">&quot;Shaders/Default.fs&quot;</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="stringliteral">&quot;Shaders/FontRender.fs&quot;</span>);</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">case</span> IC_GRAYSCALE:</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordflow">case</span> IC_NO_EFFECT: </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> m_Effect.LoadFromFile(<span class="stringliteral">&quot;Shaders/Default.vs&quot;</span>,</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="stringliteral">&quot;Shaders/FontRender.fs&quot;</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="stringliteral">&quot;Shaders/Default.fs&quot;</span>);</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">default</span>: <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
@@ -188,31 +188,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> m_Effect.GetUniformLocation(pname);    </div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    </div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="comment">// Failed attempt at a uniform hash table is below.</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    std::string name(pname);</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    name += m_Effect.GetProgram();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    uint32_t searcher_hash = <a class="code" href="classic_1_1asset_1_1_c_asset.html#ab78f4b46ddd9892ade8428eea89aba32" title="Calculates a hash for a given value.">asset::CAsset::Hash</a>(</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        name.c_str(), name.length());</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    std::map&lt;uint32_t, uint32_t&gt;::iterator i = </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        m_UniformHash.find(searcher_hash);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">if</span>(i == m_UniformHash.end())</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <span class="keywordtype">int</span> result = m_Effect.GetUniformLocation(pname);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span>(result == -1) <span class="keywordflow">return</span> -1;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        m_UniformHash[searcher_hash] = result;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    }</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">return</span> m_UniformHash[searcher_hash];</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    std::string name(pname);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    name += m_Effect.GetProgram();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    uint32_t searcher_hash = <a class="code" href="classic_1_1asset_1_1_c_asset.html#ab78f4b46ddd9892ade8428eea89aba32" title="Calculates a hash for a given value.">asset::CAsset::Hash</a>(</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        name.c_str(), name.length());</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    std::map&lt;uint32_t, uint32_t&gt;::iterator i = </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        m_UniformHash.find(searcher_hash);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">if</span>(i == m_UniformHash.end())</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordtype">int</span> result = m_Effect.GetUniformLocation(pname);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordflow">if</span>(result == -1) <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        m_UniformHash[searcher_hash] = result;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        <span class="keywordflow">return</span> m_UniformHash[searcher_hash];</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 21 2013 22:48:48 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 1 2013 11:16:17 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

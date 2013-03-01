@@ -246,10 +246,10 @@ void CScene::StandardRender(CEntity* pEntity,
 
     if(m_geo_type == GL_LINE_STRIP ||
        m_geo_type == GL_LINE_LOOP  ||
-       m_geo_type == GL_LINES)          Globals::g_WhiteTexture->Bind();
+       m_geo_type == GL_LINES      ||
+       pEntity->GetTexture() == NULL)   Globals::g_WhiteTexture->Bind();
 
-    else if(pEntity->GetTexture() != NULL)
-        pEntity->GetTexture()->Bind();
+    else                                pEntity->GetTexture()->Bind();
 
     // Do rendering.
     glDrawElements(m_geo_type, pSurface->icount, GL_UNSIGNED_SHORT,
@@ -288,6 +288,13 @@ void CScene::StandardRender(gfx::surface_t* pSurface,
         glUniformMatrix4fv(pjloc, 1, GL_TRUE,
             m_Window.GetProjectionMatrix());
     }
+
+    if(m_geo_type == GL_LINE_STRIP ||
+       m_geo_type == GL_LINE_LOOP  ||
+       m_geo_type == GL_LINES      ||
+       pMaterial->pTexture == NULL)   Globals::g_WhiteTexture->Bind();
+
+    else                              pMaterial->pTexture->Bind();
 
     // Do rendering.
     glDrawElements(
@@ -393,7 +400,7 @@ void CScene::UpdateShadows(const math::vector2_t& LightPosition)
 
     for(size_t j = 0; j < mp_sceneObjects.size(); ++j)
     {
-        if(!mp_sceneObjects[j]->CastsShadow()) continue;
+        //if(!mp_sceneObjects[j]->CastsShadow()) continue;
 
         // Find the lowest and highest indices to get the clock-wise ordered
         // vertices from the buffer.

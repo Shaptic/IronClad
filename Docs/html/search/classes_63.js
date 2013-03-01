@@ -7,7 +7,7 @@ var searchData=
   ['ceffect',['CEffect',['../classic_1_1gfx_1_1_c_effect.html',1,'ic::gfx']]],
   ['centity',['CEntity',['../classic_1_1_c_entity.html',1,'ic']]],
   ['ceventhandler',['CEventHandler',['../classic_1_1util_1_1_c_event_handler.html',1,'ic::util']]],
-  ['cfont',['CFont',['../classic_1_1font_1_1_c_font.html',1,'ic::font']]],
+  ['cfont',['CFont',['../classic_1_1gui_1_1_c_font.html',1,'ic::gui']]],
   ['cframebuffer',['CFrameBuffer',['../classic_1_1gfx_1_1_c_frame_buffer.html',1,'ic::gfx']]],
   ['circle_5ft',['circle_t',['../structic_1_1math_1_1circle__t.html',1,'ic::math']]],
   ['clevel',['CLevel',['../classic_1_1_c_level.html',1,'ic']]],

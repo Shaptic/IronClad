@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>IronClad Engine: IronClad/src/Fonts/Font.cpp Source File</title>
+<title>IronClad Engine: IronClad/src/GUI/Font.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4668 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -84,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_9642ee7a51a64fe52107d214efc43835.html">IronClad</a></li><li class="navelem"><a class="el" href="dir_0f0d2c31dd45356cf88f2f99f1faa7f8.html">src</a></li><li class="navelem"><a class="el" href="dir_9692301bcda2b567658ea34da4453e22.html">Fonts</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_9642ee7a51a64fe52107d214efc43835.html">IronClad</a></li><li class="navelem"><a class="el" href="dir_0f0d2c31dd45356cf88f2f99f1faa7f8.html">src</a></li><li class="navelem"><a class="el" href="dir_c0bc8071172a68270c6b434588c9c84e.html">GUI</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -92,16 +92,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Font.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_font_8hpp.html" title="Fonts/Font.hpp - A wrapper for an instance of a .ttf font using the FreeType 2 API.">Fonts/Font.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_font_8hpp.html" title="Fonts/Font.hpp - A wrapper for an instance of a .ttf font using the FreeType 2 API.">GUI/Font.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;</div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using namespace </span>ic;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classic_1_1font_1_1_c_font.html">font::CFont</a>;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="classic_1_1gui_1_1_c_font.html">gui::CFont</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;FT_Library CFont::s_Library;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keywordtype">bool</span>       CFont::s_initialized;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classic_1_1font_1_1_c_font.html#a1c16b05a66d334d5ddc810dcbb75f8c7">   10</a></span>&#160;<span class="keywordtype">bool</span> CFont::Initialize()</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="code" href="classic_1_1gui_1_1_c_font.html#a1c16b05a66d334d5ddc810dcbb75f8c7">   10</a></span>&#160;<span class="keywordtype">bool</span> CFont::Initialize()</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keywordflow">return</span> (s_initialized = (FT_Init_FreeType(&amp;s_Library) == 0));</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
@@ -113,108 +113,108 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;CFont::CFont() : m_size(0), m_loaded(false)</div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_Cache.<a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a7d7e9215f6b5331ffa01f9087d029d6f" title="Initializes the VBO by creating the necessary buffers.">Init</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;CFont::~CFont() {}</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="classic_1_1font_1_1_c_font.html#a443f618faca95e8678c211986fd42756">   27</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1font_1_1_c_font.html#a443f618faca95e8678c211986fd42756" title="Loads a TrueType font.">CFont::LoadFromFile</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> uint16_t size)</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a0db30eeee76ea4de7515c333530d288a" title="Writes pending data to the file.">Flush</a>();</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a> &lt;&lt; <span class="stringliteral">&quot;[INFO] Loading font:      &quot;</span> &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a>.PrintLastLog();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    m_FontRender.Init(gfx::IC_GRAYSCALE);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="comment">// Set the matrices in the rendering shader.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    m_FontRender.<a class="code" href="classic_1_1gfx_1_1_c_effect.html#ab2d13ce7c943be3044cbdf3f589fe79c" title="Starts using this effect.">Enable</a>();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    m_FontRender.<a class="code" href="classic_1_1gfx_1_1_c_effect.html#a1a21a99c4fb808bd583f04525909a66b" title="Sends a 4x4 matrix to the shader.">SetMatrix</a>(<span class="stringliteral">&quot;mv&quot;</span>, math::IDENTITY);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    m_FontRender.<a class="code" href="classic_1_1gfx_1_1_c_effect.html#a1a21a99c4fb808bd583f04525909a66b" title="Sends a 4x4 matrix to the shader.">SetMatrix</a>(<span class="stringliteral">&quot;proj&quot;</span>, gfx::CWindow::GetProjectionMatrix());</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    m_FontRender.<a class="code" href="classic_1_1gfx_1_1_c_effect.html#ac1b329c4f8fe3e74546ca8829fccac9c" title="Stops using this effect.">Disable</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    m_Cache.<a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a7d7e9215f6b5331ffa01f9087d029d6f" title="Initializes the VBO by creating the necessary buffers.">Init</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordflow">if</span>(!m_FontRender.Init(gfx::IC_GRAYSCALE))   <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;CFont::~CFont() {}</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// Set the matrices in the rendering shader.</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    m_FontRender.<a class="code" href="classic_1_1gfx_1_1_c_effect.html#ab2d13ce7c943be3044cbdf3f589fe79c" title="Starts using this effect.">Enable</a>();</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordflow">if</span>(!m_FontRender.<a class="code" href="classic_1_1gfx_1_1_c_effect.html#a1a21a99c4fb808bd583f04525909a66b" title="Sends a 4x4 matrix to the shader.">SetMatrix</a>(<span class="stringliteral">&quot;mv&quot;</span>, math::IDENTITY) || </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;       !m_FontRender.<a class="code" href="classic_1_1gfx_1_1_c_effect.html#a1a21a99c4fb808bd583f04525909a66b" title="Sends a 4x4 matrix to the shader.">SetMatrix</a>(<span class="stringliteral">&quot;proj&quot;</span>, gfx::CWindow::GetProjectionMatrix()))</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    m_FontRender.<a class="code" href="classic_1_1gfx_1_1_c_effect.html#ac1b329c4f8fe3e74546ca8829fccac9c" title="Stops using this effect.">Disable</a>();</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">if</span>(FT_New_Face(s_Library, filename.c_str(), 0, &amp;m_FontFace) != 0)</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Set the size of the font face.</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// Since the function expects a size in 1/64 pixels, we multiply</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// by 64 (same as left-shifting 6 bits) before passing.</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// The 96 represents a 96-dpi font bitmap.</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">if</span>(FT_Set_Char_Size(m_FontFace, size &lt;&lt; 6, size &lt;&lt; 6, 96, 96) != 0)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">// For logging :)</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    std::stringstream ss;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// Load all printable characters.</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// If you visit an ASCII table (like www.asciitable.com) you will see</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// that the only valid values for printing are the space character all</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="comment">// the way up to the tilde (~).</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = <span class="charliteral">&#39; &#39;</span>; i &lt;= <span class="charliteral">&#39;~&#39;</span>; ++i)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        FT_Glyph glyph;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="comment">// Locate the index of the character in the font face.</span></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        uint32_t index = FT_Get_Char_Index(m_FontFace, i);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">if</span>(index == 0) <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <span class="comment">// Load the glyph into the font face.</span></div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        FT_Load_Glyph(m_FontFace, index, FT_LOAD_RENDER);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="comment">// Render the glyph as a mono-chrome bitmap.</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        FT_Render_Glyph(m_FontFace-&gt;glyph, FT_RENDER_MODE_NORMAL);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="comment">// Put the glyph in the glyph slot into an actual glyph struct.</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        FT_Get_Glyph(m_FontFace-&gt;glyph, &amp;glyph);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        FT_GlyphSlot slot = m_FontFace-&gt;glyph;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        FT_Bitmap&amp; bitmap = slot-&gt;bitmap;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="comment">// Bitmap dimensions</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        uint32_t w = bitmap.width;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        uint32_t h = bitmap.rows;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="comment">// Create the OpenGL bitmap texture handle.</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>* pTexture = </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            asset::CAssetManager::Create&lt;asset::CTexture&gt;();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="comment">// Log filename as font_name:char</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        ss &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; (char)i;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        pTexture-&gt;SetFilename(ss.str());</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        ss.str(std::string());</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment">// We need to copy the data over to a new buffer in order</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="comment">// to properly pass it to the GPU.</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* data = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>[w * h];</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        memset(data, NULL, w * h *  <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>));</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        memcpy(data, bitmap.buffer, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>) * w * h);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="comment">// Alignment for pixels needs to be at 1 byte.</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        pTexture-&gt;LoadFromRaw(GL_R8, GL_RED, w, h, data);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">// Restore default alignment value. I haven&#39;t actually tested this</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="comment">// part so it may or may not actually be the default.</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        glPixelStorei(GL_UNPACK_ALIGNMENT, 4);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="comment">// Delete bitmap buffers        </span></div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keyword">delete</span>[] data;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        FT_Done_Glyph(glyph);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <a class="code" href="structic_1_1font_1_1_glyph.html" title="A glyph structure represents a single letter in a font file.">Glyph</a> render_glyph;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        render_glyph.pTexture = pTexture;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        render_glyph.dim      = <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>(w, h,</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            slot-&gt;advance.x / 64,</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            slot-&gt;metrics.horiBearingY / 64);</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        mp_glyphTextures[i] = render_glyph;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    m_loaded = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="code" href="classic_1_1gui_1_1_c_font.html#a443f618faca95e8678c211986fd42756">   35</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1gui_1_1_c_font.html#a443f618faca95e8678c211986fd42756" title="Loads a TrueType font.">CFont::LoadFromFile</a>(<span class="keyword">const</span> std::string&amp; filename, <span class="keyword">const</span> uint16_t size)</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a0db30eeee76ea4de7515c333530d288a" title="Writes pending data to the file.">Flush</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a> &lt;&lt; <span class="stringliteral">&quot;[INFO] Loading font:      &quot;</span> &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">g_Log</a>.PrintLastLog();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">if</span>(FT_New_Face(s_Library, filename.c_str(), 0, &amp;m_FontFace) != 0)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// Set the size of the font face.</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// Since the function expects a size in 1/64 pixels, we multiply</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="comment">// by 64 (same as left-shifting 6 bits) before passing.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="comment">// The 96 represents a 96-dpi font bitmap.</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordflow">if</span>(FT_Set_Char_Size(m_FontFace, size &lt;&lt; 6, size &lt;&lt; 6, 96, 96) != 0)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// For logging :)</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::stringstream ss;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="comment">// Load all printable characters.</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// If you visit an ASCII table (like www.asciitable.com) you will see</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// that the only valid values for printing are the space character all</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="comment">// the way up to the tilde (~).</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = <span class="charliteral">&#39; &#39;</span>; i &lt;= <span class="charliteral">&#39;~&#39;</span>; ++i)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        FT_Glyph glyph;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="comment">// Locate the index of the character in the font face.</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        uint32_t index = FT_Get_Char_Index(m_FontFace, i);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <span class="keywordflow">if</span>(index == 0) <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="comment">// Load the glyph into the font face.</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        FT_Load_Glyph(m_FontFace, index, FT_LOAD_RENDER);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="comment">// Render the glyph as a mono-chrome bitmap.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        FT_Render_Glyph(m_FontFace-&gt;glyph, FT_RENDER_MODE_NORMAL);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="comment">// Put the glyph in the glyph slot into an actual glyph struct.</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        FT_Get_Glyph(m_FontFace-&gt;glyph, &amp;glyph);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        FT_GlyphSlot slot = m_FontFace-&gt;glyph;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        FT_Bitmap&amp; bitmap = slot-&gt;bitmap;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="comment">// Bitmap dimensions</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        uint32_t w = bitmap.width;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        uint32_t h = bitmap.rows;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="comment">// Create the OpenGL bitmap texture handle.</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>* pTexture = </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            asset::CAssetManager::Create&lt;asset::CTexture&gt;();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="comment">// Log filename as font_name:char</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        ss &lt;&lt; filename &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; (char)i;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        pTexture-&gt;SetFilename(ss.str());</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        ss.str(std::string());</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="comment">// We need to copy the data over to a new buffer in order</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="comment">// to properly pass it to the GPU.</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* data = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>[w * h];</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        memset(data, NULL, w * h *  <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>));</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        memcpy(data, bitmap.buffer, <span class="keyword">sizeof</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>) * w * h);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="comment">// Alignment for pixels needs to be at 1 byte.</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        pTexture-&gt;LoadFromRaw(GL_R8, GL_RED, w, h, data);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <span class="comment">// Restore default alignment value. I haven&#39;t actually tested this</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="comment">// part so it may or may not actually be the default.</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        glPixelStorei(GL_UNPACK_ALIGNMENT, 4);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="comment">// Delete bitmap buffers        </span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keyword">delete</span>[] data;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        FT_Done_Glyph(glyph);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <a class="code" href="structic_1_1gui_1_1_glyph.html" title="A glyph structure represents a single letter in a font file.">Glyph</a> render_glyph;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        render_glyph.pTexture = pTexture;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        render_glyph.dim      = <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>(w, h,</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            slot-&gt;advance.x / 64,</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            slot-&gt;metrics.horiBearingY / 64);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        mp_glyphTextures[i] = render_glyph;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    m_loaded    = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    m_filename  = filename;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">return</span> (FT_Done_Face(m_FontFace) == 0);</div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
-<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="classic_1_1font_1_1_c_font.html#af21659728b34f6dcf9747b5964390a58">  123</a></span>&#160;<a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> <a class="code" href="classic_1_1font_1_1_c_font.html#af21659728b34f6dcf9747b5964390a58" title="Renders text on the current frame buffer.">CFont::RenderText</a>(<span class="keyword">const</span> std::string&amp; text,</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="code" href="classic_1_1gui_1_1_c_font.html#af21659728b34f6dcf9747b5964390a58">  123</a></span>&#160;<a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> <a class="code" href="classic_1_1gui_1_1_c_font.html#af21659728b34f6dcf9747b5964390a58" title="Renders text on the current frame buffer.">CFont::RenderText</a>(<span class="keyword">const</span> std::string&amp; text,</div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                               <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos)</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;{</div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="comment">// VBO that will contain our text vertex data.</span></div>
@@ -339,7 +339,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <span class="keywordflow">return</span> Size;</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;}</div>
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
-<div class="line"><a name="l00248"></a><span class="lineno"><a class="code" href="classic_1_1font_1_1_c_font.html#aae947b5fc8441a51ef5bf25a19a20953">  248</a></span>&#160;<a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> <a class="code" href="classic_1_1font_1_1_c_font.html#aae947b5fc8441a51ef5bf25a19a20953" title="Renders a string stored with CacheText().">CFont::RenderCached</a>()</div>
+<div class="line"><a name="l00248"></a><span class="lineno"><a class="code" href="classic_1_1gui_1_1_c_font.html#aae947b5fc8441a51ef5bf25a19a20953">  248</a></span>&#160;<a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> <a class="code" href="classic_1_1gui_1_1_c_font.html#aae947b5fc8441a51ef5bf25a19a20953" title="Renders a string stored with CacheText().">CFont::RenderCached</a>()</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;{</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="comment">// Enable font-rendering shader.</span></div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    m_FontRender.<a class="code" href="classic_1_1gfx_1_1_c_effect.html#ab2d13ce7c943be3044cbdf3f589fe79c" title="Starts using this effect.">Enable</a>();</div>
@@ -354,7 +354,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    {</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        mp_glyphTextures[m_last_text[i]].pTexture-&gt;Bind();</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT,</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                       (<span class="keywordtype">void</span>*)(<span class="keyword">sizeof</span>(uint16_t) * i * 6));</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;                      (<span class="keywordtype">void</span>*)(<span class="keyword">sizeof</span>(uint16_t) * i * 6));</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    }</div>
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    glDisable(GL_BLEND);</div>
@@ -367,7 +367,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keywordflow">return</span> m_CacheSize;</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;}</div>
 <div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;</div>
-<div class="line"><a name="l00276"></a><span class="lineno"><a class="code" href="classic_1_1font_1_1_c_font.html#aedee81c8800459b57f043aaf9f84352b">  276</a></span>&#160;<a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> <a class="code" href="classic_1_1font_1_1_c_font.html#aedee81c8800459b57f043aaf9f84352b" title="Caches a string of text in a buffer for rendering.">CFont::CacheText</a>(<span class="keyword">const</span> std::string&amp; text,</div>
+<div class="line"><a name="l00276"></a><span class="lineno"><a class="code" href="classic_1_1gui_1_1_c_font.html#aedee81c8800459b57f043aaf9f84352b">  276</a></span>&#160;<a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> <a class="code" href="classic_1_1gui_1_1_c_font.html#aedee81c8800459b57f043aaf9f84352b" title="Caches a string of text in a buffer for rendering.">CFont::CacheText</a>(<span class="keyword">const</span> std::string&amp; text,</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;                              <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Pos)</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;{</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    m_Cache.<a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html#aeef489a996a5f13a43cdd00582364828" title="Clears contents of GPU buffers.">Clear</a>();</div>
@@ -466,18 +466,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keywordflow">return</span> m_CacheSize;</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;}</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;</div>
-<div class="line"><a name="l00375"></a><span class="lineno"><a class="code" href="classic_1_1font_1_1_c_font.html#a85cc2c47a984502662ada6b2086d603c">  375</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1font_1_1_c_font.html#a85cc2c47a984502662ada6b2086d603c" title="Resizes the font.">CFont::Resize</a>(<span class="keyword">const</span> uint32_t size)</div>
+<div class="line"><a name="l00375"></a><span class="lineno"><a class="code" href="classic_1_1gui_1_1_c_font.html#a85cc2c47a984502662ada6b2086d603c">  375</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1gui_1_1_c_font.html#a85cc2c47a984502662ada6b2086d603c" title="Resizes the font.">CFont::Resize</a>(<span class="keyword">const</span> uint32_t size)</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;{</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    m_size = size;</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classic_1_1font_1_1_c_font.html#a443f618faca95e8678c211986fd42756" title="Loads a TrueType font.">LoadFromFile</a>(m_filename, m_size);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    <span class="keywordflow">return</span> this-&gt;<a class="code" href="classic_1_1gui_1_1_c_font.html#a443f618faca95e8678c211986fd42756" title="Loads a TrueType font.">LoadFromFile</a>(m_filename, m_size);</div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;}</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="keywordtype">void</span> ic::font::CFont::SetFontColor(<span class="keyword">const</span> <a class="code" href="structic_1_1color4f__t.html" title="Represents a 32-bit floating point color (RGBA).">color4f_t</a>&amp; Color)</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="keywordtype">void</span> ic::gui::CFont::SetFontColor(<span class="keyword">const</span> <a class="code" href="structic_1_1color4f__t.html" title="Represents a 32-bit floating point color (RGBA).">color4f_t</a>&amp; Color)</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;{</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    m_Color = Color;</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;}</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="keywordtype">void</span> ic::font::CFont::SetFontColor(<span class="keyword">const</span> <span class="keywordtype">float</span> r, <span class="keyword">const</span> <span class="keywordtype">float</span> g, <span class="keyword">const</span> <span class="keywordtype">float</span> b)</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="keywordtype">void</span> ic::gui::CFont::SetFontColor(<span class="keyword">const</span> <span class="keywordtype">float</span> r, <span class="keyword">const</span> <span class="keywordtype">float</span> g, <span class="keyword">const</span> <span class="keywordtype">float</span> b)</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;{</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    m_Color.r = r;</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    m_Color.g = g;</div>
@@ -517,7 +517,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 21 2013 22:48:48 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 1 2013 11:16:17 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

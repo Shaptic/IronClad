@@ -95,12 +95,9 @@
     <ClInclude Include="include\Asset\Texture.hpp" />
     <ClInclude Include="include\Base\Errors.hpp" />
     <ClInclude Include="include\Base\Types.hpp" />
-    <ClInclude Include="include\Button.hpp" />
     <ClInclude Include="include\Entity\Animation.hpp" />
     <ClInclude Include="include\Entity\Entity.hpp" />
     <ClInclude Include="include\Entity\RigidBody.hpp" />
-    <ClInclude Include="include\Fonts\Font.hpp" />
-    <ClInclude Include="include\Fonts\Glyph.hpp" />
     <ClInclude Include="include\Graphics\Effect.hpp" />
     <ClInclude Include="include\Graphics\Framebuffer.hpp" />
     <ClInclude Include="include\Graphics\Globals.hpp" />
@@ -112,6 +109,9 @@
     <ClInclude Include="include\Graphics\Surface.hpp" />
     <ClInclude Include="include\Graphics\VertexBuffer.hpp" />
     <ClInclude Include="include\Graphics\Window.hpp" />
+    <ClInclude Include="include\GUI\Button.hpp" />
+    <ClInclude Include="include\GUI\Font.hpp" />
+    <ClInclude Include="include\GUI\Glyph.hpp" />
     <ClInclude Include="include\IronClad.hpp" />
     <ClInclude Include="include\Level.hpp" />
     <ClInclude Include="include\Math\Line2.hpp" />
@@ -150,7 +150,6 @@
     <ClCompile Include="src\Entity\Animation.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />
     <ClCompile Include="src\Entity\RigidBody.cpp" />
-    <ClCompile Include="src\Fonts\Font.cpp" />
     <ClCompile Include="src\Graphics\Effect.cpp" />
     <ClCompile Include="src\Graphics\Framebuffer.cpp" />
     <ClCompile Include="src\Graphics\Globals.cpp" />
@@ -160,6 +159,8 @@
     <ClCompile Include="src\Graphics\ShaderPair.cpp" />
     <ClCompile Include="src\Graphics\VertexBuffer.cpp" />
     <ClCompile Include="src\Graphics\Window.cpp" />
+    <ClCompile Include="src\GUI\Button.cpp" />
+    <ClCompile Include="src\GUI\Font.cpp" />
     <ClCompile Include="src\IronClad.cpp" />
     <ClCompile Include="src\Level.cpp" />
     <ClCompile Include="src\Math\Line2.cpp" />

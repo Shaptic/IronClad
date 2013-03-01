@@ -21,6 +21,8 @@ bool CMesh::LoadFromFile(const char* pfilename)
         return false;
     }
 
+    this->Clear();
+
     while(std::getline(file, line))
     {
         // Skip empty lines or comments.
@@ -109,6 +111,8 @@ bool CMesh::LoadFromFile(const std::string& filename)
 
 bool CMesh::LoadFromStr(const char** data, const int size)
 {
+    this->Clear();
+
     for(size_t i = 0; i < size; ++i)
     {
         for(size_t j = 0; data[i][j] != '\0'; ++j)
@@ -196,8 +200,7 @@ bool CMesh::LoadFromRaw(
     const vertex2_t* pvertices, const uint32_t vsize,
     const uint16_t*  pindices,  const uint32_t isize)
 {
-    m_vBuffer.clear();
-    m_iBuffer.clear();
+    this->Clear();
 
     for(size_t i = 0; i < vsize; ++i)
         m_vBuffer.push_back(pvertices[i]);
@@ -505,8 +508,7 @@ void CMesh::Release()
     if(m_original)
     {
         CAsset::Release();
-        m_iBuffer.clear();
-        m_vBuffer.clear();
+        this->Clear();
     }
 }
 
@@ -589,7 +591,7 @@ bool CMesh::LoadFromExisting(std::ifstream& in_file, const std::streampos pos)
     return true;
 }
 
-int asset::CMesh::GetMeshWidth() const
+int CMesh::GetMeshWidth() const
 {
     int max_value = 0, min_value = 0;
 
@@ -602,7 +604,7 @@ int asset::CMesh::GetMeshWidth() const
     return (max_value - min_value);
 }
 
-int asset::CMesh::GetMeshHeight() const
+int CMesh::GetMeshHeight() const
 {
     int max_value = 0, min_value = 0;
 
@@ -613,4 +615,13 @@ int asset::CMesh::GetMeshHeight() const
     }
 
     return (max_value - min_value);
+}
+
+void CMesh::Clear()
+{
+    for(size_t i = 0; i < mp_Surfaces.size(); ++i) delete mp_Surfaces[i];
+
+    mp_Surfaces.clear();
+    m_vBuffer.clear();
+    m_iBuffer.clear();
 }

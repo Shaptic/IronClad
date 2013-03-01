@@ -9,7 +9,7 @@ CVertexBuffer   Globals::g_FullscreenVBO;
 asset::CTexture* Globals::g_WhiteTexture;
 
 vertex2_t       Globals::g_FullscreenVertices[4];
-uint16_t        Globals::g_FullscreenIndices[6] = {0, 1, 3, 3, 2, 1};
+uint16_t        Globals::g_FullscreenIndices [6] = {0, 1, 3, 3, 2, 1};
 
 bool Globals::Init(CWindow& Window)
 {
@@ -53,7 +53,7 @@ void Globals::LoadVBODefaults()
 
     g_FullscreenVBO.Clear();
     g_FullscreenVBO.AddData(g_FullscreenVertices, 4,
-        g_FullscreenIndices,  6);
+                            g_FullscreenIndices,  6);
     g_FullscreenVBO.FinalizeBuffer();
 }
 

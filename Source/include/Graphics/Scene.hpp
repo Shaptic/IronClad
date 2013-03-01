@@ -260,9 +260,9 @@ namespace gfx
          * @return  What the value was originally, BEFORE toggling.
          **/
         inline bool ToggleWireMesh()
-        { return !(m_geo_type == GL_TRIANGLES ?
-                   m_geo_type = GL_LINE_STRIP :
-                   m_geo_type = GL_TRIANGLES );
+        { return !(m_geo_type == GL_TRIANGLES  ?
+                   m_geo_type =  GL_LINE_STRIP :
+                   m_geo_type =  GL_TRIANGLES  );
         }
 
         /**
@@ -290,6 +290,13 @@ namespace gfx
 
          inline void QueryCamera(math::vector2_t& Position) const 
          { Position = m_Camera; }
+
+         inline void Clear()
+         {
+             m_GeometryVBO.Clear();
+             mp_sceneObjects.clear();
+             mp_sceneLights.clear();
+         }
 
          /**
           * Retrieves all of the lights in a scene.

@@ -24,16 +24,11 @@ CAssetManager& CAssetManager::GetInstance()
 
 asset::CAsset* CAssetManager::Find(const char* pfilename)
 {
-    // Comparing hashes is much faster than comparing strings.
-    uint32_t searcher = asset::CAsset::Hash(pfilename, strlen(pfilename));
-
     for(size_t i = 0; i < CAssetManager::s_allAssets.size(); ++i)
     {
         const std::string& fn = CAssetManager::s_allAssets[i]->GetFilename();
 
-        uint32_t result = asset::CAsset::Hash(fn.c_str(), fn.size());
-        if(result == searcher)
-            return CAssetManager::s_allAssets[i];
+        if(fn == pfilename) return CAssetManager::s_allAssets[i];
     }
 
     return NULL;

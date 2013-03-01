@@ -97,7 +97,10 @@ namespace asset
         }
 
         inline void SetFilename(const std::string& filename)
-        { m_filename = filename; }
+        {
+            m_filename = filename;
+            m_id = Hash(filename.c_str(), filename.size());
+        }
 
         /**
          * Only the CAssetManager class can create CAsset instances.

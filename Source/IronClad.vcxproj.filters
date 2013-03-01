@@ -36,32 +36,29 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{3b546758-dd25-4664-a67c-21e76e020660}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\IronClad\Fonts">
-      <UniqueIdentifier>{d49323a1-c283-46ee-9900-85df5325dfaa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\IronClad\GUI">
       <UniqueIdentifier>{542b4730-cc00-47ca-960e-e2c0fa998cc8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{0334ab78-ea58-4dd0-af75-88d38d809396}</UniqueIdentifier>
+      <UniqueIdentifier>{d36a90cc-b270-4999-b149-02c232ba9472}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Assets">
-      <UniqueIdentifier>{ff06a258-2d28-4092-b8d4-f5d1e0d3cb57}</UniqueIdentifier>
+      <UniqueIdentifier>{9f90bfde-2224-43e5-beb0-69e7e1f24a85}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Entities">
-      <UniqueIdentifier>{08756d85-7692-4af7-9bec-1e1fcacbde54}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Fonts">
-      <UniqueIdentifier>{fa2aea9e-3dc7-4c17-8850-68dc2baaeae4}</UniqueIdentifier>
+      <UniqueIdentifier>{194b2707-7c91-43ac-adef-fa2571c4997f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Graphics">
-      <UniqueIdentifier>{01726411-5603-4d65-812d-a4ea315f88a9}</UniqueIdentifier>
+      <UniqueIdentifier>{06dc8d51-ad5a-4984-9ce1-1b64b6d0ba5d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Math">
-      <UniqueIdentifier>{45f72004-961c-43c6-b8a8-32c66f64ceac}</UniqueIdentifier>
+      <UniqueIdentifier>{d71944cc-dd5d-41fb-91d3-5032165d0edc}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Utilities">
-      <UniqueIdentifier>{13434950-ab60-45bd-869c-7e7fcea04214}</UniqueIdentifier>
+      <UniqueIdentifier>{531cff51-7b73-46ac-a0ff-6525891bcc13}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\GUI">
+      <UniqueIdentifier>{4d07d60c-2501-427b-b00c-fbfe128291a8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -176,13 +173,13 @@
     <ClInclude Include="include\IronClad.hpp">
       <Filter>Header Files\IronClad</Filter>
     </ClInclude>
-    <ClInclude Include="include\Fonts\Font.hpp">
-      <Filter>Header Files\IronClad\Fonts</Filter>
+    <ClInclude Include="include\GUI\Button.hpp">
+      <Filter>Header Files\IronClad\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="include\Fonts\Glyph.hpp">
-      <Filter>Header Files\IronClad\Fonts</Filter>
+    <ClInclude Include="include\GUI\Font.hpp">
+      <Filter>Header Files\IronClad\GUI</Filter>
     </ClInclude>
-    <ClInclude Include="include\Button.hpp">
+    <ClInclude Include="include\GUI\Glyph.hpp">
       <Filter>Header Files\IronClad\GUI</Filter>
     </ClInclude>
   </ItemGroup>
@@ -249,9 +246,6 @@
     <ClCompile Include="src\Entity\RigidBody.cpp">
       <Filter>Source Files\Engine\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="src\Fonts\Font.cpp">
-      <Filter>Source Files\Engine\Fonts</Filter>
-    </ClCompile>
     <ClCompile Include="src\Graphics\Effect.cpp">
       <Filter>Source Files\Engine\Graphics</Filter>
     </ClCompile>
@@ -296,6 +290,12 @@
     </ClCompile>
     <ClCompile Include="src\Utils\SysEvent.cpp">
       <Filter>Source Files\Engine\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\Button.cpp">
+      <Filter>Source Files\Engine\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\Font.cpp">
+      <Filter>Source Files\Engine\GUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

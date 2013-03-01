@@ -46,14 +46,14 @@ namespace gfx
          *  A depth buffer and color attachment are added to the
          *  frame-buffer on initialization.
          *  
-         * @param   int     Width of requested framebuffer
-         * @param   int     Height of requested framebuffer
+         * @param   int     Width of  requested frame buffer
+         * @param   int     Height of requested frame buffer
          * 
          * @return  TRUE if frame-buffer and components were created
          *          and attached successfully, 
          *          FALSE on any error.
          **/
-        bool Init(const int width, const int height);
+        bool Init(const uint16_t width, const uint16_t height);
 
         /**
          * Clears the frame-buffer.
@@ -83,7 +83,7 @@ namespace gfx
         { return m_texture; }
 
     private:
-        math::vector2_t m_View;
+        math::vector2_t m_View, m_ThisView;
         uint32_t m_fbo, m_db;
         uint32_t m_texture;
     };

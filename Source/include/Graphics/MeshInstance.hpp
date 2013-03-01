@@ -170,6 +170,9 @@ namespace gfx
         inline const math::vector2_t& GetDimensions() const
         { return m_Dimensions; }
 
+        inline void ClearMesh()
+        { mp_ActiveMesh->Clear(); }
+
         friend class CEntity;
 
     private:

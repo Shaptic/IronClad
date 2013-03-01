@@ -2,8 +2,15 @@ CHANGELOG
 
 Project         :	IronClad
 Author          :	George Kudrayvtsev
-Current Version	:	1.2.2 alpha
-Last Updated	:	02.21.2013
+Current Version	:	1.2.4 alpha
+Last Updated	:	03.01.2013
+
+Version 1.2.4a (03.01.2013):
+ *  Bug fixes
+
+Version 1.2.3a (02.25.2013):
+ *  GUI buttons complete
+ *  Sped up asset hash-table search
 
 Version 1.2.2a (02.21.2013):
  *  Font library cleanup

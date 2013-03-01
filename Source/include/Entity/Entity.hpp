@@ -45,12 +45,11 @@ namespace ic
     class IRONCLAD_API CEntity
     {
     public:
-        CEntity(bool caster = false) : m_render(true), m_casts(caster),
-            mp_Override(NULL) {}
+        CEntity(bool caster = false) : m_render(true), mp_Override(NULL) {}
         ~CEntity();
 
         inline bool operator==(const std::string& filename) const
-        { return this->GetTexture()->GetFilename() == filename; }
+        { return (this->GetTexture()->GetFilename() == filename); }
 
         /**
          * Loads a mesh instance into the entity.
@@ -154,9 +153,6 @@ namespace ic
         inline bool IsRenderable() const
         { return m_render; }
 
-        inline bool CastsShadow() const
-        { return m_casts; }
-
         inline bool HasOverride() const
         { return mp_Override != NULL; }
 
@@ -188,9 +184,6 @@ namespace ic
 
         inline int GetH() const
         { return m_Mesh.GetDimensions().y; }
-        
-        inline void SetShadowCasting(bool flag)
-        { m_casts = flag; }
 
         inline void SetMesh(asset::CMesh* pMesh)
         { m_Mesh.mp_ActiveMesh = pMesh; }
@@ -208,7 +201,7 @@ namespace ic
         gfx::CMeshInstance  m_Mesh;
         asset::CTexture*    mp_Override;
 
-        bool m_render, m_casts;
+        bool m_render;
     };
 }
 

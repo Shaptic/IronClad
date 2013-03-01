@@ -15,13 +15,13 @@ bool CEffect::Init(const gfx::EffectType type)
         return m_Effect.LoadFromFile("Shaders/Default.vs",
             "Shaders/GaussianBlurH.fs");
 
-    case IC_NO_EFFECT: 
-        return m_Effect.LoadFromFile("Shaders/Default.vs",
-            "Shaders/Default.fs");
-
     case IC_GRAYSCALE:
         return m_Effect.LoadFromFile("Shaders/Default.vs",
             "Shaders/FontRender.fs");
+
+    case IC_NO_EFFECT: 
+        return m_Effect.LoadFromFile("Shaders/Default.vs",
+            "Shaders/Default.fs");
 
     default: return false;
     }
@@ -94,6 +94,7 @@ int CEffect::GetLocation(const char* pname)
     return m_Effect.GetUniformLocation(pname);    
     
     // Failed attempt at a uniform hash table is below.
+
     std::string name(pname);
     name += m_Effect.GetProgram();
 

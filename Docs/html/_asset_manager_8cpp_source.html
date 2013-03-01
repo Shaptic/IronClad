@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4668 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -118,54 +118,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="classic_1_1asset_1_1_c_asset_manager.html#a504512b33d8ed3a8b342ae48d999ae56">   25</a></span>&#160;<a class="code" href="classic_1_1asset_1_1_c_asset.html" title="The base class for all in-game assets.">asset::CAsset</a>* CAssetManager::Find(<span class="keyword">const</span> <span class="keywordtype">char</span>* pfilename)</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// Comparing hashes is much faster than comparing strings.</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    uint32_t searcher = <a class="code" href="classic_1_1asset_1_1_c_asset.html#ab78f4b46ddd9892ade8428eea89aba32" title="Calculates a hash for a given value.">asset::CAsset::Hash</a>(pfilename, strlen(pfilename));</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; CAssetManager::s_allAssets.size(); ++i)</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        <span class="keyword">const</span> std::string&amp; fn = CAssetManager::s_allAssets[i]-&gt;GetFilename();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; CAssetManager::s_allAssets.size(); ++i)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keyword">const</span> std::string&amp; fn = CAssetManager::s_allAssets[i]-&gt;GetFilename();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keywordflow">if</span>(fn == pfilename) <span class="keywordflow">return</span> CAssetManager::s_allAssets[i];</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    }</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        uint32_t result = <a class="code" href="classic_1_1asset_1_1_c_asset.html#ab78f4b46ddd9892ade8428eea89aba32" title="Calculates a hash for a given value.">asset::CAsset::Hash</a>(fn.c_str(), fn.size());</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keywordflow">if</span>(result == searcher)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">return</span> CAssetManager::s_allAssets[i];</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<a class="code" href="classic_1_1asset_1_1_c_asset.html" title="The base class for all in-game assets.">asset::CAsset</a>* CAssetManager::Find(<span class="keyword">const</span> std::string&amp; filename)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">return</span> CAssetManager::Find(filename.c_str());</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<a class="code" href="classic_1_1asset_1_1_c_asset.html" title="The base class for all in-game assets.">asset::CAsset</a>* CAssetManager::Find(<span class="keyword">const</span> std::string&amp; filename)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<a class="code" href="classic_1_1asset_1_1_c_asset.html" title="The base class for all in-game assets.">asset::CAsset</a>* CAssetManager::Find(<span class="keyword">const</span> uint32_t <span class="keywordtype">id</span>)</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> CAssetManager::Find(filename.c_str());</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<a class="code" href="classic_1_1asset_1_1_c_asset.html" title="The base class for all in-game assets.">asset::CAsset</a>* CAssetManager::Find(<span class="keyword">const</span> uint32_t <span class="keywordtype">id</span>)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="comment">// Searches for unique asset ID as opposed to </span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// by filename in the above example.</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; CAssetManager::s_allAssets.size(); ++i)</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">if</span>(CAssetManager::s_allAssets[i]-&gt;GetID() == id)</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="keywordflow">return</span> CAssetManager::s_allAssets[i];</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="classic_1_1asset_1_1_c_asset_manager.html#aad4b9945b7c175e068435e84e3764eb1">   60</a></span>&#160;<span class="keywordtype">void</span> CAssetManager::DestroyAll()</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; s_allAssets.size(); ++i)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        CAssetManager::s_allAssets[i]-&gt;<a class="code" href="classic_1_1asset_1_1_c_asset.html#a77864397045a289c8ef634496e2244c0" title="This should free the current asset if and only if it is the original (m_original == true)...">Release</a>();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keyword">delete</span> CAssetManager::s_allAssets[i];</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        CAssetManager::s_allAssets[i] = NULL;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    CAssetManager::s_allAssets.clear();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;}</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// Searches for unique asset ID as opposed to </span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="comment">// by filename in the above example.</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; CAssetManager::s_allAssets.size(); ++i)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keywordflow">if</span>(CAssetManager::s_allAssets[i]-&gt;GetID() == id)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">return</span> CAssetManager::s_allAssets[i];</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="classic_1_1asset_1_1_c_asset_manager.html#aad4b9945b7c175e068435e84e3764eb1">   55</a></span>&#160;<span class="keywordtype">void</span> CAssetManager::DestroyAll()</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; s_allAssets.size(); ++i)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        CAssetManager::s_allAssets[i]-&gt;<a class="code" href="classic_1_1asset_1_1_c_asset.html#a77864397045a289c8ef634496e2244c0" title="This should free the current asset if and only if it is the original (m_original == true)...">Release</a>();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        <span class="keyword">delete</span> CAssetManager::s_allAssets[i];</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        CAssetManager::s_allAssets[i] = NULL;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    CAssetManager::s_allAssets.clear();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 21 2013 22:48:48 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 1 2013 11:16:17 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

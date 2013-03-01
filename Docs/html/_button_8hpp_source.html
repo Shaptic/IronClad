@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>IronClad Engine: IronClad/include/Button.hpp Source File</title>
+<title>IronClad Engine: IronClad/include/GUI/Button.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4668 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -84,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_9642ee7a51a64fe52107d214efc43835.html">IronClad</a></li><li class="navelem"><a class="el" href="dir_0ddc6149d8e9242690cc8d6d4c9b3279.html">include</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_9642ee7a51a64fe52107d214efc43835.html">IronClad</a></li><li class="navelem"><a class="el" href="dir_0ddc6149d8e9242690cc8d6d4c9b3279.html">include</a></li><li class="navelem"><a class="el" href="dir_c686ae00098a732baccad8a8db603ccb.html">GUI</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -97,10 +97,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define IRON_CLAD__GUI_HPP</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_math_8hpp.html" title="Math/Math.hpp - Includes all of the IronClad math library types and functions.">Math/Math.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8hpp.html" title="Entity.hpp - Defines the high-level CEntity class, which wraps up CMeshInstance&#39;s in a more user-frie...">Entity/Entity.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_rigid_body_8hpp.html" title="Entity/RigidBody.hpp - The basic physics-controlled entity in the game world.">Entity/RigidBody.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_scene_8hpp.html" title="Graphics/Scene.hpp - Declarations for the CScene class, a high-level interface containing information...">Graphics/Scene.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_globals_8hpp.html" title="Graphics/Globals.hpp - Contains static pseudo-global variables that are used in multiple subsystems...">Graphics/Globals.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_font_8hpp.html" title="Fonts/Font.hpp - A wrapper for an instance of a .ttf font using the FreeType 2 API.">Fonts/Font.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_font_8hpp.html" title="Fonts/Font.hpp - A wrapper for an instance of a .ttf font using the FreeType 2 API.">Font.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span>ic</div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
@@ -116,131 +116,42 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="classic_1_1gui_1_1_c_button.html">   42</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classic_1_1gui_1_1_c_button.html">CButton</a></div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classic_1_1gui_1_1_c_button.html">CButton</a>() : m_align(IC_ALIGN_CENTER) {}</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        ~<a class="code" href="classic_1_1gui_1_1_c_button.html">CButton</a>(){}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classic_1_1gui_1_1_c_button.html">CButton</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        ~<a class="code" href="classic_1_1gui_1_1_c_button.html">CButton</a>();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="classic_1_1gui_1_1_c_button.html#a4e02609e8b663c0d9e778dd90fb63957">   62</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classic_1_1gui_1_1_c_button.html#a4e02609e8b663c0d9e778dd90fb63957" title="Loads a button texture of the specified dimensions, with text.">Create</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* texture,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                    <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>&amp; Dim,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">char</span>* text,</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;                    <a class="code" href="classic_1_1gfx_1_1_c_scene.html" title="A collection of various graphical elements that interact together.">gfx::CScene</a>&amp; Scene)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html" title="A wrapper for OpenGL VBO&#39;s.">gfx::CVertexBuffer</a> VBO;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html" title="A wrapper for the OpenGL frame-buffer object.">gfx::CFrameBuffer</a>  FBO;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>* pTexture = asset::CAssetManager::Create&lt;asset::CTexture&gt;(texture);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <a class="code" href="classic_1_1asset_1_1_c_mesh.html" title="A mesh.">asset::CMesh</a>*    pMesh    = asset::CAssetManager::Create&lt;asset::CMesh&gt;();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="classic_1_1gui_1_1_c_button.html#a234df36b96ab7dfa1cdeb143ed42d095" title="Loads a button texture of the specified dimensions, with text.">Create</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* texture,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                    <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>&amp; Dim,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">char</span>* text,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    <a class="code" href="classic_1_1gfx_1_1_c_scene.html" title="A collection of various graphical elements that interact together.">gfx::CScene</a>&amp; Scene);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            <a class="code" href="structic_1_1vertex2__t.html" title="Represents a vertex in 2 dimensions in the graphics pipeline.">vertex2_t</a> quad_v[4];</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">bool</span> LoadFont(<a class="code" href="classic_1_1gui_1_1_c_font.html">CFont</a>&amp; pFont);</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            quad_v[0].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0, 0);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            quad_v[1].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(Dim.w, 0.f);</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            quad_v[2].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(Dim.w, Dim.h);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            quad_v[3].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0.f,   Dim.h);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="comment">/*</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">            quad_v[0].Position = math::vector2_t(Dim.x,         Dim.y);</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">            quad_v[1].Position = math::vector2_t(Dim.x + Dim.w, Dim.y);</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">            quad_v[2].Position = math::vector2_t(Dim.x + Dim.w, Dim.y + Dim.h);</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">            quad_v[3].Position = math::vector2_t(Dim.x,         Dim.y + Dim.h);*/</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            quad_v[0].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0, 0);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            quad_v[1].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(1, 0);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            quad_v[2].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(1, 1);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            quad_v[3].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0, 1);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            <span class="keywordtype">float</span> x_off = 0.f, y_off = 0.f;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            <span class="keywordflow">if</span>(m_align == IC_ALIGN_CENTER)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                x_off = Dim.w / 2.f - m_Font.GetTextWidth(text) / 2.f;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <span class="comment">// Overflows, oops.</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            uint32_t th = m_Font.GetTextHeight(text);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            int32_t h   = Dim.h;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            y_off = (h - th) / 2.f;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            m_Pos = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(Dim.x + x_off, Dim.y + Dim.h - y_off);</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            <span class="keywordflow">if</span>( pTexture == NULL || pMesh == NULL || </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;               !pMesh-&gt;LoadFromRaw(quad_v, 4, gfx::Globals::g_FullscreenIndices, 6))</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                asset::CAssetManager::Destroy&lt;asset::CTexture&gt;(pTexture);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                asset::CAssetManager::Destroy&lt;asset::CMesh&gt;(pMesh);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;            VBO.<a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a7d7e9215f6b5331ffa01f9087d029d6f" title="Initializes the VBO by creating the necessary buffers.">Init</a>();</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;            FBO.<a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html#aab01d1b37e1f0f1e1f3779d78293f5cf" title="Initializes the various components of the frame-buffer.">Init</a>(pTexture-&gt;GetW(), pTexture-&gt;GetH());</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            m_Entity.<a class="code" href="classic_1_1_c_entity.html#a77a2d00186d3111d3df2528f51becce3" title="Loads a mesh instance from an un-offloaded mesh.">LoadFromMesh</a>(pMesh, VBO);<span class="comment">//Scene.GetGeometryBuffer());</span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;            m_Entity.<a class="code" href="classic_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464" title="Enables a texture override over the default.">SetMaterialOverride</a>(pTexture);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="comment">//Scene.AddMesh(&amp;m_Entity);            </span></div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;            </div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;            FBO.<a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html#a888a8c9a4eca19997dcf10464643d685" title="Enables this frame-buffer.">Enable</a>();</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;            gfx::Globals::g_DefaultEffect.Enable();</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;            gfx::Globals::g_DefaultEffect.SetMatrix(<span class="stringliteral">&quot;proj&quot;</span>, gfx::CWindow::GetProjectionMatrix());</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;            gfx::Globals::g_DefaultEffect.SetMatrix(<span class="stringliteral">&quot;mv&quot;</span>, math::IDENTITY);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            VBO.<a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a5ef113dd33523937dd8afd22928a194d" title="Draws the data loaded into the VBO.">Draw</a>();</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            glBegin(GL_TRIANGLES);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            glColor4f(1.f, 0.f, 0, 1);</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            glVertex2f(0.f, 10.f);</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            glVertex2f(0.f, 20.f);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            glVertex2f(20.f, 10.f);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            glEnd();</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            m_Font.<a class="code" href="classic_1_1font_1_1_c_font.html#aae947b5fc8441a51ef5bf25a19a20953" title="Renders a string stored with CacheText().">RenderCached</a>();</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            gfx::Globals::g_DefaultEffect.Disable();</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            FBO.<a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html#a8ccef893f4c65c03cfd99c235b3bd419" title="Resumes rendering on-screen.">Disable</a>();</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;            m_handle = FBO.<a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html#a318a37436700714fbbf86b80821b3b6e" title="Retrieves the contents of the frame-buffer.">GetTexture</a>();</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            m_text = text;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;            m_Font.<a class="code" href="classic_1_1font_1_1_c_font.html#aedee81c8800459b57f043aaf9f84352b" title="Caches a string of text in a buffer for rendering.">CacheText</a>(text, m_Pos);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        }</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordtype">bool</span> LoadFont(<span class="keyword">const</span> <a class="code" href="classic_1_1font_1_1_c_font.html">font::CFont</a>* pFont);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordtype">bool</span> LoadFont(<span class="keyword">const</span> <span class="keywordtype">char</span>* pfilename, <span class="keyword">const</span> uint16_t size)</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        {</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;            <span class="keywordflow">return</span> m_Font.<a class="code" href="classic_1_1font_1_1_c_font.html#a443f618faca95e8678c211986fd42756" title="Loads a TrueType font.">LoadFromFile</a>(pfilename, size);</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        }</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordtype">void</span> Render()</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        {</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;            <span class="comment">//glBindTexture(GL_TEXTURE_2D, m_handle);</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;            <span class="comment">//gfx::Globals::g_DefaultEffect.Enable();</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;            <span class="comment">//gfx::Globals::g_DefaultEffect.SetMatrix(&quot;proj&quot;, gfx::CWindow::GetProjectionMatrix());</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;            <span class="comment">//gfx::Globals::g_DefaultEffect.SetMatrix(&quot;mv&quot;, math::IDENTITY);</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            <span class="comment">//gfx::Globals::g_FullscreenVBO.Draw();</span></div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            <span class="comment">//gfx::Globals::g_DefaultEffect.Disable();</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;            <span class="comment">//glBindTexture(GL_TEXTURE_2D, 0);</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;            <span class="comment">//m_Font.RenderCached();</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        }</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        <a class="code" href="classic_1_1font_1_1_c_font.html">font::CFont</a>  m_Font;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <a class="code" href="classic_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">CEntity</a>      m_Entity;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>    m_Dimensions;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a> m_Pos;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        Alignment    m_align;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        <span class="keywordtype">int</span> m_handle;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        std::string  m_text;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    };</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;}</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__GUI_HPP</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keyword">inline</span> <a class="code" href="classic_1_1_c_rigid_body.html">CRigidBody</a>&amp; GetEntity()</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        { <span class="keywordflow">return</span> m_Entity; }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html" title="A wrapper for the OpenGL frame-buffer object.">gfx::CFrameBuffer</a>   m_FBO;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>*    mp_Texture;        </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>        m_Dimensions;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>     m_Pos;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="classic_1_1gui_1_1_c_font.html">CFont</a>               m_Font;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        <a class="code" href="classic_1_1_c_rigid_body.html">CRigidBody</a>          m_Entity;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        Alignment           m_align;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        std::string         m_text;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">int</span>                 m_handle;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    };</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__GUI_HPP</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 21 2013 22:48:48 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 1 2013 11:16:17 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

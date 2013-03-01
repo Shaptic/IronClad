@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4668 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -99,28 +99,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4e02609e8b663c0d9e778dd90fb63957"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gui_1_1_c_button.html#a4e02609e8b663c0d9e778dd90fb63957">Create</a> (const char *texture, const <a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> &amp;Dim, const char *text, <a class="el" href="classic_1_1gfx_1_1_c_scene.html">gfx::CScene</a> &amp;Scene)</td></tr>
-<tr class="memdesc:a4e02609e8b663c0d9e778dd90fb63957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a button texture of the specified dimensions, with text.  <a href="#a4e02609e8b663c0d9e778dd90fb63957"></a><br/></td></tr>
-<tr class="memitem:a89a97a7d157854871cc37c8d01c387be"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a89a97a7d157854871cc37c8d01c387be"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFont</b> (const <a class="el" href="classic_1_1font_1_1_c_font.html">font::CFont</a> *pFont)</td></tr>
-<tr class="memitem:a1b2f9db646cdea7796964c006e247a86"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b2f9db646cdea7796964c006e247a86"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFont</b> (const char *pfilename, const uint16_t size)</td></tr>
-<tr class="memitem:a311091604883af7d0975ee4e9c38ee58"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a311091604883af7d0975ee4e9c38ee58"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Render</b> ()</td></tr>
+<tr class="memitem:a234df36b96ab7dfa1cdeb143ed42d095"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gui_1_1_c_button.html#a234df36b96ab7dfa1cdeb143ed42d095">Create</a> (const char *texture, const <a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> &amp;Dim, const char *text, <a class="el" href="classic_1_1gfx_1_1_c_scene.html">gfx::CScene</a> &amp;Scene)</td></tr>
+<tr class="memdesc:a234df36b96ab7dfa1cdeb143ed42d095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a button texture of the specified dimensions, with text.  <a href="#a234df36b96ab7dfa1cdeb143ed42d095"></a><br/></td></tr>
+<tr class="memitem:a414c1e64cf617b9dc5e0ee74f83f4b20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a414c1e64cf617b9dc5e0ee74f83f4b20"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFont</b> (<a class="el" href="classic_1_1gui_1_1_c_font.html">CFont</a> &amp;pFont)</td></tr>
+<tr class="memitem:a0658fd5585eb475906639c4f6983f2b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0658fd5585eb475906639c4f6983f2b4"></a>
+<a class="el" href="classic_1_1_c_rigid_body.html">CRigidBody</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetEntity</b> ()</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
 <p>Definition at line <a class="el" href="_button_8hpp_source.html#l00042">42</a> of file <a class="el" href="_button_8hpp_source.html">Button.hpp</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a4e02609e8b663c0d9e778dd90fb63957"></a>
+<a class="anchor" id="a234df36b96ab7dfa1cdeb143ed42d095"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ic::gui::CButton::Create </td>
+          <td class="memname">bool CButton::Create </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
           <td class="paramname"><em>texture</em>, </td>
@@ -149,34 +144,31 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Render</b> ()</td></t
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p>This function will automatically calculate the location at which to render the text based on the alignment set via SetAlignment(), which defaults to IC_ALIGN_CENTER.</p>
+<p>This function will automatically calculate the location at which to render the text based on the alignment set via SetAlignment(), which defaults to IC_ALIGN_CENTER. We are rendering our button texture and text to a frame buffer, then assigning this as the texture override for the entity itself. That way, shader effects and such can be applied w/o the text rendering interfering, and physics can be done for collision with the mouse and whatnot.</p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramname">char*</td><td>Texture filename </td></tr>
     <tr><td class="paramname">rect_t</td><td>Dimensions to resize the texture to </td></tr>
-    <tr><td class="paramname">char*</td><td>Text to render on the button</td></tr>
+    <tr><td class="paramname">char*</td><td>Text to render on the button </td></tr>
+    <tr><td class="paramname">CScene</td><td>Scene to load button geometry into</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if everything successful, FALSE if any errors. It will also return FALSE if the text is too tall / wide for the given dimensions. </dd></dl>
 
-<p>Definition at line <a class="el" href="_button_8hpp_source.html#l00062">62</a> of file <a class="el" href="_button_8hpp_source.html">Button.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_button_8cpp_source.html#l00017">17</a> of file <a class="el" href="_button_8cpp_source.html">Button.cpp</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>IronClad/include/<a class="el" href="_button_8hpp_source.html">Button.hpp</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>IronClad/include/GUI/<a class="el" href="_button_8hpp_source.html">Button.hpp</a></li>
+<li>IronClad/src/GUI/<a class="el" href="_button_8cpp_source.html">Button.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 21 2013 22:48:49 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 1 2013 11:16:17 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

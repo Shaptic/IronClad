@@ -114,6 +114,11 @@ namespace asset
                      std::vector<uint16_t>&  ibo_buffer);
 
         /**
+         * Deletes all surface and buffer data.
+         **/
+        void Clear();
+
+        /**
          * Analyzes the mesh and returns the maximum width/height of it.
          *  If the mesh is a non-quad, it will return the distance from
          *  the right-most point to the left-most point.

@@ -139,6 +139,9 @@ namespace gfx
         static const float* GetProjectionMatrix()
         { return m_ProjectionMatrix.GetMatrixPointer(); }
 
+        static const math::matrix4x4_t& GetProjectionMatrixC()
+        { return m_ProjectionMatrix; }
+
         static void ToggleVSYNC();
 
     private:
