@@ -27,6 +27,7 @@ IronClad currently supports the following:
 * Minimalistic physics system
 * Loading of a custom level format for easy scene creation
 * Loading and rendering of TrueType fonts
+* Simple but flexible GUI creation
 
 ## Planned Features
 In the near future, IronClad will support:
@@ -34,4 +35,3 @@ In the near future, IronClad will support:
 * More robust physics system
 * Variation in lighting
 * Shadow generation
-* Simple GUI creation

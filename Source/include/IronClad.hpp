@@ -42,6 +42,9 @@
 #pragma comment(lib, "GLFW.lib")
 
 #pragma comment(lib, "freetype.lib")
+#pragma comment(lib, "OpenAL32.lib")
+#pragma comment(lib, "alut.lib")
+#pragma comment(lib, "libvorbisfile.lib")
 
 #include <cstdlib>
 #include <ctime>
@@ -52,6 +55,7 @@
 #include "Graphics/Globals.hpp"
 #include "Graphics/Scene.hpp"
 #include "Entity/Animation.hpp"
+#include "Audio/MusicPlayer.hpp"
 #include "Utils/SysEvent.hpp"
 #include "Utils/Timer.hpp"
 #include "GUI/Menu.hpp"

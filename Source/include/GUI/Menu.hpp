@@ -22,6 +22,7 @@
 #ifndef IRON_CLAD__GUI__MENU_HPP
 #define IRON_CLAD__GUI__MENU_HPP
 
+#include "Asset/Sound2D.hpp"
 #include "Button.hpp"
 
 namespace ic
@@ -91,9 +92,56 @@ namespace gui
          **/
         bool SetFont(const char* filename, const uint16_t size);
 
+        /**
+         * Loads a sound to be player on hovering.
+         * @param   char*   Filepath to sound effect
+         * @return  TRUE on success, FALSE on error.
+         **/
+        bool SetHoverSound(const char* filename)
+        {
+            mp_HoverSound = (asset::CSound2D*)asset::CAssetManager
+                            ::Create<asset::CSound2D>(filename);
+            if(mp_HoverSound == NULL)
+            {
+                return false;
+            }
+            else
+            {
+                mp_HoverSound->SetVolume(0.7f);
+                return true;
+            }
+        }
+
+        /**
+         * Loads a sound to be player on button-press.
+         * @param   char*   Filepath to sound effect
+         * @return  TRUE on success, FALSE on error.
+         **/
+        bool SetClickSound(const char* filename)
+        {
+            mp_ClickSound = (asset::CSound2D*)asset::CAssetManager
+                            ::Create<asset::CSound2D>(filename);
+            if(mp_ClickSound == NULL)
+            {
+                return false;
+            }
+            else
+            {
+                mp_ClickSound->SetVolume(0.8f);
+                return true;
+            }
+        }
+
+        bool SetFontSize(const uint16_t size);
+        void SetFontColor(const color3f_t& Color);
+        void SetFontColor(const float r, const float g, const float b);
+        //void SetTitle(const char* title, const math::vector2_t& Position);
+
     private:
-        gfx::CScene&    m_Scene;
-        gui::CFont      m_Font;
+        asset::CSound2D*    mp_HoverSound;
+        asset::CSound2D*    mp_ClickSound;
+        gfx::CScene&        m_Scene;
+        gui::CFont          m_Font;
 
         std::vector<CButton*> mp_allButtons;
     };

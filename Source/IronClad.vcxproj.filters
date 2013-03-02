@@ -39,26 +39,32 @@
     <Filter Include="Header Files\IronClad\GUI">
       <UniqueIdentifier>{542b4730-cc00-47ca-960e-e2c0fa998cc8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\IronClad\Audio">
+      <UniqueIdentifier>{078f20d7-f394-42d2-9f20-639afb4182a2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{44c397c5-71b0-4d8d-a510-ee0724d5b076}</UniqueIdentifier>
+      <UniqueIdentifier>{d420aa5b-3f9a-43f2-8169-ac6465e3e5e5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Assets">
-      <UniqueIdentifier>{af3358cc-5b78-4498-9e8a-8f2009087221}</UniqueIdentifier>
+      <UniqueIdentifier>{159a0845-efb7-42c1-8caa-426adbb05e86}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Entities">
-      <UniqueIdentifier>{1aa7c1c8-29ef-4948-8539-7071f3f71dcd}</UniqueIdentifier>
+      <UniqueIdentifier>{124ab453-dc1d-4b5a-b6db-4915bd5b6dde}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Graphics">
-      <UniqueIdentifier>{7500604d-f003-4022-b638-216a4f9a0eee}</UniqueIdentifier>
+      <UniqueIdentifier>{3e569ac8-6c5f-4b61-a6da-6e604a2d3676}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Math">
-      <UniqueIdentifier>{149581e3-d0c6-445c-b91c-c96ae65b734c}</UniqueIdentifier>
+      <UniqueIdentifier>{9d0d9fae-47b3-40a8-97ba-efffd24c8728}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Utilities">
-      <UniqueIdentifier>{494041b8-0e4b-4bb5-ad7c-1ff7c3268f24}</UniqueIdentifier>
+      <UniqueIdentifier>{b8ead7f6-ecfb-4c9d-9884-9b1194f81b58}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\GUI">
-      <UniqueIdentifier>{b5a7951c-1fdd-4f2c-958a-c9777ee1c938}</UniqueIdentifier>
+      <UniqueIdentifier>{b8f8587f-bb54-4e98-a5b2-e42d56220eb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Audio">
+      <UniqueIdentifier>{652be375-d85a-4ca8-ab37-d1ffb65fa926}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +191,12 @@
     <ClInclude Include="include\GUI\Menu.hpp">
       <Filter>Header Files\IronClad\GUI</Filter>
     </ClInclude>
+    <ClInclude Include="include\Asset\Sound2D.hpp">
+      <Filter>Header Files\IronClad\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Audio\MusicPlayer.hpp">
+      <Filter>Header Files\IronClad\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\glfw.ico">
@@ -217,6 +229,9 @@
     <None Include="..\Debug\Shaders\Animate.fs">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\Debug\Shaders\Fade.fs">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\DLLMain.cpp">
@@ -235,6 +250,9 @@
       <Filter>Source Files\Engine\Assets</Filter>
     </ClCompile>
     <ClCompile Include="src\Asset\Shader.cpp">
+      <Filter>Source Files\Engine\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Asset\Sound2D.cpp">
       <Filter>Source Files\Engine\Assets</Filter>
     </ClCompile>
     <ClCompile Include="src\Asset\Texture.cpp">
@@ -302,6 +320,9 @@
     </ClCompile>
     <ClCompile Include="src\GUI\Menu.cpp">
       <Filter>Source Files\Engine\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio\MusicPlayer.cpp">
+      <Filter>Source Files\Engine\Audio</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -19,6 +19,10 @@ bool CEffect::Init(const gfx::EffectType type)
         return m_Effect.LoadFromFile("Shaders/Default.vs",
             "Shaders/FontRender.fs");
 
+    case IC_FADE:
+        return m_Effect.LoadFromFile("Shaders/Default.vs",
+            "Shaders/Fade.fs");
+
     case IC_NO_EFFECT: 
         return m_Effect.LoadFromFile("Shaders/Default.vs",
             "Shaders/Default.fs");

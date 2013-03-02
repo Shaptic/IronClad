@@ -4,7 +4,8 @@ using namespace ic;
 using gui::CMenu;
 using gui::CButton;
 
-CMenu::CMenu(gfx::CScene& Scene) : m_Scene(Scene)
+CMenu::CMenu(gfx::CScene& Scene) : m_Scene(Scene), mp_HoverSound(NULL),
+    mp_ClickSound(NULL)
 {
     mp_allButtons.clear();
 }
@@ -83,7 +84,7 @@ int16_t CMenu::HandleEvent(const util::SystemEvent& Evt)
         }
         break;
 
-    case ic::util::IC_MOUSEUP:
+    case ic::util::IC_MOUSEUP: 
         if(Evt.mbutton == ic::util::IC_BUTTON_LEFT)
         {
             ic::math::rect_t Box(Evt.mpos.x, Evt.mpos.y, 1, 1);
@@ -92,8 +93,9 @@ int16_t CMenu::HandleEvent(const util::SystemEvent& Evt)
             {
                 if(mp_allButtons[i]->GetEntity().CheckCollision(Box))
                 {
+                    if(mp_ClickSound != NULL) mp_ClickSound->Play();
                     mp_allButtons[i]->SwitchToMain();
-                    return i+1;
+                    return i + 1;
                 }
             }
         }
@@ -107,6 +109,11 @@ int16_t CMenu::HandleEvent(const util::SystemEvent& Evt)
         {
             if(mp_allButtons[i]->GetEntity().CheckCollision(Box))
             {
+                if(mp_allButtons[i]->GetActive() != 1 &&
+                   mp_HoverSound != NULL)
+                {
+                    mp_HoverSound->Play();
+                }
                 mp_allButtons[i]->SwitchToHover();
             }
             else
@@ -124,4 +131,19 @@ int16_t CMenu::HandleEvent(const util::SystemEvent& Evt)
 bool ic::gui::CMenu::SetFont(const char* filename, const uint16_t size)
 {
     return m_Font.LoadFromFile(filename, size);
+}
+
+void CMenu::SetFontColor(const float r, const float g, const float b)
+{
+    m_Font.SetFontColor(r, g, b);
+}
+
+void CMenu::SetFontColor(const color3f_t& Color)
+{
+    m_Font.SetFontColor(Color.r, Color.g, Color.b);
+}
+
+bool CMenu::SetFontSize(const uint16_t size)
+{
+    return m_Font.Resize(size);
 }

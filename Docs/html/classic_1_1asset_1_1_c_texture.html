@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4668 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5363 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -120,8 +120,8 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (const std::string &amp;filename)</td></tr>
 <tr class="memitem:a1b7bfd1b262113c58ab5ea53816230b6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b7bfd1b262113c58ab5ea53816230b6"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromRaw</b> (const int iformat, const int format, const int w, const int h, const unsigned char *buffer)</td></tr>
-<tr class="memitem:ae0abad0e317111a817f2b0c54ec03c08"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_texture.html#ae0abad0e317111a817f2b0c54ec03c08">LoadFromTexture</a> (const uint32_t texture)</td></tr>
-<tr class="memdesc:ae0abad0e317111a817f2b0c54ec03c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a Texture from an existing OpenGL texture handle.  <a href="#ae0abad0e317111a817f2b0c54ec03c08"></a><br/></td></tr>
+<tr class="memitem:a5b0f1f3e14fadba5fe19b8e3456f6035"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_texture.html#a5b0f1f3e14fadba5fe19b8e3456f6035">LoadFromTexture</a> (const uint32_t texture, const bool copy=false)</td></tr>
+<tr class="memdesc:a5b0f1f3e14fadba5fe19b8e3456f6035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a Texture from an existing OpenGL texture handle.  <a href="#a5b0f1f3e14fadba5fe19b8e3456f6035"></a><br/></td></tr>
 <tr class="memitem:a1c21d8a6d303719b13122dd865826307"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1c21d8a6d303719b13122dd865826307"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_texture.html#a1c21d8a6d303719b13122dd865826307">Bind</a> ()</td></tr>
 <tr class="memdesc:a1c21d8a6d303719b13122dd865826307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the texture to the OpenGL state for use. <br/></td></tr>
@@ -207,7 +207,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 
 </div>
 </div>
-<a class="anchor" id="ae0abad0e317111a817f2b0c54ec03c08"></a>
+<a class="anchor" id="a5b0f1f3e14fadba5fe19b8e3456f6035"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -215,14 +215,25 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
           <td class="memname">bool ic::asset::CTexture::LoadFromTexture </td>
           <td>(</td>
           <td class="paramtype">const uint32_t&#160;</td>
-          <td class="paramname"><em>texture</em></td><td>)</td>
+          <td class="paramname"><em>texture</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>copy</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramname">uint32_t</td><td>OpenGL texture handle </td></tr>
+    <tr><td class="paramname">bool</td><td>Copy the texture or use existing handle? (optional=false) </td></tr>
   </table>
   </dd>
 </dl>
@@ -239,7 +250,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 1 2013 11:16:17 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 2 2013 00:15:28 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

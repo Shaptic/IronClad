@@ -41,21 +41,51 @@ bool ic::Init()
 {
     ic::util::g_Log.Flush();
     ic::util::g_Log << "[INFO] Initializing IronClad engine.\n";
-#ifdef _DEBUG
-    ic::util::g_Log << "[INFO] Debug build: true.\n";
-#else
-    ic::util::g_Log << "[INFO] Debug build: false.\n";
-#endif // _DEBUG
     ic::util::g_Log.PrintLastLog();
 
     // Seed the RNG.
     srand((uint32_t)time(NULL));
 
     // Initialize FreeType2 library.
-    ic::gui::CFont::Initialize();
+    ic::util::g_Log.Flush();
+    ic::util::g_Log << "[INFO] Initializing FreeType: ";
+    if(!ic::gui::CFont::Initialize())
+    {
+        ic::util::g_Log << "failure.\n";
+        return false;
+    }
+    ic::util::g_Log << "success.\n";
+    ic::util::g_Log.PrintLastLog();
+
+    // Initialize OpenAL.
+    ic::util::g_Log.Flush();
+    ic::util::g_Log << "[INFO] Initializing OpenAL:   ";
+    if(!ic::asset::CSound2D::InitializeOpenAL())
+    {
+        ic::util::g_Log << "failure.\n";
+        return false;
+    }
+    ic::util::g_Log << "success.\n";
+    ic::util::g_Log.PrintLastLog();
 
     // Initialize GLFW.
-    if(glfwInit() == GL_FALSE) return false;
+    ic::util::g_Log.Flush();
+    ic::util::g_Log << "[INFO] Initializing GLEW:     ";
+    if(glfwInit() == GL_FALSE)
+    {
+        ic::util::g_Log << "failure.\n";
+        return false;
+    }
+    ic::util::g_Log << "success.\n";
+    ic::util::g_Log.PrintLastLog();
+
+    ic::util::g_Log << "[INFO] Debug build:           ";
+#ifdef _DEBUG
+    ic::util::g_Log << "true.\n";
+#else
+    ic::util::g_Log << "false.\n";
+#endif // _DEBUG
+    ic::util::g_Log.PrintLastLog();
 
     return true;
 }

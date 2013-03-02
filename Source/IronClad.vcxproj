@@ -92,7 +92,9 @@
     <ClInclude Include="include\Asset\AssetManager.hpp" />
     <ClInclude Include="include\Asset\Mesh.hpp" />
     <ClInclude Include="include\Asset\Shader.hpp" />
+    <ClInclude Include="include\Asset\Sound2D.hpp" />
     <ClInclude Include="include\Asset\Texture.hpp" />
+    <ClInclude Include="include\Audio\MusicPlayer.hpp" />
     <ClInclude Include="include\Base\Errors.hpp" />
     <ClInclude Include="include\Base\Types.hpp" />
     <ClInclude Include="include\Entity\Animation.hpp" />
@@ -135,6 +137,7 @@
     <None Include="..\Debug\Shaders\Animate.fs" />
     <None Include="..\Debug\Shaders\Default.fs" />
     <None Include="..\Debug\Shaders\Default.vs" />
+    <None Include="..\Debug\Shaders\Fade.fs" />
     <None Include="..\Debug\Shaders\FontRender.fs" />
     <None Include="..\Debug\Shaders\GaussianBlurH.fs" />
     <None Include="..\Debug\Shaders\GaussianBlurV.fs" />
@@ -146,7 +149,9 @@
     <ClCompile Include="src\Asset\AssetManager.cpp" />
     <ClCompile Include="src\Asset\Mesh.cpp" />
     <ClCompile Include="src\Asset\Shader.cpp" />
+    <ClCompile Include="src\Asset\Sound2D.cpp" />
     <ClCompile Include="src\Asset\Texture.cpp" />
+    <ClCompile Include="src\Audio\MusicPlayer.cpp" />
     <ClCompile Include="src\DLLMain.cpp" />
     <ClCompile Include="src\Entity\Animation.cpp" />
     <ClCompile Include="src\Entity\Entity.cpp" />

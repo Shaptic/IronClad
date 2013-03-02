@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4668 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5363 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -99,10 +99,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a234df36b96ab7dfa1cdeb143ed42d095"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gui_1_1_c_button.html#a234df36b96ab7dfa1cdeb143ed42d095">Create</a> (const char *texture, const <a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> &amp;Dim, const char *text, <a class="el" href="classic_1_1gfx_1_1_c_scene.html">gfx::CScene</a> &amp;Scene)</td></tr>
-<tr class="memdesc:a234df36b96ab7dfa1cdeb143ed42d095"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a button texture of the specified dimensions, with text.  <a href="#a234df36b96ab7dfa1cdeb143ed42d095"></a><br/></td></tr>
+<tr class="memitem:a93f1ceba795c30e8ba0023c0ea313ff3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gui_1_1_c_button.html#a93f1ceba795c30e8ba0023c0ea313ff3">Create</a> (const char *main_texture, const <a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> &amp;Dim, const char *text, <a class="el" href="classic_1_1gfx_1_1_c_scene.html">gfx::CScene</a> &amp;Scene, const char *hover_texture=NULL, const char *click_texture=NULL)</td></tr>
+<tr class="memdesc:a93f1ceba795c30e8ba0023c0ea313ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a button texture of the specified dimensions, with text.  <a href="#a93f1ceba795c30e8ba0023c0ea313ff3"></a><br/></td></tr>
 <tr class="memitem:a414c1e64cf617b9dc5e0ee74f83f4b20"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a414c1e64cf617b9dc5e0ee74f83f4b20"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFont</b> (<a class="el" href="classic_1_1gui_1_1_c_font.html">CFont</a> &amp;pFont)</td></tr>
+<tr class="memitem:aaf64f3b5fd29c9d394577077896b6c47"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf64f3b5fd29c9d394577077896b6c47"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SwitchToMain</b> ()</td></tr>
+<tr class="memitem:afe8f0206684f87844695727f2c46e577"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe8f0206684f87844695727f2c46e577"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SwitchToHover</b> ()</td></tr>
+<tr class="memitem:a9943438d970190be91dfd086158b8580"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9943438d970190be91dfd086158b8580"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SwitchToClick</b> ()</td></tr>
+<tr class="memitem:aaf1bcfd45dccf5400833d4feada48d9a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf1bcfd45dccf5400833d4feada48d9a"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetActive</b> () const </td></tr>
 <tr class="memitem:a0658fd5585eb475906639c4f6983f2b4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0658fd5585eb475906639c4f6983f2b4"></a>
 <a class="el" href="classic_1_1_c_rigid_body.html">CRigidBody</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetEntity</b> ()</td></tr>
 </table>
@@ -110,7 +118,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFont</b> (<a clas
 <div class="textblock">
 <p>Definition at line <a class="el" href="_button_8hpp_source.html#l00042">42</a> of file <a class="el" href="_button_8hpp_source.html">Button.hpp</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a234df36b96ab7dfa1cdeb143ed42d095"></a>
+<a class="anchor" id="a93f1ceba795c30e8ba0023c0ea313ff3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -118,7 +126,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFont</b> (<a clas
           <td class="memname">bool CButton::Create </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>texture</em>, </td>
+          <td class="paramname"><em>main_texture</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -136,7 +144,19 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFont</b> (<a clas
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classic_1_1gfx_1_1_c_scene.html">gfx::CScene</a> &amp;&#160;</td>
-          <td class="paramname"><em>Scene</em>&#160;</td>
+          <td class="paramname"><em>Scene</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>hover_texture</em> = <code>NULL</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>click_texture</em> = <code>NULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -148,16 +168,18 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFont</b> (<a clas
 <p>This function will automatically calculate the location at which to render the text based on the alignment set via SetAlignment(), which defaults to IC_ALIGN_CENTER. We are rendering our button texture and text to a frame buffer, then assigning this as the texture override for the entity itself. That way, shader effects and such can be applied w/o the text rendering interfering, and physics can be done for collision with the mouse and whatnot.</p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
-    <tr><td class="paramname">char*</td><td>Texture filename </td></tr>
+    <tr><td class="paramname">char*</td><td>Filename for regular texture </td></tr>
     <tr><td class="paramname">rect_t</td><td>Dimensions to resize the texture to </td></tr>
     <tr><td class="paramname">char*</td><td>Text to render on the button </td></tr>
-    <tr><td class="paramname">CScene</td><td>Scene to load button geometry into</td></tr>
+    <tr><td class="paramname">CScene&amp;</td><td>Scene to load button geometry into </td></tr>
+    <tr><td class="paramname">char*</td><td>Filename for texture on mouse hover (optional=NULL) </td></tr>
+    <tr><td class="paramname">char*</td><td>Filename for texture on mouse click (optional=NULL)</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if everything successful, FALSE if any errors. It will also return FALSE if the text is too tall / wide for the given dimensions. </dd></dl>
 
-<p>Definition at line <a class="el" href="_button_8cpp_source.html#l00017">17</a> of file <a class="el" href="_button_8cpp_source.html">Button.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_button_8cpp_source.html#l00024">24</a> of file <a class="el" href="_button_8cpp_source.html">Button.cpp</a>.</p>
 
 </div>
 </div>
@@ -168,7 +190,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFont</b> (<a clas
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 1 2013 11:16:17 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 2 2013 00:15:28 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

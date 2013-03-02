@@ -76,14 +76,19 @@ namespace gui
 
         bool LoadFont(CFont& pFont);
 
-        void SwitchToMain() { m_Entity.SetMaterialOverride(mp_Textures[0]); }
-        void SwitchToHover(){ m_Entity.SetMaterialOverride(mp_Textures[1]); }
-        void SwitchToClick(){ m_Entity.SetMaterialOverride(mp_Textures[2]); }
+        void SwitchToMain() { m_active = 0; this->Swap(); }
+        void SwitchToHover(){ m_active = 1; this->Swap(); }
+        void SwitchToClick(){ m_active = 2; this->Swap(); }
+
+        inline uint8_t GetActive() const 
+        { return m_active; }
 
         inline CRigidBody& GetEntity()
         { return m_Entity; }
 
     private:
+        void Swap() { m_Entity.SetMaterialOverride(mp_Textures[m_active]); }
+
         gfx::CFrameBuffer   m_FBO;
         asset::CTexture*    mp_Textures[3];
         math::rect_t        m_Dimensions;
@@ -95,6 +100,7 @@ namespace gui
         Alignment           m_align;
         std::string         m_text;
 
+        uint8_t             m_active;
         int                 m_handle;
     };
 }

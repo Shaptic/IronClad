@@ -22,7 +22,7 @@ extern "C" {
 #endif
 
 #include <stddef.h>
-#include <C:/Users/George/Programming/C++/Libraries/include/ogg/os_types.h>
+#include "ogg/os_types.h"
 
 typedef struct {
   void *iov_base;
