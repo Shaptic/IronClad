@@ -37,17 +37,17 @@ bool CScene::Init()
             m_FBOSwap.Init(m_Window.GetW(), m_Window.GetH()));
 }
 
-CEntity* CScene::AddMesh(
+obj::CEntity* CScene::AddMesh(
     const std::string& filename,
     const math::vector2_t& Pos,
     bool anim,
     bool rigid)
 {
-    CEntity* pFinal = NULL;
+    obj::CEntity* pFinal = NULL;
 
-    if (anim)       pFinal = new CAnimation;
-    else if (rigid) pFinal = new CRigidBody;
-    else            pFinal = new CEntity;
+    if (anim)       pFinal = new obj::CAnimation;
+    else if (rigid) pFinal = new obj::CRigidBody;
+    else            pFinal = new obj::CEntity;
 
     if(!pFinal->LoadFromFile(filename, m_GeometryVBO))
     {
@@ -60,9 +60,9 @@ CEntity* CScene::AddMesh(
     return pFinal;
 }
 
-CEntity* CScene::AddMesh(asset::CMesh* pMesh, const math::vector2_t& Pos)
+obj::CEntity* CScene::AddMesh(asset::CMesh* pMesh, const math::vector2_t& Pos)
 {
-    CEntity* pFinal = new CEntity;
+    obj::CEntity* pFinal = new obj::CEntity;
     if(!pFinal->LoadFromMesh(pMesh, m_GeometryVBO))
     {
         delete pFinal;
@@ -80,7 +80,7 @@ CEntity* CScene::AddMesh(asset::CMesh* pMesh, const math::vector2_t& Pos)
 void CScene::Render()
 {
     // Model-view matrix.
-    static math::matrix4x4_t MVMatrix = math::IDENTITY;
+    math::matrix4x4_t MVMatrix = math::IDENTITY;
 
     m_ShadowVBO.Clear();
     m_GeometryVBO.FinalizeBuffer();
@@ -111,6 +111,8 @@ void CScene::Render()
     // Render all of the meshes.
     for(size_t i = 0; i < mp_sceneObjects.size(); ++i)
     {
+        if(!mp_sceneObjects[i]->IsRenderable()) continue;
+
         // Load the model-view matrix.
         mp_sceneObjects[i]->GetMesh().LoadPositionMatrix(MVMatrix);
 
@@ -129,8 +131,6 @@ void CScene::Render()
         }
         else
         {
-            if(!mp_sceneObjects[i]->IsRenderable()) continue;
-
             // Render each surface.
             for(size_t j = 0; j < meshSurfaces.size(); ++j)
             {
@@ -147,7 +147,7 @@ void CScene::Render()
 
         // Render effects on the scene.
         m_FBOSwap.Enable();
-        glBindTexture(GL_TEXTURE_2D, m_FBO.GetTexture());        
+        glBindTexture(GL_TEXTURE_2D, m_FBO.GetTexture());
 
         // Additive blending for lighting.
         glBlendFunc(GL_ONE, GL_ONE);
@@ -159,12 +159,19 @@ void CScene::Render()
         }
 
         // Final FBO texture to render onto the screen.
-        // This texture has all of the post-processing on it.
+        // This texture has all of the lighting on it.
         final_texture = m_FBOSwap.GetTexture();
     }
 
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     if(m_postfx)
     {
+        // If there is lighting, the post-processing should start on the
+        // swap frame buffer texture.
+        gfx::CFrameBuffer& First    = m_lighting ? m_FBOSwap : m_FBO;
+        gfx::CFrameBuffer& Second   = m_lighting ? m_FBO     : m_FBOSwap;
+
         // Render each effect onto the scene.
         // The FBOs are swapped every time,
         // adding effects on top of one another.
@@ -172,8 +179,8 @@ void CScene::Render()
         {
             final_texture = this->PostProcessingRender(
                 mp_sceneEffects[i],
-                i % 2 == 0 ? m_FBOSwap : m_FBO,
-                i % 2 == 0 ? m_FBO.GetTexture() : m_FBOSwap.GetTexture());
+                i % 2 == 0 ? Second : First, 
+                i % 2 == 0 ? First.GetTexture() : Second.GetTexture());
         }
     }
 
@@ -187,7 +194,7 @@ void CScene::Render()
     
     // Draw off-screen texture to screen.
     Globals::g_DefaultEffect.Enable();
-    Globals::g_DefaultEffect.SetMatrix("mv", math::IDENTITY.GetMatrixPointer());
+    Globals::g_DefaultEffect.SetMatrix("mv", math::IDENTITY);
     
     glBindTexture(GL_TEXTURE_2D, final_texture);
     Globals::g_FullscreenVBO.Draw();
@@ -197,13 +204,21 @@ void CScene::Render()
     Globals::g_FullscreenVBO.Unbind();
 }
 
+void CScene::Clear()
+{
+    m_GeometryVBO.Clear();
+    mp_sceneObjects.clear();
+    mp_sceneLights.clear();
+    mp_sceneEffects.clear();
+}
+
 bool CScene::AddMaterialOverlay(gfx::CEffect* pEffect)
 {
     if(pEffect == NULL) return false;
 
     // Set up matrices, just in case.
     pEffect->Enable();
-    pEffect->SetMatrix("mv", ic::math::IDENTITY.GetMatrixPointer());
+    pEffect->SetMatrix("mv", ic::math::IDENTITY);
     pEffect->SetMatrix("proj", m_Window.GetProjectionMatrix());
     pEffect->Disable();
 
@@ -211,7 +226,7 @@ bool CScene::AddMaterialOverlay(gfx::CEffect* pEffect)
     return true;
 }
 
-void CScene::StandardRender(CEntity* pEntity,
+void CScene::StandardRender(obj::CEntity* pEntity,
                             const math::matrix4x4_t& ModelView)
 {
     if(!pEntity->IsRenderable()) return;
@@ -560,7 +575,7 @@ bool CScene::RemoveLight(const gfx::CLight* pLight)
     return false;
 }
 
-bool gfx::CScene::InsertMesh(const uint16_t position, CEntity* pEntity)
+bool gfx::CScene::InsertMesh(const uint16_t position, obj::CEntity* pEntity)
 {
     if(mp_sceneObjects.size() < position) return false;
 
@@ -568,7 +583,7 @@ bool gfx::CScene::InsertMesh(const uint16_t position, CEntity* pEntity)
     return true;
 }
 
-CEntity* gfx::CScene::InsertMesh(const uint16_t position, 
+obj::CEntity* gfx::CScene::InsertMesh(const uint16_t position, 
                                  const std::string& filename,
                                  const math::vector2_t& Position,
                                  bool animate, bool rigid)
@@ -576,11 +591,11 @@ CEntity* gfx::CScene::InsertMesh(const uint16_t position,
     if(mp_sceneObjects.size() < position)
         return this->AddMesh(filename, Position, animate, rigid);
 
-    CEntity* pFinal = NULL;
+    obj::CEntity* pFinal = NULL;
 
-    if (animate)    pFinal = new CAnimation;
-    else if (rigid) pFinal = new CRigidBody;
-    else            pFinal = new CEntity;
+    if (animate)    pFinal = new obj::CAnimation;
+    else if (rigid) pFinal = new obj::CRigidBody;
+    else            pFinal = new obj::CEntity;
 
     if(!pFinal->LoadFromFile(filename, m_GeometryVBO))
     {
@@ -595,7 +610,7 @@ CEntity* gfx::CScene::InsertMesh(const uint16_t position,
 }
 
 
-int CScene::GetQueuePosition(const CEntity* pEntity) const
+int CScene::GetQueuePosition(const obj::CEntity* pEntity) const
 {
     for(size_t i = 0; i < mp_sceneObjects.size(); ++i)
     {

@@ -2,7 +2,7 @@
  * @file
  *  Graphics/Window.hpp - OpenGL window class for the IronClad engine.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
@@ -71,6 +71,10 @@ namespace gfx
     {
     public:
         CWindow();
+        CWindow(const uint16_t width,
+                const uint16_t height,
+                const char* title);
+
         ~CWindow();
 
         /**

@@ -2,7 +2,7 @@
  * @file
  *  Math/MathDef.hpp - Declarations and definitions of various math types.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.1.2
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
@@ -128,6 +128,33 @@ namespace math
     {
         if(val > maximum)       val = maximum;
         else if(val < minimum)  val = minimum;
+    }
+
+    template<typename T>
+    T clamp(const T& val, const T& minimum, const T& maximum)
+    {
+        if(val > maximum)       return maximum;
+        else if(val < minimum)  return minimum;
+        else                    return val;
+    }
+
+    /**
+     * Returns a value that is 'percent' of the way between Start and End/
+     *  'percent' is clamped to [0, 1]. T can be any type that supports
+     *  addition, subtraction, and scalar multiplication operations, such
+     *  as vector2_t and vector3_t.
+     *  
+     * @param   T       Starting value
+     * @param   T       Ending value
+     * @param   float   Percentage in between values
+     * 
+     * @return  Value between start and ending values.
+     **/
+    template<typename T>
+    T lerp(const T& Start, const T& End, float percent)
+    {
+        clamp<float>(percent, 0.f, 1.f);
+        return (Start + (End - Start) * percent);
     }
 
 // These macros get in the way of the following functions.

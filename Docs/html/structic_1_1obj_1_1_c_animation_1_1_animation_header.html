@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>IronClad Engine: IronClad/src/Fonts/ Directory Reference</title>
+<title>IronClad Engine: ic::obj::CAnimation::AnimationHeader Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5619 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -42,7 +42,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
-      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -62,6 +62,14 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
+      <li><a href="classes.html"><span>Data&#160;Structure&#160;Index</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Data&#160;Fields</span></a></li>
+    </ul>
+  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -78,23 +86,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_9642ee7a51a64fe52107d214efc43835.html">IronClad</a></li><li class="navelem"><a class="el" href="dir_0f0d2c31dd45356cf88f2f99f1faa7f8.html">src</a></li><li class="navelem"><a class="el" href="dir_9692301bcda2b567658ea34da4453e22.html">Fonts</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceic.html">ic</a></li><li class="navelem"><b>obj</b></li><li class="navelem"><a class="el" href="classic_1_1obj_1_1_c_animation.html">CAnimation</a></li><li class="navelem"><a class="el" href="structic_1_1obj_1_1_c_animation_1_1_animation_header.html">AnimationHeader</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">Fonts Directory Reference</div>  </div>
+<div class="title">ic::obj::CAnimation::AnimationHeader Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="files"></a>
-Files</h2></td></tr>
-<tr class="memitem:_font_8cpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><b>Font.cpp</b> <a href="_font_8cpp_source.html">[code]</a></td></tr>
+<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
+Data Fields</h2></td></tr>
+<tr class="memitem:a43dc64096b80ee13b246585fb363addf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a43dc64096b80ee13b246585fb363addf"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>width</b></td></tr>
+<tr class="memitem:a98089ac8e2110860cde905fb310a7d76"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a98089ac8e2110860cde905fb310a7d76"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>height</b></td></tr>
+<tr class="memitem:a310d87e1d9037dfb8160fea439a61ac6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a310d87e1d9037dfb8160fea439a61ac6"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>columns</b></td></tr>
+<tr class="memitem:acf5502e9d246f9560bb8a30a5fce2b1a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf5502e9d246f9560bb8a30a5fce2b1a"></a>
+<a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pTexture</b></td></tr>
+<tr class="memitem:a35432596702b4a8da6192cc07f8ab82b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35432596702b4a8da6192cc07f8ab82b"></a>
+<a class="el" href="classic_1_1gfx_1_1_c_mesh_instance.html">gfx::CMeshInstance</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pMesh</b></td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_animation_8hpp_source.html#l00050">50</a> of file <a class="el" href="_animation_8hpp_source.html">Animation.hpp</a>.</p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>IronClad/include/Entity/<a class="el" href="_animation_8hpp_source.html">Animation.hpp</a></li>
+</ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 21 2013 22:48:49 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 8 2013 21:44:14 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

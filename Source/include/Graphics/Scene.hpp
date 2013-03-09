@@ -3,7 +3,7 @@
  *  Graphics/Scene.hpp - Declarations for the CScene class, 
  *  a high-level interface containing information about a scene.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.4.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
@@ -108,18 +108,18 @@ namespace gfx
          * 
          * @param   std::string     Filename of mesh to load
          * @param   math::vector2_t Position to place the instance
-         * @param   bool            Create a CAnimation (optional=false)
-         * @param   bool            Create a CRigidBody (optional=false)
+         * @param   bool            Create a obj::CAnimation (optional=false)
+         * @param   bool            Create a obj::CRigidBody (optional=false)
          * 
-         * @return  The created CEntity* on success, NULL on error.
-         *          You may cast this value to CAnimation / CRigidBody
+         * @return  The created obj::CEntity* on success, NULL on error.
+         *          You may cast this value to obj::CAnimation / obj::CRigidBody
          *          provided that you are SURE you passed the proper
          *          parameters.
          **/
-        CEntity* AddMesh(const std::string& filename, const math::vector2_t& Pos,
+        obj::CEntity* AddMesh(const std::string& filename, const math::vector2_t& Pos,
             bool anim = false, bool rigid = false);
-        CEntity* AddMesh(asset::CMesh* pMesh, const math::vector2_t& Pos);
-        inline void AddMesh(asset::CEntity* pEntity)
+        obj::CEntity* AddMesh(asset::CMesh* pMesh, const math::vector2_t& Pos);
+        inline void AddMesh(asset::obj::CEntity* pEntity)
         { mp_sceneObjects.push_back(pEntity); }
 
         /**
@@ -135,21 +135,21 @@ namespace gfx
          * @param   uint16_t        Position to insert entity at
          * @param   std::string     Filename of mesh to load
          * @param   math::vector2_t Position to place the instance
-         * @param   bool            Create a CAnimation (optional=false)
-         * @param   bool            Create a CRigidBody (optional=false)
+         * @param   bool            Create a obj::CAnimation (optional=false)
+         * @param   bool            Create a obj::CRigidBody (optional=false)
          * 
          * @return  Entity that was inserted, NULL if failed to load.
          * 
          * @see     CScene::GetQueuePosition()
          * @see     CScene::GetObjects()
          **/
-        CEntity* InsertMesh(const uint16_t position, 
+        obj::CEntity* InsertMesh(const uint16_t position, 
             const std::string& filename, const math::vector2_t& Position,
             bool animate = false, bool physical = false);
-        CEntity* InsertMesh(const uint16_t position,
+        obj::CEntity* InsertMesh(const uint16_t position,
             asset::CMesh* pMesh, const math::vector2_t& Pos,
             bool animate = false, bool physical = false);
-        bool InsertMesh(const uint16_t position, CEntity* pEntity);
+        bool InsertMesh(const uint16_t position, obj::CEntity* pEntity);
 
         /**
          * Deletes an existing mesh entity from the scene.
@@ -157,11 +157,11 @@ namespace gfx
          *  and preferably prior to the main game loop, since the
          *  underlying container is an std::vector.
          *
-         * @param   CEntity*    Entity to remove
+         * @param   obj::CEntity*    Entity to remove
          * 
          * @bool    TRUE if exists and removed, FALSE otherwise.
          **/
-        bool RemoveMesh(const CEntity* pEntity)
+        bool RemoveMesh(const obj::CEntity* pEntity)
         {
             int pos = this->GetQueuePosition(pEntity);
             if(pos == -1) return false;
@@ -205,6 +205,25 @@ namespace gfx
         bool RemoveLight(const CLight* pLight);
 
         /**
+         * Removes a post-processing effect from the scene.
+         * @param   CEffect*    Effect to remove
+         * @return  TRUE if removed, FALSE if not found.
+         **/
+        bool RemoveEffect(const gfx::CEffect* pEffect)
+        {
+            for(size_t i = 0; i < mp_sceneEffects.size(); ++i)
+            {
+                if(mp_sceneEffects[i] == pEffect)
+                {
+                    mp_sceneEffects.erase(mp_sceneEffects.begin() + i);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /**
          * Pans the camera around the scene.
          *  This merely has the effect of adding a (x, y) vector to the
          *  position of the meshes when they are being rendered.
@@ -240,6 +259,11 @@ namespace gfx
          *  the other FBO before calling this.
          **/
         void Render();
+
+        /**
+         * Deletes all scene data.
+         **/
+        void Clear();
 
         /**
          * Toggles post-processing.
@@ -282,21 +306,14 @@ namespace gfx
          /**
           * Returns the position in the object queue of the object.
           * 
-          * @param  CEntity*    Object to search for
+          * @param  obj::CEntity*    Object to search for
           * 
           * @return -1 if object is not in queue, proper index otherwise.
           **/
-         int GetQueuePosition(const CEntity* pEntity) const;
+         int GetQueuePosition(const obj::CEntity* pEntity) const;
 
          inline void QueryCamera(math::vector2_t& Position) const 
          { Position = m_Camera; }
-
-         inline void Clear()
-         {
-             m_GeometryVBO.Clear();
-             mp_sceneObjects.clear();
-             mp_sceneLights.clear();
-         }
 
          /**
           * Retrieves all of the lights in a scene.
@@ -304,7 +321,7 @@ namespace gfx
          inline std::vector<CLight*>& GetLights()
          { return mp_sceneLights; }
 
-         inline const std::vector<CEntity*>& GetObjects() const
+         inline const std::vector<obj::CEntity*>& GetObjects() const
          { return mp_sceneObjects; }
 
          inline CVertexBuffer& GetGeometryBuffer()
@@ -333,7 +350,7 @@ namespace gfx
             gfx::surface_t* pSurface,
             const math::matrix4x4_t& ModelView);
 
-        void StandardRender(CEntity* pEntity,
+        void StandardRender(obj::CEntity* pEntity,
             const math::matrix4x4_t& ModelView);
 
         /**
@@ -384,7 +401,7 @@ namespace gfx
 
         math::vector2_t         m_Camera;
 
-        std::vector<CEntity*>   mp_sceneObjects;
+        std::vector<obj::CEntity*>   mp_sceneObjects;
         std::vector<CEffect*>   mp_sceneEffects;
         std::vector<CLight*>    mp_sceneLights;
         std::vector<vertex2_t>  m_shadowVertices;

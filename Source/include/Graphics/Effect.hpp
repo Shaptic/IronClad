@@ -3,7 +3,7 @@
  *    Graphics/Effect.hpp - Declaration of the abstract base class for all of
  *    the effects supported by IronClad.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
@@ -98,6 +98,62 @@ namespace gfx
 
         std::map<uint32_t, uint32_t> m_UniformHash;
     };
+
+    class CFadeEffect
+    {
+    public:
+        //void AddEntityToQueue(const obj::CEntity* pEntity)
+        //{
+        //    //mp_fadeQueue.push_back(pEntity);
+        //    //
+        //}
+
+        void SetMode(bool in)
+        {
+            m_mode  = in;
+            m_alpha = m_mode ? 0.f : 1.f;
+        }
+
+        void Reset()
+        {
+            m_alpha = m_mode ? 0.f : 1.f;
+        }
+        
+        bool Fade(CEffect* pEffect, const float rate)
+        {
+            m_mode ? m_alpha += rate : m_alpha -= rate;
+            math::clamp<float>(m_alpha, 0.f, 1.f);
+            
+            pEffect->Enable();
+            pEffect->SetParameter("alpha", m_alpha);
+            pEffect->Disable();
+
+            if(m_mode) return m_alpha >= 1.f;
+            else       return m_alpha <= 0.f;
+        }
+
+        float GetAlpha() const { return m_alpha; }
+
+    private:
+        bool m_mode;
+        float m_alpha;
+    };
+
+    // Fading effect.
+    static bool Fade(CEffect* pEffect, const float rate)
+    {
+        static float alpha = (rate > 0.f) ? 0.f : 1.f;
+
+        pEffect->Enable();
+        pEffect->SetParameter("alpha", alpha += rate);
+        pEffect->Disable();
+
+        // incr.
+        if(rate > 0.f) return (alpha > 1.f);
+        
+        // decr.
+        return (alpha < 1.f);
+    }
 
 }   // namespace gfx
 }   // namespace ic

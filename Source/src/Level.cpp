@@ -28,7 +28,7 @@ bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
 
         if(line == "[entity]")
         {
-            CEntity* pEntity    = NULL;
+            obj::CEntity* pEntity    = NULL;
             gfx::CLight* pLight = NULL;
 
             bool is_pspawn = false;
@@ -159,14 +159,14 @@ bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
                         // Physics
                         if(attrib == 0 && value == 1)
                         {
-                            pEntity = new CRigidBody;
-                            mp_levelPhysics.push_back((CRigidBody*)pEntity);
+                            pEntity = new obj::CRigidBody;
+                            mp_levelPhysics.push_back((obj::CRigidBody*)pEntity);
                         }
                         else if(attrib == 0 && value == 2)
                         {
-                            pEntity = new CAnimation;
+                            pEntity = new obj::CAnimation;
                             mp_levelEntities.push_back(pEntity);
-                            mp_levelPhysics.push_back((CAnimation*)pEntity);
+                            mp_levelPhysics.push_back((obj::CAnimation*)pEntity);
                         }
                         // Motion
                         else if(attrib == 1 && value == 1)
@@ -191,7 +191,7 @@ bool CLevel::LoadFromFile(const std::string& filename, gfx::CScene& Scene)
                         }
                     }
 
-                    if(pEntity == NULL) pEntity = new CEntity;
+                    if(pEntity == NULL) pEntity = new obj::CEntity;
                 }
 
                 else if(line.find("location") != std::string::npos)

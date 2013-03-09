@@ -2,7 +2,7 @@
  * @file
  *  Math/Vector2.hpp - Declarations for the 2D vector class.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0.3
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

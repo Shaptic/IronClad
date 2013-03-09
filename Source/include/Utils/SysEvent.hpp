@@ -3,7 +3,7 @@
  *    Utils/SysEvent.hpp - Defines the CEvent structure, containing all of the
  *    options for a system event in IronClad.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

@@ -1,19 +1,19 @@
 /**
  * @file
- *	Animation.hpp - A basic abstraction of animation functions like loading
- *	a sprite sheet and switching sprites at certain rates.
+ *  Entity/Animation.hpp - A basic abstraction of animation functions like loading
+ *  a sprite sheet and switching sprites at certain rates.
  *
- * @author      George Kudrayvtsev (switch1440)
- * @version     1.0
+ * @author      George Kudrayvtsev (halcyon)
+ * @version     1.0.2
  * @copyright   Apache License v2.0
- *  Licensed under the Apache License, Version 2.0 (the "License").			\n
- *  You may not use this file except in compliance with the License.		\n
+ *  Licensed under the Apache License, Version 2.0 (the "License").         \n
+ *  You may not use this file except in compliance with the License.        \n
  *  You may obtain a copy of the License at:
- *  http://www.apache.org/licenses/LICENSE-2.0 								\n
- *  Unless required by applicable law or agreed to in writing, software		\n
- *  distributed under the License is distributed on an "AS IS" BASIS,		\n
+ *  http://www.apache.org/licenses/LICENSE-2.0                              \n
+ *  Unless required by applicable law or agreed to in writing, software     \n
+ *  distributed under the License is distributed on an "AS IS" BASIS,       \n
  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n
- *  See the License for the specific language governing permissions and		\n
+ *  See the License for the specific language governing permissions and     \n
  *  limitations under the License.
  *
  * @addtogroup Graphics
@@ -29,8 +29,10 @@
 
 namespace ic
 {
+namespace obj
+{
     /**
-     * An animate-able extension of the CEntity class.
+     * An animate-able extension of the obj::CEntity class.
      *  This class acts exactly like an entity, but contains the ability
      *  to easily switch between sprites either automatically after a 
      *  certain period of time or manually.
@@ -50,9 +52,9 @@ namespace ic
             uint16_t width;         // 2 bytes * 4 fields = 8 bytes.
             uint16_t height;
             uint16_t columns;
-            uint16_t rows;
 
-            asset::CTexture* pTexture;
+            asset::CTexture*    pTexture;
+            gfx::CMeshInstance* pMesh;
         };
 
         CAnimation() : m_last(util::CTimer::GetTimeElapsed()),
@@ -83,11 +85,12 @@ namespace ic
          * @param   AnimationHeader Header containing texture / dimension data
          **/
         void SwapSpriteSheet(const AnimationHeader& Header);
+        void SwapSpriteSheet(CAnimation* pAnimation);
 
         /**
          * Toggles animation.
-         *  A CAnimation with animation disabled acts exactly like a 
-         *  CEntity for all intents and purposes. Disabling animation
+         *  A obj::CAnimation with animation disabled acts exactly like a 
+         *  obj::CEntity for all intents and purposes. Disabling animation
          *  leaves the currently active texture as the one rendered,
          *  as opposed to the original texture.
          *
@@ -129,27 +132,27 @@ namespace ic
         { return m_loops_done; }
 
         uint16_t GetAnimationCount() const 
-        { return m_SheetDetails.rows * m_SheetDetails.columns; }
+        { return m_SheetDetails.columns; }
 
         AnimationHeader& GetHeader()
         { return m_SheetDetails; }
 
-        void SetAnimation(const uint8_t index)
-        {
-            m_active = (math::min<int>(index, this->GetAnimationCount()))-2;
-            this->NextSprite();
-        }
+        uint8_t GetAnimationIndex() const
+        { return m_active + 1; }
+
+        void SetAnimation(const uint8_t index);
 
     private:
-        math::vector2_t m_TexcDim;          // Calculated texture dimensions
         AnimationHeader m_SheetDetails;     // Internal sprite sheet details
         uint8_t         m_active;           // Currently active sprite
+        float           m_TexcDim;          // Calculated texture width
         float           m_delay;            // Delay between texture swaps
         float           m_last;             // Time since last Next/PrevSprite() call
         bool            m_enabled;          // Is animation enabled?
         int             m_tc_loc, m_tc_str; // Shader uniform locations
         int             m_loops_done;       // Loops completed
     };
+}
 }
 
 #endif // IRON_CLAD__ANIMATION_HPP

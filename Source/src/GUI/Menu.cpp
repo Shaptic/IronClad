@@ -67,6 +67,11 @@ int16_t CMenu::AddButton(const char* texture_fn, const char* text,
 
 int16_t CMenu::HandleEvent(const util::SystemEvent& Evt)
 {
+    if(mp_ClickSound != NULL && mp_ClickSound->GetAudioState() != AL_PLAYING)
+        mp_ClickSound->UnloadSource();
+    if(mp_HoverSound != NULL && mp_HoverSound->GetAudioState() != AL_PLAYING)
+        mp_HoverSound->UnloadSource();
+
     switch(Evt.type)
     {
     case ic::util::IC_MOUSEDOWN:
@@ -93,8 +98,15 @@ int16_t CMenu::HandleEvent(const util::SystemEvent& Evt)
             {
                 if(mp_allButtons[i]->GetEntity().CheckCollision(Box))
                 {
-                    if(mp_ClickSound != NULL) mp_ClickSound->Play();
-                    mp_allButtons[i]->SwitchToMain();
+                    if(mp_ClickSound != NULL)
+                    {
+                        if(!mp_ClickSound->Play())
+                        {
+                            mp_ClickSound->UnloadSource();
+                            mp_ClickSound->Play();
+                        }
+                    }
+                    mp_allButtons[i]->SwitchToHover();
                     return i + 1;
                 }
             }
@@ -112,7 +124,11 @@ int16_t CMenu::HandleEvent(const util::SystemEvent& Evt)
                 if(mp_allButtons[i]->GetActive() != 1 &&
                    mp_HoverSound != NULL)
                 {
-                    mp_HoverSound->Play();
+                    if(!mp_HoverSound->Play())
+                    {
+                        mp_HoverSound->UnloadSource();
+                        mp_HoverSound->Play();
+                    }
                 }
                 mp_allButtons[i]->SwitchToHover();
             }

@@ -2,7 +2,7 @@
  * @file
  *    Math/Shapes.hpp - Defines various shapes, primarily used for collision.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

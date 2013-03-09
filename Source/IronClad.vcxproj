@@ -139,8 +139,8 @@
     <None Include="..\Debug\Shaders\Default.vs" />
     <None Include="..\Debug\Shaders\Fade.fs" />
     <None Include="..\Debug\Shaders\FontRender.fs" />
-    <None Include="..\Debug\Shaders\GaussianBlurH.fs" />
     <None Include="..\Debug\Shaders\GaussianBlurV.fs" />
+    <None Include="..\Debug\Shaders\GaussianBlurH.fs" />
     <None Include="..\Debug\Shaders\PointLight.fs" />
     <None Include="..\Debug\Shaders\ShadowCaster.fs" />
     <None Include="include\Asset\AssetManager.inl" />

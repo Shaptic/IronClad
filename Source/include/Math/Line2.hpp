@@ -2,7 +2,7 @@
  * @file
  *    Math/Line2.hpp - Describes a 2-dimensional line segment.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

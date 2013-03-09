@@ -2,7 +2,7 @@
  * @file
  *	Level.hpp - Defines a loader for .iclvl files.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").			\n
@@ -55,12 +55,12 @@ namespace ic
             return mp_PlayerSpawn;
         }
 
-        const std::vector<CRigidBody*>& GetPhysicalEntities() const
+        const std::vector<obj::CRigidBody*>& GetPhysicalEntities() const
         {
             return mp_levelPhysics;
         }
 
-        const std::vector<CEntity*>& GetEnemySpawns() const
+        const std::vector<obj::CEntity*>& GetEnemySpawns() const
         {
             return mp_levelESpawns;
         }
@@ -70,7 +70,7 @@ namespace ic
             return mp_levelLights;
         }
 
-        std::vector<CEntity*> mp_levelEntities;
+        std::vector<obj::CEntity*> mp_levelEntities;
     private:
         //static const uint8_t   IC_LVL_INACTIVE      = 0x01;
         //static const uint8_t   IC_LVL_ACTIVE        = 0x02;
@@ -79,8 +79,8 @@ namespace ic
         //static const uint8_t   IC_LVL_ENEMY_SPAWN   = 0x16;
         //static const uint8_t   IC_LVL_LIGHT         = 0x32;
 
-        std::vector<CRigidBody*>    mp_levelPhysics;
-        std::vector<CEntity*>       mp_levelESpawns;
+        std::vector<obj::CRigidBody*>    mp_levelPhysics;
+        std::vector<obj::CEntity*>       mp_levelESpawns;
         std::vector<gfx::CLight*>   mp_levelLights;
         math::vector2_t             mp_PlayerSpawn;
 

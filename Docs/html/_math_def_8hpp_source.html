@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5363 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5619 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -156,35 +156,50 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(val &lt; minimum)  val = minimum;</div>
 <div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    }</div>
 <div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">// These macros get in the way of the following functions.</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#ifdef max</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#undef max</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // max</span></div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifdef min</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#undef min</span></div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // min</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="code" href="namespaceic_1_1math.html#a15bb935942f5e0b44522ee1429e6a919">  151</a></span>&#160;    <span class="keyword">const</span> T&amp; <a class="code" href="namespaceic_1_1math.html#a15bb935942f5e0b44522ee1429e6a919" title="Returns the maximum of two values.">max</a>(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b)</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    {</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">return</span> (a &gt; b) ? a : b;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00166"></a><span class="lineno"><a class="code" href="namespaceic_1_1math.html#a0dbadb39b9f744e8c1283db3179b8d62">  166</a></span>&#160;    <span class="keyword">const</span> T&amp; <a class="code" href="namespaceic_1_1math.html#a0dbadb39b9f744e8c1283db3179b8d62" title="Returns the minimum of two values.">min</a>(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b)</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        <span class="keywordflow">return</span> (a &lt; b) ? a : b;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;}   <span class="comment">// namespace math</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}   <span class="comment">// namespace ic</span></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__MATH__MATH_DEF_HPP</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    T <a class="code" href="namespaceic_1_1math.html#aedb2a5a3f3cc1afeb009006c7dde0f8d" title="Clamps a particular value to a certain range.">clamp</a>(<span class="keyword">const</span> T&amp; val, <span class="keyword">const</span> T&amp; minimum, <span class="keyword">const</span> T&amp; maximum)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordflow">if</span>(val &gt; maximum)       <span class="keywordflow">return</span> maximum;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(val &lt; minimum)  <span class="keywordflow">return</span> minimum;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        <span class="keywordflow">else</span>                    <span class="keywordflow">return</span> val;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="code" href="namespaceic_1_1math.html#abed31aa58448267599776dd0ce84f232">  154</a></span>&#160;    T <a class="code" href="namespaceic_1_1math.html#abed31aa58448267599776dd0ce84f232" title="Returns a value that is &#39;percent&#39; of the way between Start and End/ &#39;percent&#39; is clamped to [0...">lerp</a>(<span class="keyword">const</span> T&amp; Start, <span class="keyword">const</span> T&amp; End, <span class="keywordtype">float</span> percent)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        clamp&lt;float&gt;(percent, 0.f, 1.f);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <span class="keywordflow">return</span> (Start + (End - Start) * percent);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">// These macros get in the way of the following functions.</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="preprocessor">#ifdef max</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#undef max</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // max</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#ifdef min</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#undef min</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#endif // min</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="code" href="namespaceic_1_1math.html#a15bb935942f5e0b44522ee1429e6a919">  178</a></span>&#160;    <span class="keyword">const</span> T&amp; <a class="code" href="namespaceic_1_1math.html#a15bb935942f5e0b44522ee1429e6a919" title="Returns the maximum of two values.">max</a>(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    {</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordflow">return</span> (a &gt; b) ? a : b;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="code" href="namespaceic_1_1math.html#a0dbadb39b9f744e8c1283db3179b8d62">  193</a></span>&#160;    <span class="keyword">const</span> T&amp; <a class="code" href="namespaceic_1_1math.html#a0dbadb39b9f744e8c1283db3179b8d62" title="Returns the minimum of two values.">min</a>(<span class="keyword">const</span> T&amp; a, <span class="keyword">const</span> T&amp; b)</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">return</span> (a &lt; b) ? a : b;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;}   <span class="comment">// namespace math</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__MATH__MATH_DEF_HPP</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 2 2013 00:15:27 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 8 2013 21:44:14 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

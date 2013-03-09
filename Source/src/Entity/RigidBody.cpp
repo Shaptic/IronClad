@@ -1,6 +1,7 @@
 #include "Entity/RigidBody.hpp"
 
 using namespace ic;
+using obj::CRigidBody;
 
 bool CRigidBody::LoadFromFile(const char* pmesh_filename,
                               gfx::CVertexBuffer& VBO)

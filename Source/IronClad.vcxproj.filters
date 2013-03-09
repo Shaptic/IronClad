@@ -43,28 +43,28 @@
       <UniqueIdentifier>{078f20d7-f394-42d2-9f20-639afb4182a2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{d420aa5b-3f9a-43f2-8169-ac6465e3e5e5}</UniqueIdentifier>
+      <UniqueIdentifier>{1d66270e-f737-4659-8f57-1f2b3fa45dd5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Assets">
-      <UniqueIdentifier>{159a0845-efb7-42c1-8caa-426adbb05e86}</UniqueIdentifier>
+      <UniqueIdentifier>{db1d16d6-bbb0-40ef-bbdf-2280f60b712f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Entities">
-      <UniqueIdentifier>{124ab453-dc1d-4b5a-b6db-4915bd5b6dde}</UniqueIdentifier>
+      <UniqueIdentifier>{8a344516-82d6-4a01-b596-9ffc0b0e1f81}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Graphics">
-      <UniqueIdentifier>{3e569ac8-6c5f-4b61-a6da-6e604a2d3676}</UniqueIdentifier>
+      <UniqueIdentifier>{28b6ab2a-1c59-4ec6-99e9-7af9b3fbd095}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Math">
-      <UniqueIdentifier>{9d0d9fae-47b3-40a8-97ba-efffd24c8728}</UniqueIdentifier>
+      <UniqueIdentifier>{71ad6bce-7137-468f-82b7-fdb2e2c15219}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Utilities">
-      <UniqueIdentifier>{b8ead7f6-ecfb-4c9d-9884-9b1194f81b58}</UniqueIdentifier>
+      <UniqueIdentifier>{8ee4ac28-6d15-498e-9a0f-c3fb63283568}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\GUI">
-      <UniqueIdentifier>{b8f8587f-bb54-4e98-a5b2-e42d56220eb5}</UniqueIdentifier>
+      <UniqueIdentifier>{4378c0ee-2579-4727-b260-f0af6ff3abea}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Audio">
-      <UniqueIdentifier>{652be375-d85a-4ca8-ab37-d1ffb65fa926}</UniqueIdentifier>
+      <UniqueIdentifier>{6386e30f-cfdc-4542-a7ff-1db8220e60bd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -211,13 +211,7 @@
     <None Include="..\Debug\Shaders\PointLight.fs">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Debug\Shaders\GaussianBlurV.fs">
-      <Filter>Shaders</Filter>
-    </None>
     <None Include="..\Debug\Shaders\ShadowCaster.fs">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\Debug\Shaders\GaussianBlurH.fs">
       <Filter>Shaders</Filter>
     </None>
     <None Include="include\Asset\AssetManager.inl">
@@ -230,6 +224,12 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\Debug\Shaders\Fade.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\GaussianBlurH.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\GaussianBlurV.fs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

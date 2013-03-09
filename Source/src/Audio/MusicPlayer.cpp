@@ -8,7 +8,13 @@ using util::g_Log;
  * Cleans up all loaded music.
  * @todo Clean up assets from manager;
  **/
-CMusicPlayer::~CMusicPlayer(){}
+CMusicPlayer::~CMusicPlayer()
+{
+    for(size_t i = 0; i < mp_allSongs.size(); ++i)
+    {
+        asset::CAssetManager::Destroy<asset::CSound2D>(mp_allSongs[i]);
+    }
+}
 
 /**
  * Load a music file and add it to the play list.
@@ -17,8 +23,8 @@ CMusicPlayer::~CMusicPlayer(){}
  **/
 bool CMusicPlayer::AddSongToQueue(const char* pfilename)
 {
-    m_allSongs.push_back(
-        asset::CAssetManager::Create<asset::CSound2D>(pfilename)->GetID());
+    mp_allSongs.push_back(asset::CAssetManager
+                               ::Create<asset::CSound2D>(pfilename));
     return true;
 }
 
@@ -27,7 +33,7 @@ bool CMusicPlayer::AddSongToQueue(const char* pfilename)
  **/
 void CMusicPlayer::PurgeQueue()
 {
-    m_allSongs.clear();
+    mp_allSongs.clear();
     mp_CurrentSong = NULL;
 }
 
@@ -103,6 +109,7 @@ void CMusicPlayer::Update()
 
                 m_index = 0;
             }
+
             frame = 0;
         }
     }
@@ -114,14 +121,15 @@ void CMusicPlayer::Update()
  **/
 bool CMusicPlayer::NextSong()
 {
-    if(m_index >= m_allSongs.size())     // Done playing queue of songs
-        return false;
+    printf("Index: %d\n", m_index);
 
-    if(mp_CurrentSong)
-        mp_CurrentSong->Stop();
+    if(m_index >= mp_allSongs.size())     // Done playing queue of songs
+    {
+        m_index = 0; return false;
+    }
 
-    mp_CurrentSong = (asset::CSound2D*)asset::CAssetManager::Find(m_allSongs[m_index]);
-    ++m_index;
+    if(mp_CurrentSong != NULL) mp_CurrentSong->Stop();
+    mp_CurrentSong = mp_allSongs[m_index++];
 
     return true;
 }

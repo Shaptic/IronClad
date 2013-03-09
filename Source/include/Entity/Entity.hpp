@@ -1,10 +1,10 @@
 /**
  * @file
- *  Entity.hpp - Defines the high-level CEntity class, which wraps up
+ *  Entity.hpp - Defines the high-level obj::CEntity class, which wraps up
  *  CMeshInstance's in a more user-friendly interface.
  *
- * @author      George Kudrayvtsev (switch1440)
- * @version     1.0
+ * @author      George Kudrayvtsev (halcyon)
+ * @version     1.0.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -29,6 +29,8 @@
 
 namespace ic
 {
+namespace obj
+{
     enum RotationAxis
     {
         IC_X_AXIS,
@@ -46,7 +48,7 @@ namespace ic
     {
     public:
         CEntity(bool caster = false) : m_render(true), mp_Override(NULL) {}
-        ~CEntity();
+        virtual ~CEntity();
 
         inline bool operator==(const std::string& filename) const
         { return (this->GetTexture()->GetFilename() == filename); }
@@ -203,7 +205,8 @@ namespace ic
 
         bool m_render;
     };
-}
+}   // namespace obj
+}   // namespace ic
 
 #endif // IRON_CLAD__ENTITY_HPP
 

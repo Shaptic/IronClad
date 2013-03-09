@@ -17,10 +17,13 @@ void CFont::DeInitialize()
     if(s_initialized) FT_Done_FreeType(s_Library);
 }
 
-CFont::CFont() : m_size(0), m_loaded(false)
+CFont::CFont() : m_size(0), m_loaded(false) {}
+CFont::~CFont() {}
+
+bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
 {
     m_FontRender.Init(gfx::IC_GRAYSCALE);
-    
+
     // Set the matrices in the rendering shader.
     m_FontRender.Enable();
     m_FontRender.SetMatrix("mv", math::IDENTITY);
@@ -28,12 +31,7 @@ CFont::CFont() : m_size(0), m_loaded(false)
     m_FontRender.Disable();
 
     m_Cache.Init();
-}
 
-CFont::~CFont() {}
-
-bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
-{
     g_Log.Flush();
     g_Log << "[INFO] Loading font:      " << filename << "\n";
     g_Log.PrintLastLog();
@@ -391,7 +389,32 @@ void ic::gui::CFont::SetFontColor(const float r, const float g, const float b)
     m_Color.a = 1.f;
 }
 
-uint32_t CFont::GetTextWidth(const char* text)
+void CFont::SetProjection(const uint16_t w, const uint16_t h,
+                          const uint16_t max_z /*= 10*/,
+                          const int min_z /*= -10*/)
+{
+    m_FontRender.Enable();
+    m_FontRender.SetMatrix("proj", 
+        math::matrix4x4_t::Projection2D(w, h, max_z, min_z));
+    m_FontRender.Disable();
+}
+
+void ic::gui::CFont::SetProjection(const math::matrix4x4_t& Proj)
+{
+    m_FontRender.Enable();
+    m_FontRender.SetMatrix("proj", Proj);
+    m_FontRender.Disable();
+}
+
+const gui::Glyph& ic::gui::CFont::GetGlyph(const char letter) const
+{
+    std::map<char, gui::Glyph>::const_iterator iter = 
+        mp_glyphTextures.find(letter);
+
+    return iter->second;
+}
+
+uint32_t CFont::GetTextWidth(const char* text) const
 {
     if(text == NULL) return 0;
 
@@ -400,13 +423,16 @@ uint32_t CFont::GetTextWidth(const char* text)
 
     for(size_t i = 0; i < l; ++i)
     {
-        w += mp_glyphTextures[text[i]].dim.w;
+        std::map<char, Glyph>::const_iterator iter = 
+            mp_glyphTextures.find(text[i]);
+
+        w += iter->second.dim.w;
     }
 
     return w;
 }
 
-uint32_t CFont::GetTextHeight(const char* text)
+uint32_t CFont::GetTextHeight(const char* text) const
 {
     if(text == NULL) return 0;
 
@@ -415,7 +441,10 @@ uint32_t CFont::GetTextHeight(const char* text)
 
     for(size_t i = 0; i < l; ++i)
     {
-        h = math::max<int>(mp_glyphTextures[text[i]].dim.y, h);
+        std::map<char, Glyph>::const_iterator iter = 
+            mp_glyphTextures.find(text[i]);
+
+        h = math::max<int>(iter->second.dim.y, h);
     }
 
     return h;

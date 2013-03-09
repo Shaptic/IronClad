@@ -2,8 +2,8 @@
  * @file
  *	Entity/RigidBody.hpp - The basic physics-controlled entity in the game world.
  *
- * @author      George Kudrayvtsev (switch1440)
- * @version     1.1.3
+ * @author      George Kudrayvtsev (halcyon)
+ * @version     1.1.4
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").			\n
  *  You may not use this file except in compliance with the License.		\n
@@ -25,6 +25,8 @@
 #include "Entity.hpp"
 
 namespace ic
+{
+namespace obj
 {
     class IRONCLAD_API CRigidBody : public CEntity
     {
@@ -62,6 +64,7 @@ namespace ic
         math::rect_t m_CollisionBox;
         float m_vert, m_horz;
     };
+}
 }
 
 #endif // IRON_CLAD__ENTITY__RIGID_BODY_HPP

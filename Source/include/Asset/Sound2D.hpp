@@ -2,7 +2,7 @@
  * @file
  *	Asset/Sound2D.hpp - Describes a sound effect in 2D space.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").			\n
@@ -68,8 +68,11 @@ namespace asset
          *  location to the listener, it may sometimes be necessary to
          *  move the sound source closer or farther to the listener.
          *  This moves it at a certain rate, not to a certain location.
+         *  YOu can also manually use SetVolume() to alter the gain.
          *
-         * @param math::vector2_t& Rate at which to move sound source.
+         * @param   math::vector2_t& Rate at which to move sound source.
+         * 
+         * @see     SetVolume()
          **/
         void Move(const math::vector2_t& Rate);
         
@@ -93,6 +96,8 @@ namespace asset
         ALuint  GetBuffer() const;
         ALuint  GetSource() const;
         ALuint  GetSourceIndex() const;
+        inline const std::string& GetError() const
+        { return m_error; }
 
         /// The CAssetManager is the only thing capable of loading audio.
         friend class CAssetManager;
@@ -106,10 +111,14 @@ namespace asset
         /// Finds the next available OpenAL source.
         static void GetAvailableSource();
 
+        std::string m_error;
+
         ALuint  m_buffer;
         ALint   m_source;
         ALenum  m_lasterror;
         ALfloat m_volume;
+
+        bool    m_loop;
     };
 }   // namespace asset
 }   // namespace ic

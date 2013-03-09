@@ -2,7 +2,7 @@
  * @file
  *	Audio/MusicPlayer.hpp - A class acting as a sequential music track player.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").			\n
@@ -47,7 +47,7 @@ namespace audio
     private:
         bool NextSong();
 
-        std::vector<uint32_t> m_allSongs;
+        std::vector<asset::CSound2D*> mp_allSongs;
         asset::CSound2D* mp_CurrentSong;
         uint32_t m_index;
     };

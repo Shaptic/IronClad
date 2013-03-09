@@ -3,7 +3,7 @@
  *    Utils/Loader.hpp - Defines many functions that simplify loading of
  *    files such as images.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

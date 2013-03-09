@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5363 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5619 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -129,6 +129,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="names
 <tr class="memitem:aedb2a5a3f3cc1afeb009006c7dde0f8d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aedb2a5a3f3cc1afeb009006c7dde0f8d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceic_1_1math.html#aedb2a5a3f3cc1afeb009006c7dde0f8d">clamp</a> (T &amp;val, const T &amp;minimum, const T &amp;maximum)</td></tr>
 <tr class="memdesc:aedb2a5a3f3cc1afeb009006c7dde0f8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clamps a particular value to a certain range.  <a href="#aedb2a5a3f3cc1afeb009006c7dde0f8d"></a><br/></td></tr>
+<tr class="memitem:a9f9bc597e543eec030e178f1dca268ca"><td class="memTemplParams" colspan="2"><a class="anchor" id="a9f9bc597e543eec030e178f1dca268ca"></a>
+template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9f9bc597e543eec030e178f1dca268ca"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>clamp</b> (const T &amp;val, const T &amp;minimum, const T &amp;maximum)</td></tr>
+<tr class="memitem:abed31aa58448267599776dd0ce84f232"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:abed31aa58448267599776dd0ce84f232"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceic_1_1math.html#abed31aa58448267599776dd0ce84f232">lerp</a> (const T &amp;Start, const T &amp;End, float percent)</td></tr>
+<tr class="memdesc:abed31aa58448267599776dd0ce84f232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a value that is 'percent' of the way between Start and End/ 'percent' is clamped to [0, 1].  <a href="#abed31aa58448267599776dd0ce84f232"></a><br/></td></tr>
 <tr class="memitem:a15bb935942f5e0b44522ee1429e6a919"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a15bb935942f5e0b44522ee1429e6a919"><td class="memTemplItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceic_1_1math.html#a15bb935942f5e0b44522ee1429e6a919">max</a> (const T &amp;a, const T &amp;b)</td></tr>
 <tr class="memdesc:a15bb935942f5e0b44522ee1429e6a919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the maximum of two values.  <a href="#a15bb935942f5e0b44522ee1429e6a919"></a><br/></td></tr>
@@ -292,6 +298,52 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="abed31aa58448267599776dd0ce84f232"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T ic::math::lerp </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>Start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>End</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>percent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>T can be any type that supports addition, subtraction, and scalar multiplication operations, such as <a class="el" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">vector2_t</a> and <a class="el" href="structic_1_1math_1_1vector3__t.html" title="Represents a point in 3D rectangular-coordinate space.">vector3_t</a>.</p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T</td><td>Starting value </td></tr>
+    <tr><td class="paramname">T</td><td>Ending value </td></tr>
+    <tr><td class="paramname">float</td><td>Percentage in between values</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>Value between start and ending values. </dd></dl>
+
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00154">154</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a15bb935942f5e0b44522ee1429e6a919"></a>
 <div class="memitem">
 <div class="memproto">
@@ -327,7 +379,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Max of value one and two. </dd></dl>
 
-<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00151">151</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00178">178</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
 
 </div>
 </div>
@@ -366,7 +418,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Min of value one and two. </dd></dl>
 
-<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00166">166</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00193">193</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
 
 </div>
 </div>
@@ -475,7 +527,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 2 2013 00:15:28 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 8 2013 21:44:14 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

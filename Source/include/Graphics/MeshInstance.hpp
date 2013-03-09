@@ -3,7 +3,7 @@
  *  Graphics/MeshInstance.hpp - Declarations of the CMeshInstance class,
  *  responsible for representing a unique instance of a CMesh object.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
@@ -29,7 +29,7 @@
 
 namespace ic
 {
-    class CEntity;
+    namespace obj { class CEntity; }
 
 namespace gfx
 {
@@ -173,7 +173,7 @@ namespace gfx
         inline void ClearMesh()
         { mp_ActiveMesh->Clear(); }
 
-        friend class CEntity;
+        friend class obj::CEntity;
 
     private:
         asset::CMesh*       mp_ActiveMesh;

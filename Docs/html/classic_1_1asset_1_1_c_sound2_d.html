@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5363 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5619 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -147,6 +147,8 @@ ALuint&#160;</td><td class="memItemRight" valign="bottom"><b>GetBuffer</b> () co
 ALuint&#160;</td><td class="memItemRight" valign="bottom"><b>GetSource</b> () const </td></tr>
 <tr class="memitem:a8fb9c99cdb202a9637cdd8e00c8d79a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8fb9c99cdb202a9637cdd8e00c8d79a7"></a>
 ALuint&#160;</td><td class="memItemRight" valign="bottom"><b>GetSourceIndex</b> () const </td></tr>
+<tr class="memitem:a78c68ad02ea066b56ffabbeda12ddd73"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a78c68ad02ea066b56ffabbeda12ddd73"></a>
+const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetError</b> () const </td></tr>
 <tr class="inherit_header pub_methods_classic_1_1asset_1_1_c_asset"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classic_1_1asset_1_1_c_asset')"><img src="closed.png" alt="-"/>&nbsp;Public Member Functions inherited from <a class="el" href="classic_1_1asset_1_1_c_asset.html">ic::asset::CAsset</a></td></tr>
 <tr class="memitem:a8699a01934346670eed04d8e0d2d4726 inherit pub_methods_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8699a01934346670eed04d8e0d2d4726"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CAsset</b> (bool original=false)</td></tr>
@@ -154,8 +156,6 @@ ALuint&#160;</td><td class="memItemRight" valign="bottom"><b>GetSourceIndex</b> 
 const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetFilename</b> () const </td></tr>
 <tr class="memitem:a69c394c1706dda75f58ebf22422cb174 inherit pub_methods_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69c394c1706dda75f58ebf22422cb174"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetID</b> () const </td></tr>
-<tr class="memitem:a7eacd5b265875a74ea812702cb28bb56 inherit pub_methods_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7eacd5b265875a74ea812702cb28bb56"></a>
-virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetError</b> () const </td></tr>
 <tr class="memitem:abcbee9791f8b8882c1808d64c4a8b59d inherit pub_methods_classic_1_1asset_1_1_c_asset"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abcbee9791f8b8882c1808d64c4a8b59d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFilename</b> (const std::string &amp;filename)</td></tr>
 </table><table class="memberdecls">
@@ -222,7 +222,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Always TRUE. </dd></dl>
 
-<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00087">87</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00086">86</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
 
 </div>
 </div>
@@ -260,7 +260,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 
 <p>Implements <a class="el" href="classic_1_1asset_1_1_c_asset.html">ic::asset::CAsset</a>.</p>
 
-<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00110">110</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00109">109</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
 
 </div>
 </div>
@@ -286,7 +286,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE on successful load, FALSE otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00402">402</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00459">459</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
 
 </div>
 </div>
@@ -303,13 +303,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Because OpenAL automatically handles sound volume based on location to the listener, it may sometimes be necessary to move the sound source closer or farther to the listener. This moves it at a certain rate, not to a certain location.</p>
+<p>Because OpenAL automatically handles sound volume based on location to the listener, it may sometimes be necessary to move the sound source closer or farther to the listener. This moves it at a certain rate, not to a certain location. YOu can also manually use SetVolume() to alter the gain.</p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
-    <tr><td class="paramname">math::vector2_t&amp;</td><td>Rate at which to move sound source. </td></tr>
+    <tr><td class="paramname">math::vector2_t&amp;</td><td>Rate at which to move sound source.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also:</dt><dd>SetVolume() </dd></dl>
 
 </div>
 </div>
@@ -328,7 +329,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 <p>The buffer maintains linked to its source despite being paused, and will only be deleted if the source status is CSTOPPED.</p>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if paused, FALSE if nothing loaded. </dd></dl>
 
-<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00259">259</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00307">307</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
 
 </div>
 </div>
@@ -347,7 +348,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 <p>Due to the somewhat complicated source-management system in place, buffers are bound to an OpenAL source on demand. So whenever this method is called, an available source is found, and then the buffer is bound to it, and the audio is played. The <a class="el" href="classic_1_1asset_1_1_c_asset_manager.html" title="Loads, finds, creates, and manages assets.">CAssetManager</a> is responsible for unloading the source after playback has completed in full.</p>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if the sound played, FALSE if not. </dd></dl>
 
-<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00213">213</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00232">232</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
 
 </div>
 </div>
@@ -371,7 +372,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00354">354</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00416">416</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
 
 </div>
 </div>
@@ -395,7 +396,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00330">330</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00392">392</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
 
 </div>
 </div>
@@ -420,7 +421,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00344">344</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00406">406</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
 
 </div>
 </div>
@@ -441,7 +442,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 <dl class="section see"><dt>See also:</dt><dd>asset::C2DSound::Play() </dd></dl>
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000011">Todo:</a></b></dt><dd>Add looping capabilities (or lack there-of). </dd></dl>
 
-<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00286">286</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00335">335</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
 
 </div>
 </div>
@@ -460,7 +461,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 <p>Since OpenAL is limited to 256 audio sources, it is important to be conservative with the available resources. Though I doubt all 256 will ever be used simultaneously, a system is in place to minimize source-hogging. This method should only be called by an <a class="el" href="classic_1_1asset_1_1_c_asset_manager.html" title="Loads, finds, creates, and manages assets.">CAssetManager</a> after checking that playback has been completed.</p>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if the source was unloaded successfully, FALSE if not, or no source loaded. </dd></dl>
 
-<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00313">313</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_sound2_d_8cpp_source.html#l00366">366</a> of file <a class="el" href="_sound2_d_8cpp_source.html">Sound2D.cpp</a>.</p>
 
 </div>
 </div>
@@ -471,7 +472,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 2 2013 00:15:28 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 8 2013 21:44:14 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

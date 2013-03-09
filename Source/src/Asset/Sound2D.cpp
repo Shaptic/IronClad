@@ -31,8 +31,7 @@ bool CSound2D::InitializeOpenAL()
     {
         memset(s_sources, 0, sizeof s_sources);
         alutInit(NULL, NULL);
-        if(alutGetError() != ALUT_ERROR_NO_ERROR)
-            return false;
+        if(alutGetError() != ALUT_ERROR_NO_ERROR) return false;
         alGetError();
         once = true;
     }
@@ -62,7 +61,7 @@ void CSound2D::GetAvailableSource()
 
     // Now, iterate through the sources array to find 
     // the next unused one.
-    for(size_t i = 0; i < sizeof s_sources; ++i)
+    for(size_t i = 0; i < sizeof s_sources / sizeof s_sources[0]; ++i)
     {
         if(s_sources[i] == 0)
         {
@@ -140,6 +139,10 @@ bool CSound2D::LoadFromFile(const char* p_filename)
     if(p_filename == NULL)
     {
         m_lasterror = AL_INVALID_NAME;
+        m_error     = alGetString(m_lasterror);
+        g_Log.Flush();
+        g_Log << "[ERROR] OpenAL: " << m_error << "\n";
+        g_Log.PrintLastLog();
         return false;
     }
 
@@ -149,6 +152,10 @@ bool CSound2D::LoadFromFile(const char* p_filename)
     if(p_File == NULL)
     {
         m_lasterror = AL_INVALID_NAME;
+        m_error     = alGetString(m_lasterror);
+        g_Log.Flush();
+        g_Log << "[ERROR] OpenAL: " << m_error << "\n";
+        g_Log.PrintLastLog();
         return false;
     }
 
@@ -189,11 +196,23 @@ bool CSound2D::LoadFromFile(const char* p_filename)
     // Generate OpenAL audio buffers from raw OGG data.
     alGenBuffers(1, &m_buffer);
     if((m_lasterror = alGetError()) != AL_NO_ERROR)
+    {
+        m_error     = alGetString(m_lasterror);
+        g_Log.Flush();
+        g_Log << "[ERROR] OpenAL: " << m_error << "\n";
+        g_Log.PrintLastLog();
         return false;
+    }
 
     alBufferData(m_buffer, format, &buffer[0], buffer.size(), freq);
     if((m_lasterror = alGetError()) != AL_NO_ERROR)
+    {
+        m_error     = alGetString(m_lasterror);
+        g_Log.Flush();
+        g_Log << "[ERROR] OpenAL: " << m_error << "\n";
+        g_Log.PrintLastLog();
         return false;
+    }
 
     m_filename  = p_filename;
     return true;
@@ -216,9 +235,12 @@ bool CSound2D::Play()
     {
         alSourcePlay(s_sources[m_source]);
 
+#ifdef _DEBUG
         g_Log.Flush();
-        g_Log << "[DEBUG] Forcing playing of " << m_filename << ".\n";
+        g_Log << "[DEBUG] Force-playing audio: " << m_filename << ":";
+        g_Log << m_source << " (" << s_sources[m_source] << ")\n";
         g_Log.PrintLastLog();
+#endif // _DEBUG
         return true;
     }
 
@@ -226,25 +248,51 @@ bool CSound2D::Play()
     if(s_available == -1)
     {
         m_lasterror = AL_OUT_OF_MEMORY;
+        m_error     = alGetString(m_lasterror);
+        g_Log.Flush();
+        g_Log << "[ERROR] OpenAL: " << m_error << "\n";
+        g_Log.PrintLastLog();
         return false;
     }
 
     ALuint source = 0;
     alGenSources(1, &s_sources[s_available]);
     if((m_lasterror = alGetError()) != AL_NO_ERROR)
+    {
+        m_error     = alGetString(m_lasterror);
+        g_Log.Flush();
+        g_Log << "[ERROR] OpenAL: " << m_error << "\n";
+        g_Log.PrintLastLog();
         return false;
+    }
     m_source = s_available;
+
+#ifdef _DEBUG
+    g_Log.Flush();
+    g_Log << "[DEBUG] Created audio source: " << m_filename << ":";
+    g_Log << m_source << " (" << s_sources[m_source] << ")\n";
+    g_Log.PrintLastLog();
+#endif // _DEBUG
 
     alSourcei(s_sources[m_source], AL_BUFFER, m_buffer);
     alSourcef(s_sources[m_source], AL_GAIN, m_volume);
     if((m_lasterror = alGetError()) != AL_NO_ERROR)
+    {
+        m_error     = alGetString(m_lasterror);
+        g_Log.Flush();
+        g_Log << "[ERROR] OpenAL: " << m_error << "\n";
+        g_Log.PrintLastLog();
         return false;
+    }
 
     alSourcePlay(s_sources[m_source]);
 
+#ifdef _DEBUG
     g_Log.Flush();
-    g_Log << "[DEBUG] Playing " << m_filename << ".\n";
+    g_Log << "[DEBUG] Playing audio: " << m_filename << ":";
+    g_Log << m_source << " (" << s_sources[m_source] << ")\n";
     g_Log.PrintLastLog();
+#endif // _DEBUG
 
     return true;
 }
@@ -258,14 +306,15 @@ bool CSound2D::Play()
  **/
 bool CSound2D::Pause()
 {
-    if(m_source == -1)
-        return false;
+    if(m_source == -1) return false;
 
-    if(this->GetAudioState() == AL_PAUSED)
-        return true;
+    if(this->GetAudioState() == AL_PAUSED) return true;
 
 #ifdef _DEBUG
-    std::cout << "Paused " << m_filename << ".\n";
+    g_Log.Flush();
+    g_Log << "[DEBUG] Pausing audio: " << m_filename << ":";
+    g_Log << m_source << " (" << s_sources[m_source] << ")\n";
+    g_Log.PrintLastLog();
 #endif // _DEBUG
     alSourcePause(s_sources[m_source]);
 
@@ -292,8 +341,12 @@ bool CSound2D::Stop()
         return true;
 
 #ifdef _DEBUG
-    std::cout << "Stopped " << m_filename << ".\n";
+    g_Log.Flush();
+    g_Log << "[DEBUG] Stopped audio: " << m_filename << ":";
+    g_Log << m_source << " (" << s_sources[m_source] << ")\n";
+    g_Log.PrintLastLog();
 #endif // _DEBUG
+
     alSourceStop(s_sources[m_source]);
     return true;
 }
@@ -315,11 +368,20 @@ bool CSound2D::UnloadSource()
     if(m_source == -1)
         return false;
 
+#ifdef _DEBUG
+    g_Log.Flush();
+    g_Log << "[DEBUG] Unloading audio source: " << m_filename << ":";
+    g_Log << m_source << " (" << s_sources[m_source] << ")\n";
+    g_Log.PrintLastLog();
+#endif // _DEBUG
+
     alDeleteSources(1, &s_sources[m_source]);
     s_sources[m_source] = 0;
     m_source = -1;
 
-    return ((m_lasterror = alGetError()) == AL_NO_ERROR);
+    m_lasterror = alGetError();
+    m_error     = alGetString(m_lasterror);
+    return m_lasterror == AL_NO_ERROR;
 }
 
 /**
@@ -359,12 +421,10 @@ void CSound2D::SetDirection(const math::vector2_t& Dir)
 
 int CSound2D::GetAudioState() const
 {
-    if(m_source == -1)
-        return AL_INVALID_OPERATION;
+    if(m_source == -1) return AL_INVALID_OPERATION;
 
     int state;
     alGetSourcei(s_sources[m_source], AL_SOURCE_STATE, &state);
-    alGetError();
     return state;
 }
 
@@ -385,10 +445,7 @@ ALuint CSound2D::GetSourceIndex() const
 
 ALuint CSound2D::GetSource() const
 {
-    if(m_source != -1)
-        return s_sources[m_source];
-    else
-        return -1;
+    return (m_source != -1) ? s_sources[m_source] : m_source;
 }
 
 /**
@@ -402,13 +459,18 @@ ALuint CSound2D::GetSource() const
 bool CSound2D::LoadFromFile_WAV(const char* p_filename)
 {
     alGenBuffers(1, &m_buffer);
+    m_lasterror = alGetError();
     if((m_lasterror = alGetError()) != AL_NO_ERROR)
+    {
+        m_error     = alGetString(m_lasterror);
         return false;
+    }
 
     m_buffer = alutCreateBufferFromFile(p_filename);
     if(m_buffer == AL_NONE)
     {
-        m_lasterror = alutGetError();
+        m_lasterror = alGetError();
+        m_error     = alGetString(m_lasterror);
         alDeleteBuffers(1, &m_buffer);
         return false;
     }

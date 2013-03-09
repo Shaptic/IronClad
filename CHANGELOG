@@ -2,10 +2,21 @@ CHANGELOG
 
 Project         :	IronClad
 Author          :	George Kudrayvtsev
-Current Version	:	1.3 alpha
-Last Updated	:	03.02.2013
+Current Version	:	1.3.2 alpha
+Last Updated	:	03.08.2013
 
-Version 1.3a (03.02.2013):
+Version 1.3.2a (03.08.2013):
+ *  Critical OpenAL bug fix
+
+Version 1.3.1a (03.03.2013):
+ *  Audio source exhaustion bug fixed
+ *  Entity types are now part of the obj namespace
+ *  Inheritance memory leak fixed
+ *  Animation entities reconfigured to have multiple rows of
+    a sprite sheet represent different sequences
+ *  ic::gui::CFont::GetText[Height|Width] is now const compatible
+ 
+Version 1.3.0a (03.02.2013):
  +  Audio support, .ogg and .wav files
  +  Menu supports sound effects for hover and click
  *  Bug fixes

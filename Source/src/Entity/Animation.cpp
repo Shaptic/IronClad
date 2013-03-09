@@ -2,10 +2,16 @@
 
 using namespace ic;
 using util::g_Log;
+using obj::CAnimation;
 
 bool CAnimation::LoadFromFile(const std::string& filename,
                               gfx::CVertexBuffer& VBO)
 {
+    // Make sure its not an .icmesh file. If it is, load 
+    // as if it's a standard entity.
+    if(filename.find(".icmesh") != std::string::npos) 
+        return CEntity::LoadFromFile(filename, VBO);
+
     std::ifstream anim(filename, std::ios::binary);
 
     CAnimation::AnimationHeader& header = m_SheetDetails;
@@ -17,10 +23,10 @@ bool CAnimation::LoadFromFile(const std::string& filename,
     anim >> header.width;
     anim >> header.height;
     anim >> header.columns;
-    anim >> header.rows;
+    header.pMesh = &m_Mesh;
 
     // Bad header if it has any zeroes.
-    if(!(header.width && header.height && header.columns && header.rows))
+    if(!(header.width && header.height && header.columns))
         return false;
 
     // Get file size.
@@ -40,12 +46,12 @@ bool CAnimation::LoadFromFile(const std::string& filename,
     uint16_t h = (header.height);
 
     uint16_t sprite_w = w / header.columns;
-    uint16_t sprite_h = h / header.rows;
+    uint16_t sprite_h = h;
 
     vertex2_t quad_v[4];
     uint16_t  quad_i[6] = {0, 1, 3, 3, 2, 1};
 
-    m_TexcDim = math::vector2_t(1.f / header.columns, 1.f / header.rows);
+    m_TexcDim = 1.f / header.columns;
 
     quad_v[0].Position = math::vector2_t(0,         0);
     quad_v[1].Position = math::vector2_t(sprite_w,  0);
@@ -90,13 +96,13 @@ bool CAnimation::LoadFromFile(const std::string& filename,
     pShader->Bind();
     m_tc_loc = pShader->GetUniformLocation("tc_offset");
     m_tc_str = pShader->GetUniformLocation("tc_start");
-    glUniform2f(m_tc_loc, m_TexcDim.x, m_TexcDim.y);
+    glUniform1f(m_tc_loc, m_TexcDim);
     pShader->Unbind();
     m_Mesh.GetSurfaces()[0]->pMaterial->pShader = pShader;
 
     // Rigid body collision.
     m_CollisionBox.w = m_SheetDetails.width  / m_SheetDetails.columns;
-    m_CollisionBox.h = m_SheetDetails.height / m_SheetDetails.rows;
+    m_CollisionBox.h = m_SheetDetails.height;
 
     return m_Mesh.LoadIntoVBO(VBO);
 }
@@ -109,15 +115,17 @@ bool CAnimation::NextSprite()
         m_active = 0;
     }
 
-    util::g_Log.Flush();
-    util::g_Log << "[DEBUG] Rendering texture[" << (int)m_active << "]: ";
-    util::g_Log << m_Mesh.GetSurfaces()[0]->pMaterial->pTexture->GetFilename() << "\n";
-    util::g_Log.PrintLastLog();
+#ifdef _DEBUG
+    //util::g_Log.Flush();
+    //util::g_Log << "[DEBUG] Rendering texture[" << (int)m_active << "]: ";
+    //util::g_Log << m_Mesh.GetSurfaces()[0]->pMaterial->pTexture->GetFilename() << "\n";
+    //util::g_Log.PrintLastLog();
+#endif // _DEBUG
 
     // Adjust for current texture
     gfx::CShaderPair* pShader = m_Mesh.GetSurfaces()[0]->pMaterial->pShader;
     pShader->Bind();
-    glUniform2f(m_tc_str, m_active * m_TexcDim.x, m_active * m_TexcDim.y);
+    glUniform2f(m_tc_str, m_active * m_TexcDim, m_active);
     pShader->Unbind();
 
     return (m_active > 0);
@@ -141,14 +149,28 @@ void CAnimation::SetAnimationRate(const float delta)
 
 void CAnimation::SwapSpriteSheet(const AnimationHeader& Header)
 {
+    //math::vector2_t Pos = m_Mesh.GetPosition();
+    //m_Mesh = *(Header.pMesh);
+    //m_Mesh.Move(Pos);
     m_Mesh.GetSurfaces()[0]->pMaterial->pTexture = Header.pTexture;
     m_SheetDetails  = Header;
-    m_TexcDim       = math::vector2_t(1.f / Header.columns, 1.f / Header.rows);
+    m_TexcDim       = 1.f / Header.columns;
     m_loops_done    = 0;
 
     // Adjust for new texture dimensions.
     gfx::CShaderPair* pShader = m_Mesh.GetSurfaces()[0]->pMaterial->pShader;
     pShader->Bind();
-    glUniform2f(m_tc_loc, m_TexcDim.x, m_TexcDim.y);
+    glUniform1f(m_tc_loc, m_TexcDim);
     pShader->Unbind();
+}
+
+void CAnimation::SwapSpriteSheet(CAnimation* pAnimation)
+{
+    this->SwapSpriteSheet(pAnimation->GetHeader());
+}
+
+void CAnimation::SetAnimation(const uint8_t index)
+{
+    m_active = (math::min<int>(index, this->GetAnimationCount()))-2;
+    this->NextSprite();
 }

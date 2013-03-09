@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>IronClad Engine: ic::font::Glyph Struct Reference</title>
+<title>IronClad Engine: ic::gfx::CFadeEffect Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 4601 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5619 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -86,39 +86,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="namespaceic.html">ic</a></li><li class="navelem"><b>font</b></li><li class="navelem"><a class="el" href="structic_1_1font_1_1_glyph.html">Glyph</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespaceic.html">ic</a></li><li class="navelem"><a class="el" href="namespaceic_1_1gfx.html">gfx</a></li><li class="navelem"><a class="el" href="classic_1_1gfx_1_1_c_fade_effect.html">CFadeEffect</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Data Fields</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">ic::font::Glyph Struct Reference</div>  </div>
+<div class="title">ic::gfx::CFadeEffect Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>A glyph structure represents a single letter in a font file.  
-</p>
-
-<p><code>#include &quot;<a class="el" href="_glyph_8hpp_source.html">Glyph.hpp</a>&quot;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2><a name="pub-attribs"></a>
-Data Fields</h2></td></tr>
-<tr class="memitem:a64d9a17dcd0fbb7e798d35096b93dc92"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64d9a17dcd0fbb7e798d35096b93dc92"></a>
-<a class="el" href="classic_1_1asset_1_1_c_texture.html">asset::CTexture</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pTexture</b></td></tr>
-<tr class="memitem:afead9aa95108776dff0069b7dad46a71"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afead9aa95108776dff0069b7dad46a71"></a>
-<a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>dim</b></td></tr>
+<tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a5e0ff362994f760ac1120c4f874ffed6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e0ff362994f760ac1120c4f874ffed6"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>SetMode</b> (bool in)</td></tr>
+<tr class="memitem:a1e5f8effe31e037d9dbf9a51e567f920"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e5f8effe31e037d9dbf9a51e567f920"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Reset</b> ()</td></tr>
+<tr class="memitem:afef6c96fcfa6969624c741fe327a8635"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afef6c96fcfa6969624c741fe327a8635"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>Fade</b> (<a class="el" href="classic_1_1gfx_1_1_c_effect.html">CEffect</a> *pEffect, const float rate)</td></tr>
+<tr class="memitem:acf59f96cee9630b7ce8eb4e1bd52c951"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acf59f96cee9630b7ce8eb4e1bd52c951"></a>
+float&#160;</td><td class="memItemRight" valign="bottom"><b>GetAlpha</b> () const </td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
-<p>Definition at line <a class="el" href="_glyph_8hpp_source.html#l00035">35</a> of file <a class="el" href="_glyph_8hpp_source.html">Glyph.hpp</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>IronClad/include/Fonts/<a class="el" href="_glyph_8hpp_source.html">Glyph.hpp</a></li>
+<p>Definition at line <a class="el" href="_effect_8hpp_source.html#l00102">102</a> of file <a class="el" href="_effect_8hpp_source.html">Effect.hpp</a>.</p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
+<li>IronClad/include/Graphics/<a class="el" href="_effect_8hpp_source.html">Effect.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 21 2013 22:48:49 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 8 2013 21:44:14 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

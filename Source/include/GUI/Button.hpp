@@ -2,7 +2,7 @@
  * @file
  *	GUI/Button.hpp - Defines a button class for use in dynamic menus.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").			\n
@@ -83,7 +83,7 @@ namespace gui
         inline uint8_t GetActive() const 
         { return m_active; }
 
-        inline CRigidBody& GetEntity()
+        inline obj::CRigidBody& GetEntity()
         { return m_Entity; }
 
     private:
@@ -95,7 +95,7 @@ namespace gui
         math::vector2_t     m_Pos;
 
         CFont               m_Font;
-        CRigidBody          m_Entity;
+        obj::CRigidBody          m_Entity;
 
         Alignment           m_align;
         std::string         m_text;

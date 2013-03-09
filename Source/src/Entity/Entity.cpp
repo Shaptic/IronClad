@@ -1,8 +1,12 @@
 #include "Entity/Entity.hpp"
 
 using namespace ic;
+using obj::CEntity;
 
-CEntity::~CEntity() {}
+CEntity::~CEntity()
+{
+    asset::CAssetManager::Destroy(mp_Override);
+}
 
 bool CEntity::LoadFromFile(
     const char* pmesh_filename,

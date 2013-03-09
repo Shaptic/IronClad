@@ -142,3 +142,9 @@ void CWindow::ToggleVSYNC()
         wglGetProcAddress("wglSwapIntervalEXT");
     wglSwapIntervalEXT(on = !on);
 }
+
+CWindow::CWindow(const uint16_t width, const uint16_t height,
+                 const char* title)
+{
+    this->Create(width, height, title);
+}

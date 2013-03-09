@@ -3,7 +3,7 @@
  *    Utils/Helper.cpp - A collection of helper functions for string
  *    manipulation and other procedures.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     1.0.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n

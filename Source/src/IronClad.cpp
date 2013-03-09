@@ -3,7 +3,7 @@
  *  IronClad.cpp - Contains definitions for the engine initialization
  *  and release functions.
  *
- * @author      George Kudrayvtsev (switch1440)
+ * @author      George Kudrayvtsev (halcyon)
  * @version     0.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").\n
@@ -90,7 +90,7 @@ bool ic::Init()
     return true;
 }
 
-bool ic::Quit()
+void ic::Quit()
 {
     ic::gui::CFont::DeInitialize();
     ic::asset::CAssetManager::DestroyAll();
@@ -101,5 +101,4 @@ bool ic::Quit()
     ic::util::g_Log.Close();
 
     glfwTerminate();
-    return true;
 }
