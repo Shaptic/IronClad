@@ -45,6 +45,9 @@ namespace gui
         CButton();
         ~CButton();
 
+        friend bool operator==(const CButton* pButton, const std::string& text)
+        { return pButton->m_text == text; }
+
         /**
          * Loads a button texture of the specified dimensions, with text.
          *  This function will automatically calculate the location at
@@ -79,6 +82,12 @@ namespace gui
         void SwitchToMain() { m_active = 0; this->Swap(); }
         void SwitchToHover(){ m_active = 1; this->Swap(); }
         void SwitchToClick(){ m_active = 2; this->Swap(); }
+
+        void Adjust(const float x, const float y)
+        { m_Entity.Adjust(x, y); }
+
+        void Adjust(const math::vector2_t& Rate)
+        { m_Entity.Adjust(Rate); }
 
         inline uint8_t GetActive() const 
         { return m_active; }

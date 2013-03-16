@@ -216,6 +216,7 @@ namespace gfx
                 if(mp_sceneEffects[i] == pEffect)
                 {
                     mp_sceneEffects.erase(mp_sceneEffects.begin() + i);
+                    if(mp_sceneEffects.size() == 0) mp_sceneEffects.clear();
                     return true;
                 }
             }

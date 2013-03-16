@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5619 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5682 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -119,51 +119,60 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        <a class="code" href="classic_1_1gui_1_1_c_button.html">CButton</a>();</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        ~<a class="code" href="classic_1_1gui_1_1_c_button.html">CButton</a>();</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">bool</span> Create(<span class="keyword">const</span> <span class="keywordtype">char</span>* main_texture,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                    <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>&amp; Dim,</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">char</span>* text,</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    <a class="code" href="classic_1_1gfx_1_1_c_scene.html" title="A collection of various graphical elements that interact together.">gfx::CScene</a>&amp; Scene,</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">char</span>* hover_texture = NULL,</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">char</span>* click_texture = NULL);</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordtype">bool</span> LoadFont(<a class="code" href="classic_1_1gui_1_1_c_font.html">CFont</a>&amp; pFont);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordtype">void</span> SwitchToMain() { m_active = 0; this-&gt;Swap(); }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">void</span> SwitchToHover(){ m_active = 1; this-&gt;Swap(); }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordtype">void</span> SwitchToClick(){ m_active = 2; this-&gt;Swap(); }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keyword">inline</span> uint8_t GetActive()<span class="keyword"> const </span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="keyword">        </span>{ <span class="keywordflow">return</span> m_active; }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        <span class="keyword">friend</span> <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="classic_1_1gui_1_1_c_button.html">CButton</a>* pButton, <span class="keyword">const</span> std::string&amp; text)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        { <span class="keywordflow">return</span> pButton-&gt;m_text == text; }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keywordtype">bool</span> Create(<span class="keyword">const</span> <span class="keywordtype">char</span>* main_texture,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>&amp; Dim,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">char</span>* text,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                    <a class="code" href="classic_1_1gfx_1_1_c_scene.html" title="A collection of various graphical elements that interact together.">gfx::CScene</a>&amp; Scene,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">char</span>* hover_texture = NULL,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">char</span>* click_texture = NULL);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordtype">bool</span> LoadFont(<a class="code" href="classic_1_1gui_1_1_c_font.html">CFont</a>&amp; pFont);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordtype">void</span> SwitchToMain() { m_active = 0; this-&gt;Swap(); }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        <span class="keywordtype">void</span> SwitchToHover(){ m_active = 1; this-&gt;Swap(); }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordtype">void</span> SwitchToClick(){ m_active = 2; this-&gt;Swap(); }</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keyword">inline</span> <a class="code" href="classic_1_1obj_1_1_c_rigid_body.html">obj::CRigidBody</a>&amp; GetEntity()</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        { <span class="keywordflow">return</span> m_Entity; }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordtype">void</span> Adjust(<span class="keyword">const</span> <span class="keywordtype">float</span> x, <span class="keyword">const</span> <span class="keywordtype">float</span> y)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        { m_Entity.Adjust(x, y); }</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        <span class="keywordtype">void</span> Swap() { m_Entity.<a class="code" href="classic_1_1obj_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464" title="Enables a texture override over the default.">SetMaterialOverride</a>(mp_Textures[m_active]); }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordtype">void</span> Adjust(<span class="keyword">const</span> <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>&amp; Rate)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        { m_Entity.Adjust(Rate); }</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html" title="A wrapper for the OpenGL frame-buffer object.">gfx::CFrameBuffer</a>   m_FBO;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>*    mp_Textures[3];</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>        m_Dimensions;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>     m_Pos;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <a class="code" href="classic_1_1gui_1_1_c_font.html">CFont</a>               m_Font;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="classic_1_1obj_1_1_c_rigid_body.html">obj::CRigidBody</a>          m_Entity;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        Alignment           m_align;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        std::string         m_text;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        uint8_t             m_active;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordtype">int</span>                 m_handle;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    };</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keyword">inline</span> uint8_t GetActive()<span class="keyword"> const </span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">        </span>{ <span class="keywordflow">return</span> m_active; }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keyword">inline</span> <a class="code" href="classic_1_1obj_1_1_c_rigid_body.html">obj::CRigidBody</a>&amp; GetEntity()</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        { <span class="keywordflow">return</span> m_Entity; }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">void</span> Swap() { m_Entity.<a class="code" href="classic_1_1obj_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464" title="Enables a texture override over the default.">SetMaterialOverride</a>(mp_Textures[m_active]); }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_frame_buffer.html" title="A wrapper for the OpenGL frame-buffer object.">gfx::CFrameBuffer</a>   m_FBO;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>*    mp_Textures[3];</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>        m_Dimensions;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>     m_Pos;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <a class="code" href="classic_1_1gui_1_1_c_font.html">CFont</a>               m_Font;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="classic_1_1obj_1_1_c_rigid_body.html">obj::CRigidBody</a>          m_Entity;</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__GUI_HPP</span></div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        Alignment           m_align;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        std::string         m_text;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        uint8_t             m_active;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        <span class="keywordtype">int</span>                 m_handle;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    };</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__GUI_HPP</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 8 2013 21:44:14 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 15 2013 17:34:40 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

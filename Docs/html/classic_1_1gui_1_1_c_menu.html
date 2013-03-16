@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5619 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5682 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -110,18 +110,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a08ae6cf383370c2242f6107ca6c5d6fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a button to the menu at a certain position.  <a href="#a08ae6cf383370c2242f6107ca6c5d6fe"></a><br/></td></tr>
 <tr class="memitem:a6baf9001c481d23479b6cb78f88ce8cc"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gui_1_1_c_menu.html#a6baf9001c481d23479b6cb78f88ce8cc">HandleEvent</a> (const <a class="el" href="structic_1_1util_1_1_system_event.html">util::SystemEvent</a> &amp;Evt)</td></tr>
 <tr class="memdesc:a6baf9001c481d23479b6cb78f88ce8cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles system events for hover, click, etc.  <a href="#a6baf9001c481d23479b6cb78f88ce8cc"></a><br/></td></tr>
+<tr class="memitem:aa9fb2f7fb9026359d750e633b0214d0f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa9fb2f7fb9026359d750e633b0214d0f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Disable</b> ()</td></tr>
+<tr class="memitem:a719aac500f93858285d7790254d36d98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a719aac500f93858285d7790254d36d98"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>Enable</b> ()</td></tr>
 <tr class="memitem:a959dbe617a30f403bc8915f8201995a6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gui_1_1_c_menu.html#a959dbe617a30f403bc8915f8201995a6">SetFont</a> (const char *filename, const uint16_t size)</td></tr>
 <tr class="memdesc:a959dbe617a30f403bc8915f8201995a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a font for use in title, buttons, etc.  <a href="#a959dbe617a30f403bc8915f8201995a6"></a><br/></td></tr>
 <tr class="memitem:aada9c15acd51f84ee922f43029ee38c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gui_1_1_c_menu.html#aada9c15acd51f84ee922f43029ee38c5">SetHoverSound</a> (const char *filename)</td></tr>
 <tr class="memdesc:aada9c15acd51f84ee922f43029ee38c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a sound to be player on hovering.  <a href="#aada9c15acd51f84ee922f43029ee38c5"></a><br/></td></tr>
 <tr class="memitem:a83303a79e539cc23734feb607abd0de8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gui_1_1_c_menu.html#a83303a79e539cc23734feb607abd0de8">SetClickSound</a> (const char *filename)</td></tr>
 <tr class="memdesc:a83303a79e539cc23734feb607abd0de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a sound to be player on button-press.  <a href="#a83303a79e539cc23734feb607abd0de8"></a><br/></td></tr>
+<tr class="memitem:a504a4c5fda418ad25775485e169baa4c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a504a4c5fda418ad25775485e169baa4c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetBackground</b> (const std::string &amp;filepath)</td></tr>
 <tr class="memitem:afcd45b731a87d34fe112ff3bd84dbfc3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afcd45b731a87d34fe112ff3bd84dbfc3"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>SetFontSize</b> (const uint16_t size)</td></tr>
 <tr class="memitem:a6066466ff37445ccc7c786f3f1c9b390"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6066466ff37445ccc7c786f3f1c9b390"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFontColor</b> (const <a class="el" href="structic_1_1color3f__t.html">color3f_t</a> &amp;Color)</td></tr>
 <tr class="memitem:a45aba82d3826792a284cb64ed3d81fc7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a45aba82d3826792a284cb64ed3d81fc7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFontColor</b> (const float r, const float g, const float b)</td></tr>
+<tr class="memitem:a4d70e33155e9c2e386aa234ae8044092"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d70e33155e9c2e386aa234ae8044092"></a>
+<a class="el" href="classic_1_1gui_1_1_c_button.html">CButton</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetButton</b> (const uint16_t id)</td></tr>
+<tr class="memitem:adfed28d90c0711589c045d5f310b065e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adfed28d90c0711589c045d5f310b065e"></a>
+<a class="el" href="classic_1_1gui_1_1_c_button.html">CButton</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetButton</b> (const std::string &amp;text)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock">
@@ -243,7 +253,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFontColor</b> (con
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE on success, FALSE on error. </dd></dl>
 
-<p>Definition at line <a class="el" href="_menu_8hpp_source.html#l00120">120</a> of file <a class="el" href="_menu_8hpp_source.html">Menu.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_menu_8hpp_source.html#l00138">138</a> of file <a class="el" href="_menu_8hpp_source.html">Menu.hpp</a>.</p>
 
 </div>
 </div>
@@ -311,7 +321,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFontColor</b> (con
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE on success, FALSE on error. </dd></dl>
 
-<p>Definition at line <a class="el" href="_menu_8hpp_source.html#l00100">100</a> of file <a class="el" href="_menu_8hpp_source.html">Menu.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_menu_8hpp_source.html#l00118">118</a> of file <a class="el" href="_menu_8hpp_source.html">Menu.hpp</a>.</p>
 
 </div>
 </div>
@@ -322,7 +332,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFontColor</b> (con
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 8 2013 21:44:14 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 15 2013 17:34:40 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

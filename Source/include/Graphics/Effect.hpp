@@ -42,6 +42,7 @@ namespace gfx
         IC_VERTICAL_GAUSSIAN_BLUR,
         IC_GRAYSCALE,
         IC_FADE,
+        IC_RIPPLE,
         IC_EFFECT_COUNT
     };
 

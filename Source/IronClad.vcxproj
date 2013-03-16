@@ -142,6 +142,7 @@
     <None Include="..\Debug\Shaders\GaussianBlurV.fs" />
     <None Include="..\Debug\Shaders\GaussianBlurH.fs" />
     <None Include="..\Debug\Shaders\PointLight.fs" />
+    <None Include="..\Debug\Shaders\Ripple.fs" />
     <None Include="..\Debug\Shaders\ShadowCaster.fs" />
     <None Include="include\Asset\AssetManager.inl" />
   </ItemGroup>

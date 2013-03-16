@@ -121,8 +121,6 @@ void CMusicPlayer::Update()
  **/
 bool CMusicPlayer::NextSong()
 {
-    printf("Index: %d\n", m_index);
-
     if(m_index >= mp_allSongs.size())     // Done playing queue of songs
     {
         m_index = 0; return false;

@@ -85,6 +85,24 @@ namespace gui
          **/
         int16_t HandleEvent(const util::SystemEvent& Evt);
 
+        void Disable()
+        {
+            if(mp_Background != NULL) mp_Background->SetRendering(false);
+            for(size_t i = 0; i < mp_allButtons.size(); ++i)
+            {
+                mp_allButtons[i]->GetEntity().SetRendering(false);
+            }
+        }
+
+        void Enable()
+        {
+            if(mp_Background != NULL) mp_Background->SetRendering(true);
+            for(size_t i = 0; i < mp_allButtons.size(); ++i)
+            {
+                mp_allButtons[i]->GetEntity().SetRendering(true);
+            }
+        }
+
         /**
          * Loads a font for use in title, buttons, etc.
          * @param   char*   Filepath to font
@@ -100,7 +118,7 @@ namespace gui
         bool SetHoverSound(const char* filename)
         {
             mp_HoverSound = (asset::CSound2D*)asset::CAssetManager
-                            ::Create<asset::CSound2D>(filename);
+                                  ::Create<asset::CSound2D>(filename);
             if(mp_HoverSound == NULL)
             {
                 return false;
@@ -132,15 +150,33 @@ namespace gui
             }
         }
 
+        bool SetBackground(const std::string& filepath)
+        {
+            mp_Background = m_Scene.AddMesh(filepath, math::vector2_t());
+            return mp_Background != NULL;
+        }
+
         bool SetFontSize(const uint16_t size);
         void SetFontColor(const color3f_t& Color);
         void SetFontColor(const float r, const float g, const float b);
         //void SetTitle(const char* title, const math::vector2_t& Position);
 
+        CButton* GetButton(const uint16_t id)
+        { return (id >= mp_allButtons.size()) ? NULL : mp_allButtons[id]; }
+
+        CButton* GetButton(const std::string& text)
+        {
+            for(size_t i = 0; i < mp_allButtons.size(); ++i)
+                if(mp_allButtons[i] == text) return mp_allButtons[i];
+
+            return NULL;
+        }
+
     private:
         asset::CSound2D*    mp_HoverSound;
         asset::CSound2D*    mp_ClickSound;
         gfx::CScene&        m_Scene;
+        obj::CEntity*       mp_Background;
         gui::CFont          m_Font;
 
         std::vector<CButton*> mp_allButtons;

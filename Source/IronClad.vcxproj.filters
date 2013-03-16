@@ -43,28 +43,28 @@
       <UniqueIdentifier>{078f20d7-f394-42d2-9f20-639afb4182a2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{1d66270e-f737-4659-8f57-1f2b3fa45dd5}</UniqueIdentifier>
+      <UniqueIdentifier>{b65d3f2a-35d7-4f03-92c6-c31b24ec9b08}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Assets">
-      <UniqueIdentifier>{db1d16d6-bbb0-40ef-bbdf-2280f60b712f}</UniqueIdentifier>
+      <UniqueIdentifier>{f13881f9-db15-473c-8b75-865f33698151}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Entities">
-      <UniqueIdentifier>{8a344516-82d6-4a01-b596-9ffc0b0e1f81}</UniqueIdentifier>
+      <UniqueIdentifier>{958fe30d-9224-4351-a48e-c283743ae08f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Graphics">
-      <UniqueIdentifier>{28b6ab2a-1c59-4ec6-99e9-7af9b3fbd095}</UniqueIdentifier>
+      <UniqueIdentifier>{5b25cf83-c601-4c11-8354-cd46f6ee1c8d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Math">
-      <UniqueIdentifier>{71ad6bce-7137-468f-82b7-fdb2e2c15219}</UniqueIdentifier>
+      <UniqueIdentifier>{301a6693-366a-4fd7-b354-f45c569eadb6}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Utilities">
-      <UniqueIdentifier>{8ee4ac28-6d15-498e-9a0f-c3fb63283568}</UniqueIdentifier>
+      <UniqueIdentifier>{ff8153b6-1d0b-4a8f-ad64-58b2662b0633}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\GUI">
-      <UniqueIdentifier>{4378c0ee-2579-4727-b260-f0af6ff3abea}</UniqueIdentifier>
+      <UniqueIdentifier>{51b616f4-181f-46fc-9b63-44ba78a25c4f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Audio">
-      <UniqueIdentifier>{6386e30f-cfdc-4542-a7ff-1db8220e60bd}</UniqueIdentifier>
+      <UniqueIdentifier>{a377aefa-6a5a-4b53-910f-4be292c1e8bf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +230,9 @@
       <Filter>Shaders</Filter>
     </None>
     <None Include="..\Debug\Shaders\GaussianBlurV.fs">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Debug\Shaders\Ripple.fs">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>

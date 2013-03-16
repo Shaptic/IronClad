@@ -5,7 +5,7 @@ using gui::CMenu;
 using gui::CButton;
 
 CMenu::CMenu(gfx::CScene& Scene) : m_Scene(Scene), mp_HoverSound(NULL),
-    mp_ClickSound(NULL)
+    mp_ClickSound(NULL), mp_Background(NULL)
 {
     mp_allButtons.clear();
 }

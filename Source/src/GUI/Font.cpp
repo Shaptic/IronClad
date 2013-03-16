@@ -59,7 +59,9 @@ bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
 
         // Locate the index of the character in the font face.
         uint32_t index = FT_Get_Char_Index(m_FontFace, i);
-        if(index == 0) continue;
+
+        // If it doesn't exist, try to save-face with the space character.
+        if(index == 0) index = FT_Get_Char_Index(m_FontFace, ' ');
 
         // Load the glyph into the font face.
         FT_Load_Glyph(m_FontFace, index, FT_LOAD_RENDER);
@@ -151,10 +153,13 @@ math::rect_t CFont::RenderText(const std::string& text,
     // that throughout the loop.
     for(size_t i = 0; i < vlen; i += 4)
     {
+        char letter = (text[i >> 2] > '~' || text[i >> 2] < ' ')
+                      ? ' ' : text[i >> 2];
+
         // Retrieve dimensions from the dictionary.
         // Since we're doing i += 4, the index in the text string
         // would be text[i / 4].
-        rect_t Dim = mp_glyphTextures[text[i >> 2]].dim;
+        rect_t Dim = mp_glyphTextures[letter].dim;
 
         float w = last_w;
         float h = Dim.y;
@@ -219,7 +224,11 @@ math::rect_t CFont::RenderText(const std::string& text,
     // Draw each character with its texture enabled.
     for(size_t i = 0; i < text.length(); ++i)
     {
-        mp_glyphTextures[text[i]].pTexture->Bind();
+        if(text[i] > '~' || text[i] < ' ')
+            mp_glyphTextures[' '].pTexture->Bind();
+        else
+            mp_glyphTextures[text[i]].pTexture->Bind();
+
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT,
             (void*)(sizeof(uint16_t) * i * 6));
     }

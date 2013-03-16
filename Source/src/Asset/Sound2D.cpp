@@ -4,12 +4,12 @@ using namespace ic;
 using asset::CSound2D;
 using util::g_Log;
 
-std::vector<CSound2D*> CSound2D::mp_allSounds;
+std::vector<CSound2D*> CSound2D::s_allSounds;
 
 CSound2D::CSound2D(bool orig) : CAsset(orig), m_buffer(0), m_source(-1),
     m_volume(1.f), m_lasterror(AL_NO_ERROR)
 {
-    CSound2D::mp_allSounds.push_back(this);
+    CSound2D::s_allSounds.push_back(this);
 }
 
 CSound2D::~CSound2D()
@@ -443,6 +443,11 @@ ALuint CSound2D::GetSourceIndex() const
     return m_source;
 }
 
+float asset::CSound2D::GetVolume() const
+{
+    return m_volume;
+}
+
 ALuint CSound2D::GetSource() const
 {
     return (m_source != -1) ? s_sources[m_source] : m_source;
@@ -477,4 +482,9 @@ bool CSound2D::LoadFromFile_WAV(const char* p_filename)
 
     m_filename  = p_filename;
     return true;
+}
+
+const std::string& asset::CSound2D::GetError() const
+{
+    return m_error;
 }

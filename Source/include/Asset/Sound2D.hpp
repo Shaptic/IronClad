@@ -87,7 +87,6 @@ namespace asset
 
         inline void SetVolume(float v)
         {
-            math::clamp<float>(v, 0.f, 1.f);
             m_volume = v;
         }
 
@@ -96,13 +95,21 @@ namespace asset
         ALuint  GetBuffer() const;
         ALuint  GetSource() const;
         ALuint  GetSourceIndex() const;
-        inline const std::string& GetError() const
-        { return m_error; }
+        float   GetVolume() const;
+        const std::string& GetError() const;
 
         /// The CAssetManager is the only thing capable of loading audio.
         friend class CAssetManager;
 
-        static std::vector<asset::CSound2D*> mp_allSounds;
+        static void AdjustVolume(const float dv)
+        {
+            for(size_t i = 0; i < s_allSounds.size(); ++i)
+            {
+                s_allSounds[i]->SetVolume(s_allSounds[i]->GetVolume() + dv);
+            }
+        }
+
+        static std::vector<CSound2D*> s_allSounds;
 
     private:
         /// Constructs an instance of the CSound2D class.

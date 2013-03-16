@@ -23,6 +23,10 @@ bool CEffect::Init(const gfx::EffectType type)
         return m_Effect.LoadFromFile("Shaders/Default.vs",
             "Shaders/Fade.fs");
 
+    case IC_RIPPLE:
+        return m_Effect.LoadFromFile("Shaders/Default.vs",
+            "Shaders/Ripple.fs");
+
     case IC_NO_EFFECT: 
         return m_Effect.LoadFromFile("Shaders/Default.vs",
             "Shaders/Default.fs");

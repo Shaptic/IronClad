@@ -222,6 +222,9 @@ bool CScene::AddMaterialOverlay(gfx::CEffect* pEffect)
     pEffect->SetMatrix("proj", m_Window.GetProjectionMatrix());
     pEffect->Disable();
 
+    // Remove if already existing.
+    this->RemoveEffect(pEffect);
+
     mp_sceneEffects.push_back(pEffect);
     return true;
 }

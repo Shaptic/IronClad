@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5619 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5682 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -98,12 +98,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> <a class="code" href="classic_1_1asset_1_1_c_sound2_d.html">asset::CSound2D</a>;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;std::vector&lt;CSound2D*&gt; CSound2D::mp_allSounds;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;std::vector&lt;CSound2D*&gt; CSound2D::s_allSounds;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;CSound2D::CSound2D(<span class="keywordtype">bool</span> orig) : CAsset(orig), m_buffer(0), m_source(-1),</div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    m_volume(1.f), m_lasterror(AL_NO_ERROR)</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    CSound2D::mp_allSounds.push_back(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    CSound2D::s_allSounds.push_back(<span class="keyword">this</span>);</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;}</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;CSound2D::~CSound2D()</div>
@@ -455,37 +455,47 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keywordflow">return</span> m_source;</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;}</div>
 <div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;ALuint CSound2D::GetSource()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;<span class="keywordtype">float</span> asset::CSound2D::GetVolume()<span class="keyword"> const</span></div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keywordflow">return</span> (m_source != -1) ? <a class="code" href="namespaceic_1_1asset.html#adf260b98bdeef902a2196732c752a6af" title="All of the sources.">s_sources</a>[m_source] : m_source;</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    <span class="keywordflow">return</span> m_volume;</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;}</div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;</div>
-<div class="line"><a name="l00459"></a><span class="lineno"><a class="code" href="classic_1_1asset_1_1_c_sound2_d.html#af5e9628ee61b9ddbdc7c7152ec24c606">  459</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1asset_1_1_c_sound2_d.html#af5e9628ee61b9ddbdc7c7152ec24c606" title="Loads a .wav file.">CSound2D::LoadFromFile_WAV</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* p_filename)</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;{</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    alGenBuffers(1, &amp;m_buffer);</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    m_lasterror = alGetError();</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="keywordflow">if</span>((m_lasterror = alGetError()) != AL_NO_ERROR)</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    {</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;        m_error     = alGetString(m_lasterror);</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    }</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;</div>
-<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    m_buffer = alutCreateBufferFromFile(p_filename);</div>
-<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keywordflow">if</span>(m_buffer == AL_NONE)</div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;    {</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;        m_lasterror = alGetError();</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;        m_error     = alGetString(m_lasterror);</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        alDeleteBuffers(1, &amp;m_buffer);</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    }</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;</div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;    m_filename  = p_filename;</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;}</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;ALuint CSound2D::GetSource()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    <span class="keywordflow">return</span> (m_source != -1) ? <a class="code" href="namespaceic_1_1asset.html#adf260b98bdeef902a2196732c752a6af" title="All of the sources.">s_sources</a>[m_source] : m_source;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;}</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;</div>
+<div class="line"><a name="l00464"></a><span class="lineno"><a class="code" href="classic_1_1asset_1_1_c_sound2_d.html#af5e9628ee61b9ddbdc7c7152ec24c606">  464</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="classic_1_1asset_1_1_c_sound2_d.html#af5e9628ee61b9ddbdc7c7152ec24c606" title="Loads a .wav file.">CSound2D::LoadFromFile_WAV</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* p_filename)</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;{</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    alGenBuffers(1, &amp;m_buffer);</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    m_lasterror = alGetError();</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keywordflow">if</span>((m_lasterror = alGetError()) != AL_NO_ERROR)</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    {</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;        m_error     = alGetString(m_lasterror);</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    }</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;    m_buffer = alutCreateBufferFromFile(p_filename);</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    <span class="keywordflow">if</span>(m_buffer == AL_NONE)</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    {</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;        m_lasterror = alGetError();</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        m_error     = alGetString(m_lasterror);</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        alDeleteBuffers(1, &amp;m_buffer);</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    }</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    m_filename  = p_filename;</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;}</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="keyword">const</span> std::string&amp; asset::CSound2D::GetError()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    <span class="keywordflow">return</span> m_error;</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 8 2013 21:44:14 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Mar 15 2013 17:34:40 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

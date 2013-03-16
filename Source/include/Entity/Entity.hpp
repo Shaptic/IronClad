@@ -152,6 +152,9 @@ namespace obj
         inline bool ToggleRendering()
         { return !(m_render = !m_render); }
 
+        inline void SetRendering(const bool flag)
+        { m_render = flag; }
+
         inline bool IsRenderable() const
         { return m_render; }
 
@@ -166,6 +169,9 @@ namespace obj
 
         inline const math::vector2_t& GetPosition() const
         { return m_Mesh.GetPosition(); }
+
+        inline math::vector2_t GetCenter() const
+        { return math::vector2_t(GetX() + GetW() / 2.f, GetY() + GetH() / 2.f); }
 
         inline float GetX() const 
         { return this->GetPosition().x; }
