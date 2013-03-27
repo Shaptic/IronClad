@@ -59,7 +59,7 @@ namespace obj
 
         CAnimation() : m_last(util::CTimer::GetTimeElapsed()),
             m_delay(1.f), m_loops_done(0) {}
-        ~CAnimation(){}
+        virtual ~CAnimation(){}
 
         /**
          * Load a custom animation file.
@@ -85,7 +85,7 @@ namespace obj
          * @param   AnimationHeader Header containing texture / dimension data
          **/
         void SwapSpriteSheet(const AnimationHeader& Header);
-        void SwapSpriteSheet(CAnimation* pAnimation);
+        void SwapSpriteSheet(const CAnimation* pAnimation);
 
         /**
          * Toggles animation.
@@ -134,6 +134,9 @@ namespace obj
         uint16_t GetAnimationCount() const 
         { return m_SheetDetails.columns; }
 
+        const AnimationHeader& GetHeader() const
+        { return m_SheetDetails; }
+
         AnimationHeader& GetHeader()
         { return m_SheetDetails; }
 
@@ -142,7 +145,7 @@ namespace obj
 
         void SetAnimation(const uint8_t index);
 
-    private:
+    protected:
         AnimationHeader m_SheetDetails;     // Internal sprite sheet details
         uint8_t         m_active;           // Currently active sprite
         float           m_TexcDim;          // Calculated texture width

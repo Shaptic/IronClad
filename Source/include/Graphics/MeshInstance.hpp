@@ -48,6 +48,8 @@ namespace gfx
         CMeshInstance();
         ~CMeshInstance() {}
 
+        CMeshInstance& operator=(const CMeshInstance& Copy);
+
         /**
          * Loads a mesh asset.
          * @param   CMesh*  Mesh to load.

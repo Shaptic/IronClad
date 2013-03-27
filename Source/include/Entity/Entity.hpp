@@ -170,6 +170,9 @@ namespace obj
         inline const math::vector2_t& GetPosition() const
         { return m_Mesh.GetPosition(); }
 
+        inline math::rect_t GetRect() const 
+        { return math::rect_t(GetX(), GetY(), GetW(), GetH()); }
+
         inline math::vector2_t GetCenter() const
         { return math::vector2_t(GetX() + GetW() / 2.f, GetY() + GetH() / 2.f); }
 

@@ -50,15 +50,29 @@
 #include <ctime>
 
 // Include high-level engine interfaces.
+#include "Math/Math.hpp"
+
 #include "Base/Errors.hpp"
+#include "Base/Types.hpp"
+
 #include "Asset/AssetManager.hpp"
+
 #include "Graphics/Globals.hpp"
+#include "Graphics/Effect.hpp"
+#include "Graphics/Light.hpp"
+#include "Graphics/Window.hpp"
 #include "Graphics/Scene.hpp"
+
+#include "Entity/RigidBody.hpp"
 #include "Entity/Animation.hpp"
+#include "Entity/QuadTree.hpp"
+
 #include "Audio/MusicPlayer.hpp"
-#include "Utils/SysEvent.hpp"
-#include "Utils/Timer.hpp"
+#include "Utils/Utilities.hpp"
+
+#include "GUI/Font.hpp"
 #include "GUI/Menu.hpp"
+
 #include "Level.hpp"
 
 namespace ic

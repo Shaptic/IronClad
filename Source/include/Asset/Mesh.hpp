@@ -64,6 +64,17 @@ namespace asset
         CMesh(bool orig=false) : CAsset(orig), m_vcount(0), m_icount(0) {}
         ~CMesh();
 
+        CMesh& operator=(const CMesh& Copy)
+        {
+            for(size_t i = 0; i < Copy.mp_Surfaces.size(); ++i)
+                mp_Surfaces.push_back(Copy.mp_Surfaces[i]);
+
+            m_icount = Copy.m_icount;
+            m_vcount = Copy.m_vcount;
+
+            return (*this);
+        }
+
         /**
          * Loads a mesh from a file.
          *  Mesh files should be structures similar to Wavefront's obj files.

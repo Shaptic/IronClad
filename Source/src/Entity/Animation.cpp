@@ -149,9 +149,10 @@ void CAnimation::SetAnimationRate(const float delta)
 
 void CAnimation::SwapSpriteSheet(const AnimationHeader& Header)
 {
-    //math::vector2_t Pos = m_Mesh.GetPosition();
-    //m_Mesh = *(Header.pMesh);
-    //m_Mesh.Move(Pos);
+    printf("Swapping\n");
+    math::vector2_t Pos = m_Mesh.GetPosition();
+    m_Mesh = *Header.pMesh;
+    m_Mesh.Move(Pos);
     m_Mesh.GetSurfaces()[0]->pMaterial->pTexture = Header.pTexture;
     m_SheetDetails  = Header;
     m_TexcDim       = 1.f / Header.columns;
@@ -164,7 +165,7 @@ void CAnimation::SwapSpriteSheet(const AnimationHeader& Header)
     pShader->Unbind();
 }
 
-void CAnimation::SwapSpriteSheet(CAnimation* pAnimation)
+void CAnimation::SwapSpriteSheet(const CAnimation* pAnimation)
 {
     this->SwapSpriteSheet(pAnimation->GetHeader());
 }
@@ -172,5 +173,5 @@ void CAnimation::SwapSpriteSheet(CAnimation* pAnimation)
 void CAnimation::SetAnimation(const uint8_t index)
 {
     m_active = (math::min<int>(index, this->GetAnimationCount()))-2;
-    this->NextSprite();
+    this->NextSprite(); 
 }

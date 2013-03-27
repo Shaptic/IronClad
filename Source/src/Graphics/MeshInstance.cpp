@@ -10,6 +10,15 @@ CMeshInstance::CMeshInstance() : mp_ActiveMesh(NULL),
     memset(m_degrees, 0, sizeof(m_degrees));
 }
 
+CMeshInstance& CMeshInstance::operator=(const CMeshInstance& Copy)
+{
+    m_Position      = Copy.m_Position;
+    m_Dimensions    = Copy.m_Dimensions;
+    mp_ActiveMesh   = Copy.mp_ActiveMesh;
+
+    return (*this);
+}
+
 bool CMeshInstance::LoadMesh(asset::CMesh* pMesh)
 {
     if(pMesh) mp_ActiveMesh = pMesh;

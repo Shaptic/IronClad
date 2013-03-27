@@ -68,19 +68,32 @@ void CRigidBody::Adjust(const float dx, const float dy)
     m_CollisionBox.y += dy;
 }
 
-void CRigidBody::AddVForce(const float dy)
+void CRigidBody::AddForce(const float force, float dir_angle)
 {
-    m_vert += dy;
-}
+    // Keep within range of [0, 360)
+    while(dir_angle >= 360.f) dir_angle -= 360.f;
+    
+    // Some quick, optimized cases.
+    int quick = (int)dir_angle;
+    
+    if(quick == 90)         m_Force.x += force;
+    else if(quick == 270)   m_Force.x -= force;
+    else if(quick == 0)     m_Force.y -= force;
+    else if(quick == 180)   m_Force.y += force;
 
-void CRigidBody::AddHForce(const float dx)
-{
-    m_horz += dx;
+    else
+    {
+        float r = math::rad(dir_angle);
+
+        // Use trigonometry to determine the force.
+        m_Force.x += sin(r);
+        m_Force.y += cos(r);
+    }
 }
 
 void CRigidBody::Equalize()
 {
-    m_horz = m_vert = 0.f;
+    m_Force = math::vector2_t();
 }
 
 bool CRigidBody::CheckCollision(const CEntity* Other) const
@@ -106,10 +119,16 @@ bool CRigidBody::CheckCollision(const math::vector2_t& Other) const
 
 void CRigidBody::Update()
 {
-    this->Adjust(m_horz, m_vert);
+    m_update = ((int)m_Force.x != 0 || (int)m_Force.y != 0);
+    this->Adjust(m_Force.x, m_Force.y);
 }
 
-math::vector2_t CRigidBody::GetForces() const
+math::vector2_t CRigidBody::GetForces()
 {
-    return math::vector2_t(m_horz, m_vert);
+    return m_Force;
+}
+
+const math::vector2_t& CRigidBody::GetForces() const
+{
+    return m_Force;
 }

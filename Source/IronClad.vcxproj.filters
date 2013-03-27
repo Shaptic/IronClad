@@ -42,30 +42,6 @@
     <Filter Include="Header Files\IronClad\Audio">
       <UniqueIdentifier>{078f20d7-f394-42d2-9f20-639afb4182a2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{b65d3f2a-35d7-4f03-92c6-c31b24ec9b08}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Assets">
-      <UniqueIdentifier>{f13881f9-db15-473c-8b75-865f33698151}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Entities">
-      <UniqueIdentifier>{958fe30d-9224-4351-a48e-c283743ae08f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Graphics">
-      <UniqueIdentifier>{5b25cf83-c601-4c11-8354-cd46f6ee1c8d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Math">
-      <UniqueIdentifier>{301a6693-366a-4fd7-b354-f45c569eadb6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Utilities">
-      <UniqueIdentifier>{ff8153b6-1d0b-4a8f-ad64-58b2662b0633}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\GUI">
-      <UniqueIdentifier>{51b616f4-181f-46fc-9b63-44ba78a25c4f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Audio">
-      <UniqueIdentifier>{a377aefa-6a5a-4b53-910f-4be292c1e8bf}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -197,6 +173,9 @@
     <ClInclude Include="include\Audio\MusicPlayer.hpp">
       <Filter>Header Files\IronClad\Audio</Filter>
     </ClInclude>
+    <ClInclude Include="include\Entity\QuadTree.hpp">
+      <Filter>Header Files\IronClad\Entity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Debug\glfw.ico">
@@ -239,93 +218,6 @@
   <ItemGroup>
     <ClCompile Include="src\DLLMain.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\IronClad.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Level.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asset\AssetManager.cpp">
-      <Filter>Source Files\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asset\Mesh.cpp">
-      <Filter>Source Files\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asset\Shader.cpp">
-      <Filter>Source Files\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asset\Sound2D.cpp">
-      <Filter>Source Files\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Asset\Texture.cpp">
-      <Filter>Source Files\Engine\Assets</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Entity\Animation.cpp">
-      <Filter>Source Files\Engine\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Entity\Entity.cpp">
-      <Filter>Source Files\Engine\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Entity\RigidBody.cpp">
-      <Filter>Source Files\Engine\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Effect.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Framebuffer.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Globals.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Light.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\MeshInstance.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Scene.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\ShaderPair.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\VertexBuffer.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Graphics\Window.cpp">
-      <Filter>Source Files\Engine\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Math\Line2.cpp">
-      <Filter>Source Files\Engine\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Math\Matrix.cpp">
-      <Filter>Source Files\Engine\Math</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utils\Helper.cpp">
-      <Filter>Source Files\Engine\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utils\Loader.cpp">
-      <Filter>Source Files\Engine\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utils\Logging.cpp">
-      <Filter>Source Files\Engine\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Utils\SysEvent.cpp">
-      <Filter>Source Files\Engine\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GUI\Button.cpp">
-      <Filter>Source Files\Engine\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GUI\Font.cpp">
-      <Filter>Source Files\Engine\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GUI\Menu.cpp">
-      <Filter>Source Files\Engine\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Audio\MusicPlayer.cpp">
-      <Filter>Source Files\Engine\Audio</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

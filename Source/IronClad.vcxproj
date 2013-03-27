@@ -99,6 +99,7 @@
     <ClInclude Include="include\Base\Types.hpp" />
     <ClInclude Include="include\Entity\Animation.hpp" />
     <ClInclude Include="include\Entity\Entity.hpp" />
+    <ClInclude Include="include\Entity\QuadTree.hpp" />
     <ClInclude Include="include\Entity\RigidBody.hpp" />
     <ClInclude Include="include\Graphics\Effect.hpp" />
     <ClInclude Include="include\Graphics\Framebuffer.hpp" />
@@ -147,36 +148,7 @@
     <None Include="include\Asset\AssetManager.inl" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Asset\AssetManager.cpp" />
-    <ClCompile Include="src\Asset\Mesh.cpp" />
-    <ClCompile Include="src\Asset\Shader.cpp" />
-    <ClCompile Include="src\Asset\Sound2D.cpp" />
-    <ClCompile Include="src\Asset\Texture.cpp" />
-    <ClCompile Include="src\Audio\MusicPlayer.cpp" />
     <ClCompile Include="src\DLLMain.cpp" />
-    <ClCompile Include="src\Entity\Animation.cpp" />
-    <ClCompile Include="src\Entity\Entity.cpp" />
-    <ClCompile Include="src\Entity\RigidBody.cpp" />
-    <ClCompile Include="src\Graphics\Effect.cpp" />
-    <ClCompile Include="src\Graphics\Framebuffer.cpp" />
-    <ClCompile Include="src\Graphics\Globals.cpp" />
-    <ClCompile Include="src\Graphics\Light.cpp" />
-    <ClCompile Include="src\Graphics\MeshInstance.cpp" />
-    <ClCompile Include="src\Graphics\Scene.cpp" />
-    <ClCompile Include="src\Graphics\ShaderPair.cpp" />
-    <ClCompile Include="src\Graphics\VertexBuffer.cpp" />
-    <ClCompile Include="src\Graphics\Window.cpp" />
-    <ClCompile Include="src\GUI\Button.cpp" />
-    <ClCompile Include="src\GUI\Font.cpp" />
-    <ClCompile Include="src\GUI\Menu.cpp" />
-    <ClCompile Include="src\IronClad.cpp" />
-    <ClCompile Include="src\Level.cpp" />
-    <ClCompile Include="src\Math\Line2.cpp" />
-    <ClCompile Include="src\Math\Matrix.cpp" />
-    <ClCompile Include="src\Utils\Helper.cpp" />
-    <ClCompile Include="src\Utils\Loader.cpp" />
-    <ClCompile Include="src\Utils\Logging.cpp" />
-    <ClCompile Include="src\Utils\SysEvent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
