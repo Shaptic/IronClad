@@ -2,6 +2,7 @@
 
 using namespace ic;
 using util::g_Log;
+using asset::CAssetManager;
 using gui::CFont;
 
 FT_Library CFont::s_Library;
@@ -22,7 +23,7 @@ CFont::~CFont() {}
 
 bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
 {
-    m_FontRender.Init(gfx::IC_GRAYSCALE);
+    if(!m_FontRender.Init(gfx::IC_GRAYSCALE)) return false;
 
     // Set the matrices in the rendering shader.
     m_FontRender.Enable();
@@ -30,7 +31,8 @@ bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
     m_FontRender.SetMatrix("proj", gfx::CWindow::GetProjectionMatrix());
     m_FontRender.Disable();
 
-    m_Cache.Init();
+    (!m_Cache.GetVBO()) ? m_Cache.Init() : m_Cache.Clear();
+    if(!m_VBO.GetVBO()) m_VBO.Init();
 
     g_Log.Flush();
     g_Log << "[INFO] Loading font:      " << filename << "\n";
@@ -90,20 +92,16 @@ bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
 
         // We need to copy the data over to a new buffer in order
         // to properly pass it to the GPU.
-        unsigned char* data = new unsigned char[w * h];
-        memset(data, NULL, w * h *  sizeof(unsigned char));
-        memcpy(data, bitmap.buffer, sizeof(unsigned char) * w * h);
 
         // Alignment for pixels needs to be at 1 byte.
         glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-        pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, data);
+        pTexture->LoadFromRaw(GL_R8, GL_RED, w, h, bitmap.buffer);
 
         // Restore default alignment value. I haven't actually tested this
         // part so it may or may not actually be the default.
         glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
 
-        // Delete bitmap buffers        
-        delete[] data;
+        // Delete bitmap buffers
         FT_Done_Glyph(glyph);
 
         Glyph render_glyph;
@@ -123,9 +121,6 @@ bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
 math::rect_t CFont::RenderText(const std::string& text,
                                const math::vector2_t& Pos)
 {
-    // VBO that will contain our text vertex data.
-    gfx::CVertexBuffer VBO;
-
     // Track total text size.
     math::rect_t Size(Pos.x, Pos.y, 0, 0);
 
@@ -211,12 +206,17 @@ math::rect_t CFont::RenderText(const std::string& text,
 
     // Enable font-rendering shader.
     m_FontRender.Enable();
-    
+
+    // Clear the GPU buffers from the last render.
+    // The handle remains valid for the next time around, of course.
+    // If the m_VBO was local in scope, this would cause an immense amount
+    // of lag after a while.
+    m_VBO.Clear();
+
     // Give data to GPU.
-    VBO.Init();
-    VBO.AddData(verts, vlen, inds, ilen);
-    VBO.FinalizeBuffer();
-    VBO.Bind();
+    m_VBO.AddData(verts, vlen, inds, ilen);
+    m_VBO.FinalizeBuffer();
+    m_VBO.Bind();
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -234,13 +234,10 @@ math::rect_t CFont::RenderText(const std::string& text,
     }
 
     glDisable(GL_BLEND);
-    
-    // Delete GPU buffers.
-    VBO.Clear();
 
     // Unbind all the things.
-    glBindTexture(GL_TEXTURE_2D, 0);    
-    VBO.Unbind();
+    glBindTexture(GL_TEXTURE_2D, 0);
+    m_VBO.Unbind();
     m_FontRender.Disable();
 
     // Delete old buffers in RAM.
@@ -273,7 +270,7 @@ math::rect_t CFont::RenderCached()
     glDisable(GL_BLEND);
 
     // Unbind all the things.
-    glBindTexture(GL_TEXTURE_2D, 0);    
+    glBindTexture(GL_TEXTURE_2D, 0);
     m_Cache.Unbind();
     m_FontRender.Disable();
 
@@ -366,7 +363,7 @@ math::rect_t CFont::CacheText(const std::string& text,
     m_CacheSize.h = max_h;
 
     // Give data to GPU.
-    if(!m_Cache.Init()) printf("FUCK.\n");
+    m_Cache.Clear();
     m_Cache.AddData(verts, vlen, inds, ilen);
     m_Cache.FinalizeBuffer();
 

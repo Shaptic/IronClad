@@ -167,6 +167,12 @@ namespace math
         { return vector2_t(x - Other.x, y - Other.y); }
 
         /**
+         * For outputting.
+         **/
+        inline std::ostream& operator<<(std::ostream& out)
+        { return (out << "<" << x << ", " << y << ")"); }
+
+        /**
          * Normalizes the current vector.
          *  This *DOES* modify the current vector, and makes it into
          *  a unit vector version of itself.
@@ -231,11 +237,14 @@ namespace math
          *  This value can be used to determine which side of a vector
          *  another vector is on. If the return value is negative, the
          *  "Other" vector is on the left (going ccw). If positive,
-         *  the vector is on the right (going c/w).
+         *  it's on the right (going c/w). This can also be done by
+         *  examining the dot product.
          *
          * @param   vector2_t&  Vector to test x-product on
          *
          * @return  2D cross product (z-component of 3D cross).
+         * 
+         * @see     vector2_t::operator*(const vector2_t&)
          **/
         inline float Cross2D(const vector2_t& Other) const
         { return (x * Other.y) - (y * Other.x); }

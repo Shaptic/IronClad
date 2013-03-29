@@ -42,6 +42,8 @@ namespace asset
     public:
         ~CTexture();
 
+        CTexture& operator=(const CTexture& Copy);
+
         /**
          * Loads a texture from a file.
          * @param   char*   Texture filename
@@ -76,13 +78,13 @@ namespace asset
         inline void Unbind()
         { glBindTexture(GL_TEXTURE_2D, 0); }
 
-        inline uint32_t GetTextureID()
+        inline uint32_t GetTextureID() const 
         { return m_texture; }
 
-        inline uint32_t GetW()
+        inline uint32_t GetW() const
         { return m_width; }
 
-        inline uint32_t GetH()
+        inline uint32_t GetH() const
         { return m_height; }
 
         /**
@@ -94,12 +96,11 @@ namespace asset
         CTexture(bool orig=false) : CAsset(orig), m_width(0), m_height(0),
             m_texture(0) {}
         CTexture(const CTexture& Copy);
-        CTexture& operator= (const CTexture& Copy);
 
         void Release();
 
         uint32_t m_texture;
-        int m_width, m_height;        
+        int m_width, m_height;
     };
 
 }   // namespace asset

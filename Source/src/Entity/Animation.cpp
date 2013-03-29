@@ -122,6 +122,8 @@ bool CAnimation::NextSprite()
     //util::g_Log.PrintLastLog();
 #endif // _DEBUG
 
+    printf("Sprite index: %d\n", m_active);
+
     // Adjust for current texture
     gfx::CShaderPair* pShader = m_Mesh.GetSurfaces()[0]->pMaterial->pShader;
     pShader->Bind();
@@ -149,10 +151,15 @@ void CAnimation::SetAnimationRate(const float delta)
 
 void CAnimation::SwapSpriteSheet(const AnimationHeader& Header)
 {
-    printf("Swapping\n");
+    // For physical objects, there's glitches when switching animations,
+    // since the object is now in a different position than it was before,
+    // so we have to account for that different and adjust the mesh
+    // accordingly.
     math::vector2_t Pos = m_Mesh.GetPosition();
+    math::vector2_t Dim = m_Mesh.GetDimensions();
+
     m_Mesh = *Header.pMesh;
-    m_Mesh.Move(Pos);
+    m_Mesh.Move(Pos + (Dim - m_Mesh.GetDimensions()));
     m_Mesh.GetSurfaces()[0]->pMaterial->pTexture = Header.pTexture;
     m_SheetDetails  = Header;
     m_TexcDim       = 1.f / Header.columns;

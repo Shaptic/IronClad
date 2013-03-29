@@ -139,6 +139,21 @@ namespace math
     }
 
     /**
+     * Determines if a value is in a certain range.
+     * 
+     * @param   T&  Numeric type to test range on
+     * @param   T   Min range (inclusive)
+     * @param   T   Max range (inclusive)
+     * 
+     * @return  TRUE if val | [min, max], FALSE otherwise.
+     **/
+    template<typename T>
+    bool in_range(const T& val, const T& minimum, const T& maximum)
+    {
+        return (val >= minimum && val <= maximum);
+    }
+
+    /**
      * Returns a value that is 'percent' of the way between Start and End/
      *  'percent' is clamped to [0, 1]. T can be any type that supports
      *  addition, subtraction, and scalar multiplication operations, such

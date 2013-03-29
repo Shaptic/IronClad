@@ -45,6 +45,24 @@ bool QTNode::AddObject(obj::CRigidBody* pBody, const bool force)
     return true;
 }
 
+bool QTNode::RemoveObject(obj::CRigidBody* pBody)
+{
+    for(QTNode::QTListIt_t i = mp_nodeObjects.begin();
+        i != mp_nodeObjects.end(); ++i)
+    {
+        if(*i == pBody)
+        {
+            mp_nodeObjects.erase(i);
+            return true;
+        }
+        
+        ++i;
+    }
+
+    return false;
+}
+
+
 void QTNode::Split()
 {
     // I feel so bad :(
@@ -185,7 +203,6 @@ const std::list<obj::CRigidBody*>& QTNode::GetObjects() const
 CQuadTree::CQuadTree(const uint16_t w, const uint16_t h) : m_Root(0)
 {
     m_Root.m_Rect = math::rect_t(0, 0, w, h);
-    m_Root.Split();
 }
 
 #ifdef _DEBUG
@@ -201,12 +218,13 @@ void CQuadTree::Update()
     {
         if(mp_allBodies[i]->NeedsUpdate())
         {
-            // This shouldn't be 'false,' but just in case it is, we try
-            // one more time using the root node for finding a place.
-            if(!RInsert(mp_allBodies[i], mp_allBodies[i]->pNode->mp_Parent))
-            {
-                RInsert(mp_allBodies[i], &m_Root);
-            }
+            RRemove(mp_allBodies[i], mp_allBodies[i]->pNode);
+            RInsert(mp_allBodies[i],
+                (mp_allBodies[i]->pNode->mp_Parent == NULL) ? 
+                 mp_allBodies[i]->pNode : 
+                 mp_allBodies[i]->pNode->mp_Parent);
+
+            mp_allBodies[i]->m_update = false;
         }
     }
 }
@@ -227,6 +245,7 @@ bool CQuadTree::RInsert(obj::CRigidBody* pBody, QTNode* pStart)
             if(!pStart->CanSplit(QT_MAX_DEPTH))
             {
                 pStart->AddObject(pBody, true);
+                pBody->pNode = pStart;
                 return true;
             }
 
@@ -255,7 +274,11 @@ bool CQuadTree::RInsert(obj::CRigidBody* pBody, QTNode* pStart)
     // This shit shouldn't happen, unless called by Update().
     // If it does, though, we go up the tree to the root (makes sense lol),
     // to find a node that we can fit in.
-    return RInsert(pBody, pStart->mp_Parent);
+
+    // Return false if we've reached the root node and
+    // still can't insert.
+    return (pStart->mp_Parent == NULL) ? false :
+            RInsert(pBody, pStart->mp_Parent);
 }
 
 obj::CRigidBody* CQuadTree::CheckLeaf(const obj::CRigidBody* pBody,
@@ -275,7 +298,7 @@ obj::CRigidBody* CQuadTree::CheckLeaf(const obj::CRigidBody* pBody,
         for(size_t i = 0; i < QTNode::s_SPLIT_SIZE; ++i)
         {
             obj::CRigidBody* pResult = this->CheckLeaf(pBody,
-                pStart->operator[](i));
+                                                       pStart->operator[](i));
             
             if(pResult != NULL) return pResult;
         }
@@ -286,6 +309,19 @@ obj::CRigidBody* CQuadTree::CheckLeaf(const obj::CRigidBody* pBody,
 
 bool CQuadTree::RRemove(obj::CRigidBody* pBody, QTNode* pStart)
 {
+    if(pStart->IsLeaf())
+    {
+        return pStart->RemoveObject(pBody);
+    }
+
+    else
+    {
+        for(size_t i = 0; i < QTNode::s_SPLIT_SIZE; ++i)
+        {
+            if(this->RRemove(pBody, pStart->operator[](i))) return true;
+        }
+    }
+
     return false;
 }
 

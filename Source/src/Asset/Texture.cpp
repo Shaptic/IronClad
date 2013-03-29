@@ -9,6 +9,15 @@ CTexture::~CTexture()
     this->Release();
 }
 
+CTexture& CTexture::operator=(const CTexture& Copy)
+{
+    m_texture   = Copy.GetTextureID();
+    m_height    = Copy.GetH();
+    m_width     = Copy.GetW();
+
+    return (*this);
+}
+
 bool CTexture::LoadFromFile(const std::string& filename)
 {
     return CTexture::LoadFromFile(filename.c_str());

@@ -15,18 +15,24 @@ bool CLight::Init(const gfx::LightType type, const gfx::CWindow& Window)
         break;
 
     case IC_DIRECTIONAL_LIGHT:
-        success = m_Shader.LoadFromFile("Shaders/DirLight.vs",
-            "Shaders/DirLight.fs");
+        success = m_Shader.LoadFromFile("Shaders/Default.vs",
+            "Shaders/DirectionalLight.fs");
         break;
 
-    case IC_NO_LIGHT: default: break;
+    case IC_AMBIENT_LIGHT:
+        success = m_Shader.LoadFromFile("Shaders/Default.vs",
+            "Shaders/AmbientLight.fs");
+        break;
+
+    case IC_NO_LIGHT: default: return false;
     }
 
     m_brtloc    = m_Shader.GetUniformLocation("light_brt");
-    m_thetaloc  = m_Shader.GetUniformLocation("light_ang");
     m_colloc    = m_Shader.GetUniformLocation("light_col");
     m_posloc    = m_Shader.GetUniformLocation("light_pos");
     m_attloc    = m_Shader.GetUniformLocation("light_att");
+    m_maxloc    = m_Shader.GetUniformLocation("light_max");
+    m_minloc    = m_Shader.GetUniformLocation("light_min");
 
     int scrloc  = m_Shader.GetUniformLocation("scr_height");
     int mvloc   = m_Shader.GetUniformLocation("mv");
@@ -38,6 +44,8 @@ bool CLight::Init(const gfx::LightType type, const gfx::CWindow& Window)
     glUniformMatrix4fv(projloc, 1, GL_TRUE, Window.GetProjectionMatrix());
     m_Shader.Unbind();
 
+    m_type = type;
+
     return success;
 }
 
@@ -45,12 +53,6 @@ void CLight::SetBrightness(const float value)
 {
     m_brt = value;
     glUniform1f(m_brtloc, value);
-}
-
-void CLight::SetAngle(const float degrees)
-{
-    m_theta = degrees;
-    glUniform1f(m_thetaloc, degrees);
 }
 
 void CLight::SetColor(const float r, const float g, const float b)
@@ -105,3 +107,18 @@ void CLight::Disable()
     m_Shader.Unbind();
 }
 
+void CLight::SetMaximumAngle(const float degrees)
+{
+    m_Max = math::vector2_t(1, 0);
+    m_Max.Rotate(math::rad(degrees));
+
+    glUniform2f(m_maxloc, m_Max.x, m_Max.y);
+}
+
+void CLight::SetMinimumAngle(const float degrees)
+{
+    m_Min = math::vector2_t(1, 0);
+    m_Min.Rotate(math::rad(degrees));
+
+    glUniform2f(m_minloc, m_Min.x, m_Min.y);
+}

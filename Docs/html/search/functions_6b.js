@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kernadvance',['KernAdvance',['../class_f_t_face.html#af57bd3a3122e0e54acb04b348380ed7e',1,'FTFace']]]
+  ['killchildren',['KillChildren',['../classic_1_1_q_t_node.html#af0307ad56974dcfb97fbbc3f6aa91074',1,'ic::QTNode']]]
 ];

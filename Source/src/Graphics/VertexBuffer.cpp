@@ -1,6 +1,7 @@
 #include "Graphics/VertexBuffer.hpp"
 
 using namespace ic;
+using util::g_Log;
 using gfx::CVertexBuffer;
 
 CVertexBuffer::CVertexBuffer() : m_vertex_count(0), m_index_count(0),
@@ -22,6 +23,35 @@ CVertexBuffer::CVertexBuffer() : m_vertex_count(0), m_index_count(0),
 }
 
 CVertexBuffer::~CVertexBuffer()
+{
+#ifdef _DEBUG
+    g_Log.Flush();
+    g_Log << "[DEBUG] GFX: Deleting vertex buffer.\n";
+    g_Log.PrintLastLog();
+#endif // _DEBUG
+
+    this->Release();
+}
+
+bool CVertexBuffer::Init()
+{
+    // Create the buffers.
+    if(!glGenVertexArrays) return false;
+
+    glGenVertexArrays(1, &m_vao);
+    glGenBuffers(1, &m_vbo);
+    glGenBuffers(1, &m_ibo);
+
+#ifdef _DEBUG
+    g_Log.Flush();
+    g_Log << "[DEBUG] GFX: Created vertex buffer.\n";
+    g_Log.PrintLastLog();
+#endif // _DEBUG
+
+    return ((m_last_error = glGetError()) == GL_NO_ERROR);
+}
+
+void ic::gfx::CVertexBuffer::Release()
 {
     this->Unbind();
     glDeleteVertexArrays(1, &m_vao);
@@ -211,24 +241,12 @@ void CVertexBuffer::Clear()
 {
     if(!this->Bind()) return;
 
-    glBufferData(GL_ARRAY_BUFFER, 0, NULL, GL_STATIC_DRAW);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0, NULL, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, 0, NULL, m_bo_type);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, 0, NULL, m_bo_type);
     
     m_vertex_count = m_index_count = 0;
     m_vertexBuffer.clear();
     m_indexBuffer.clear();
     
     this->Unbind();
-}
-
-bool CVertexBuffer::Init()
-{
-    // Create the buffers.
-    if(!glGenVertexArrays) return false;
-
-    glGenVertexArrays(1, &m_vao);
-    glGenBuffers(1, &m_vbo);
-    glGenBuffers(1, &m_ibo);
-
-    return ((m_last_error = glGetError()) == GL_NO_ERROR);
 }

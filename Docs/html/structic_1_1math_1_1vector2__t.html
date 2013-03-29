@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5682 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6112 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -134,6 +134,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3ce26d77c70e2444c87addf2e506045c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a value to both components of the current vector.  <a href="#a3ce26d77c70e2444c87addf2e506045c"></a><br/></td></tr>
 <tr class="memitem:a9c608fb4ed009ca1e9df66ff7973b8a7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structic_1_1math_1_1vector2__t.html">vector2_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structic_1_1math_1_1vector2__t.html#a9c608fb4ed009ca1e9df66ff7973b8a7">operator-</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">vector2_t</a> &amp;Other) const </td></tr>
 <tr class="memdesc:a9c608fb4ed009ca1e9df66ff7973b8a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtracts a given vector from the current vector, returning the result.  <a href="#a9c608fb4ed009ca1e9df66ff7973b8a7"></a><br/></td></tr>
+<tr class="memitem:a2609dfb452e64641409782fc9a146f28"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2609dfb452e64641409782fc9a146f28"></a>
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structic_1_1math_1_1vector2__t.html#a2609dfb452e64641409782fc9a146f28">operator&lt;&lt;</a> (std::ostream &amp;out)</td></tr>
+<tr class="memdesc:a2609dfb452e64641409782fc9a146f28"><td class="mdescLeft">&#160;</td><td class="mdescRight">For outputting. <br/></td></tr>
 <tr class="memitem:a67721e92250fd9915bd2a6ac82200e11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structic_1_1math_1_1vector2__t.html#a67721e92250fd9915bd2a6ac82200e11">Normalize</a> ()</td></tr>
 <tr class="memdesc:a67721e92250fd9915bd2a6ac82200e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes the current vector.  <a href="#a67721e92250fd9915bd2a6ac82200e11"></a><br/></td></tr>
 <tr class="memitem:af8f0242d5f511068d75489439d9e66e2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structic_1_1math_1_1vector2__t.html#af8f0242d5f511068d75489439d9e66e2">Magnitude</a> () const </td></tr>
@@ -264,16 +267,17 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Given a vector v = &lt;x1, y1&gt; and a vector w = &lt;x2, y2&gt;, their cross-product is determined as &lt;0, 0, x1*y2 - y1*x2&gt;. So, this method returns the third component.</p>
-<p>This value can be used to determine which side of a vector another vector is on. If the return value is negative, the "Other" vector is on the left (going ccw). If positive, the vector is on the right (going c/w).</p>
+<p>This value can be used to determine which side of a vector another vector is on. If the return value is negative, the "Other" vector is on the left (going ccw). If positive, it's on the right (going c/w). This can also be done by examining the dot product.</p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramname">vector2_t&amp;</td><td>Vector to test x-product on</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>2D cross product (z-component of 3D cross). </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>2D cross product (z-component of 3D cross).</dd></dl>
+<dl class="section see"><dt>See also:</dt><dd>vector2_t::operator*(const vector2_t&amp;) </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00240">240</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00249">249</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
 
 </div>
 </div>
@@ -299,7 +303,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 </div><div class="memdoc">
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="structic_1_1math_1_1vector2__t.html#a67721e92250fd9915bd2a6ac82200e11" title="Normalizes the current vector.">vector2_t::Normalize()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00258">258</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00267">267</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
 
 </div>
 </div>
@@ -325,7 +329,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns:</dt><dd>The magnitude. </dd></dl>
 
-<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00185">185</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00191">191</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
 
 </div>
 </div>
@@ -351,7 +355,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 </div><div class="memdoc">
 <p>This <em>DOES</em> modify the current vector, and makes it into a unit vector version of itself. </p>
 
-<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00174">174</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00180">180</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
 
 </div>
 </div>
@@ -748,7 +752,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 </dl>
 <p>The coordinate system adjustment was removed. </p>
 
-<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00209">209</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_vector2_8hpp_source.html#l00215">215</a> of file <a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>.</p>
 
 </div>
 </div>
@@ -780,7 +784,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>y</b></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 15 2013 17:34:40 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 28 2013 19:37:34 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

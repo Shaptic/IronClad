@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5682 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6112 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -216,62 +216,70 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="comment">//util::g_Log.PrintLastLog();</span></div>
 <div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif // _DEBUG</span></div>
 <div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="comment">// Adjust for current texture</span></div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a>* pShader = m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pShader;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    pShader-&gt;Bind();</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    glUniform2f(m_tc_str, m_active * m_TexcDim, m_active);</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    pShader-&gt;Unbind();</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">return</span> (m_active &gt; 0);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;</div>
-<div class="line"><a name="l00134"></a><span class="lineno"><a class="code" href="classic_1_1obj_1_1_c_animation.html#a2d282321233f293a7e7fd780eac52236">  134</a></span>&#160;<span class="keywordtype">void</span> CAnimation::Update()</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;{</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    CRigidBody::Update();</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classic_1_1util_1_1_c_timer.html#aabd49eb265d8fa342e6cd924f246b564" title="Retrieves the amount of time (in sec) since the program started.">util::CTimer::GetTimeElapsed</a>() - m_last &gt;= m_delay &amp;&amp; m_enabled)</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        this-&gt;NextSprite();</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        m_last = <a class="code" href="classic_1_1util_1_1_c_timer.html#aabd49eb265d8fa342e6cd924f246b564" title="Retrieves the amount of time (in sec) since the program started.">util::CTimer::GetTimeElapsed</a>();</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    }</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;}</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;</div>
-<div class="line"><a name="l00145"></a><span class="lineno"><a class="code" href="classic_1_1obj_1_1_c_animation.html#ab723bed1244bc591b9ed155ce7450182">  145</a></span>&#160;<span class="keywordtype">void</span> CAnimation::SetAnimationRate(<span class="keyword">const</span> <span class="keywordtype">float</span> delta)</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    m_delay = delta;</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;</div>
-<div class="line"><a name="l00150"></a><span class="lineno"><a class="code" href="classic_1_1obj_1_1_c_animation.html#a3834dc1a95c39be71ef1b0250524f6f4">  150</a></span>&#160;<span class="keywordtype">void</span> CAnimation::SwapSpriteSheet(<span class="keyword">const</span> <a class="code" href="structic_1_1obj_1_1_c_animation_1_1_animation_header.html">AnimationHeader</a>&amp; Header)</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;{</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="comment">//math::vector2_t Pos = m_Mesh.GetPosition();</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">//m_Mesh = *(Header.pMesh);</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="comment">//m_Mesh.Move(Pos);</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pTexture = Header.pTexture;</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    m_SheetDetails  = Header;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    m_TexcDim       = 1.f / Header.columns;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    m_loops_done    = 0;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="comment">// Adjust for new texture dimensions.</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a>* pShader = m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pShader;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    pShader-&gt;Bind();</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    glUniform1f(m_tc_loc, m_TexcDim);</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    pShader-&gt;Unbind();</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;}</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keywordtype">void</span> CAnimation::SwapSpriteSheet(<a class="code" href="classic_1_1obj_1_1_c_animation.html" title="An animate-able extension of the obj::CEntity class.">CAnimation</a>* pAnimation)</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;{</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    this-&gt;SwapSpriteSheet(pAnimation-&gt;GetHeader());</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;}</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keywordtype">void</span> CAnimation::SetAnimation(<span class="keyword">const</span> uint8_t index)</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;{</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    m_active = (math::min&lt;int&gt;(index, this-&gt;GetAnimationCount()))-2;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    this-&gt;NextSprite();</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    printf(<span class="stringliteral">&quot;Sprite index: %d\n&quot;</span>, m_active);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="comment">// Adjust for current texture</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a>* pShader = m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pShader;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    pShader-&gt;Bind();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    glUniform2f(m_tc_str, m_active * m_TexcDim, m_active);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    pShader-&gt;Unbind();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">return</span> (m_active &gt; 0);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="code" href="classic_1_1obj_1_1_c_animation.html#a2d282321233f293a7e7fd780eac52236">  136</a></span>&#160;<span class="keywordtype">void</span> CAnimation::Update()</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;{</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    CRigidBody::Update();</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="classic_1_1util_1_1_c_timer.html#aabd49eb265d8fa342e6cd924f246b564" title="Retrieves the amount of time (in sec) since the program started.">util::CTimer::GetTimeElapsed</a>() - m_last &gt;= m_delay &amp;&amp; m_enabled)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        this-&gt;NextSprite();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        m_last = <a class="code" href="classic_1_1util_1_1_c_timer.html#aabd49eb265d8fa342e6cd924f246b564" title="Retrieves the amount of time (in sec) since the program started.">util::CTimer::GetTimeElapsed</a>();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;}</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="code" href="classic_1_1obj_1_1_c_animation.html#ab723bed1244bc591b9ed155ce7450182">  147</a></span>&#160;<span class="keywordtype">void</span> CAnimation::SetAnimationRate(<span class="keyword">const</span> <span class="keywordtype">float</span> delta)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    m_delay = delta;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;}</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="code" href="classic_1_1obj_1_1_c_animation.html#a3834dc1a95c39be71ef1b0250524f6f4">  152</a></span>&#160;<span class="keywordtype">void</span> CAnimation::SwapSpriteSheet(<span class="keyword">const</span> <a class="code" href="structic_1_1obj_1_1_c_animation_1_1_animation_header.html">AnimationHeader</a>&amp; Header)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="comment">// For physical objects, there&#39;s glitches when switching animations,</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="comment">// since the object is now in a different position than it was before,</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="comment">// so we have to account for that different and adjust the mesh</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="comment">// accordingly.</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a> Pos = m_Mesh.GetPosition();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a> Dim = m_Mesh.GetDimensions();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    m_Mesh = *Header.pMesh;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    m_Mesh.<a class="code" href="classic_1_1gfx_1_1_c_mesh_instance.html#a157782718dad5b6a5d4a96fc20e28e23" title="Moves the mesh instance.">Move</a>(Pos + (Dim - m_Mesh.GetDimensions()));</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pTexture = Header.pTexture;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    m_SheetDetails  = Header;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    m_TexcDim       = 1.f / Header.columns;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    m_loops_done    = 0;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="comment">// Adjust for new texture dimensions.</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <a class="code" href="classic_1_1gfx_1_1_c_shader_pair.html" title="An OpenGL shader wrapper class.">gfx::CShaderPair</a>* pShader = m_Mesh.GetSurfaces()[0]-&gt;pMaterial-&gt;pShader;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    pShader-&gt;Bind();</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    glUniform1f(m_tc_loc, m_TexcDim);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    pShader-&gt;Unbind();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;}</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keywordtype">void</span> CAnimation::SwapSpriteSheet(<span class="keyword">const</span> <a class="code" href="classic_1_1obj_1_1_c_animation.html" title="An animate-able extension of the obj::CEntity class.">CAnimation</a>* pAnimation)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;{</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    this-&gt;SwapSpriteSheet(pAnimation-&gt;GetHeader());</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">void</span> CAnimation::SetAnimation(<span class="keyword">const</span> uint8_t index)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;{</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    m_active = (math::min&lt;int&gt;(index, this-&gt;GetAnimationCount()))-2;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    this-&gt;NextSprite(); </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 15 2013 17:34:40 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 28 2013 19:37:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

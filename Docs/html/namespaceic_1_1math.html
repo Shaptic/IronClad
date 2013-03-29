@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5682 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6112 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -132,6 +132,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="names
 <tr class="memitem:a9f9bc597e543eec030e178f1dca268ca"><td class="memTemplParams" colspan="2"><a class="anchor" id="a9f9bc597e543eec030e178f1dca268ca"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a9f9bc597e543eec030e178f1dca268ca"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>clamp</b> (const T &amp;val, const T &amp;minimum, const T &amp;maximum)</td></tr>
+<tr class="memitem:aaeadc2a4365c93533b1aeacfbbe1ec1a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aaeadc2a4365c93533b1aeacfbbe1ec1a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceic_1_1math.html#aaeadc2a4365c93533b1aeacfbbe1ec1a">in_range</a> (const T &amp;val, const T &amp;minimum, const T &amp;maximum)</td></tr>
+<tr class="memdesc:aaeadc2a4365c93533b1aeacfbbe1ec1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines if a value is in a certain range.  <a href="#aaeadc2a4365c93533b1aeacfbbe1ec1a"></a><br/></td></tr>
 <tr class="memitem:abed31aa58448267599776dd0ce84f232"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:abed31aa58448267599776dd0ce84f232"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceic_1_1math.html#abed31aa58448267599776dd0ce84f232">lerp</a> (const T &amp;Start, const T &amp;End, float percent)</td></tr>
 <tr class="memdesc:abed31aa58448267599776dd0ce84f232"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a value that is 'percent' of the way between Start and End/ 'percent' is clamped to [0, 1].  <a href="#abed31aa58448267599776dd0ce84f232"></a><br/></td></tr>
@@ -298,6 +301,51 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="aaeadc2a4365c93533b1aeacfbbe1ec1a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ic::math::in_range </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>minimum</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>maximum</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">T&amp;</td><td>Numeric type to test range on </td></tr>
+    <tr><td class="paramname">T</td><td>Min range (inclusive) </td></tr>
+    <tr><td class="paramname">T</td><td>Max range (inclusive)</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>TRUE if val | [min, max], FALSE otherwise. </dd></dl>
+
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00151">151</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="abed31aa58448267599776dd0ce84f232"></a>
 <div class="memitem">
 <div class="memproto">
@@ -340,7 +388,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Value between start and ending values. </dd></dl>
 
-<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00154">154</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00169">169</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
 
 </div>
 </div>
@@ -379,7 +427,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Max of value one and two. </dd></dl>
 
-<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00178">178</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00193">193</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
 
 </div>
 </div>
@@ -418,7 +466,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Min of value one and two. </dd></dl>
 
-<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00193">193</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_math_def_8hpp_source.html#l00208">208</a> of file <a class="el" href="_math_def_8hpp_source.html">MathDef.hpp</a>.</p>
 
 </div>
 </div>
@@ -527,7 +575,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 15 2013 17:34:40 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 28 2013 19:37:34 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

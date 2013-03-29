@@ -1,6 +1,6 @@
 /**
  * @file
- *	Entity/RigidBody.hpp - The basic physics-controlled entity in the game world.
+ *  Entity/RigidBody.hpp - The basic physics-controlled entity in the game world.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.1.5
@@ -34,7 +34,7 @@ namespace obj
     class IRONCLAD_API CRigidBody : public CEntity
     {
     public:
-        CRigidBody() : pNode(NULL) {}
+        CRigidBody() : pNode(NULL), m_update(false) {}
         ~CRigidBody(){}
 
         bool LoadFromFile(const char* pmesh_filename,

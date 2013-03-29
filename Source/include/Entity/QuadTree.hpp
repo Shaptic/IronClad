@@ -30,6 +30,9 @@ namespace ic
 {
     class QTNode
     {
+        typedef std::list<obj::CRigidBody*>::iterator       QTListIt_t;
+        typedef std::list<obj::CRigidBody*>::const_iterator QTListCIt_t;
+
     public:
         /**
          * Creates a node at a given depth. The root node is depth 0.
@@ -67,6 +70,16 @@ namespace ic
          * @see QTNode::SetMax()
          **/
         bool AddObject(obj::CRigidBody* pBody, const bool force = false);
+
+        /**
+         * Removes an existing object from the current node.
+         * 
+         * @param   obj::CRigidBody*    The object to remove
+         * 
+         * @return  TRUE if it was removed successfully, 
+         *          FALSE if the object doesn't exist.
+         **/
+        bool RemoveObject(obj::CRigidBody* pBody);
 
         /**
          * Splits the node into 4 (default) sub-nodes.
@@ -144,9 +157,6 @@ namespace ic
         static const uint8_t s_SPLIT_SIZE = 4;
 
     private:
-        typedef std::list<obj::CRigidBody*>::iterator       QTListIt_t;
-        typedef std::list<obj::CRigidBody*>::const_iterator QTListCIt_t;
-
         math::rect_t m_Rect;
         
         QTNode* mp_Parent;
@@ -176,10 +186,8 @@ namespace ic
         inline bool Remove(obj::CRigidBody* pBody)
         { return this->RRemove(pBody, &m_Root); }
 
-        obj::CRigidBody* Collides(const obj::CRigidBody* pBody) const
-        {
-            return this->CheckLeaf(pBody, &m_Root);
-        }
+        inline obj::CRigidBody* Collides(const obj::CRigidBody* pBody) const
+        { return this->CheckLeaf(pBody, &m_Root); }
 
         void Update();
 
@@ -196,7 +204,7 @@ namespace ic
         bool RInsert(obj::CRigidBody* pBody, QTNode* pStart);
         bool RRemove(obj::CRigidBody* pBody, QTNode* pStart);
         obj::CRigidBody* CheckLeaf(const obj::CRigidBody* pBody,
-                                       const QTNode* pStart) const;
+                                   const QTNode* pStart) const;
 
 #ifdef _DEBUG
         void RPrintNode(const QTNode* pNode) const;

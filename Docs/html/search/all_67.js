@@ -2,6 +2,7 @@ var searchData=
 [
   ['g_5feventqueue',['g_EventQueue',['../namespaceic_1_1util.html#adeea7ec045cabf1dfe213f6d60cd5893',1,'ic::util']]],
   ['g_5flog',['g_Log',['../namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf',1,'ic::util']]],
+  ['game',['Game',['../group___game.html',1,'']]],
   ['getelapsed',['GetElapsed',['../classic_1_1util_1_1_c_timer.html#ae853ad7525e49eb1131c742561aa9b5d',1,'ic::util::CTimer']]],
   ['getibo',['GetIBO',['../classic_1_1gfx_1_1_c_vertex_buffer.html#abc37b3cac6691d4e022f6a76d8fd534f',1,'ic::gfx::CVertexBuffer']]],
   ['getiboffset',['GetIBOffset',['../classic_1_1gfx_1_1_c_vertex_buffer.html#a1ea49362ae47531a2a46300934a42b30',1,'ic::gfx::CVertexBuffer']]],

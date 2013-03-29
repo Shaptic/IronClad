@@ -61,7 +61,7 @@ namespace gfx
          *
          * @return  TRUE on success, FALSE on lack of function pointer.
          **/
-        bool Init();         
+        bool Init();
 
         /**
          * Adds data to the VBO.
@@ -122,6 +122,11 @@ namespace gfx
          * Clears contents of GPU buffers.
          **/
         void Clear();
+
+        /**
+         * Deletes the buffer handles.
+         **/
+        void Release();
 
         /**
          * Determines whether the data has been passed to the GPU yet.

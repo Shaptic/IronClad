@@ -38,6 +38,7 @@ namespace gfx
         IC_NO_LIGHT             = -1,
         IC_POINT_LIGHT,
         IC_DIRECTIONAL_LIGHT,
+        IC_AMBIENT_LIGHT,
         IC_LIGHT_TYPE_COUNT
     };
 
@@ -52,7 +53,8 @@ namespace gfx
     class IRONCLAD_API CLight
     {
     public:
-        CLight() : m_brt(.5f), m_theta(45.f), m_Att(.05f, .01f, 0.f) {}
+        CLight() : m_brt(.5f), m_Att(.05f, .01f, 0.f),
+                   m_type(IC_NO_LIGHT) {}
         ~CLight(){}
 
         bool Init(const LightType type, const CWindow& Window);
@@ -68,6 +70,9 @@ namespace gfx
         void SetAttenuation(const math::vector3_t& Att);
         void SetPosition(const math::vector2_t& Pos);
 
+        void SetMaximumAngle(const float degrees);
+        void SetMinimumAngle(const float degrees);
+
         void Enable();
         void Disable();
 
@@ -75,7 +80,8 @@ namespace gfx
         const math::vector3_t&  GetAttenuation() const  { return m_Att;   }
         const math::vector2_t&  GetPosition() const     { return m_Pos;   }
         float                   GetBrightness() const   { return m_brt;   }
-        float                   GetAngle() const        { return m_theta; }
+
+        LightType               GetType() const         { return m_type; }
 
     private:
         CShaderPair     m_Shader;
@@ -83,11 +89,15 @@ namespace gfx
         color3f_t       m_Color;
         math::vector3_t m_Att;
         math::vector2_t m_Pos;
+        math::vector2_t m_Max, m_Min;
 
-        float           m_brt, m_theta;
+        LightType       m_type;
+
+        float           m_brt;
 
         // Uniform locations.
-        int m_brtloc, m_thetaloc, m_colloc, m_attloc, m_posloc;
+        int m_brtloc, m_colloc, m_attloc, m_posloc;
+        int m_maxloc, m_minloc;
     };
 
     typedef std::vector<ic::gfx::CLight*> LightVector;

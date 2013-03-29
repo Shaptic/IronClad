@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5682 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6112 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -160,7 +160,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;</div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        <a class="code" href="structic_1_1color4f__t.html" title="Represents a 32-bit floating point color (RGBA).">ic::color4f_t</a>       m_Color;</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_effect.html">gfx::CEffect</a>        m_FontRender;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html" title="A wrapper for OpenGL VBO&#39;s.">gfx::CVertexBuffer</a>  m_Cache;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html" title="A wrapper for OpenGL VBO&#39;s.">gfx::CVertexBuffer</a>  m_VBO, m_Cache;</div>
 <div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <a class="code" href="structic_1_1math_1_1rect__t.html">math::rect_t</a>        m_CacheSize;</div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;</div>
 <div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        FT_Face             m_FontFace;</div>
@@ -174,95 +174,97 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordtype">bool</span>        m_loaded;</div>
 <div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    };</div>
 <div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">static</span> <a class="code" href="classic_1_1obj_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">obj::CEntity</a>* EntityFromText(<span class="keyword">const</span> <a class="code" href="classic_1_1gui_1_1_c_font.html">CFont</a>&amp; Font,</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                                        <a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html" title="A wrapper for OpenGL VBO&#39;s.">gfx::CVertexBuffer</a>&amp; VBO,</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                                        <span class="keyword">const</span> <span class="keywordtype">char</span>* text)</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    {</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        uint32_t width  = Font.GetTextWidth (text);</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        uint32_t height = Font.GetTextHeight(text);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <a class="code" href="classic_1_1obj_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">obj::CEntity</a>* pFinal = <span class="keyword">new</span> <a class="code" href="classic_1_1obj_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">obj::CEntity</a>;</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_mesh.html" title="A mesh.">asset::CMesh</a>* pQuad  = asset::CAssetManager</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                                    ::Create&lt;asset::CMesh&gt;();</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>* pTex= asset::CAssetManager</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                                    ::Create&lt;asset::CTexture&gt;();</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <a class="code" href="structic_1_1vertex2__t.html" title="Represents a vertex in 2 dimensions in the graphics pipeline.">vertex2_t</a> vertices[4];</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        vertices[0].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0,     0);</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        vertices[1].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(width, 0);</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        vertices[2].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0    , height);</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        vertices[3].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(width, height);</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        vertices[0].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0, 0);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        vertices[1].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(1, 0);</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        vertices[2].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(1, 1);</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        vertices[3].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0, 1);</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        pQuad-&gt;<a class="code" href="classic_1_1asset_1_1_c_mesh.html#a9956cd175b6c77dc33386cd5fe565276" title="Load a mesh directly from vertex and index data.">LoadFromRaw</a>(vertices, 4, </div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                           gfx::Globals::g_FullscreenIndices, 6);</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        pFinal-&gt;<a class="code" href="classic_1_1obj_1_1_c_entity.html#a77a2d00186d3111d3df2528f51becce3" title="Loads a mesh instance from an un-offloaded mesh.">LoadFromMesh</a>(pQuad, VBO);</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">// I doubt this works :D</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keyword">static</span> <a class="code" href="classic_1_1obj_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">obj::CEntity</a>* EntityFromText(<span class="keyword">const</span> <a class="code" href="classic_1_1gui_1_1_c_font.html">CFont</a>&amp; Font,</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                                        <a class="code" href="classic_1_1gfx_1_1_c_vertex_buffer.html" title="A wrapper for OpenGL VBO&#39;s.">gfx::CVertexBuffer</a>&amp; VBO,</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                                        <span class="keyword">const</span> <span class="keywordtype">char</span>* text)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        uint32_t width  = Font.GetTextWidth (text);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        uint32_t height = Font.GetTextHeight(text);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <a class="code" href="classic_1_1obj_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">obj::CEntity</a>* pFinal = <span class="keyword">new</span> <a class="code" href="classic_1_1obj_1_1_c_entity.html" title="A wrapper for the mesh instances with additional functionality.">obj::CEntity</a>;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_mesh.html" title="A mesh.">asset::CMesh</a>* pQuad  = asset::CAssetManager</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                                    ::Create&lt;asset::CMesh&gt;();</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">asset::CTexture</a>* pTex= asset::CAssetManager</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;                                    ::Create&lt;asset::CTexture&gt;();</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <a class="code" href="structic_1_1vertex2__t.html" title="Represents a vertex in 2 dimensions in the graphics pipeline.">vertex2_t</a> vertices[4];</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        vertices[0].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0,     0);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        vertices[1].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(width, 0);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        vertices[2].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0    , height);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        vertices[3].Position = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(width, height);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        vertices[0].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0, 0);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        vertices[1].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(1, 0);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        vertices[2].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(1, 1);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        vertices[3].TexCoord = <a class="code" href="structic_1_1math_1_1vector2__t.html" title="Represents a point in 2D rectangular-coordinate space.">math::vector2_t</a>(0, 1);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        pQuad-&gt;<a class="code" href="classic_1_1asset_1_1_c_mesh.html#a9956cd175b6c77dc33386cd5fe565276" title="Load a mesh directly from vertex and index data.">LoadFromRaw</a>(vertices, 4, </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                           gfx::Globals::g_FullscreenIndices, 6);</div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="comment">// Make lotsa buffers.</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keyword">struct </span>Buffer { <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* pBuf; uint32_t w; };</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        std::vector&lt;Buffer&gt; allBuffers;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        allBuffers.resize(strlen(text));</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; strlen(text); ++i)</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        {</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;            Buffer buf;</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            <span class="keyword">const</span> Glyph&amp; G = Font.GetGlyph(text[i]);</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            G.pTexture-&gt;<a class="code" href="classic_1_1asset_1_1_c_texture.html#a1c21d8a6d303719b13122dd865826307" title="Binds the texture to the OpenGL state for use.">Bind</a>();</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            buf.pBuf = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>[G.pTexture-&gt;GetW() *</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                                         G.pTexture-&gt;GetH() * 4];</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            buf.w    = G.pTexture-&gt;GetW();</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, buf.pBuf);</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            allBuffers.push_back(buf);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            G.pTexture-&gt;Unbind();</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        }</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="comment">// Copy data from each glyph to the whole string texture.</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        uint32_t tex_id = 0;</div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        glGenTextures(1, &amp;tex_id);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        glBindTexture(GL_TEXTURE_2D, tex_id);</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, </div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                     GL_RGBA, GL_UNSIGNED_BYTE, NULL);</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordtype">size_t</span> offset = 0;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; allBuffers.size(); ++i)</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        {</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;            std::stringstream ss; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;            ss &lt;&lt; text[i];</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            glTexSubImage2D(GL_TEXTURE_2D, 0, offset, 0,</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                            Font.GetTextWidth(ss.str().c_str()),</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                            Font.GetTextHeight(ss.str().c_str()),</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                            GL_RGBA, GL_UNSIGNED_BYTE, allBuffers[i].pBuf);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;            <span class="keyword">delete</span>[] allBuffers[i].pBuf;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        pFinal-&gt;<a class="code" href="classic_1_1obj_1_1_c_entity.html#a77a2d00186d3111d3df2528f51becce3" title="Loads a mesh instance from an un-offloaded mesh.">LoadFromMesh</a>(pQuad, VBO);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="comment">// Make lotsa buffers.</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keyword">struct </span>Buffer { <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* pBuf; uint32_t w; };</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        std::vector&lt;Buffer&gt; allBuffers;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        allBuffers.resize(strlen(text));</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; strlen(text); ++i)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        {</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;            Buffer buf;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;            <span class="keyword">const</span> Glyph&amp; G = Font.GetGlyph(text[i]);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;            G.pTexture-&gt;<a class="code" href="classic_1_1asset_1_1_c_texture.html#a1c21d8a6d303719b13122dd865826307" title="Binds the texture to the OpenGL state for use.">Bind</a>();</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;            buf.pBuf = <span class="keyword">new</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>[G.pTexture-&gt;GetW() *</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                                         G.pTexture-&gt;GetH() * 4];</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;            buf.w    = G.pTexture-&gt;GetW();</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            glGetTexImage(GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE, buf.pBuf);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;            allBuffers.push_back(buf);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            G.pTexture-&gt;Unbind();</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        }</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <span class="comment">// Copy data from each glyph to the whole string texture.</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        uint32_t tex_id = 0;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        glGenTextures(1, &amp;tex_id);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        glBindTexture(GL_TEXTURE_2D, tex_id);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;                     GL_RGBA, GL_UNSIGNED_BYTE, NULL);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="keywordtype">size_t</span> offset = 0;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = 0; i &lt; allBuffers.size(); ++i)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;            std::stringstream ss; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;            ss &lt;&lt; text[i];</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;            glTexSubImage2D(GL_TEXTURE_2D, 0, offset, 0,</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                            Font.GetTextWidth(ss.str().c_str()),</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                            Font.GetTextHeight(ss.str().c_str()),</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;                            GL_RGBA, GL_UNSIGNED_BYTE, allBuffers[i].pBuf);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            offset += allBuffers[i].w;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        }</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        glBindTexture(GL_TEXTURE_2D, 0);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            <span class="keyword">delete</span>[] allBuffers[i].pBuf;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            offset += allBuffers[i].w;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        }</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        pTex-&gt;LoadFromTexture(tex_id);</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        pFinal-&gt;<a class="code" href="classic_1_1obj_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464" title="Enables a texture override over the default.">SetMaterialOverride</a>(pTex);</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">return</span> pFinal;</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    }</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;}   <span class="comment">// namespace font</span></div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;}   <span class="comment">// namespace ic</span></div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__FONTS__FONT_HPP</span></div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        glBindTexture(GL_TEXTURE_2D, 0);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        pTex-&gt;LoadFromTexture(tex_id);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        pFinal-&gt;<a class="code" href="classic_1_1obj_1_1_c_entity.html#a80c8dbc2846706e15cdf67a71a6c0464" title="Enables a texture override over the default.">SetMaterialOverride</a>(pTex);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordflow">return</span> pFinal;</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    }</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;}   <span class="comment">// namespace font</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor">#endif // IRON_CLAD__FONTS__FONT_HPP</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 15 2013 17:34:40 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 28 2013 19:37:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 5682 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6112 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -111,29 +111,43 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#include &lt;ctime&gt;</span></div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">// Include high-level engine interfaces.</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_errors_8hpp.html" title="Base/Errors.hpp - Simple error-handling functions.">Base/Errors.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_asset_manager_8hpp.html" title="Asset/AssetManager.hpp - Defines the CAssetManager class, responsible for loading and tracking CAsset...">Asset/AssetManager.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_globals_8hpp.html" title="Graphics/Globals.hpp - Contains static pseudo-global variables that are used in multiple subsystems...">Graphics/Globals.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_scene_8hpp.html" title="Graphics/Scene.hpp - Declarations for the CScene class, a high-level interface containing information...">Graphics/Scene.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_animation_8hpp.html" title="Entity/Animation.hpp - A basic abstraction of animation functions like loading a sprite sheet and swi...">Entity/Animation.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_music_player_8hpp.html" title="Audio/MusicPlayer.hpp - A class acting as a sequential music track player.">Audio/MusicPlayer.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_sys_event_8hpp.html" title="Utils/SysEvent.hpp - Defines the CEvent structure, containing all of the options for a system event i...">Utils/SysEvent.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_timer_8hpp.html" title="Timer.hpp - Designed for easy frame-rate control during rendering operations.">Utils/Timer.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_menu_8hpp.html" title="GUI/Menu.hpp - A high level class for easily creating menus and handling events.">GUI/Menu.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_level_8hpp.html" title="Level.hpp - Defines a loader for .iclvl files.">Level.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">namespace </span>ic</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;{</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> <span class="keywordtype">bool</span> Init();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> <span class="keywordtype">void</span> Quit();</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_math_8hpp.html" title="Math/Math.hpp - Includes all of the IronClad math library types and functions.">Math/Math.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_errors_8hpp.html" title="Base/Errors.hpp - Simple error-handling functions.">Base/Errors.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html" title="Base/Types.hpp - Declarations and definitions of various engine types.">Base/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_asset_manager_8hpp.html" title="Asset/AssetManager.hpp - Defines the CAssetManager class, responsible for loading and tracking CAsset...">Asset/AssetManager.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_globals_8hpp.html" title="Graphics/Globals.hpp - Contains static pseudo-global variables that are used in multiple subsystems...">Graphics/Globals.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_effect_8hpp.html" title="Graphics/Effect.hpp - Declaration of the abstract base class for all of the effects supported by Iron...">Graphics/Effect.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_light_8hpp.html" title="Graphics/Light.hpp - Declares the CLight class, which handles scene lighting in IronClad.">Graphics/Light.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_window_8hpp.html" title="Graphics/Window.hpp - OpenGL window class for the IronClad engine.">Graphics/Window.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_scene_8hpp.html" title="Graphics/Scene.hpp - Declarations for the CScene class, a high-level interface containing information...">Graphics/Scene.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_rigid_body_8hpp.html" title="Entity/RigidBody.hpp - The basic physics-controlled entity in the game world.">Entity/RigidBody.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_animation_8hpp.html" title="Entity/Animation.hpp - A basic abstraction of animation functions like loading a sprite sheet and swi...">Entity/Animation.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_quad_tree_8hpp.html" title="QuadTree.hpp - Describes a class containing a number of sectors with objects inside for fast collisio...">Entity/QuadTree.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif // IRON_CLAD_HPP</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_music_player_8hpp.html" title="Audio/MusicPlayer.hpp - A class acting as a sequential music track player.">Audio/MusicPlayer.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_utilities_8hpp.html" title="Utils/Utilities.hpp - Includes all of the util namespace headers.">Utils/Utilities.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_font_8hpp.html" title="Fonts/Font.hpp - A wrapper for an instance of a .ttf font using the FreeType 2 API.">GUI/Font.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_menu_8hpp.html" title="GUI/Menu.hpp - A high level class for easily creating menus and handling events.">GUI/Menu.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_level_8hpp.html" title="Level.hpp - Defines a loader for .iclvl files.">Level.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">namespace </span>ic</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> <span class="keywordtype">bool</span> Init();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <a class="code" href="group___math.html#ga07c956c9d54c66a397ceba45ac1fe57a" title="Defines a DLL exporting macro to simplify things.">IRONCLAD_API</a> <span class="keywordtype">void</span> Quit();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}   <span class="comment">// namespace ic</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif // IRON_CLAD_HPP</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Mar 15 2013 17:34:40 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Mar 28 2013 19:37:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

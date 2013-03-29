@@ -38,14 +38,13 @@ bool CRigidBody::LoadFromMesh(asset::CMesh* pMesh,
 
 void CRigidBody::Move(const math::vector2_t& Pos)
 {
-    CEntity::Move(Pos);
-
-    m_CollisionBox.x = Pos.x;
-    m_CollisionBox.y = Pos.y;
+    this->Move(Pos.x, Pos.y);
 }
 
 void CRigidBody::Move(const float x, const float y)
 {
+    m_update = ((int)this->GetX() != (int)x || ((int)this->GetY() != (int)y));
+
     CEntity::Move(x, y);
 
     m_CollisionBox.x = x;
@@ -54,10 +53,7 @@ void CRigidBody::Move(const float x, const float y)
 
 void CRigidBody::Adjust(const math::vector2_t& Rate)
 {
-    CEntity::Adjust(Rate);
-
-    m_CollisionBox.x += Rate.x;
-    m_CollisionBox.y += Rate.y;
+    this->Adjust(Rate.x, Rate.y);
 }
 
 void CRigidBody::Adjust(const float dx, const float dy)
@@ -66,6 +62,8 @@ void CRigidBody::Adjust(const float dx, const float dy)
 
     m_CollisionBox.x += dx;
     m_CollisionBox.y += dy;
+
+    if((int)dx != 0 || (int)dy != 0) m_update = true;
 }
 
 void CRigidBody::AddForce(const float force, float dir_angle)
@@ -119,8 +117,8 @@ bool CRigidBody::CheckCollision(const math::vector2_t& Other) const
 
 void CRigidBody::Update()
 {
-    m_update = ((int)m_Force.x != 0 || (int)m_Force.y != 0);
     this->Adjust(m_Force.x, m_Force.y);
+    m_update = ((int)m_Force.x != 0 || (int)m_Force.y != 0);
 }
 
 math::vector2_t CRigidBody::GetForces()

@@ -170,7 +170,7 @@ namespace gui
 
         ic::color4f_t       m_Color;
         gfx::CEffect        m_FontRender;
-        gfx::CVertexBuffer  m_Cache;
+        gfx::CVertexBuffer  m_VBO, m_Cache;
         math::rect_t        m_CacheSize;
 
         FT_Face             m_FontFace;
@@ -183,6 +183,8 @@ namespace gui
         
         bool        m_loaded;
     };
+
+    // I doubt this works :D
 
     static obj::CEntity* EntityFromText(const CFont& Font,
                                         gfx::CVertexBuffer& VBO,
