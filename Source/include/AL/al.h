@@ -178,7 +178,7 @@ typedef void ALvoid;
  * Type: ALfloat
  * Range:  [0.0 - 1.0]
  *
- * Logarithmic
+ * Logarthmic
  */
 #define AL_MAX_GAIN                               0x100E
 
@@ -290,7 +290,7 @@ typedef void ALvoid;
 #define AL_NO_ERROR                               0
 
 /** 
- * Invalid Name parameter passed to AL call.
+ * Invalid Name paramater passed to AL call.
  */
 #define AL_INVALID_NAME                           0xA001
 
@@ -344,7 +344,7 @@ typedef void ALvoid;
  *
  * used in conjunction with DistanceModel
  *
- * implicit: NONE, which disances distance attenuation.
+ * implicit: NONE, which distances distance attenuation.
  */
 #define AL_DISTANCE_MODEL                         0xD000
 #define AL_INVERSE_DISTANCE                       0xD001
@@ -548,7 +548,7 @@ AL_API void AL_APIENTRY alSourcePlay( ALuint sid );
 /* Stop a Source */
 AL_API void AL_APIENTRY alSourceStop( ALuint sid );
 
-/* Rewind a Source (set playback postiton to beginning) */
+/* Rewind a Source (set playback position to beginning) */
 AL_API void AL_APIENTRY alSourceRewind( ALuint sid );
 
 /* Pause a Source */

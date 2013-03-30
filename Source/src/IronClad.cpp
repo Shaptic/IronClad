@@ -35,7 +35,7 @@
  *  distinguishing and type creation.
  **/
 
-#include "IronClad.hpp"
+#include "IronClad/IronClad.hpp"
 
 bool ic::Init()
 {

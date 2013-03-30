@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>IronClad Engine: IronClad/include/GUI/Font.hpp Source File</title>
+<title>IronClad Engine: IronClad/include/IronClad/GUI/Font.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6112 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6150 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -84,7 +84,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_9642ee7a51a64fe52107d214efc43835.html">IronClad</a></li><li class="navelem"><a class="el" href="dir_0ddc6149d8e9242690cc8d6d4c9b3279.html">include</a></li><li class="navelem"><a class="el" href="dir_c686ae00098a732baccad8a8db603ccb.html">GUI</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_9642ee7a51a64fe52107d214efc43835.html">IronClad</a></li><li class="navelem"><a class="el" href="dir_0ddc6149d8e9242690cc8d6d4c9b3279.html">include</a></li><li class="navelem"><a class="el" href="dir_d1900bc0e70362e311d2a26566213dca.html">IronClad</a></li><li class="navelem"><a class="el" href="dir_ee4dfa14955af12a71c03c821e624dfb.html">GUI</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -104,12 +104,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;freetype/freetype.h&quot;</span></div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;freetype/ftglyph.h&quot;</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_errors_8hpp.html" title="Base/Errors.hpp - Simple error-handling functions.">Base/Errors.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html" title="Base/Types.hpp - Declarations and definitions of various engine types.">Base/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_errors_8hpp.html" title="Base/Errors.hpp - Simple error-handling functions.">IronClad/Base/Errors.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html" title="Base/Types.hpp - Declarations and definitions of various engine types.">IronClad/Base/Types.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_vertex_buffer_8hpp.html" title="Graphics/VertexBuffer.hpp - Declarations of the CVertexBuffer class, which acts as a wrapper for Open...">Graphics/Vertexbuffer.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_globals_8hpp.html" title="Graphics/Globals.hpp - Contains static pseudo-global variables that are used in multiple subsystems...">Graphics/Globals.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8hpp.html" title="Entity.hpp - Defines the high-level obj::CEntity class, which wraps up CMeshInstance&#39;s in a more user...">Entity/Entity.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_vertex_buffer_8hpp.html" title="Graphics/VertexBuffer.hpp - Declarations of the CVertexBuffer class, which acts as a wrapper for Open...">IronClad/Graphics/Vertexbuffer.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_globals_8hpp.html" title="Graphics/Globals.hpp - Contains static pseudo-global variables that are used in multiple subsystems...">IronClad/Graphics/Globals.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_entity_8hpp.html" title="Entity.hpp - Defines the high-level obj::CEntity class, which wraps up CMeshInstance&#39;s in a more user...">IronClad/Entity/Entity.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_glyph_8hpp.html" title="Fonts/Glyph.hpp - Defines a structure to hold glyph data.">Glyph.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
@@ -264,7 +264,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Mar 28 2013 19:37:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sat Mar 30 2013 11:58:40 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

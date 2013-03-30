@@ -1,4 +1,4 @@
-#include "Graphics/Light.hpp"
+#include "IronClad/Graphics/Light.hpp"
 
 using namespace ic;
 using gfx::CLight;

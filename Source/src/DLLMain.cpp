@@ -25,7 +25,9 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
-#include "IronClad.hpp"
+#pragma comment(lib, "GLEW32.lib")
+
+#include "IronClad/IronClad.hpp"
 
 /**
  * The entry point for the IronClad engine DLL.

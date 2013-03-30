@@ -1,4 +1,4 @@
-#include "Entity/RigidBody.hpp"
+#include "IronClad/Entity/RigidBody.hpp"
 
 using namespace ic;
 using obj::CRigidBody;

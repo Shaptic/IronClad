@@ -2,8 +2,11 @@ CHANGELOG
 
 Project         :	IronClad
 Author          :	George Kudrayvtsev
-Current Version	:	1.3.6 alpha
-Last Updated	:	03.28.2013
+Current Version	:	1.3.6 beta
+Last Updated	:	03.30.2013
+
+Version 1.3.6b (03.30.2013):
+ *  Code restructuring
 
 Version 1.3.6a (03.27.2013):
  +  Ambient lighting

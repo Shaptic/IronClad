@@ -1,4 +1,4 @@
-#include "Graphics/VertexBuffer.hpp"
+#include "IronClad/Graphics/VertexBuffer.hpp"
 
 using namespace ic;
 using util::g_Log;

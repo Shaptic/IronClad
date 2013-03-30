@@ -1,4 +1,4 @@
-#include "Graphics/Effect.hpp"
+#include "IronClad/Graphics/Effect.hpp"
 
 using namespace ic;
 using gfx::CEffect;

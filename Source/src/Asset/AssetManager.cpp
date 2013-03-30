@@ -1,4 +1,4 @@
-#include "Asset/AssetManager.hpp"
+#include "IronClad/Asset/AssetManager.hpp"
 
 using namespace ic;
 using asset::CAssetManager;

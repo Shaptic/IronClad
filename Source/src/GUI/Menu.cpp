@@ -1,4 +1,4 @@
-#include "GUI/Menu.hpp"
+#include "IronClad/GUI/Menu.hpp"
 
 using namespace ic;
 using gui::CMenu;

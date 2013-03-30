@@ -1,4 +1,4 @@
-#include "Graphics/MeshInstance.hpp"
+#include "IronClad/Graphics/MeshInstance.hpp"
 
 using namespace ic;
 using gfx::CMeshInstance;

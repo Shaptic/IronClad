@@ -1,4 +1,4 @@
-#include "Graphics/Window.hpp"
+#include "IronClad/Graphics/Window.hpp"
 
 using namespace ic;
 
@@ -28,7 +28,7 @@ bool CWindow::Create(
 #ifdef _DEBUG
     m_fullscreen= false;
 #else
-    m_fullscreen= false;//true;
+    m_fullscreen= true;
 #endif // _DEBUG
 
     // Create the window.
