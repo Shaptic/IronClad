@@ -1,7 +1,7 @@
 /**
  * @file
- *    Graphics/Framebuffer.hpp - Declares the CFrameBuffer class, 
- *    a wrapper for OpenGL FBOs.
+ *  Graphics/Framebuffer.hpp - Declares the CFrameBuffer class, 
+ *  a wrapper for OpenGL FBOs.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0

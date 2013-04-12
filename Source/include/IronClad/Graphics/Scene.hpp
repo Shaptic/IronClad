@@ -4,7 +4,7 @@
  *  a high-level interface containing information about a scene.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.4.1
+ * @version     1.4.2
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -91,6 +91,8 @@ namespace gfx
          * @param   SceneType   How often will the scene be changed?
          **/
         CScene(CWindow& Window, const SceneType scene_type);
+        CScene(const uint16_t w, const uint16_t h,
+               const math::matrix4x4_t& proj, const SceneType scene_type);
         ~CScene();
 
         /**
@@ -266,6 +268,13 @@ namespace gfx
          **/
         void Clear();
 
+        void UpdateWindow(ic::gfx::CWindow& Window)
+        {
+            m_WindowDim = math::vector2_t(Window.GetW(), Window.GetH());
+            m_WindowProj = Window.GetProjectionMatrixC();
+            mp_Window = &Window;
+        }
+
         /**
          * Toggles post-processing.
          * @return  What the value was originally, BEFORE toggling.
@@ -285,9 +294,12 @@ namespace gfx
          * @return  What the value was originally, BEFORE toggling.
          **/
         inline bool ToggleWireMesh()
-        { return !(m_geo_type == GL_TRIANGLES  ?
-                   m_geo_type =  GL_LINE_STRIP :
-                   m_geo_type =  GL_TRIANGLES  );
+        {
+            m_geo_type == GL_TRIANGLES  ?
+            m_geo_type =  GL_LINE_STRIP :
+            m_geo_type =  GL_TRIANGLES;
+
+            return (m_geo_type == GL_TRIANGLES);
         }
 
         /**
@@ -301,8 +313,8 @@ namespace gfx
          inline CLight* GetLightFromScene(const uint16_t id)
          { return mp_sceneLights.size() < id ? NULL : mp_sceneLights[id]; }
 
-         inline const CWindow& GetWindow() const 
-         { return m_Window; }
+         inline const CWindow* GetWindow() const 
+         { return mp_Window; }
 
          /**
           * Returns the position in the object queue of the object.
@@ -396,11 +408,12 @@ namespace gfx
 
         static material_t       m_ShadowShader;
 
-        CWindow&                m_Window;
+        CWindow*                mp_Window;
         CVertexBuffer           m_GeometryVBO, m_ShadowVBO;
         CFrameBuffer            m_FBO, m_FBOSwap;
 
-        math::vector2_t         m_Camera;
+        math::vector2_t         m_Camera, m_WindowDim;
+        math::matrix4x4_t       m_WindowProj;
 
         std::vector<obj::CEntity*>   mp_sceneObjects;
         std::vector<CEffect*>   mp_sceneEffects;

@@ -4,8 +4,6 @@ using namespace ic;
 using asset::CSound2D;
 using util::g_Log;
 
-std::vector<CSound2D*> CSound2D::s_allSounds;
-
 CSound2D::CSound2D(bool orig) : CAsset(orig), m_buffer(0), m_source(-1),
     m_volume(1.f), m_lasterror(AL_NO_ERROR)
 {
@@ -23,6 +21,12 @@ CSound2D::~CSound2D()
     alDeleteBuffers(1, &m_buffer);
 }
 
+/************************************************************************/
+/*                        BEGIN STATIC METHODS                          */
+/************************************************************************/
+
+std::vector<CSound2D*> CSound2D::s_allSounds;
+
 bool CSound2D::InitializeOpenAL()
 {
     static bool once = false;
@@ -37,6 +41,14 @@ bool CSound2D::InitializeOpenAL()
     }
 
     return true;
+}
+
+void CSound2D::AdjustVolume(const float dv)
+{
+    for(size_t i = 0; i < s_allSounds.size(); ++i)
+    {
+        s_allSounds[i]->SetVolume(s_allSounds[i]->GetVolume() + dv);
+    }
 }
 
 void CSound2D::GetAvailableSource()
@@ -74,39 +86,11 @@ void CSound2D::GetAvailableSource()
     s_available = -1;
 }
 
-/**
- * Loads audio from an existing CSound2D class.
- *  This method is pretty untested, I wouldn't really recommend
- *  using it. It takes the buffer and source ID's from the
- *  provided, existing CSound2D parameter.
- *
- * @param   CSound2D*   The audio to copy.
- * @return  Always TRUE.
- **/
-bool CSound2D::LoadFromAudio(CSound2D* const p_Copy)
-{
-    m_buffer    = p_Copy->GetBuffer();
-    m_filename  = p_Copy->GetFilename();
-    m_source    = -1;
+/************************************************************************/
+/*                      BEGIN NON-STATIC METHODS                        */
+/************************************************************************/
 
-    return true;
-}
-
-/**
- * Loads an audio file into memory.
- *  The lib-vorbis SDK is used to determine whether or not the
- *  given filename refers to a valid .ogg file or not.
- *  If it is determined NOT to be an .ogg file, it is assumed
- *  to be a .wav file and loaded as such, returning errors on
- *  any failures. 
- *
- * @param   char* Filename to load
- * @return  TRUE if successfully loaded, FALSE otherwise.
- *          The actual error code can be checked by calling GetLastError().
- *
- * @todo    Add the ability to stream large .ogg files.
- **/
-bool CSound2D::LoadFromFile(const char* p_filename)
+bool CSound2D::LoadFromFile(const std::string& filename)
 {
     /// Buffer size for .ogg decoding (32 bytes).
     static const int BUFFER_SIZE = 32768;
@@ -136,7 +120,7 @@ bool CSound2D::LoadFromFile(const char* p_filename)
     }
 
     // Check for a valid filename.
-    if(p_filename == NULL)
+    if(filename.empty())
     {
         m_lasterror = AL_INVALID_NAME;
         m_error     = alGetString(m_lasterror);
@@ -148,7 +132,7 @@ bool CSound2D::LoadFromFile(const char* p_filename)
 
     // Determine if the given file is .ogg or not.
     // Open the .ogg file in binary-read mode.
-    p_File = fopen(p_filename, "rb");
+    p_File = fopen(filename.c_str(), "rb");
     if(p_File == NULL)
     {
         m_lasterror = AL_INVALID_NAME;
@@ -166,7 +150,7 @@ bool CSound2D::LoadFromFile(const char* p_filename)
         fclose(p_File);
 
         // The file isn't .ogg, so try and load it as a .wav.
-        return this->LoadFromFile_WAV(p_filename);
+        return this->LoadFromFile_WAV(filename.c_str());
     }
 
     // Get information from the file.
@@ -214,21 +198,24 @@ bool CSound2D::LoadFromFile(const char* p_filename)
         return false;
     }
 
-    m_filename  = p_filename;
+    m_filename  = filename;
     return true;
 }
 
-/**
- * Plays a loaded audio buffer.
- *  Due to the somewhat complicated source-management system in
- *  place, buffers are bound to an OpenAL source on demand.
- *  So whenever this method is called, an available source is
- *  found, and then the buffer is bound to it, and the audio
- *  is played. The CAssetManager is responsible for unloading the
- *  source after playback has completed in full.
- *  
- * @return  TRUE if the sound played, FALSE if not.
- **/
+bool CSound2D::LoadFromFile(const char* p_filename)
+{
+    return this->LoadFromFile(std::string(p_filename));
+}
+
+bool CSound2D::LoadFromAudio(const CSound2D* const p_Copy)
+{
+    m_buffer    = p_Copy->GetBuffer();
+    m_filename  = p_Copy->GetFilename();
+    m_source    = -1;
+
+    return true;
+}
+
 bool CSound2D::Play()
 {
     if(this->GetAudioState() == AL_PLAYING)
@@ -297,13 +284,6 @@ bool CSound2D::Play()
     return true;
 }
 
-/**
- * Pauses current audio buffer.
- *  The buffer maintains linked to its source despite being paused,
- *  and will only be deleted if the source status is CSTOPPED.
- *  
- * @return  TRUE if paused, FALSE if nothing loaded.
- **/
 bool CSound2D::Pause()
 {
     if(m_source == -1) return false;
@@ -321,17 +301,6 @@ bool CSound2D::Pause()
     return true;
 }
 
-/**
- * Stops the audio from playing.
- *  Audio looping is always enabled, with no method (currently)
- *  to disable it. This is due to the fact that I've never /not/
- *  needed to disable looping.
- *
- * @return  TRUE if stopped, FALSE if nothing is loaded.
- * 
- * @see     asset::C2DSound::Play()
- * @todo    Add looping capabilities (or lack there-of).
- **/
 bool CSound2D::Stop()
 {
     if(m_source == -1)
@@ -351,18 +320,6 @@ bool CSound2D::Stop()
     return true;
 }
 
-/**
- * Unloads the source being used for playback.
- *  Since OpenAL is limited to 256 audio sources, it is important
- *  to be conservative with the available resources.
- *  Though I doubt all 256 will ever be used simultaneously, a
- *  system is in place to minimize source-hogging. This method
- *  should only be called by an CAssetManager after checking
- *  that playback has been completed. 
- *
- * @return  TRUE if the source was unloaded successfully,
- *          FALSE if not, or no source loaded.
- **/
 bool CSound2D::UnloadSource()
 {
     if(m_source == -1)
@@ -453,14 +410,6 @@ ALuint CSound2D::GetSource() const
     return (m_source != -1) ? s_sources[m_source] : m_source;
 }
 
-/**
- * Loads a .wav file.
- *  This is only called by LoadFromFile() after determining that
- *  the given data is not a valid Ogg-Vorbis audio file.
- *
- * @param   char*   Filename
- * @return  TRUE on successful load, FALSE otherwise.
- **/        
 bool CSound2D::LoadFromFile_WAV(const char* p_filename)
 {
     alGenBuffers(1, &m_buffer);

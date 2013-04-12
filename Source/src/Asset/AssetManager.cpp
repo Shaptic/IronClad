@@ -19,6 +19,9 @@ CAssetManager::~CAssetManager()
 CAssetManager& CAssetManager::GetInstance()
 {
     static CAssetManager Instance;
+    static uint32_t seed = rand();
+
+    CAsset::hash_seed = seed;
     return Instance;
 }
 

@@ -3,7 +3,7 @@
  *  Asset/Mesh.hpp - Defines the CMesh class.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     1.0.2
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -34,7 +34,7 @@
 namespace ic
 {
     // Forward declaration for future friendship.
-    namespace gfx { class CMeshInstance; }
+    namespace gfx { class CMeshInstance; class CVertexBuffer; }
 
 namespace asset
 {
@@ -89,7 +89,8 @@ namespace asset
         bool LoadFromFile(const char* pfilename);
         bool LoadFromFile(const std::string& filename);
         bool LoadFromStr(const char** data, const int lines);
-        bool LoadFromExisting(std::ifstream& in_file, const std::streampos pos);
+        bool LoadFromExisting(std::ifstream& in_file,
+                              const std::streampos& pos);
 
         /**
          * Load a mesh directly from vertex and index data.
@@ -106,7 +107,7 @@ namespace asset
          *          FALSE if some problem was encountered.
          **/
         bool LoadFromRaw(const vertex2_t* pvertices, const uint32_t vsize,
-                         const uint16_t* pindices,   const uint32_t isize);
+                         const uint16_t*  pindices,   const uint32_t isize);
 
         /**
          * Loads current vertex and index data into given buffers.
@@ -123,6 +124,7 @@ namespace asset
          **/   
         bool Offload(std::vector<vertex2_t>& vbo_buffer,
                      std::vector<uint16_t>&  ibo_buffer);
+        bool Offload(gfx::CVertexBuffer& VBO);
 
         /**
          * Deletes all surface and buffer data.
@@ -158,23 +160,22 @@ namespace asset
         void MergeSurfaces();
 
         /**
-         * Parses a single line from a mesh file.
-         * 
-         * @param   char*   Line to parse
-         * @return  TRUE on successful parse, FALSE otherwise.
-         **/
-        bool ParseLine(const char* str);
-
-        /**
          * Loads a surface from an .icmesh file.
          * 
          * @param   std::ifstream&  File to read from
+         * @param   std::streampos  Start point in stream
+         * @param   std::streampos  End point in stream
+         * 
          * @return  TRUE if material and surface loaded properly,
          *          FALSE if there was an error, or the file was not 
          *          formatted properly.
          **/
-        bool LoadSurface(std::ifstream& file);
-        bool LoadSurface(const char** lines, const int size);
+        bool LoadSurface(std::ifstream& file,
+                         const std::streampos& start,
+                         const std::streampos& end);
+        bool LoadSurface(const char** lines,
+                         const uint32_t start_i, 
+                         const uint32_t end_i);
 
         std::vector<gfx::surface_t*>    mp_Surfaces;
 

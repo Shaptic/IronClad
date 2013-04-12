@@ -47,7 +47,8 @@ namespace obj
     class IRONCLAD_API CEntity
     {
     public:
-        CEntity(bool caster = false) : m_render(true), mp_Override(NULL) {}
+        CEntity(bool caster = false) : m_render(true), mp_Override(NULL),
+                                       m_static(false) {}
         virtual ~CEntity();
 
         inline bool operator==(const std::string& filename) const
@@ -155,8 +156,14 @@ namespace obj
         inline void SetRendering(const bool flag)
         { m_render = flag; }
 
+        inline void SetStatic(const bool flag)
+        { m_static = flag; }
+
         inline bool IsRenderable() const
         { return m_render; }
+
+        inline bool IsStatic() const 
+        { return m_static; }
 
         inline bool HasOverride() const
         { return mp_Override != NULL; }
@@ -212,7 +219,7 @@ namespace obj
         gfx::CMeshInstance  m_Mesh;
         asset::CTexture*    mp_Override;
 
-        bool m_render;
+        bool m_render, m_static;
     };
 }   // namespace obj
 }   // namespace ic

@@ -22,6 +22,7 @@ var searchData=
   ['color3i_5ft',['color3i_t',['../structic_1_1color3i__t.html',1,'ic']]],
   ['color4f_5ft',['color4f_t',['../structic_1_1color4f__t.html',1,'ic']]],
   ['color4i_5ft',['color4i_t',['../structic_1_1color4i__t.html',1,'ic']]],
+  ['cparser',['CParser',['../classic_1_1util_1_1_c_parser.html',1,'ic::util']]],
   ['cquadtree',['CQuadTree',['../classic_1_1_c_quad_tree.html',1,'ic']]],
   ['crigidbody',['CRigidBody',['../classic_1_1obj_1_1_c_rigid_body.html',1,'ic::obj']]],
   ['cscene',['CScene',['../classic_1_1gfx_1_1_c_scene.html',1,'ic::gfx']]],

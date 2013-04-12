@@ -1,9 +1,9 @@
 /**
  * @file
- *    Utils/Utilities.hpp - Includes all of the util namespace headers.
+ *  Utils/Utilities.hpp - Includes all of the util namespace headers.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     1.0.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -25,6 +25,7 @@
 #include "Helper.hpp"
 #include "Logging.hpp"
 #include "Loader.hpp"
+#include "Parser.hpp"
 #include "SysEvent.hpp"
 #include "Timer.hpp"
 

@@ -8,9 +8,8 @@ CEntity::~CEntity()
     asset::CAssetManager::Destroy(mp_Override);
 }
 
-bool CEntity::LoadFromFile(
-    const char* pmesh_filename,
-    gfx::CVertexBuffer& VBO)
+bool CEntity::LoadFromFile(const char* pmesh_filename,
+                           gfx::CVertexBuffer& VBO)
 {
     return m_Mesh.LoadMesh(pmesh_filename) && m_Mesh.LoadIntoVBO(VBO);
 }

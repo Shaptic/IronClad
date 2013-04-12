@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6150 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -95,6 +95,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">ic::asset::CAsset Class Reference</div>  </div>
@@ -120,7 +121,7 @@ Inheritance diagram for ic::asset::CAsset:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8699a01934346670eed04d8e0d2d4726"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8699a01934346670eed04d8e0d2d4726"></a>
+<tr class="memitem:a38306ab06c9b99a5a988c7a1a137a3e4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38306ab06c9b99a5a988c7a1a137a3e4"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CAsset</b> (bool original=false)</td></tr>
 <tr class="memitem:a387356a5daca4bbb63bd123d50a7a969"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a387356a5daca4bbb63bd123d50a7a969"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (const char *pfilename)=0</td></tr>
@@ -137,14 +138,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>SetFilename</b> (cons
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ab78f4b46ddd9892ade8428eea89aba32"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset.html#ab78f4b46ddd9892ade8428eea89aba32">Hash</a> (const char *pdata, uint32_t size)</td></tr>
-<tr class="memdesc:ab78f4b46ddd9892ade8428eea89aba32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates a hash for a given value.  <a href="#ab78f4b46ddd9892ade8428eea89aba32"></a><br/></td></tr>
+<tr class="memitem:ab78f4b46ddd9892ade8428eea89aba32"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab78f4b46ddd9892ade8428eea89aba32"></a>
+static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>Hash</b> (const char *pdata, uint32_t size)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a77864397045a289c8ef634496e2244c0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77864397045a289c8ef634496e2244c0"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset.html#a77864397045a289c8ef634496e2244c0">Release</a> ()</td></tr>
-<tr class="memdesc:a77864397045a289c8ef634496e2244c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">This should free the current asset if and only if it is the original (m_original == true). <br/></td></tr>
+<tr class="memitem:ade7b3753f5ac2889dcca4e83bd457024"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ade7b3753f5ac2889dcca4e83bd457024"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset.html#ade7b3753f5ac2889dcca4e83bd457024">Release</a> ()</td></tr>
+<tr class="memdesc:ade7b3753f5ac2889dcca4e83bd457024"><td class="mdescLeft">&#160;</td><td class="mdescRight">This should free the current asset if and only if it is the original (m_original == true). <br/></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
@@ -157,6 +158,11 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_id</b></td></tr
 <tr class="memitem:a656d6d3ce21a9c6943265240c160e7ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a656d6d3ce21a9c6943265240c160e7ec"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_original</b></td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:a3a4c8c9592339b2868cdfbcec8d7a415"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a4c8c9592339b2868cdfbcec8d7a415"></a>
+static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>hash_seed</b></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
 <tr class="memitem:a42da7c7a8ac369ebf96c519ab3398ce6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42da7c7a8ac369ebf96c519ab3398ce6"></a>
@@ -167,58 +173,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 <div class="textblock"><p>Throughout the IronClad engine, the only assets used will be textures and fonts. Assets contain a unique ID generated on creation that can provide fast access to it in the <a class="el" href="classic_1_1asset_1_1_c_asset_manager.html" title="Loads, finds, creates, and manages assets.">CAssetManager</a>. The alternative is comparing filenames to find the respective asset, which can be much slower. Assets know if they are the "original" asset, or simply a copy using data from another asset. This allows deletion of the asset data to only occur on destruction if m_original = TRUE. The <a class="el" href="classic_1_1asset_1_1_c_asset_manager.html" title="Loads, finds, creates, and manages assets.">CAssetManager</a> class takes care of figuring this out. </p>
 
 <p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00056">56</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
-</div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ab78f4b46ddd9892ade8428eea89aba32"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static uint32_t ic::asset::CAsset::Hash </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>pdata</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>size</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters:</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">char*</td><td>Data to hash </td></tr>
-    <tr><td class="paramname">uint32_t</td><td>Size of the data</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns:</dt><dd>The hash value. </dd></dl>
-
-<p>Definition at line <a class="el" href="_asset_8hpp_source.html#l00084">84</a> of file <a class="el" href="_asset_8hpp_source.html">Asset.hpp</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>IronClad/include/IronClad/Asset/<a class="el" href="_asset_8hpp_source.html">Asset.hpp</a></li>
+<li>IronClad/src/Asset/<a class="el" href="_asset_8cpp_source.html">Asset.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 30 2013 11:58:41 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 12 2013 13:27:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

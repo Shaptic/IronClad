@@ -88,53 +88,52 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="include\Asset\Asset.hpp" />
-    <ClInclude Include="include\Asset\AssetManager.hpp" />
-    <ClInclude Include="include\Asset\Mesh.hpp" />
-    <ClInclude Include="include\Asset\Shader.hpp" />
-    <ClInclude Include="include\Asset\Sound2D.hpp" />
-    <ClInclude Include="include\Asset\Texture.hpp" />
-    <ClInclude Include="include\Audio\MusicPlayer.hpp" />
-    <ClInclude Include="include\Base\Errors.hpp" />
-    <ClInclude Include="include\Base\Types.hpp" />
-    <ClInclude Include="include\Entity\Animation.hpp" />
-    <ClInclude Include="include\Entity\Entity.hpp" />
-    <ClInclude Include="include\Entity\QuadTree.hpp" />
-    <ClInclude Include="include\Entity\RigidBody.hpp" />
-    <ClInclude Include="include\Graphics\Effect.hpp" />
-    <ClInclude Include="include\Graphics\Framebuffer.hpp" />
-    <ClInclude Include="include\Graphics\Globals.hpp" />
-    <ClInclude Include="include\Graphics\Light.hpp" />
-    <ClInclude Include="include\Graphics\Material.hpp" />
-    <ClInclude Include="include\Graphics\MeshInstance.hpp" />
-    <ClInclude Include="include\Graphics\Scene.hpp" />
-    <ClInclude Include="include\Graphics\ShaderPair.hpp" />
-    <ClInclude Include="include\Graphics\Surface.hpp" />
-    <ClInclude Include="include\Graphics\VertexBuffer.hpp" />
-    <ClInclude Include="include\Graphics\Window.hpp" />
-    <ClInclude Include="include\GUI\Button.hpp" />
-    <ClInclude Include="include\GUI\Font.hpp" />
-    <ClInclude Include="include\GUI\Glyph.hpp" />
-    <ClInclude Include="include\GUI\Menu.hpp" />
-    <ClInclude Include="include\IronClad.hpp" />
-    <ClInclude Include="include\Level.hpp" />
-    <ClInclude Include="include\Math\Line2.hpp" />
-    <ClInclude Include="include\Math\Math.hpp" />
-    <ClInclude Include="include\Math\MathDef.hpp" />
-    <ClInclude Include="include\Math\Matrix.hpp" />
-    <ClInclude Include="include\Math\Shapes.hpp" />
-    <ClInclude Include="include\Math\Vector2.hpp" />
-    <ClInclude Include="include\Math\Vector3.hpp" />
-    <ClInclude Include="include\Utils\Helper.hpp" />
-    <ClInclude Include="include\Utils\Loader.hpp" />
-    <ClInclude Include="include\Utils\Logging.hpp" />
-    <ClInclude Include="include\Utils\SysEvent.hpp" />
-    <ClInclude Include="include\Utils\Timer.hpp" />
-    <ClInclude Include="include\Utils\Utilities.hpp" />
-    <ClInclude Include="resource.h" />
+    <ClInclude Include="include\IronClad\Asset\Asset.hpp" />
+    <ClInclude Include="include\IronClad\Asset\AssetManager.hpp" />
+    <ClInclude Include="include\IronClad\Asset\Mesh.hpp" />
+    <ClInclude Include="include\IronClad\Asset\Shader.hpp" />
+    <ClInclude Include="include\IronClad\Asset\Sound2D.hpp" />
+    <ClInclude Include="include\IronClad\Asset\Texture.hpp" />
+    <ClInclude Include="include\IronClad\Audio\MusicPlayer.hpp" />
+    <ClInclude Include="include\IronClad\Base\Errors.hpp" />
+    <ClInclude Include="include\IronClad\Base\Types.hpp" />
+    <ClInclude Include="include\IronClad\Entity\Animation.hpp" />
+    <ClInclude Include="include\IronClad\Entity\Entity.hpp" />
+    <ClInclude Include="include\IronClad\Entity\QuadTree.hpp" />
+    <ClInclude Include="include\IronClad\Entity\RigidBody.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\Effect.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\Framebuffer.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\Globals.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\Light.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\Material.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\MeshInstance.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\Scene.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\ShaderPair.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\Surface.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\VertexBuffer.hpp" />
+    <ClInclude Include="include\IronClad\Graphics\Window.hpp" />
+    <ClInclude Include="include\IronClad\GUI\Button.hpp" />
+    <ClInclude Include="include\IronClad\GUI\Font.hpp" />
+    <ClInclude Include="include\IronClad\GUI\Glyph.hpp" />
+    <ClInclude Include="include\IronClad\GUI\Menu.hpp" />
+    <ClInclude Include="include\IronClad\IronClad.hpp" />
+    <ClInclude Include="include\IronClad\Level.hpp" />
+    <ClInclude Include="include\IronClad\Math\Line2.hpp" />
+    <ClInclude Include="include\IronClad\Math\Math.hpp" />
+    <ClInclude Include="include\IronClad\Math\MathDef.hpp" />
+    <ClInclude Include="include\IronClad\Math\Matrix.hpp" />
+    <ClInclude Include="include\IronClad\Math\Shapes.hpp" />
+    <ClInclude Include="include\IronClad\Math\Vector2.hpp" />
+    <ClInclude Include="include\IronClad\Math\Vector3.hpp" />
+    <ClInclude Include="include\IronClad\Utils\Helper.hpp" />
+    <ClInclude Include="include\IronClad\Utils\Loader.hpp" />
+    <ClInclude Include="include\IronClad\Utils\Logging.hpp" />
+    <ClInclude Include="include\IronClad\Utils\Parser.hpp" />
+    <ClInclude Include="include\IronClad\Utils\SysEvent.hpp" />
+    <ClInclude Include="include\IronClad\Utils\Timer.hpp" />
+    <ClInclude Include="include\IronClad\Utils\Utilities.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Debug\glfw.ico" />
     <None Include="..\Debug\Shaders\AmbientLight.fs" />
     <None Include="..\Debug\Shaders\Animate.fs" />
     <None Include="..\Debug\Shaders\Default.fs" />
@@ -147,9 +146,10 @@
     <None Include="..\Debug\Shaders\PointLight.fs" />
     <None Include="..\Debug\Shaders\Ripple.fs" />
     <None Include="..\Debug\Shaders\ShadowCaster.fs" />
-    <None Include="include\Asset\AssetManager.inl" />
+    <None Include="include\IronClad\Asset\AssetManager.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Asset\Asset.cpp" />
     <ClCompile Include="src\Asset\AssetManager.cpp" />
     <ClCompile Include="src\Asset\Mesh.cpp" />
     <ClCompile Include="src\Asset\Shader.cpp" />
@@ -180,6 +180,7 @@
     <ClCompile Include="src\Utils\Helper.cpp" />
     <ClCompile Include="src\Utils\Loader.cpp" />
     <ClCompile Include="src\Utils\Logging.cpp" />
+    <ClCompile Include="src\Utils\Parser.cpp" />
     <ClCompile Include="src\Utils\SysEvent.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

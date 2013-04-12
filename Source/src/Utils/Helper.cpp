@@ -34,6 +34,12 @@ int util::atoi(const std::string& str)
     return ::atoi(str.c_str());
 }
 
+void util::stripl(std::string& str)
+{
+    while(str[0] == ' ')    str = str.substr(1, -1);
+    while(str[0] == '\t')   str = str.substr(1, -1);
+}
+
 /**
  * Convert a string to its uppercase equivalent.
  *  This directly modifies the original string argument.

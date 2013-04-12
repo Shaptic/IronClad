@@ -1,6 +1,7 @@
 /**
  * @file
- *    Graphics/Light.hpp - Declares the CLight class, which handles scene lighting in IronClad.
+ *  Graphics/Light.hpp - Declares the CLight class, which handles scene
+ *  lighting in IronClad.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
@@ -36,9 +37,9 @@ namespace gfx
     IRONCLAD_API enum LightType
     {
         IC_NO_LIGHT             = -1,
-        IC_POINT_LIGHT,
-        IC_DIRECTIONAL_LIGHT,
         IC_AMBIENT_LIGHT,
+        IC_DIRECTIONAL_LIGHT,
+        IC_POINT_LIGHT,
         IC_LIGHT_TYPE_COUNT
     };
 
@@ -55,9 +56,10 @@ namespace gfx
     public:
         CLight() : m_brt(.5f), m_Att(.05f, .01f, 0.f),
                    m_type(IC_NO_LIGHT) {}
-        ~CLight(){}
 
         bool Init(const LightType type, const CWindow& Window);
+        bool Init(const gfx::LightType type, const uint16_t h, 
+                  const math::matrix4x4_t& Proj);
         
         void SetBrightness(const float brt);
         void SetAngle(const float degrees);

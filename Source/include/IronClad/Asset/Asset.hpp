@@ -30,7 +30,7 @@
 #include <string>
 
 #include "IronClad/Base/Types.hpp"
-#include "IronClad/Utils/Logging.hpp"
+#include "IronClad/Utils/Utilities.hpp"
 
 namespace ic
 {
@@ -56,10 +56,8 @@ namespace asset
     class IRONCLAD_API CAsset
     {
     public:
-        CAsset(bool original = false) : m_original(original),
-            m_last_error("No error"),
-            m_id(Hash((char*)this, sizeof(CAsset))) {}
-        ~CAsset(){}
+        CAsset(bool original = false);
+        virtual ~CAsset();
 
         virtual bool LoadFromFile(const char* pfilename) = 0;
         virtual bool LoadFromFile(const std::string& filename) = 0;
@@ -73,33 +71,11 @@ namespace asset
         inline virtual const std::string& GetError() const
         { return m_last_error; }
 
-        /**
-         * Calculates a hash for a given value.
-         * 
-         * @param   char*       Data to hash
-         * @param   uint32_t    Size of the data
-         * 
-         * @return  The hash value.
-         **/
         static inline uint32_t Hash(const char* pdata, uint32_t size)
-        {
-            uint32_t hash = 0;
-            uint32_t c = 0;
-
-            while(size > 0)
-            {
-                c = *pdata++;
-                hash = ((hash << 5) + hash) ^ c;
-                --size;
-            }
-
-            return hash;
-        }
+        { return util::Murmur2(pdata, size, hash_seed); }
 
         inline void SetFilename(const std::string& filename)
-        {
-            m_filename = filename;
-        }
+        { m_filename = filename; }
 
         /**
          * Only the CAssetManager class can create CAsset instances.
@@ -111,14 +87,9 @@ namespace asset
          * This should free the current asset if and only if it is
          * the original (m_original == true).
          **/
-        virtual void Release()
-        {
-            util::g_Log.Flush();
-            util::g_Log << "[INFO] Deleted asset:     (";
-            util::g_Log.SetWidth(10);
-            util::g_Log << m_id << ") " << m_filename << "\n";
-            util::g_Log.PrintLastLog();
-        }
+        virtual void Release();
+
+        static uint32_t hash_seed;
 
         std::string m_filename;
         std::string m_last_error;

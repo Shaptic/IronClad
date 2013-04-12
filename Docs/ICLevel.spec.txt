@@ -1,0 +1,90 @@
+FILE FORMAT SPECIFICATION FOR ICMesh FILES
+
+Name        : IronClad mesh
+Extension   : .icmesh
+Description : Level files specify object and lighting locations in a scene.
+Format      : The .iclvl file format is a mix of XML and INI files, with both entities
+              and lights having unique tag identifiers with key-value pairs within them.
+              The comments in the example explain further which tags are necessary and which aren't.
+Example     : // Tabs aren't necessary, but all of these tags are.            
+              // e.g. You can't leave off the <level> tag, since the
+              // engine will consider it to be an invalid file.
+
+              <level>
+
+              // Metadata, usually ignored.
+              filename=Level1.iclvl
+              author=IronLevel Editor
+              version=1.0
+
+              // For loading screens, optional.
+              description=Tutorial Level
+
+              <entity>
+                // This data MUST come before any <surface> tags.
+                            
+                // Vertices of the object
+                vertex=0,0,100,0,100,100,0,100
+                            
+                // Position, either way works.
+                // If you put both, it's done in top-down order
+                position=100.1,200
+                x=100.5
+                y=200.99
+                        
+                // Texture coordinates, for tiling.
+                // These should correspond with x,y pairs in the 'vertex' key.
+                texcoords=0,1,1,1,1,0,0,0
+                          
+                <surface>
+                    // Choose one. "animation" is ignored by the mesh loader,
+                    // but will be loaded by the level, instead.
+                    texture=Textures/Test.tga
+                    animation=Textures/Player.icanim
+
+                    // Optional.
+                    vshader=Shaders/Default.vs
+                    fshader=Shaders/Default.fs
+                
+                    // Indices, optional. Defaults to a quad -- 0,1,3,3,1,2
+                    // These should correspond with x,y pairs in the 'vertex' key.
+                    indices=0,1,3,3,1,2
+                </surface>
+                
+                // Attributes
+                isPhysical=1
+                isAnimation=0
+                isStatic=1
+                isSpawn=1
+                
+                // Only applies for animations, usually not in the level 
+                // file; it's set by the engine.
+                animationRate=0.1
+              </entity>
+
+              <light>
+                // Light type -- 0:Ambient, 1:Directional, 2:Point
+                type=0
+                
+                // Shader
+                vshader=Shaders/Default.vs
+                fshader=Shaders/PointLight.fs
+                
+                // Position, either way works.
+                // If you put both, it's done in top-down order
+                position=100,200
+                x=100
+                y=200
+                
+                // Lighting attributes, some don't apply to some lights
+                // For example, angles don't apply to point lights.
+                //
+                // Color should be in rgb form, on interval [0, 1]
+                // Angles are in degrees
+                brightness=0.4558
+                attenuation=0.5,0.045,0.0
+                color=0.5,1.0,0.0
+                minAngle=120
+                maxAngle=240
+              </light>
+              </level>

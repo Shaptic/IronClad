@@ -58,8 +58,12 @@ namespace obj
         };
 
         CAnimation() : m_last(util::CTimer::GetTimeElapsed()),
-            m_delay(1.f), m_loops_done(0) {}
-        virtual ~CAnimation(){}
+                       m_delay(1.f), m_loops_done(0) {}
+
+        virtual ~CAnimation()
+        {
+            asset::CAssetManager::Destroy(m_SheetDetails.pTexture);
+        }
 
         /**
          * Load a custom animation file.
@@ -97,7 +101,9 @@ namespace obj
          * @param   bool    Enable / Disable animation
          **/
         void EnableAnimation(bool flag)
-        { m_enabled = flag; }
+        {
+            m_enabled = flag;
+        }
 
         /**
          * Sets the rate of animation.

@@ -1,6 +1,6 @@
 /**
  * @file
- *    Timer.hpp - Designed for easy frame-rate control during rendering operations.
+ *  Timer.hpp - Designed for easy frame-rate control during rendering operations.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0

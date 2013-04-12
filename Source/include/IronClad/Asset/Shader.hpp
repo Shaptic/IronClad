@@ -1,6 +1,6 @@
 /**
  * @file
- *    Asset/Shader.hpp - Individual OpenGL shader objects.
+ *  Asset/Shader.hpp - Individual OpenGL shader objects.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0

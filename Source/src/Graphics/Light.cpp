@@ -49,6 +49,53 @@ bool CLight::Init(const gfx::LightType type, const gfx::CWindow& Window)
     return success;
 }
 
+bool CLight::Init(const gfx::LightType type, const uint16_t h, 
+                  const math::matrix4x4_t& Proj)
+{
+    bool success = false;
+
+    switch(type)
+    {
+    case IC_POINT_LIGHT:
+        success = m_Shader.LoadFromFile("Shaders/Default.vs",
+            "Shaders/PointLight.fs");
+        break;
+
+    case IC_DIRECTIONAL_LIGHT:
+        success = m_Shader.LoadFromFile("Shaders/Default.vs",
+            "Shaders/DirectionalLight.fs");
+        break;
+
+    case IC_AMBIENT_LIGHT:
+        success = m_Shader.LoadFromFile("Shaders/Default.vs",
+            "Shaders/AmbientLight.fs");
+        break;
+
+    case IC_NO_LIGHT: default: return false;
+    }
+
+    m_brtloc    = m_Shader.GetUniformLocation("light_brt");
+    m_colloc    = m_Shader.GetUniformLocation("light_col");
+    m_posloc    = m_Shader.GetUniformLocation("light_pos");
+    m_attloc    = m_Shader.GetUniformLocation("light_att");
+    m_maxloc    = m_Shader.GetUniformLocation("light_max");
+    m_minloc    = m_Shader.GetUniformLocation("light_min");
+
+    int scrloc  = m_Shader.GetUniformLocation("scr_height");
+    int mvloc   = m_Shader.GetUniformLocation("mv");
+    int projloc = m_Shader.GetUniformLocation("proj");
+
+    m_Shader.Bind();
+    if(scrloc != -1) glUniform1i(scrloc, h);
+    glUniformMatrix4fv(mvloc, 1, GL_TRUE, math::IDENTITY.GetMatrixPointer());
+    glUniformMatrix4fv(projloc, 1, GL_TRUE, Proj.GetMatrixPointer());
+    m_Shader.Unbind();
+
+    m_type = type;
+
+    return success;
+}
+
 void CLight::SetBrightness(const float value)
 {
     m_brt = value;

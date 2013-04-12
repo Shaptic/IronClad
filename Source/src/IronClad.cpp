@@ -4,7 +4,7 @@
  *  and release functions.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     0.1
+ * @version     1.0.3
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").\n
  *  You may not use this file except in compliance with the License.\n
@@ -41,6 +41,7 @@ bool ic::Init()
 {
     ic::util::g_Log.Flush();
     ic::util::g_Log << "[INFO] Initializing IronClad engine.\n";
+    ic::util::g_Log << "[INFO] IronClad version: " << IC_VERSION << "\n";
     ic::util::g_Log.PrintLastLog();
 
     // Seed the RNG.
@@ -70,7 +71,7 @@ bool ic::Init()
 
     // Initialize GLFW.
     ic::util::g_Log.Flush();
-    ic::util::g_Log << "[INFO] Initializing GLEW:     ";
+    ic::util::g_Log << "[INFO] Initializing GLFW:     ";
     if(glfwInit() == GL_FALSE)
     {
         ic::util::g_Log << "failure.\n";

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6150 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -138,6 +138,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>CheckCollision</b> (c
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>CheckCollision</b> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Other) const </td></tr>
 <tr class="memitem:a379aa36855738edcfe2f0724697a9f55"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a379aa36855738edcfe2f0724697a9f55"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Update</b> ()</td></tr>
+<tr class="memitem:a8c2859d730fbc4509595e5499bb46777"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1obj_1_1_c_rigid_body.html#a8c2859d730fbc4509595e5499bb46777">SetStatic</a> (const bool f)</td></tr>
+<tr class="memdesc:a8c2859d730fbc4509595e5499bb46777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a static physical object.  <a href="#a8c2859d730fbc4509595e5499bb46777"></a><br/></td></tr>
+<tr class="memitem:a0e231cafa4658f13e59bfcb938160ec4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e231cafa4658f13e59bfcb938160ec4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsStatic</b> () const </td></tr>
 <tr class="memitem:a4bc1dff1eab99b49ad359122e7becf98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4bc1dff1eab99b49ad359122e7becf98"></a>
 <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetForces</b> ()</td></tr>
 <tr class="memitem:a86010a1bc7ceee891c167cf6b800c364"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86010a1bc7ceee891c167cf6b800c364"></a>
@@ -204,6 +208,8 @@ Protected Attributes</h2></td></tr>
 <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_Force</b></td></tr>
 <tr class="memitem:a2b7557e82a706cd703a1a9d6efe6afd8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b7557e82a706cd703a1a9d6efe6afd8"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_update</b></td></tr>
+<tr class="memitem:ab8156668262c4aeb71e98ea9fb086bdb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8156668262c4aeb71e98ea9fb086bdb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_static</b></td></tr>
 <tr class="inherit_header pro_attribs_classic_1_1obj_1_1_c_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classic_1_1obj_1_1_c_entity')"><img src="closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="classic_1_1obj_1_1_c_entity.html">ic::obj::CEntity</a></td></tr>
 <tr class="memitem:afbf6dcc38bc720e830183417a1dfa2d6 inherit pro_attribs_classic_1_1obj_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbf6dcc38bc720e830183417a1dfa2d6"></a>
 <a class="el" href="classic_1_1gfx_1_1_c_mesh_instance.html">gfx::CMeshInstance</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_Mesh</b></td></tr>
@@ -381,6 +387,35 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CQuadTree</b></td></
 
 </div>
 </div>
+<a class="anchor" id="a8c2859d730fbc4509595e5499bb46777"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ic::obj::CRigidBody::SetStatic </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This doesn't necessarily mean that the object cannot move, merely that it does not need to react to various forces, like gravity. </p>
+
+<p>Reimplemented from <a class="el" href="classic_1_1obj_1_1_c_entity.html">ic::obj::CEntity</a>.</p>
+
+<p>Definition at line <a class="el" href="_rigid_body_8hpp_source.html#l00068">68</a> of file <a class="el" href="_rigid_body_8hpp_source.html">RigidBody.hpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>IronClad/include/IronClad/Entity/<a class="el" href="_rigid_body_8hpp_source.html">RigidBody.hpp</a></li>
 <li>IronClad/src/Entity/<a class="el" href="_rigid_body_8cpp_source.html">RigidBody.cpp</a></li>
@@ -388,7 +423,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CQuadTree</b></td></
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 30 2013 11:58:41 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 12 2013 13:27:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

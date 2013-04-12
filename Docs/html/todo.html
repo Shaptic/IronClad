@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6150 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -83,55 +83,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><dl class="reflist">
-<dt><a class="anchor" id="_todo000005"></a>Namespace <a class="el" href="namespaceic.html">ic</a>  </dt>
+<dt><a class="anchor" id="_todo000007"></a>Namespace <a class="el" href="namespaceic.html">ic</a>  </dt>
 <dd><p class="startdd">Geometry shader. </p>
 <p>Shadows. </p>
-<p>Make CFont inherit CAsset.</p>
-<p>Geometry shader. </p>
-<p>Shadows. </p>
-<p class="enddd">Make CFont inherit CAsset. </p>
+<p>Make CFont inherit CAsset. </p>
+<p class="enddd">Implement Murmur3 hash </p>
 </dd>
-<dt><a class="anchor" id="_todo000010"></a>Global <a class="el" href="classic_1_1asset_1_1_c_mesh.html#a9956cd175b6c77dc33386cd5fe565276">ic::asset::CMesh::LoadFromRaw</a>  (const vertex2_t *pvertices, const uint32_t vsize, const uint16_t *pindices, const uint32_t isize)</dt>
+<dt><a class="anchor" id="_todo000011"></a>Global <a class="el" href="classic_1_1asset_1_1_c_mesh.html#a9956cd175b6c77dc33386cd5fe565276">ic::asset::CMesh::LoadFromRaw</a>  (const vertex2_t *pvertices, const uint32_t vsize, const uint16_t *pindices, const uint32_t isize)</dt>
 <dd>Create a proper implementation of this.  </dd>
-<dt><a class="anchor" id="_todo000011"></a>Global <a class="el" href="classic_1_1asset_1_1_c_sound2_d.html#aec6e9949defe40f5dd5e05cf6786b395">ic::asset::CSound2D::LoadFromFile</a>  (const char *p_filename)</dt>
+<dt><a class="anchor" id="_todo000001"></a>Global <a class="el" href="classic_1_1asset_1_1_c_sound2_d.html#a71400a60db173553a55486c196dc50f2">ic::asset::CSound2D::LoadFromFile</a>  (const std::string &amp;filename)</dt>
 <dd>Add the ability to stream large .ogg files.  </dd>
-<dt><a class="anchor" id="_todo000012"></a>Global <a class="el" href="classic_1_1asset_1_1_c_sound2_d.html#a6615a0df1d3bf893067be83c7c8e0fae">ic::asset::CSound2D::Stop</a>  ()</dt>
+<dt><a class="anchor" id="_todo000002"></a>Global <a class="el" href="classic_1_1asset_1_1_c_sound2_d.html#a6615a0df1d3bf893067be83c7c8e0fae">ic::asset::CSound2D::Stop</a>  ()</dt>
 <dd>Add looping capabilities (or lack there-of).  </dd>
-<dt><a class="anchor" id="_todo000013"></a>Global <a class="el" href="classic_1_1audio_1_1_c_music_player.html#aa6b5bea6151bccbc8fc26cafcce94f27">ic::audio::CMusicPlayer::~CMusicPlayer</a>  ()</dt>
+<dt><a class="anchor" id="_todo000012"></a>Global <a class="el" href="classic_1_1audio_1_1_c_music_player.html#aa6b5bea6151bccbc8fc26cafcce94f27">ic::audio::CMusicPlayer::~CMusicPlayer</a>  ()</dt>
 <dd>Clean up assets from manager;  </dd>
-<dt><a class="anchor" id="_todo000006"></a>Class <a class="el" href="classic_1_1_c_level.html">ic::CLevel</a>  </dt>
-<dd>Add control of physics-enabled objects </dd>
-<dt><a class="anchor" id="_todo000015"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a9eba1e017ef0873aae77e9c63f070f53">ic::gfx::CScene::AddLight</a>  (gfx::CLight *pLight)</dt>
+<dt><a class="anchor" id="_todo000008"></a>Class <a class="el" href="classic_1_1_c_level.html">ic::CLevel</a>  </dt>
+<dd>Add control of physics-enabled objects  </dd>
+<dt><a class="anchor" id="_todo000014"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a9eba1e017ef0873aae77e9c63f070f53">ic::gfx::CScene::AddLight</a>  (gfx::CLight *pLight)</dt>
 <dd>Make it actually find the ID of an existing light. </dd>
-<dt><a class="anchor" id="_todo000014"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a4ef3596e056e0b7db3fb2fd05a84dc3d">ic::gfx::CScene::Render</a>  ()</dt>
+<dt><a class="anchor" id="_todo000013"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_scene.html#a4ef3596e056e0b7db3fb2fd05a84dc3d">ic::gfx::CScene::Render</a>  ()</dt>
 <dd>Shadow generation. </dd>
-<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a0085ba6b27e2c3b65bc8569f039c5a67">ic::gfx::CVertexBuffer::AddData</a>  (vertex2_t *pVBuffer, uint32_t vsize, uint16_t *pIBuffer, uint16_t isize, uint32_t *voffset=NULL, uint32_t *ioffset=NULL)</dt>
+<dt><a class="anchor" id="_todo000016"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a0085ba6b27e2c3b65bc8569f039c5a67">ic::gfx::CVertexBuffer::AddData</a>  (vertex2_t *pVBuffer, uint32_t vsize, uint16_t *pIBuffer, uint16_t isize, uint32_t *voffset=NULL, uint32_t *ioffset=NULL)</dt>
 <dd>Fix buffers, only works once. </dd>
-<dt><a class="anchor" id="_todo000018"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a4c00f75fa3594174686cb80f6f0b73a7">ic::gfx::CVertexBuffer::FinalizeBuffer</a>  ()</dt>
+<dt><a class="anchor" id="_todo000017"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html#a4c00f75fa3594174686cb80f6f0b73a7">ic::gfx::CVertexBuffer::FinalizeBuffer</a>  ()</dt>
 <dd>Fix the VAO attribute ID locating. </dd>
-<dt><a class="anchor" id="_todo000019"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_window.html#a5ac234105c9c32c3ff4bcbe3c50e1b41">ic::gfx::CWindow::Create</a>  (const uint16_t width=800, const uint16_t height=600, const char *ptitle="OpenGL Window")</dt>
+<dt><a class="anchor" id="_todo000018"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_window.html#a5ac234105c9c32c3ff4bcbe3c50e1b41">ic::gfx::CWindow::Create</a>  (const uint16_t width=800, const uint16_t height=600, const char *ptitle="OpenGL Window")</dt>
 <dd>Make the window context consistent with the IRONCLAD_MINIMUM_GL_VERSION constant. </dd>
-<dt><a class="anchor" id="_todo000020"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_window.html#a36a06da206505a4b73f3acb021a00e1c">ic::gfx::CWindow::ToggleFullscreen</a>  ()</dt>
+<dt><a class="anchor" id="_todo000006"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_window.html#a65c05efb47dcce9c1f488fe77cace3c2">ic::gfx::CWindow::Resize</a>  (const uint16_t w, const uint16_t h)</dt>
+<dd>Implement this.  </dd>
+<dt><a class="anchor" id="_todo000019"></a>Global <a class="el" href="classic_1_1gfx_1_1_c_window.html#a36a06da206505a4b73f3acb021a00e1c">ic::gfx::CWindow::ToggleFullscreen</a>  ()</dt>
 <dd>Implement this. </dd>
-<dt><a class="anchor" id="_todo000004"></a>Global <a class="el" href="structic_1_1gfx_1_1_globals.html#a061c38f3a8d8b760e94c4ea52579accd">ic::gfx::Globals::Init</a>  (CWindow &amp;Window)</dt>
-<dd>Do NOT hardcore window size. </dd>
-<dt><a class="anchor" id="_todo000007"></a>Class <a class="el" href="structic_1_1math_1_1vector2__t.html">ic::math::vector2_t</a>  </dt>
+<dt><a class="anchor" id="_todo000009"></a>Class <a class="el" href="structic_1_1math_1_1vector2__t.html">ic::math::vector2_t</a>  </dt>
 <dd><p class="startdd">Implement the cross product method. </p>
 <p class="enddd">Add support for translation via matrices.  </p>
 </dd>
-<dt><a class="anchor" id="_todo000001"></a>Class <a class="el" href="classic_1_1obj_1_1_c_animation.html">ic::obj::CAnimation</a>  </dt>
+<dt><a class="anchor" id="_todo000003"></a>Class <a class="el" href="classic_1_1obj_1_1_c_animation.html">ic::obj::CAnimation</a>  </dt>
 <dd>Expand animation abilities to non-quad meshes.  </dd>
-<dt><a class="anchor" id="_todo000002"></a>Class <a class="el" href="classic_1_1obj_1_1_c_entity.html">ic::obj::CEntity</a>  </dt>
+<dt><a class="anchor" id="_todo000004"></a>Class <a class="el" href="classic_1_1obj_1_1_c_entity.html">ic::obj::CEntity</a>  </dt>
 <dd>Calculate width and height properly.  </dd>
-<dt><a class="anchor" id="_todo000003"></a>Global <a class="el" href="classic_1_1obj_1_1_c_entity.html#a720bd2d9dd2937db429bce81892e46d4">ic::obj::CEntity::GetTexture</a>  () const </dt>
+<dt><a class="anchor" id="_todo000005"></a>Global <a class="el" href="classic_1_1obj_1_1_c_entity.html#a720bd2d9dd2937db429bce81892e46d4">ic::obj::CEntity::GetTexture</a>  () const </dt>
 <dd>Bounds checking hehe.  </dd>
-<dt><a class="anchor" id="_todo000008"></a>Class <a class="el" href="classic_1_1util_1_1_c_timer.html">ic::util::CTimer</a>  </dt>
+<dt><a class="anchor" id="_todo000010"></a>Class <a class="el" href="classic_1_1util_1_1_c_timer.html">ic::util::CTimer</a>  </dt>
 <dd>There are some errors with regulating frame-rate. In gDEBugger, it shows as maxing out at 45fps when set to 60fps. </dd>
 </dl>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 30 2013 11:58:41 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 12 2013 13:27:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

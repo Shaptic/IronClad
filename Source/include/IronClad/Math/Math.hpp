@@ -1,6 +1,6 @@
 /**
  * @file
- *    Math/Math.hpp - Includes all of the IronClad math library types and functions.
+ *  Math/Math.hpp - Includes all of the IronClad math library types and functions.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0

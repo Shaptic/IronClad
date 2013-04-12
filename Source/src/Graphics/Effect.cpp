@@ -3,6 +3,11 @@
 using namespace ic;
 using gfx::CEffect;
 
+CEffect::CEffect()
+{
+    m_UniformHash.clear();
+}
+
 bool CEffect::Init(const gfx::EffectType type)
 {
     switch(type)

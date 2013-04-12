@@ -8,6 +8,7 @@ var searchData=
   ['addobject',['AddObject',['../classic_1_1_q_t_node.html#a365d101cb8c7199f4a416d5d1df4b1bb',1,'ic::QTNode']]],
   ['addsongtoqueue',['AddSongToQueue',['../classic_1_1audio_1_1_c_music_player.html#aecda31755aa0352d793c14eec0ed7228',1,'ic::audio::CMusicPlayer']]],
   ['adjust',['Adjust',['../classic_1_1obj_1_1_c_entity.html#af1a970d16aabbdd561986ba4e28f1931',1,'ic::obj::CEntity::Adjust()'],['../classic_1_1obj_1_1_c_rigid_body.html#abbc7de0320c04b544786fa5a0a8708ce',1,'ic::obj::CRigidBody::Adjust()']]],
+  ['adjustvolume',['AdjustVolume',['../classic_1_1asset_1_1_c_sound2_d.html#a2bf207a7f33c14d726a5fda1ba28516e',1,'ic::asset::CSound2D']]],
   ['animation_2ehpp',['Animation.hpp',['../_animation_8hpp.html',1,'']]],
   ['animationheader',['AnimationHeader',['../structic_1_1obj_1_1_c_animation_1_1_animation_header.html',1,'ic::obj::CAnimation']]],
   ['asset_2ehpp',['Asset.hpp',['../_asset_8hpp.html',1,'']]],

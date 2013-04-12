@@ -9,8 +9,25 @@ bool CAnimation::LoadFromFile(const std::string& filename,
 {
     // Make sure its not an .icmesh file. If it is, load 
     // as if it's a standard entity.
-    if(filename.find(".icmesh") != std::string::npos) 
-        return CEntity::LoadFromFile(filename, VBO);
+    if(filename.find(".icmesh") != std::string::npos)
+    {
+        if(!CEntity::LoadFromFile(filename, VBO)) return false;
+
+        m_SheetDetails.width    = CEntity::GetW();
+        m_SheetDetails.height   = CEntity::GetH();
+        m_SheetDetails.columns  = 1;
+        m_SheetDetails.pMesh    = &m_Mesh;
+        m_SheetDetails.pTexture = this->GetTexture();
+
+        m_TexcDim = 1.f;
+
+        // Rigid body collision.
+        m_CollisionBox.w = m_SheetDetails.width;
+        m_CollisionBox.h = m_SheetDetails.height;
+
+        this->EnableAnimation(false);
+        return true;
+    }
 
     std::ifstream anim(filename, std::ios::binary);
 
@@ -64,8 +81,12 @@ bool CAnimation::LoadFromFile(const std::string& filename,
     quad_v[3].TexCoord = math::vector2_t(0.f,   0.f);
 
     g_Log.Flush();
-    g_Log << "[DEBUG] Loading animation file. ";
-    g_Log << (w / sprite_w) * (h / sprite_h) << " sprite(s) expected.\n";
+    g_Log << "[INFO] Loading animation file: " << filename << "\n";
+    g_Log.PrintLastLog();
+
+    g_Log.Flush();
+    g_Log << "[DEBUG] Expecting " << (w / sprite_w) * (h / sprite_h);
+    g_Log << " sprite(s).\n";
     g_Log.PrintLastLog();
 
     std::stringstream ss;
@@ -79,9 +100,6 @@ bool CAnimation::LoadFromFile(const std::string& filename,
 
     // Load mesh
     m_Mesh.LoadMesh(quad_v, 4, quad_i, 6);
-
-    // Load whole atlas into surface, then load custom shader.
-    m_Mesh.GetSurfaces()[0]->pMaterial->pTexture = pTexture;
 
     gfx::CShaderPair* pShader = m_Mesh.GetSurfaces()[0]->pMaterial->pShader;
     if(pShader == NULL)
@@ -98,6 +116,9 @@ bool CAnimation::LoadFromFile(const std::string& filename,
     m_tc_str = pShader->GetUniformLocation("tc_start");
     glUniform1f(m_tc_loc, m_TexcDim);
     pShader->Unbind();
+
+    // Load whole atlas into surface, then load custom shader.
+    m_Mesh.GetSurfaces()[0]->pMaterial->pTexture = pTexture;
     m_Mesh.GetSurfaces()[0]->pMaterial->pShader = pShader;
 
     // Rigid body collision.
@@ -122,7 +143,7 @@ bool CAnimation::NextSprite()
     //util::g_Log.PrintLastLog();
 #endif // _DEBUG
 
-    printf("Sprite index: %d\n", m_active);
+    //printf("Sprite index: %d\n", m_active);
 
     // Adjust for current texture
     gfx::CShaderPair* pShader = m_Mesh.GetSurfaces()[0]->pMaterial->pShader;

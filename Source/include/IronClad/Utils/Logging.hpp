@@ -1,6 +1,6 @@
 /**
  * @file
- *    Utils/Logging.hpp - Declares the CLogging singleton class.
+ *  Utils/Logging.hpp - Declares the CLogging singleton class.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0
@@ -16,8 +16,8 @@
  *  limitations under the License.
  *
  * @addtogroup Utilities
- * Contains a collection of various helpful functions that are not related
- * to the primary engine in any way.
+ *  Contains a collection of various helpful functions that are not related
+ *  to the primary engine in any way.
  *  
  * @{
  **/

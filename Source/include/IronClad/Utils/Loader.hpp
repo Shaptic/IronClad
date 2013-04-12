@@ -1,7 +1,7 @@
 /**
  * @file
- *    Utils/Loader.hpp - Defines many functions that simplify loading of
- *    files such as images.
+ *  Utils/Loader.hpp - Defines many functions that simplify loading of
+ *  files such as images.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0

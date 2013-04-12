@@ -1,6 +1,6 @@
 /**
  * @file
- *    Math/Line2.hpp - Describes a 2-dimensional line segment.
+ *  Math/Line2.hpp - Describes a 2-dimensional line segment.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0

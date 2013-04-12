@@ -14,7 +14,7 @@ uint16_t        Globals::g_FullscreenIndices [6] = {0, 1, 3, 3, 2, 1};
 bool Globals::Init(CWindow& Window)
 {
     if(!(g_FullscreenVBO.Init() &&
-        g_DefaultEffect.Init(IC_NO_EFFECT)))
+         g_DefaultEffect.Init(IC_NO_EFFECT)))
     {
         return false;
     }
@@ -33,6 +33,31 @@ bool Globals::Init(CWindow& Window)
     LoadVBODefaults();
     return true;
 }
+
+
+bool ic::gfx::Globals::Init(math::matrix4x4_t& ProjectionMatrix)
+{
+    if(!(g_FullscreenVBO.Init() &&
+         g_DefaultEffect.Init(IC_NO_EFFECT)))
+    {
+        return false;
+    }
+
+    g_DefaultEffect.Enable();
+    g_DefaultEffect.SetMatrix("proj", ProjectionMatrix.GetMatrixPointer());
+    g_DefaultEffect.SetMatrix("mv", math::IDENTITY);
+    g_DefaultEffect.Disable();
+
+    const unsigned char white[] = {'\xff', '\xff', '\xff', '\xff'};
+    g_WhiteTexture = asset::CAssetManager::Create<asset::CTexture>();
+    g_WhiteTexture->SetFilename("Global white texture");
+    g_WhiteTexture->LoadFromRaw(GL_RGBA, GL_RGBA, 1, 1, white);
+
+    g_FullscreenVBO.SetType(GL_STATIC_DRAW);
+    LoadVBODefaults();
+    return true;
+}
+
 
 void Globals::LoadVBODefaults()
 {

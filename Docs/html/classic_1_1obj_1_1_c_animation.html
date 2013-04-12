@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6150 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -171,6 +171,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>CheckCollision</b> (c
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>CheckCollision</b> (const <a class="el" href="structic_1_1math_1_1rect__t.html">math::rect_t</a> &amp;Other) const </td></tr>
 <tr class="memitem:a95a7d06eb8308b08325c9e0391295076 inherit pub_methods_classic_1_1obj_1_1_c_rigid_body"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95a7d06eb8308b08325c9e0391295076"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>CheckCollision</b> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Other) const </td></tr>
+<tr class="memitem:a8c2859d730fbc4509595e5499bb46777 inherit pub_methods_classic_1_1obj_1_1_c_rigid_body"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1obj_1_1_c_rigid_body.html#a8c2859d730fbc4509595e5499bb46777">SetStatic</a> (const bool f)</td></tr>
+<tr class="memdesc:a8c2859d730fbc4509595e5499bb46777 inherit pub_methods_classic_1_1obj_1_1_c_rigid_body"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defines a static physical object.  <a href="#a8c2859d730fbc4509595e5499bb46777"></a><br/></td></tr>
+<tr class="memitem:a0e231cafa4658f13e59bfcb938160ec4 inherit pub_methods_classic_1_1obj_1_1_c_rigid_body"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e231cafa4658f13e59bfcb938160ec4"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>IsStatic</b> () const </td></tr>
 <tr class="memitem:a4bc1dff1eab99b49ad359122e7becf98 inherit pub_methods_classic_1_1obj_1_1_c_rigid_body"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4bc1dff1eab99b49ad359122e7becf98"></a>
 <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>GetForces</b> ()</td></tr>
 <tr class="memitem:a86010a1bc7ceee891c167cf6b800c364 inherit pub_methods_classic_1_1obj_1_1_c_rigid_body"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a86010a1bc7ceee891c167cf6b800c364"></a>
@@ -251,6 +255,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>m_loops_done</b></td><
 <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_Force</b></td></tr>
 <tr class="memitem:a2b7557e82a706cd703a1a9d6efe6afd8 inherit pro_attribs_classic_1_1obj_1_1_c_rigid_body"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b7557e82a706cd703a1a9d6efe6afd8"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_update</b></td></tr>
+<tr class="memitem:ab8156668262c4aeb71e98ea9fb086bdb inherit pro_attribs_classic_1_1obj_1_1_c_rigid_body"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8156668262c4aeb71e98ea9fb086bdb"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_static</b></td></tr>
 <tr class="inherit_header pro_attribs_classic_1_1obj_1_1_c_entity"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_classic_1_1obj_1_1_c_entity')"><img src="closed.png" alt="-"/>&nbsp;Protected Attributes inherited from <a class="el" href="classic_1_1obj_1_1_c_entity.html">ic::obj::CEntity</a></td></tr>
 <tr class="memitem:afbf6dcc38bc720e830183417a1dfa2d6 inherit pro_attribs_classic_1_1obj_1_1_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbf6dcc38bc720e830183417a1dfa2d6"></a>
 <a class="el" href="classic_1_1gfx_1_1_c_mesh_instance.html">gfx::CMeshInstance</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_Mesh</b></td></tr>
@@ -267,7 +273,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>NeedsUpdate</b> () co
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>This class acts exactly like an entity, but contains the ability to easily switch between sprites either automatically after a certain period of time or manually. Currently, this is meant exclusively for simple, single-texture quad meshes, as that makes material binding much easier to implement correctly. Another limitation is that all of the animations in the sprite sheet must be the exact same size.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000001">Todo:</a></b></dt><dd>Expand animation abilities to non-quad meshes. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Todo:</a></b></dt><dd>Expand animation abilities to non-quad meshes. </dd></dl>
 
 <p>Definition at line <a class="el" href="_animation_8hpp_source.html#l00047">47</a> of file <a class="el" href="_animation_8hpp_source.html">Animation.hpp</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
@@ -300,7 +306,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>NeedsUpdate</b> () co
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_animation_8hpp_source.html#l00099">99</a> of file <a class="el" href="_animation_8hpp_source.html">Animation.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_animation_8hpp_source.html#l00103">103</a> of file <a class="el" href="_animation_8hpp_source.html">Animation.hpp</a>.</p>
 
 </div>
 </div>
@@ -366,7 +372,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>NeedsUpdate</b> () co
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if iterated to next one, FALSE if looping to beginning. </dd></dl>
 
-<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00110">110</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00131">131</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
 
 </div>
 </div>
@@ -401,7 +407,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>NeedsUpdate</b> () co
 </div><div class="memdoc">
 <p>The internal sprites will iterate as this limit is reached. It is absolutely essential that you call <a class="el" href="classic_1_1obj_1_1_c_animation.html#a2d282321233f293a7e7fd780eac52236" title="Updates the current time delta value.">Update()</a> at the end of each frame in order to track this value properly. </p>
 
-<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00147">147</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00168">168</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
 
 </div>
 </div>
@@ -426,7 +432,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>NeedsUpdate</b> () co
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00152">152</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00173">173</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
 
 </div>
 </div>
@@ -454,7 +460,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>NeedsUpdate</b> () co
 
 <p>Reimplemented from <a class="el" href="classic_1_1obj_1_1_c_rigid_body.html">ic::obj::CRigidBody</a>.</p>
 
-<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00136">136</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_animation_8cpp_source.html#l00157">157</a> of file <a class="el" href="_animation_8cpp_source.html">Animation.cpp</a>.</p>
 
 </div>
 </div>
@@ -465,7 +471,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>NeedsUpdate</b> () co
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 30 2013 11:58:41 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 12 2013 13:27:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

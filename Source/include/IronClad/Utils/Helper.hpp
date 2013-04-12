@@ -1,7 +1,7 @@
 /**
  * @file
- *    Utils/Helper.cpp - A collection of helper functions for string
- *    manipulation and other procedures.
+ *  Utils/Helper.cpp - A collection of helper functions for string
+ *  manipulation and other procedures.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.0.1
@@ -35,7 +35,8 @@ namespace util
 {
     IRONCLAD_API int  num_len(const int number);
     IRONCLAD_API int  atoi(const std::string& str);
-    IRONCLAD_API void toupper(std::string& str);    
+    IRONCLAD_API void toupper(std::string& str);
+    IRONCLAD_API void stripl(std::string& str);
     IRONCLAD_API std::string toupper_ret(const std::string& str);
     IRONCLAD_API std::string combine(const std::string& str1, const char* str2);
     IRONCLAD_API std::string combine(const char* str2, const std::string& str1);

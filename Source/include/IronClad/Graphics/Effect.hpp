@@ -1,7 +1,7 @@
 /**
  * @file
- *    Graphics/Effect.hpp - Declaration of the abstract base class for all of
- *    the effects supported by IronClad.
+ *  Graphics/Effect.hpp - Declaration of the abstract base class for all of
+ *  the effects supported by IronClad.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.1
@@ -49,7 +49,7 @@ namespace gfx
     class IRONCLAD_API CEffect
     {
     public:
-        CEffect(){}
+        CEffect();
         ~CEffect(){}
 
         bool Init(const EffectType type);
@@ -139,23 +139,6 @@ namespace gfx
         bool m_mode;
         float m_alpha;
     };
-
-    // Fading effect.
-    static bool Fade(CEffect* pEffect, const float rate)
-    {
-        static float alpha = (rate > 0.f) ? 0.f : 1.f;
-
-        pEffect->Enable();
-        pEffect->SetParameter("alpha", alpha += rate);
-        pEffect->Disable();
-
-        // incr.
-        if(rate > 0.f) return (alpha > 1.f);
-        
-        // decr.
-        return (alpha < 1.f);
-    }
-
 }   // namespace gfx
 }   // namespace ic
 

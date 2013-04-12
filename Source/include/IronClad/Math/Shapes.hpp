@@ -1,6 +1,6 @@
 /**
  * @file
- *    Math/Shapes.hpp - Defines various shapes, primarily used for collision.
+ *  Math/Shapes.hpp - Defines various shapes, primarily used for collision.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.1

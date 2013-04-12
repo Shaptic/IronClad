@@ -10,6 +10,7 @@ var searchData=
   ['setmax',['SetMax',['../classic_1_1_q_t_node.html#a8ce72e376c24c875ccd0345f74de3d8a',1,'ic::QTNode']]],
   ['setparameter',['SetParameter',['../classic_1_1gfx_1_1_c_effect.html#a683389b7fe38a10ec31ba75532de5089',1,'ic::gfx::CEffect']]],
   ['setposition',['SetPosition',['../classic_1_1asset_1_1_c_sound2_d.html#a8426850e8627d25f2bc88bc870660805',1,'ic::asset::CSound2D']]],
+  ['setstatic',['SetStatic',['../classic_1_1obj_1_1_c_rigid_body.html#a8c2859d730fbc4509595e5499bb46777',1,'ic::obj::CRigidBody']]],
   ['settype',['SetType',['../classic_1_1gfx_1_1_c_vertex_buffer.html#ac843b0afec32c0b28f6399d41ba556df',1,'ic::gfx::CVertexBuffer']]],
   ['setvelocity',['SetVelocity',['../classic_1_1asset_1_1_c_sound2_d.html#ae7c3310ea93aea55ea5b826fcce3f02a',1,'ic::asset::CSound2D']]],
   ['setwidth',['SetWidth',['../classic_1_1util_1_1_c_logging.html#ad1585cc8d138ee6ca00084f5386a97bd',1,'ic::util::CLogging']]],

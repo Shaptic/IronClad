@@ -8,10 +8,33 @@ using gfx::Globals;
 gfx::material_t CScene::m_ShadowShader;
 
 CScene::CScene(gfx::CWindow& Window, const gfx::SceneType scene) : 
-    m_Window(Window), m_postfx(true), m_lighting(true),
+    m_WindowDim(Window.GetW(), Window.GetH()),
+    m_WindowProj(Window.GetProjectionMatrixC()),
+    mp_Window(&Window), m_postfx(true), m_lighting(true),
     m_geo_type(GL_TRIANGLES)
 {
     switch(scene)
+    {
+    case IC_ANY_SCENE:
+    case IC_DYNAMIC_SCENE:
+        m_GeometryVBO.SetType(GL_DYNAMIC_DRAW);
+        break;
+
+    case IC_STATIC_SCENE:
+        m_GeometryVBO.SetType(GL_STATIC_DRAW);
+        break;
+    }
+
+    m_ShadowVBO.SetType(GL_DYNAMIC_DRAW);
+}
+
+CScene::CScene(const uint16_t w, const uint16_t h,
+               const math::matrix4x4_t& proj,
+               const gfx::SceneType scene_type) : 
+    m_WindowDim(w, h), m_WindowProj(proj), mp_Window(NULL), 
+    m_postfx(true), m_lighting(true), m_geo_type(GL_TRIANGLES)
+{
+    switch(scene_type)
     {
     case IC_ANY_SCENE:
     case IC_DYNAMIC_SCENE:
@@ -33,8 +56,8 @@ bool CScene::Init()
     // Initialize frame-buffer.
     return (m_GeometryVBO.Init()                            &&
             m_ShadowVBO.Init()                              &&
-            m_FBO.Init(m_Window.GetW(), m_Window.GetH())    &&
-            m_FBOSwap.Init(m_Window.GetW(), m_Window.GetH()));
+            m_FBO.Init(m_WindowDim.x, m_WindowDim.y)        &&
+            m_FBOSwap.Init(m_WindowDim.x, m_WindowDim.y));
 }
 
 obj::CEntity* CScene::AddMesh(
@@ -96,7 +119,7 @@ void CScene::Render()
 
     // Clear frame-buffer settings.
     glClearColor(0.1f, 0.1f, 0.1f, 1.f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);    
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     // Blending is essential.
     glEnable(GL_BLEND);
@@ -151,7 +174,7 @@ void CScene::Render()
 
         // Additive blending for lighting.
         glBlendFunc(GL_ONE, GL_ONE);
-
+        
         // Render all lights onto the frame-buffer.
         for(size_t i = 0; i < mp_sceneLights.size(); ++i)
         {
@@ -219,7 +242,7 @@ bool CScene::AddMaterialOverlay(gfx::CEffect* pEffect)
     // Set up matrices, just in case.
     pEffect->Enable();
     pEffect->SetMatrix("mv", ic::math::IDENTITY);
-    pEffect->SetMatrix("proj", m_Window.GetProjectionMatrix());
+    pEffect->SetMatrix("proj", m_WindowProj);
     pEffect->Disable();
 
     // Remove if already existing.
@@ -259,7 +282,7 @@ void CScene::StandardRender(obj::CEntity* pEntity,
             ModelView.GetMatrixPointer());
 
         glUniformMatrix4fv(pjloc, 1, GL_TRUE,
-            m_Window.GetProjectionMatrix());
+            m_WindowProj.GetMatrixPointer());
     }
 
     if(m_geo_type == GL_LINE_STRIP ||
@@ -304,7 +327,7 @@ void CScene::StandardRender(gfx::surface_t* pSurface,
             ModelView.GetMatrixPointer());
 
         glUniformMatrix4fv(pjloc, 1, GL_TRUE,
-            m_Window.GetProjectionMatrix());
+            m_WindowProj.GetMatrixPointer());
     }
 
     if(m_geo_type == GL_LINE_STRIP ||
@@ -330,15 +353,17 @@ void CScene::LightRender(gfx::CLight* pLight)
     // Nothing to render if there's no texture/shader.
     if(pLight == NULL) return;
 
-    // Bind post-effect.
+    // Bind light shader.
     pLight->Enable();
-    pLight->SetPosition(pLight->GetPosition() + m_Camera);
-
+    if(pLight->GetType() != IC_AMBIENT_LIGHT)
+        pLight->SetPosition(pLight->GetPosition() + m_Camera);
+    
     // Draw off-screen texture to screen.
     Globals::g_FullscreenVBO.Draw();
 
     // Turn off effect.
-    pLight->SetPosition(pLight->GetPosition() - m_Camera);
+    if(pLight->GetType() != IC_AMBIENT_LIGHT)
+        pLight->SetPosition(pLight->GetPosition() - m_Camera);
     pLight->Disable();
 }
 
@@ -622,3 +647,4 @@ int CScene::GetQueuePosition(const obj::CEntity* pEntity) const
 
     return -1;
 }
+

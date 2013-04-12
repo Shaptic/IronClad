@@ -62,7 +62,6 @@ bool QTNode::RemoveObject(obj::CRigidBody* pBody)
     return false;
 }
 
-
 void QTNode::Split()
 {
     // I feel so bad :(
@@ -282,7 +281,7 @@ bool CQuadTree::RInsert(obj::CRigidBody* pBody, QTNode* pStart)
 }
 
 obj::CRigidBody* CQuadTree::CheckLeaf(const obj::CRigidBody* pBody,
-                                          const QTNode* pStart) const
+                                      const QTNode* pStart) const
 {
     if(pStart->IsLeaf())
     {

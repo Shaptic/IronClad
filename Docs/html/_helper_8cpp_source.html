@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6150 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -116,58 +116,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aeef8b87b77a0f7bd0ce8569b3c64df36" title="Coverts a C++ string to an integer value.">return ::atoi</a>(str.c_str());</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a9f2900edf57eaea5ae39fd28cbf96027">   43</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceic_1_1util.html#a9f2900edf57eaea5ae39fd28cbf96027" title="Convert a string to its uppercase equivalent.">util::toupper</a>(std::string&amp; str)</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordflow">for</span>(uint32_t i = 0; i &lt; str.length(); ++i)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        str[i] = ::<a class="code" href="namespaceic_1_1util.html#a9f2900edf57eaea5ae39fd28cbf96027" title="Convert a string to its uppercase equivalent.">toupper</a>(str[i]);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a0f628e60ca0ee72c38f8fa93d97c2443">   56</a></span>&#160;std::string <a class="code" href="namespaceic_1_1util.html#a0f628e60ca0ee72c38f8fa93d97c2443" title="Convert a string to its uppercase equivalent.">util::toupper_ret</a>(<span class="keyword">const</span> std::string&amp; str)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    std::string tmp(str);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">for</span>(uint32_t i = 0; i &lt; str.length(); ++i)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        tmp[i] = ::<a class="code" href="namespaceic_1_1util.html#a9f2900edf57eaea5ae39fd28cbf96027" title="Convert a string to its uppercase equivalent.">toupper</a>(str[i]);</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> tmp;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div>
-<div class="line"><a name="l00071"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a8999635107b7769af1442a25dbf10ced">   71</a></span>&#160;std::string <a class="code" href="namespaceic_1_1util.html#a8999635107b7769af1442a25dbf10ced" title="Combine a C++ style string and a C string into one.">util::combine</a>(<span class="keyword">const</span> std::string&amp; str1, <span class="keyword">const</span> <span class="keywordtype">char</span>* pstr2)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    std::stringstream ss;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    ss &lt;&lt; str1 &lt;&lt; pstr2;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> ss.str();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a963c2d16cd8fe5d3d61c76fab00e6a8b">   85</a></span>&#160;std::string <a class="code" href="namespaceic_1_1util.html#a8999635107b7769af1442a25dbf10ced" title="Combine a C++ style string and a C string into one.">util::combine</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* pstr1, <span class="keyword">const</span> std::string&amp; str2)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    std::stringstream ss;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    ss &lt;&lt; pstr1 &lt;&lt; str2;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">return</span> ss.str();</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00099"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a80c5e53506e6351b14e2ab5dc08342fe">   99</a></span>&#160;std::vector&lt;std::string&gt; <a class="code" href="namespaceic_1_1util.html#a80c5e53506e6351b14e2ab5dc08342fe" title="Splits a string into individual parts at an special character.">util::split</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keywordtype">char</span> token)</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    std::string tmp(str);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    std::stringstream ss;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    std::vector&lt;std::string&gt; results;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">int</span> index;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">while</span>(<span class="keyword">true</span>)</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    {</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        index = tmp.find(token);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;        <span class="keywordflow">if</span>(index == -1 || index == std::string::npos)</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keywordtype">void</span> util::stripl(std::string&amp; str)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordflow">while</span>(str[0] == <span class="charliteral">&#39; &#39;</span>)    str = str.substr(1, -1);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">while</span>(str[0] == <span class="charliteral">&#39;\t&#39;</span>)   str = str.substr(1, -1);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a9f2900edf57eaea5ae39fd28cbf96027">   49</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="namespaceic_1_1util.html#a9f2900edf57eaea5ae39fd28cbf96027" title="Convert a string to its uppercase equivalent.">util::toupper</a>(std::string&amp; str)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">for</span>(uint32_t i = 0; i &lt; str.length(); ++i)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        str[i] = ::<a class="code" href="namespaceic_1_1util.html#a9f2900edf57eaea5ae39fd28cbf96027" title="Convert a string to its uppercase equivalent.">toupper</a>(str[i]);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a0f628e60ca0ee72c38f8fa93d97c2443">   62</a></span>&#160;std::string <a class="code" href="namespaceic_1_1util.html#a0f628e60ca0ee72c38f8fa93d97c2443" title="Convert a string to its uppercase equivalent.">util::toupper_ret</a>(<span class="keyword">const</span> std::string&amp; str)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;{</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::string tmp(str);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">for</span>(uint32_t i = 0; i &lt; str.length(); ++i)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        tmp[i] = ::<a class="code" href="namespaceic_1_1util.html#a9f2900edf57eaea5ae39fd28cbf96027" title="Convert a string to its uppercase equivalent.">toupper</a>(str[i]);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a8999635107b7769af1442a25dbf10ced">   77</a></span>&#160;std::string <a class="code" href="namespaceic_1_1util.html#a8999635107b7769af1442a25dbf10ced" title="Combine a C++ style string and a C string into one.">util::combine</a>(<span class="keyword">const</span> std::string&amp; str1, <span class="keyword">const</span> <span class="keywordtype">char</span>* pstr2)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    std::stringstream ss;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    ss &lt;&lt; str1 &lt;&lt; pstr2;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> ss.str();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a963c2d16cd8fe5d3d61c76fab00e6a8b">   91</a></span>&#160;std::string <a class="code" href="namespaceic_1_1util.html#a8999635107b7769af1442a25dbf10ced" title="Combine a C++ style string and a C string into one.">util::combine</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* pstr1, <span class="keyword">const</span> std::string&amp; str2)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    std::stringstream ss;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    ss &lt;&lt; pstr1 &lt;&lt; str2;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> ss.str();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="code" href="namespaceic_1_1util.html#a80c5e53506e6351b14e2ab5dc08342fe">  105</a></span>&#160;std::vector&lt;std::string&gt; <a class="code" href="namespaceic_1_1util.html#a80c5e53506e6351b14e2ab5dc08342fe" title="Splits a string into individual parts at an special character.">util::split</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keywordtype">char</span> token)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    std::string tmp(str);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    std::stringstream ss;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    std::vector&lt;std::string&gt; results;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordtype">int</span> index;</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        results.push_back(tmp.substr(0, index));</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        tmp = tmp.substr(index + 1, -1);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    results.push_back(tmp);</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span> results;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;}</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">while</span>(<span class="keyword">true</span>)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        index = tmp.find(token);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <span class="keywordflow">if</span>(index == -1 || index == std::string::npos)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        results.push_back(tmp.substr(0, index));</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        tmp = tmp.substr(index + 1, -1);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    results.push_back(tmp);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordflow">return</span> results;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 30 2013 11:58:41 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 12 2013 13:27:32 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

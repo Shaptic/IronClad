@@ -8,7 +8,8 @@ CShaderPair::CShaderPair() : m_program(0), mp_VShader(NULL),
 
 CShaderPair::~CShaderPair()
 {
-    glDeleteProgram(m_program);
+    if(glDeleteProgram != NULL && !m_program)
+        glDeleteProgram(m_program);
 }
 
 short CShaderPair::GetAttributeLocation(const char* attr) const

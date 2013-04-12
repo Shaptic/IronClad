@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6150 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -105,8 +105,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af20358a35e0524d7286a6b0fe54d416d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#af20358a35e0524d7286a6b0fe54d416d">CScene</a> (<a class="el" href="classic_1_1gfx_1_1_c_window.html">CWindow</a> &amp;Window, const <a class="el" href="namespaceic_1_1gfx.html#acece0179692a187b26df6719319434bc">SceneType</a> scene_type)</td></tr>
-<tr class="memdesc:af20358a35e0524d7286a6b0fe54d416d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the scene.  <a href="#af20358a35e0524d7286a6b0fe54d416d"></a><br/></td></tr>
+<tr class="memitem:aa770aa1cf021239fab094ce9fad68754"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#aa770aa1cf021239fab094ce9fad68754">CScene</a> (<a class="el" href="classic_1_1gfx_1_1_c_window.html">CWindow</a> &amp;Window, const <a class="el" href="namespaceic_1_1gfx.html#acece0179692a187b26df6719319434bc">SceneType</a> scene_type)</td></tr>
+<tr class="memdesc:aa770aa1cf021239fab094ce9fad68754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the scene.  <a href="#aa770aa1cf021239fab094ce9fad68754"></a><br/></td></tr>
+<tr class="memitem:a4e98da032fd2df839e482b0038385037"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e98da032fd2df839e482b0038385037"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>CScene</b> (const uint16_t w, const uint16_t h, const <a class="el" href="classic_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a> &amp;proj, const <a class="el" href="namespaceic_1_1gfx.html#acece0179692a187b26df6719319434bc">SceneType</a> scene_type)</td></tr>
 <tr class="memitem:ac7b4358bbb73e4247a0e9225f82fe284"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#ac7b4358bbb73e4247a0e9225f82fe284">Init</a> ()</td></tr>
 <tr class="memdesc:ac7b4358bbb73e4247a0e9225f82fe284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the scene.  <a href="#ac7b4358bbb73e4247a0e9225f82fe284"></a><br/></td></tr>
 <tr class="memitem:a523b493084430c83daa50d20acb93959"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classic_1_1obj_1_1_c_entity.html">obj::CEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a523b493084430c83daa50d20acb93959">AddMesh</a> (const std::string &amp;filename, const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Pos, bool anim=false, bool rigid=false)</td></tr>
@@ -146,6 +148,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>MoveCamera</b> (const
 <tr class="memitem:add861979dad1a19dbf49e1854f04ba78"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="add861979dad1a19dbf49e1854f04ba78"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#add861979dad1a19dbf49e1854f04ba78">Clear</a> ()</td></tr>
 <tr class="memdesc:add861979dad1a19dbf49e1854f04ba78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes all scene data. <br/></td></tr>
+<tr class="memitem:a6055e670746f1005d39c26b42291d400"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6055e670746f1005d39c26b42291d400"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>UpdateWindow</b> (<a class="el" href="classic_1_1gfx_1_1_c_window.html">ic::gfx::CWindow</a> &amp;Window)</td></tr>
 <tr class="memitem:a93bc46f020888f76d10322d1a8be0bca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a93bc46f020888f76d10322d1a8be0bca">TogglePostProcessing</a> ()</td></tr>
 <tr class="memdesc:a93bc46f020888f76d10322d1a8be0bca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles post-processing.  <a href="#a93bc46f020888f76d10322d1a8be0bca"></a><br/></td></tr>
 <tr class="memitem:a383297d7561c218fe4796d32a7089d7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a383297d7561c218fe4796d32a7089d7f">ToggleLighting</a> ()</td></tr>
@@ -154,8 +158,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memdesc:a311dc9513159c68796216623e62756e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles wire-mesh rendering.  <a href="#a311dc9513159c68796216623e62756e5"></a><br/></td></tr>
 <tr class="memitem:a8fd05e4ee782d37be98a06f32821a81a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classic_1_1gfx_1_1_c_light.html">CLight</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a8fd05e4ee782d37be98a06f32821a81a">GetLightFromScene</a> (const uint16_t id)</td></tr>
 <tr class="memdesc:a8fd05e4ee782d37be98a06f32821a81a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a light from the scene using a unique ID.  <a href="#a8fd05e4ee782d37be98a06f32821a81a"></a><br/></td></tr>
-<tr class="memitem:aeaa55951a6c98b1d26661ac2eb660185"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aeaa55951a6c98b1d26661ac2eb660185"></a>
-const <a class="el" href="classic_1_1gfx_1_1_c_window.html">CWindow</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetWindow</b> () const </td></tr>
+<tr class="memitem:adf46b21aebebe39efb7ed68dca3214f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adf46b21aebebe39efb7ed68dca3214f4"></a>
+const <a class="el" href="classic_1_1gfx_1_1_c_window.html">CWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>GetWindow</b> () const </td></tr>
 <tr class="memitem:a8bcc7395414785ae87bb5bbe6564a343"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_scene.html#a8bcc7395414785ae87bb5bbe6564a343">GetQueuePosition</a> (const <a class="el" href="classic_1_1obj_1_1_c_entity.html">obj::CEntity</a> *pEntity) const </td></tr>
 <tr class="memdesc:a8bcc7395414785ae87bb5bbe6564a343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the position in the object queue of the object.  <a href="#a8bcc7395414785ae87bb5bbe6564a343"></a><br/></td></tr>
 <tr class="memitem:ab9edce0ad7a90094c593fe30604e57a3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab9edce0ad7a90094c593fe30604e57a3"></a>
@@ -180,14 +184,14 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 
 <p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00074">74</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af20358a35e0524d7286a6b0fe54d416d"></a>
+<a class="anchor" id="aa770aa1cf021239fab094ce9fad68754"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CScene::CScene </td>
+          <td class="memname">ic::gfx::CScene::CScene </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classic_1_1gfx_1_1_c_window.html">gfx::CWindow</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classic_1_1gfx_1_1_c_window.html">CWindow</a> &amp;&#160;</td>
           <td class="paramname"><em>Window</em>, </td>
         </tr>
         <tr>
@@ -211,8 +215,6 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
   </table>
   </dd>
 </dl>
-
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00010">10</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -238,9 +240,9 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Accessible ID of the scene light.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000015">Todo:</a></b></dt><dd>Make it actually find the ID of an existing light.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>Make it actually find the ID of an existing light.</dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00364">364</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00389">389</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -266,7 +268,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if effect loaded successfully, FALSE on error in either. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00215">215</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00238">238</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -349,7 +351,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>Pointer to light object, NULL if out of range. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00301">301</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00313">313</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -374,7 +376,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>-1 if object is not in queue, proper index otherwise. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00616">616</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00641">641</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -398,7 +400,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00031">31</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00054">54</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -459,7 +461,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CLevel</b></td></tr>
 <dd>
 CScene::GetObjects() </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00589">589</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00614">614</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -503,7 +505,7 @@ CScene::GetObjects() </dd></dl>
 </dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classic_1_1gfx_1_1_c_scene.html#ad8feeaca649172e79d862ac36d61e697" title="Pans the camera around the scene.">PanCamera()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00251">251</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00253">253</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -548,7 +550,7 @@ CScene::GetObjects() </dd></dl>
 </dl>
 <dl class="section see"><dt>See also:</dt><dd><a class="el" href="classic_1_1gfx_1_1_c_scene.html#aa9b881125d715c49e36c27f8edb115f3" title="Moves the camera to a certain position in the scene.">MoveCamera()</a> </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00237">237</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00239">239</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -581,7 +583,7 @@ CScene::GetObjects() </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if removed, FALSE if not found. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00212">212</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00214">214</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -606,7 +608,7 @@ CScene::GetObjects() </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if removed, FALSE if invalid id. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00558">558</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00583">583</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -640,7 +642,7 @@ CScene::GetObjects() </dd></dl>
 </dl>
 <p>TRUE if exists and removed, FALSE otherwise. </p>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00164">164</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00166">166</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -657,9 +659,9 @@ CScene::GetObjects() </dd></dl>
       </table>
 </div><div class="memdoc">
 <p>If, for example, you wanted to render off-screen, you'd bind the other FBO before calling this.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000014">Todo:</a></b></dt><dd>Shadow generation.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000013">Todo:</a></b></dt><dd>Shadow generation.</dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00080">80</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00103">103</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
 
 </div>
 </div>
@@ -685,7 +687,7 @@ CScene::GetObjects() </dd></dl>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns:</dt><dd>What the value was originally, BEFORE toggling. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00280">280</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00289">289</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -711,7 +713,7 @@ CScene::GetObjects() </dd></dl>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns:</dt><dd>What the value was originally, BEFORE toggling. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00273">273</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00282">282</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -737,7 +739,7 @@ CScene::GetObjects() </dd></dl>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns:</dt><dd>What the value was originally, BEFORE toggling. </dd></dl>
 
-<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00287">287</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_scene_8hpp_source.html#l00296">296</a> of file <a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>.</p>
 
 </div>
 </div>
@@ -748,7 +750,7 @@ CScene::GetObjects() </dd></dl>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 30 2013 11:58:41 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 12 2013 13:27:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -1,6 +1,6 @@
 /**
  * @file
- *	Fonts/Font.hpp - A wrapper for an instance of a .ttf font using the FreeType 2 API.
+ *  Fonts/Font.hpp - A wrapper for an instance of a .ttf font using the FreeType 2 API.
  *
  * @author      George Kudrayvtsev (halcyon)
  * @version     1.1.2

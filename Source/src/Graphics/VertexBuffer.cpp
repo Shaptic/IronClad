@@ -24,12 +24,6 @@ CVertexBuffer::CVertexBuffer() : m_vertex_count(0), m_index_count(0),
 
 CVertexBuffer::~CVertexBuffer()
 {
-#ifdef _DEBUG
-    g_Log.Flush();
-    g_Log << "[DEBUG] GFX: Deleting vertex buffer.\n";
-    g_Log.PrintLastLog();
-#endif // _DEBUG
-
     this->Release();
 }
 
@@ -51,12 +45,22 @@ bool CVertexBuffer::Init()
     return ((m_last_error = glGetError()) == GL_NO_ERROR);
 }
 
-void ic::gfx::CVertexBuffer::Release()
+void CVertexBuffer::Release()
 {
     this->Unbind();
-    glDeleteVertexArrays(1, &m_vao);
-    glDeleteBuffers(1, &m_vbo);
-    glDeleteBuffers(1, &m_ibo);
+
+    if(glDeleteVertexArrays != NULL && !m_vao && !m_vbo && !m_ibo)
+    {
+#ifdef _DEBUG
+        g_Log.Flush();
+        g_Log << "[DEBUG] GFX: Deleting vertex buffer.\n";
+        g_Log.PrintLastLog();
+#endif // _DEBUG
+
+        glDeleteVertexArrays(1, &m_vao);
+        glDeleteBuffers(1, &m_vbo);
+        glDeleteBuffers(1, &m_ibo);
+    }
 }
 
 bool CVertexBuffer::Bind()

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6150 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -92,7 +92,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">ic::gfx::CWindow Class Reference</div>  </div>
 </div><!--header-->
@@ -107,16 +109,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1269b45d6bd5c997af244456e1dea756"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1269b45d6bd5c997af244456e1dea756"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CWindow</b> (const uint16_t width, const uint16_t height, const char *title)</td></tr>
-<tr class="memitem:a5ac234105c9c32c3ff4bcbe3c50e1b41"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#a5ac234105c9c32c3ff4bcbe3c50e1b41">Create</a> (const uint16_t width=800, const uint16_t height=600, const char *ptitle=&quot;OpenGL Window&quot;)</td></tr>
+<tr class="memitem:a5ac234105c9c32c3ff4bcbe3c50e1b41"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#a5ac234105c9c32c3ff4bcbe3c50e1b41">Create</a> (const uint16_t width=800, const uint16_t height=600, const char *ptitle=&quot;OpenGL Window&quot;)</td></tr>
 <tr class="memdesc:a5ac234105c9c32c3ff4bcbe3c50e1b41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a window.  <a href="#a5ac234105c9c32c3ff4bcbe3c50e1b41"></a><br/></td></tr>
-<tr class="memitem:a36a06da206505a4b73f3acb021a00e1c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#a36a06da206505a4b73f3acb021a00e1c">ToggleFullscreen</a> ()</td></tr>
+<tr class="memitem:a36a06da206505a4b73f3acb021a00e1c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#a36a06da206505a4b73f3acb021a00e1c">ToggleFullscreen</a> ()</td></tr>
 <tr class="memdesc:a36a06da206505a4b73f3acb021a00e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggles full-screen mode.  <a href="#a36a06da206505a4b73f3acb021a00e1c"></a><br/></td></tr>
-<tr class="memitem:a4ccbffba3f86cd57c17de35af786b5da"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#a4ccbffba3f86cd57c17de35af786b5da">Resize</a> (const uint16_t w, const uint16_t h)</td></tr>
-<tr class="memdesc:a4ccbffba3f86cd57c17de35af786b5da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the window, and the OpenGL view-port.  <a href="#a4ccbffba3f86cd57c17de35af786b5da"></a><br/></td></tr>
-<tr class="memitem:a2c08fe0bee75917cef9ee3a036d2310a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#a2c08fe0bee75917cef9ee3a036d2310a">Clear</a> (const <a class="el" href="structic_1_1color4f__t.html">color4f_t</a> *BGColor=NULL)</td></tr>
+<tr class="memitem:a65c05efb47dcce9c1f488fe77cace3c2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#a65c05efb47dcce9c1f488fe77cace3c2">Resize</a> (const uint16_t w, const uint16_t h)</td></tr>
+<tr class="memdesc:a65c05efb47dcce9c1f488fe77cace3c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resizes the window, and the OpenGL view-port.  <a href="#a65c05efb47dcce9c1f488fe77cace3c2"></a><br/></td></tr>
+<tr class="memitem:a2c08fe0bee75917cef9ee3a036d2310a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#a2c08fe0bee75917cef9ee3a036d2310a">Clear</a> (const <a class="el" href="structic_1_1color4f__t.html">color4f_t</a> *BGColor=NULL)</td></tr>
 <tr class="memdesc:a2c08fe0bee75917cef9ee3a036d2310a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears screen to a background color, clears color / depth bits.  <a href="#a2c08fe0bee75917cef9ee3a036d2310a"></a><br/></td></tr>
 <tr class="memitem:ac685c36d675a4eeb40f8e4d181ae4cd4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac685c36d675a4eeb40f8e4d181ae4cd4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#ac685c36d675a4eeb40f8e4d181ae4cd4">Update</a> ()</td></tr>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#ac685c36d675a4eeb40f8e4d181ae4cd4">Update</a> ()</td></tr>
 <tr class="memdesc:ac685c36d675a4eeb40f8e4d181ae4cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the OpenGL buffers, rendering everything on-screen. <br/></td></tr>
 <tr class="memitem:a1d38db71a3d36881aa04eb88fd435902"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1d38db71a3d36881aa04eb88fd435902"></a>
 uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetW</b> () const </td></tr>
@@ -128,11 +130,27 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>GetFullscreen</b> () 
 <tr class="heading"><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ada00dac8c57a53c270b21a729f9f8669"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ada00dac8c57a53c270b21a729f9f8669"></a>
-static const float *&#160;</td><td class="memItemRight" valign="bottom"><b>GetProjectionMatrix</b> ()</td></tr>
+static const float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#ada00dac8c57a53c270b21a729f9f8669">GetProjectionMatrix</a> ()</td></tr>
+<tr class="memdesc:ada00dac8c57a53c270b21a729f9f8669"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the raw matrix pointer of the projection matrix. <br/></td></tr>
 <tr class="memitem:aa254e0ff09743f2ced1bab0beec963e6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa254e0ff09743f2ced1bab0beec963e6"></a>
-static const <a class="el" href="classic_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetProjectionMatrixC</b> ()</td></tr>
+static const <a class="el" href="classic_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1gfx_1_1_c_window.html#aa254e0ff09743f2ced1bab0beec963e6">GetProjectionMatrixC</a> ()</td></tr>
+<tr class="memdesc:aa254e0ff09743f2ced1bab0beec963e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the class version of the projection matrix. <br/></td></tr>
 <tr class="memitem:a822761c488e35038fd579807ff58e503"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a822761c488e35038fd579807ff58e503"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>ToggleVSYNC</b> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a75a3fe694e129d8eac234d103bb89f0e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a75a3fe694e129d8eac234d103bb89f0e"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_width</b></td></tr>
+<tr class="memitem:a7d2ada51a33c9b92f9218e1cf8f978a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d2ada51a33c9b92f9218e1cf8f978a5"></a>
+uint16_t&#160;</td><td class="memItemRight" valign="bottom"><b>m_height</b></td></tr>
+<tr class="memitem:afb4ae00b25796f3b9a8752635a2b6563"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb4ae00b25796f3b9a8752635a2b6563"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_fullscreen</b></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:a045460203968900214fbf6d815a1c53e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a045460203968900214fbf6d815a1c53e"></a>
+static <a class="el" href="classic_1_1math_1_1matrix4x4__t.html">math::matrix4x4_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>m_ProjectionMatrix</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>IronClad uses GLFW for window management, which supports contexts up to and including OpenGL version 4.2. The features requires by IronClad demand a minimum context version of 3.3, due to the use of VAOs (vertex array objects) and GLSL version 3.3. As the documentation may not be consistently updated, the IRONCLAD_MINIMUM_GL_VERSION constant will always contain the earliest supported GL version by IronClad.</p>
@@ -143,6 +161,9 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ToggleVSYNC</b
 <a class="anchor" id="a2c08fe0bee75917cef9ee3a036d2310a"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void CWindow::Clear </td>
@@ -152,6 +173,11 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ToggleVSYNC</b
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
@@ -168,6 +194,9 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ToggleVSYNC</b
 <a class="anchor" id="a5ac234105c9c32c3ff4bcbe3c50e1b41"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool CWindow::Create </td>
@@ -193,6 +222,11 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ToggleVSYNC</b
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>Using the SDL library, this method creates an OpenGL context with the specified attributes. If the _DEBUG macro is defined, the window is created in windowed mode, otherwise a full-screen window is created instead.</p>
 <dl class="params"><dt>Parameters:</dt><dd>
@@ -204,18 +238,21 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ToggleVSYNC</b
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE on successful creation, FALSE on error.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>Make the window context consistent with the IRONCLAD_MINIMUM_GL_VERSION constant.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000018">Todo:</a></b></dt><dd>Make the window context consistent with the IRONCLAD_MINIMUM_GL_VERSION constant.</dd></dl>
 
 <p>Definition at line <a class="el" href="_window_8cpp_source.html#l00019">19</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4ccbffba3f86cd57c17de35af786b5da"></a>
+<a class="anchor" id="a65c05efb47dcce9c1f488fe77cace3c2"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ic::gfx::CWindow::Resize </td>
+          <td class="memname">virtual bool ic::gfx::CWindow::Resize </td>
           <td>(</td>
           <td class="paramtype">const uint16_t&#160;</td>
           <td class="paramname"><em>w</em>, </td>
@@ -232,8 +269,13 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ToggleVSYNC</b
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
-<p>Calling this method with a modified width and height parameter will destroy the current context and create a new one, so everything OpenGL-related will need to be loaded once more. The new view-port matrix can be accessed with CWindow::QueryViewportMatrix(matrix4x4_t&amp; mat).</p>
+<p>Calling this method with a modified width and height parameter will destroy the current context and create a new one, so everything OpenGL-related will need to be loaded once more. The new view-port matrix can be accessed with <a class="el" href="classic_1_1gfx_1_1_c_window.html#ada00dac8c57a53c270b21a729f9f8669" title="Returns the raw matrix pointer of the projection matrix.">CWindow::GetProjectionMatrix()</a>.</p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramname">uint16_t</td><td>New window width </td></tr>
@@ -241,13 +283,22 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ToggleVSYNC</b
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns:</dt><dd>TRUE on successful resizing, FALSE on error. </dd></dl>
+<dl class="section return"><dt>Returns:</dt><dd>TRUE on successful resizing, FALSE on error.</dd></dl>
+<dl class="section see"><dt>See also:</dt><dd><a class="el" href="classic_1_1gfx_1_1_c_window.html#ada00dac8c57a53c270b21a729f9f8669" title="Returns the raw matrix pointer of the projection matrix.">CWindow::GetProjectionMatrix()</a> </dd>
+<dd>
+<a class="el" href="classic_1_1gfx_1_1_c_window.html#aa254e0ff09743f2ced1bab0beec963e6" title="Returns the class version of the projection matrix.">CWindow::GetProjectionMatrixC()</a></dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>Implement this. </dd></dl>
+
+<p>Definition at line <a class="el" href="_window_8hpp_source.html#l00125">125</a> of file <a class="el" href="_window_8hpp_source.html">Window.hpp</a>.</p>
 
 </div>
 </div>
 <a class="anchor" id="a36a06da206505a4b73f3acb021a00e1c"></a>
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">bool CWindow::ToggleFullscreen </td>
@@ -256,10 +307,15 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ToggleVSYNC</b
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 <p>All OpenGL-related data (buffers, textures, etc.) MUST be reloaded after calling this, because a new OpenGL context is created, invalidating all previous handles.</p>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if switching to FS mode, FALSE otherwise.</dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000020">Todo:</a></b></dt><dd>Implement this.</dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000019">Todo:</a></b></dt><dd>Implement this.</dd></dl>
 
 <p>Definition at line <a class="el" href="_window_8cpp_source.html#l00132">132</a> of file <a class="el" href="_window_8cpp_source.html">Window.cpp</a>.</p>
 
@@ -272,7 +328,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>ToggleVSYNC</b
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sat Mar 30 2013 11:58:41 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 12 2013 13:27:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -75,7 +75,7 @@ namespace gfx
                 const uint16_t height,
                 const char* title);
 
-        ~CWindow();
+        virtual ~CWindow();
 
         /**
          * Creates a window.
@@ -90,10 +90,9 @@ namespace gfx
          *
          * @return TRUE on successful creation, FALSE on error.
          **/
-        bool Create(
-                const uint16_t  width   = 800,
-                const uint16_t  height  = 600,
-                const char*     ptitle  = "OpenGL Window");
+        virtual bool Create(const uint16_t  width   = 800,
+                            const uint16_t  height  = 600,
+                            const char*     ptitle  = "OpenGL Window");
 
         /**
          * Toggles full-screen mode.
@@ -103,7 +102,7 @@ namespace gfx
          *
          * @return TRUE if switching to FS mode, FALSE otherwise.
          **/
-        bool ToggleFullscreen();
+        virtual bool ToggleFullscreen();
 
         /**
          * Resizes the window, and the OpenGL view-port.
@@ -111,25 +110,30 @@ namespace gfx
          *  parameter will destroy the current context and create a
          *  new one, so everything OpenGL-related will need to be
          *  loaded once more. The new view-port matrix can be accessed
-         *  with CWindow::QueryViewportMatrix(matrix4x4_t& mat).
+         *  with CWindow::GetProjectionMatrix().
          *
          * @param   uint16_t    New window width
          * @param   uint16_t    New window height
          *
          * @return  TRUE on successful resizing, FALSE on error.
+         * 
+         * @see     CWindow::GetProjectionMatrix()
+         * @see     CWindow::GetProjectionMatrixC()
+         * 
+         * @todo    Implement this.
          **/
-        bool Resize(const uint16_t w, const uint16_t h);
+        virtual bool Resize(const uint16_t w, const uint16_t h){return 1;}
 
         /**
          * Clears screen to a background color, clears color / depth bits.
          * @param   color4f_t   Background color (optional=0,0,0,1)
          **/
-        void Clear(const color4f_t* BGColor = NULL);
+        virtual void Clear(const color4f_t* BGColor = NULL);
 
         /**
          * Swaps the OpenGL buffers, rendering everything on-screen.
          **/
-        void Update();
+        virtual void Update();
 
         inline uint16_t GetW() const
         { return m_width; }
@@ -140,15 +144,17 @@ namespace gfx
         inline bool GetFullscreen() const
         { return m_fullscreen; }
 
+        /// Returns the raw matrix pointer of the projection matrix.
         static const float* GetProjectionMatrix()
         { return m_ProjectionMatrix.GetMatrixPointer(); }
 
+        /// Returns the class version of the projection matrix.
         static const math::matrix4x4_t& GetProjectionMatrixC()
         { return m_ProjectionMatrix; }
 
         static void ToggleVSYNC();
 
-    private:
+    protected:
         static math::matrix4x4_t   m_ProjectionMatrix;
 
         uint16_t    m_width, m_height;

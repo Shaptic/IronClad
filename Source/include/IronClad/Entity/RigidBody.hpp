@@ -34,7 +34,7 @@ namespace obj
     class IRONCLAD_API CRigidBody : public CEntity
     {
     public:
-        CRigidBody() : pNode(NULL), m_update(false) {}
+        CRigidBody() : pNode(NULL), m_update(false), m_static(false) {}
         ~CRigidBody(){}
 
         bool LoadFromFile(const char* pmesh_filename,
@@ -59,6 +59,18 @@ namespace obj
 
         virtual void Update();
 
+        /**
+         * Defines a static physical object.
+         *  This doesn't necessarily mean that the object cannot move, 
+         *  merely that it does not need to react to various forces, 
+         *  like gravity.
+         **/
+        void SetStatic(const bool f)
+        { m_static = f; }
+
+        bool IsStatic() const 
+        { return m_static; }
+
         math::vector2_t GetForces();
         const math::vector2_t& GetForces() const;
 
@@ -72,7 +84,7 @@ namespace obj
 
         math::rect_t m_CollisionBox;
         math::vector2_t m_Force;
-        bool m_update;
+        bool m_update, m_static;
     };
 }
 }

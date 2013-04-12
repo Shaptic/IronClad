@@ -15,7 +15,11 @@ bool CFont::Initialize()
 
 void CFont::DeInitialize()
 {
-    if(s_initialized) FT_Done_FreeType(s_Library);
+    if(s_initialized)
+    {
+        FT_Done_FreeType(s_Library);
+        s_initialized = false;
+    }
 }
 
 CFont::CFont() : m_size(0), m_loaded(false) {}
