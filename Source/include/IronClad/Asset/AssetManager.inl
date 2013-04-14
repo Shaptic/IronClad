@@ -5,14 +5,15 @@ using asset::CAssetManager;
 using util::g_Log;
 
 template<typename T>
-T* CAssetManager::Create(const char* pfilename)
+T* CAssetManager::Create(const char* pfilename,
+                         const void* powner)
 {
-    T* pFinder = (T*)CAssetManager::Find(pfilename);
+    T* pFinder = (T*)CAssetManager::Find(pfilename, powner);
 
     // The asset does *not* have an original, load one.
     if(pFinder == NULL)
     {
-        T* pAsset = new T(true);
+        T* pAsset = new T(true, powner);
 
         if(pAsset->LoadFromFile(pfilename))
         {
@@ -49,15 +50,16 @@ T* CAssetManager::Create(const char* pfilename)
 }
 
 template<typename T>
-T* CAssetManager::Create(const std::string& filename)
+T* CAssetManager::Create(const std::string& filename,
+                         const void* powner)
 {
-    return CAssetManager::Create<T>(filename.c_str());
+    return CAssetManager::Create<T>(filename.c_str(), powner);
 }
 
 template<typename T>
-T* CAssetManager::Create()
+T* CAssetManager::Create(const void* powner)
 {
-    T* pResult = new T(true);
+    T* pResult = new T(true, powner);
     CAssetManager::s_allAssets.push_back(pResult);
     
     g_Log.Flush();
@@ -71,6 +73,8 @@ T* CAssetManager::Create()
 template<typename T>
 bool CAssetManager::Destroy(T* pAsset)
 {
+    if(pAsset == NULL) return false;
+
     for(size_t i = 0; i < CAssetManager::s_allAssets.size(); ++i)
     {
         if(s_allAssets[i] == pAsset)

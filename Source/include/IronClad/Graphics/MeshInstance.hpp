@@ -175,6 +175,9 @@ namespace gfx
         inline void ClearMesh()
         { mp_ActiveMesh->Clear(); }
 
+        inline void SetSceneOwner(const void* const scene)
+        { mp_scene_ptr = scene; }
+
         friend class obj::CEntity;
 
     private:
@@ -186,6 +189,8 @@ namespace gfx
         math::vector2_t     m_RotationZ;
         float               m_degrees[3];
         bool                m_vflip, m_hflip;
+
+        const void*         mp_scene_ptr;
     };
 
 }   // namespace gfx

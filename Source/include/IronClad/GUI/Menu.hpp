@@ -36,8 +36,13 @@ namespace gui
     class IRONCLAD_API CMenu
     {
     public:
-        CMenu(gfx::CScene& Scene);
+        CMenu(gfx::CWindow& Window);
         ~CMenu();
+        
+        /**
+         * Initializes the internal scene.
+         **/
+        bool Init();
 
         /**
          * Adds a button to the menu at a certain position.
@@ -81,6 +86,7 @@ namespace gui
 
         /**
          * Handles system events for hover, click, etc.
+         * @param   util::SystemEvent   Event to handle
          * @return  Menu button ID if it was clicked, -1 otherwise.
          **/
         int16_t HandleEvent(const util::SystemEvent& Evt);
@@ -102,6 +108,17 @@ namespace gui
                 mp_allButtons[i]->GetEntity().SetRendering(true);
             }
         }
+
+        void Render()
+        {
+            m_Scene.Render();
+        }
+
+        inline void UpdateCursor()
+        { if(mp_Cursor) mp_Cursor->Move(util::GetMousePosition()); }
+
+        inline void UpdateWindow(gfx::CWindow& Win)
+        { m_Scene.UpdateWindow(Win); }
 
         /**
          * Loads a font for use in title, buttons, etc.
@@ -152,8 +169,26 @@ namespace gui
 
         bool SetBackground(const std::string& filepath)
         {
-            mp_Background = m_Scene.AddMesh(filepath, math::vector2_t());
-            return mp_Background != NULL;
+            mp_Background = new obj::CEntity;
+            if(!mp_Background->LoadFromImage(filepath.c_str(),
+                                             m_Scene.GetGeometryBuffer()))
+                return false;
+
+            m_Scene.AddMesh(mp_Background);
+            return true;
+        }
+
+        bool SetCursor(const std::string& img_name)
+        {
+            mp_Cursor = new obj::CEntity;
+            if(!mp_Cursor->LoadFromImage(img_name.c_str(),
+                                         m_Scene.GetGeometryBuffer()))
+            {
+                return false;
+            }
+
+            m_Scene.AddMesh(mp_Cursor);
+            return true;
         }
 
         bool SetFontSize(const uint16_t size);
@@ -172,11 +207,14 @@ namespace gui
             return NULL;
         }
 
+        inline gfx::CScene& GetScene() { return m_Scene; }
+
     private:
+        gfx::CScene         m_Scene;
         asset::CSound2D*    mp_HoverSound;
         asset::CSound2D*    mp_ClickSound;
-        gfx::CScene&        m_Scene;
         obj::CEntity*       mp_Background;
+        obj::CEntity*       mp_Cursor;
         gui::CFont          m_Font;
 
         std::vector<CButton*> mp_allButtons;

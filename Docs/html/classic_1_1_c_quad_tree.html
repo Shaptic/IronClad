@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6673 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -97,6 +97,11 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">ic::CQuadTree Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A quad tree for optimized collision detection.  
+ <a href="classic_1_1_c_quad_tree.html#details">More...</a></p>
+
+<p><code>#include &quot;<a class="el" href="_quad_tree_8hpp_source.html">QuadTree.hpp</a>&quot;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -121,8 +126,9 @@ static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>QT_MA
 static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>QT_MAX_DEPTH</b> = 6</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock">
-<p>Definition at line <a class="el" href="_quad_tree_8hpp_source.html#l00171">171</a> of file <a class="el" href="_quad_tree_8hpp_source.html">QuadTree.hpp</a>.</p>
+<div class="textblock"><p>Quad trees split areas into 4 (hence quad) equal parts. Then a recursive algorithm can speed up collision detection for large quantities of objects. </p>
+
+<p>Definition at line <a class="el" href="_quad_tree_8hpp_source.html#l00180">180</a> of file <a class="el" href="_quad_tree_8hpp_source.html">QuadTree.hpp</a>.</p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>IronClad/include/IronClad/Entity/<a class="el" href="_quad_tree_8hpp_source.html">QuadTree.hpp</a></li>
 <li>IronClad/src/Entity/<a class="el" href="_quad_tree_8cpp_source.html">QuadTree.cpp</a></li>
@@ -130,7 +136,7 @@ static const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>QT_MA
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 12 2013 13:27:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 14 2013 00:15:12 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

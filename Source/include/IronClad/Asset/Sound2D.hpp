@@ -3,7 +3,7 @@
  *  Asset/Sound2D.hpp - Describes a sound effect in 2D space.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0.1
+ * @version     1.0.2
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -174,7 +174,7 @@ namespace asset
         static void GetAvailableSource();
 
         /// Constructs an instance of the CSound2D class.
-        CSound2D(bool orig);
+        CSound2D(bool orig = false, const void* const own = NULL);
 
         /**
          * Loads a .wav file.

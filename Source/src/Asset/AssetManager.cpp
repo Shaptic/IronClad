@@ -25,30 +25,35 @@ CAssetManager& CAssetManager::GetInstance()
     return Instance;
 }
 
-asset::CAsset* CAssetManager::Find(const char* pfilename)
+asset::CAsset* CAssetManager::Find(const char* pfilename,
+                                   const void* powner)
 {
     for(size_t i = 0; i < CAssetManager::s_allAssets.size(); ++i)
     {
         const std::string& fn = CAssetManager::s_allAssets[i]->GetFilename();
+        const void* const ptr = CAssetManager::s_allAssets[i]->GetOwner();
 
-        if(fn == pfilename) return CAssetManager::s_allAssets[i];
+        if(fn == pfilename && ptr == powner)
+            return CAssetManager::s_allAssets[i];
     }
 
     return NULL;
 }
 
-asset::CAsset* CAssetManager::Find(const std::string& filename)
+asset::CAsset* CAssetManager::Find(const std::string& filename,
+                                   const void* powner)
 {
-    return CAssetManager::Find(filename.c_str());
+    return CAssetManager::Find(filename.c_str(), powner);
 }
 
-asset::CAsset* CAssetManager::Find(const uint32_t id)
+asset::CAsset* CAssetManager::Find(const uint32_t id, const void* powner)
 {
     // Searches for unique asset ID as opposed to 
     // by filename in the above example.
     for(size_t i = 0; i < CAssetManager::s_allAssets.size(); ++i)
     {
-        if(CAssetManager::s_allAssets[i]->GetID() == id)
+        if(CAssetManager::s_allAssets[i]->GetID() == id && 
+           CAssetManager::s_allAssets[i]->GetOwner() == powner)
             return CAssetManager::s_allAssets[i];
     }
 

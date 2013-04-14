@@ -3,7 +3,7 @@
  *  Asset/Texture.hpp - Defines the CTexture OpenGL texture wrapper class.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     1.2.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -93,8 +93,8 @@ namespace asset
         friend class CAssetManager;
 
     private:
-        CTexture(bool orig=false) : CAsset(orig), m_width(0), m_height(0),
-            m_texture(0) {}
+        CTexture(bool orig = false, const void* const own = NULL) : 
+            CAsset(orig, own), m_width(0), m_height(0), m_texture(0) {}
         CTexture(const CTexture& Copy);
 
         void Release();

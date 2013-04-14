@@ -3,7 +3,7 @@
  *  Asset/Asset.hpp - Defines the CAsset abstract base class.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     1.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -56,7 +56,7 @@ namespace asset
     class IRONCLAD_API CAsset
     {
     public:
-        CAsset(bool original = false);
+        CAsset(bool original = false, const void* const owner = NULL);
         virtual ~CAsset();
 
         virtual bool LoadFromFile(const char* pfilename) = 0;
@@ -68,6 +68,9 @@ namespace asset
         inline uint32_t GetID() const
         { return m_id; }
 
+        inline const void* const GetOwner() const
+        { return mp_owner; }
+
         inline virtual const std::string& GetError() const
         { return m_last_error; }
 
@@ -76,6 +79,9 @@ namespace asset
 
         inline void SetFilename(const std::string& filename)
         { m_filename = filename; }
+
+        inline void SetOwner(const void* const owner)
+        { mp_owner = owner; }
 
         /**
          * Only the CAssetManager class can create CAsset instances.
@@ -95,6 +101,8 @@ namespace asset
         std::string m_last_error;
         uint32_t    m_id;
         bool        m_original;
+
+        const void* mp_owner;
     };
 
 }   // namespace asset

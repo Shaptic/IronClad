@@ -42,7 +42,7 @@ uint32_t util::load_texture(const char* pfilename)
     glBindTexture(GL_TEXTURE_2D, texture);
 
     // Load texture and set up parameters.
-    if(glfwLoadTexture2D(pfilename, 0) == GL_FALSE) return false;
+    if(!glfwLoadTexture2D(pfilename, GLFW_NO_RESCALE_BIT)) return false;
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);

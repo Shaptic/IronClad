@@ -4,7 +4,7 @@
  *  responsible for loading and tracking CAsset instances.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     1.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -56,28 +56,47 @@ namespace asset
         *  being loaded again and will always return a usable
         *  asset.
         *
-        * @param   char*   Filename
-        * @return  NULL if no asset exists, otherwise the asset.
+        * @param    char*   Filename
+        * @param    void*   Address of asset owner  (optional=NULL)
+        * @return   NULL if no asset exists, otherwise the asset.
         **/
-        static CAsset* Find(const char* pfilename);
-        static CAsset* Find(const std::string& filename);
-        static CAsset* Find(const uint32_t asset_id);
+        static CAsset* Find(const char* pfilename,
+                            const void* powner = NULL);
+
+        static CAsset* Find(const std::string& filename,
+                            const void* powner = NULL);
+
+        static CAsset* Find(const uint32_t asset_id,
+                            const void* powner = NULL);
 
         /**
          * Creates an asset, using previously loaded data if it exists.
          *  This method will log an error if the asset fails to load.
+         *  
+         *  The concept of someone "owning" an asset allows for multiple
+         *  subsystems to load copies of it. For example, if you load a 
+         *  mesh into one scene, you tell the asset that &Scene1 is the
+         *  owner. Anyone else that wants to use a reference to that asset
+         *  must also provide the &Scene1 reference. 
+         *  If a different scene (say Scene2) wants to add the same mesh
+         *  to its scene, it gives it the &Scene2 parameter, creating a
+         *  new copy of the mesh rather than a reference to the one 
+         *  belonging to Scene1.
          *
          * @param   char*   Asset path/filename
+         * @param   void*   Address of asset owner  (optional=NULL)
+         * 
          * @return  The loaded asset, or NULL if creation failed.
          **/
         template<typename T>
-        static T* Create(const char* pfilename);
+        static T* Create(const char* pfilename, const void* owner = NULL);
 
         template<typename T>
-        static T* Create(const std::string& filename);
+        static T* Create(const std::string& filename,
+                         const void* owner = NULL);
 
         template<typename T>
-        static T* Create();
+        static T* Create(const void* owner = NULL);
 
         /**
          * Requests destruction of an existing asset.

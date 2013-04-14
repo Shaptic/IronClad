@@ -5,10 +5,11 @@ using ic::asset::CAsset;
 
 uint32_t CAsset::hash_seed;
 
-CAsset::CAsset(bool original /*= false*/) : m_original(original),
-                                            m_last_error("No error"),
-                                            m_id(Hash((char*)this,
-                                                sizeof(CAsset))) 
+CAsset::CAsset(bool original            /* = false */,
+               const void* const owner  /* = NULL  */) :
+    m_last_error("No error"),
+    m_id(Hash((char*)this, sizeof(CAsset))),
+    m_original(original), mp_owner(owner)
 {}
 
 CAsset::~CAsset()

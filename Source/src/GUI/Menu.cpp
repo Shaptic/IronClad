@@ -4,8 +4,9 @@ using namespace ic;
 using gui::CMenu;
 using gui::CButton;
 
-CMenu::CMenu(gfx::CScene& Scene) : m_Scene(Scene), mp_HoverSound(NULL),
-    mp_ClickSound(NULL), mp_Background(NULL)
+CMenu::CMenu(gfx::CWindow& Win) : 
+    m_Scene(Win, gfx::IC_STATIC_SCENE), mp_HoverSound(NULL),
+    mp_ClickSound(NULL), mp_Background(NULL), mp_Cursor(NULL)
 {
     mp_allButtons.clear();
 }
@@ -19,6 +20,11 @@ CMenu::~CMenu()
     }
 
     mp_allButtons.clear();
+}
+
+bool CMenu::Init()
+{
+    return m_Scene.Init();
 }
 
 int16_t CMenu::AddButton(const char* texture_fn, const char* text,
@@ -115,6 +121,14 @@ int16_t CMenu::HandleEvent(const util::SystemEvent& Evt)
 
     case ic::util::IC_MOUSEMOVE:
     {
+        // Show accurate cursor position.
+        if(mp_Cursor != NULL)
+        {
+            math::vector2_t Cam;
+            m_Scene.QueryCamera(Cam);
+            mp_Cursor->Move(util::GetMousePosition() - Cam);
+        }
+
         ic::math::rect_t Box(Evt.mpos.x, Evt.mpos.y, 1, 1);
 
         for(size_t i = 0; i < mp_allButtons.size(); ++i)

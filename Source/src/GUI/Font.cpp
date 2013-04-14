@@ -43,14 +43,24 @@ bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
     g_Log.PrintLastLog();
 
     if(FT_New_Face(s_Library, filename.c_str(), 0, &m_FontFace) != 0)
+    {
+        g_Log.Flush();
+        g_Log << "[ERROR] Failed to load font: " << filename << "\n";
+        g_Log.PrintLastLog();
         return false;
+    }
 
     // Set the size of the font face.
     // Since the function expects a size in 1/64 pixels, we multiply
     // by 64 (same as left-shifting 6 bits) before passing.
     // The 96 represents a 96-dpi font bitmap.
     if(FT_Set_Char_Size(m_FontFace, size << 6, size << 6, 96, 96) != 0)
+    {
+        g_Log.Flush();
+        g_Log << "[ERROR] Failed to set size for font: " << filename << "\n";
+        g_Log.PrintLastLog();
         return false;
+    }
 
     // For logging :)
     std::stringstream ss;
@@ -123,7 +133,7 @@ bool CFont::LoadFromFile(const std::string& filename, const uint16_t size)
 }
 
 math::rect_t CFont::RenderText(const std::string& text,
-                               const math::vector2_t& Pos)
+                               math::vector2_t Pos)
 {
     // Track total text size.
     math::rect_t Size(Pos.x, Pos.y, 0, 0);
@@ -152,8 +162,15 @@ math::rect_t CFont::RenderText(const std::string& text,
     // that throughout the loop.
     for(size_t i = 0; i < vlen; i += 4)
     {
-        char letter = (text[i >> 2] > '~' || text[i >> 2] < ' ')
-                      ? ' ' : text[i >> 2];
+        char c = text[i >> 2];
+
+        if(c == '\n')
+        {
+            last_w = Pos.x;
+            Pos.y += mp_glyphTextures['H'].dim.y + mp_glyphTextures['H'].dim.h;
+        }
+
+        char letter = (c > '~' || c < ' ') ? ' ' : c;
 
         // Retrieve dimensions from the dictionary.
         // Since we're doing i += 4, the index in the text string
@@ -266,9 +283,15 @@ math::rect_t CFont::RenderCached()
     // Draw each character with its texture enabled.
     for(size_t i = 0; i < m_last_text.length(); ++i)
     {
-        mp_glyphTextures[m_last_text[i]].pTexture->Bind();
+        char c = m_last_text[i];
+
+        if(c > '~' || c < ' ')
+            mp_glyphTextures[' '].pTexture->Bind();
+        else
+            mp_glyphTextures[c].pTexture->Bind();
+
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_SHORT,
-                      (void*)(sizeof(uint16_t) * i * 6));
+            (void*)(sizeof(uint16_t) * i * 6));
     }
 
     glDisable(GL_BLEND);
@@ -282,7 +305,7 @@ math::rect_t CFont::RenderCached()
 }
 
 math::rect_t CFont::CacheText(const std::string& text,
-                              const math::vector2_t& Pos)
+                              math::vector2_t Pos)
 {
     m_Cache.Clear();
 
@@ -311,10 +334,20 @@ math::rect_t CFont::CacheText(const std::string& text,
     // that throughout the loop.
     for(size_t i = 0; i < vlen; i += 4)
     {
+        char c = text[i >> 2];
+
+        if(c == '\n')
+        {
+            last_w = Pos.x;
+            Pos.y += mp_glyphTextures['H'].dim.y + mp_glyphTextures['H'].dim.h;
+        }
+
+        char letter = (c > '~' || c < ' ') ? ' ' : c;
+
         // Retrieve dimensions from the dictionary.
         // Since we're doing i += 4, the index in the text string
         // would be text[i / 4].
-        rect_t Dim = mp_glyphTextures[text[i >> 2]].dim;
+        rect_t Dim = mp_glyphTextures[letter].dim;
 
         float w = last_w;
         float h = Dim.y;

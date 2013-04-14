@@ -4,7 +4,7 @@
  *  CMeshInstance's in a more user-friendly interface.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0.1
+ * @version     1.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -66,6 +66,16 @@ namespace obj
                                   gfx::CVertexBuffer& VBO);
         virtual bool LoadFromFile(const std::string& mesh_filename,
                                   gfx::CVertexBuffer& VBO);
+
+        /**
+         * Dynamically loads a quad mesh from a texture.
+         * @param  char*            Texture filename
+         * @param   CVertexBuffer&  VBO to load mesh data into
+         * 
+         * @return  TRUE if loaded, FALSE if not.
+         **/
+        virtual bool LoadFromImage(const char* pimg_name,
+                                   gfx::CVertexBuffer& VBO);
 
         /**
          * Loads a mesh instance from an un-offloaded mesh.

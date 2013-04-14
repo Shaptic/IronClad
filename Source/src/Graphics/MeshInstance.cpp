@@ -5,7 +5,7 @@ using gfx::CMeshInstance;
 
 CMeshInstance::CMeshInstance() : mp_ActiveMesh(NULL),
     m_RotationZ(1.f, 0.f), m_RotationX(1.f, 0.f), m_RotationY(1.f, 0.f),
-    m_hflip(false), m_vflip(false)
+    m_hflip(false), m_vflip(false), mp_scene_ptr(NULL)
 {
     memset(m_degrees, 0, sizeof(m_degrees));
 }
@@ -27,7 +27,8 @@ bool CMeshInstance::LoadMesh(asset::CMesh* pMesh)
 
 bool CMeshInstance::LoadMesh(const std::string& filename)
 {
-    mp_ActiveMesh = asset::CAssetManager::Create<asset::CMesh>(filename);
+    mp_ActiveMesh = asset::CAssetManager::Create
+                                  <asset::CMesh>(filename, mp_scene_ptr);
     return (mp_ActiveMesh != NULL);
 }
 

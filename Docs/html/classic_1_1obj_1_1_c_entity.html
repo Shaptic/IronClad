@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6673 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -123,6 +123,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const
 <tr class="memdesc:a98cde21307a74ce175a716a890649bf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a mesh instance into the entity.  <a href="#a98cde21307a74ce175a716a890649bf2"></a><br/></td></tr>
 <tr class="memitem:a65b6175ab756952dcc38e2e5b5ca9189"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a65b6175ab756952dcc38e2e5b5ca9189"></a>
 virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>LoadFromFile</b> (const std::string &amp;mesh_filename, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
+<tr class="memitem:a9e7d2e31996fa7de0308ae9f3ed10b68"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1obj_1_1_c_entity.html#a9e7d2e31996fa7de0308ae9f3ed10b68">LoadFromImage</a> (const char *pimg_name, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
+<tr class="memdesc:a9e7d2e31996fa7de0308ae9f3ed10b68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dynamically loads a quad mesh from a texture.  <a href="#a9e7d2e31996fa7de0308ae9f3ed10b68"></a><br/></td></tr>
 <tr class="memitem:a77a2d00186d3111d3df2528f51becce3"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1obj_1_1_c_entity.html#a77a2d00186d3111d3df2528f51becce3">LoadFromMesh</a> (<a class="el" href="classic_1_1asset_1_1_c_mesh.html">asset::CMesh</a> *pMesh, <a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;VBO)</td></tr>
 <tr class="memdesc:a77a2d00186d3111d3df2528f51becce3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads a mesh instance from an un-offloaded mesh.  <a href="#a77a2d00186d3111d3df2528f51becce3"></a><br/></td></tr>
 <tr class="memitem:a794b2052df74cb04dcb9505ccb34b387"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1obj_1_1_c_entity.html#a794b2052df74cb04dcb9505ccb34b387">Move</a> (const <a class="el" href="structic_1_1math_1_1vector2__t.html">math::vector2_t</a> &amp;Pos)</td></tr>
@@ -228,7 +230,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_static</b></td></tr
 
 <p>Reimplemented in <a class="el" href="classic_1_1obj_1_1_c_rigid_body.html#abbc7de0320c04b544786fa5a0a8708ce">ic::obj::CRigidBody</a>.</p>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00048">48</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00051">51</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -254,7 +256,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_static</b></td></tr
 </div><div class="memdoc">
 <dl class="todo"><dt><b><a class="el" href="todo.html#_todo000005">Todo:</a></b></dt><dd>Bounds checking hehe. </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00210">210</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00220">220</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -304,6 +306,50 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_static</b></td></tr
 
 </div>
 </div>
+<a class="anchor" id="a9e7d2e31996fa7de0308ae9f3ed10b68"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CEntity::LoadFromImage </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>pimg_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classic_1_1gfx_1_1_c_vertex_buffer.html">gfx::CVertexBuffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>VBO</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">char*</td><td>Texture filename </td></tr>
+    <tr><td class="paramname">CVertexBuffer&amp;</td><td>VBO to load mesh data into</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns:</dt><dd>TRUE if loaded, FALSE if not. </dd></dl>
+
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00066">66</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="a77a2d00186d3111d3df2528f51becce3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -346,7 +392,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_static</b></td></tr
 
 <p>Reimplemented in <a class="el" href="classic_1_1obj_1_1_c_rigid_body.html#a999b5c5e2e218818f75809f20363d38c">ic::obj::CRigidBody</a>.</p>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00023">23</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00024">24</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -380,7 +426,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_static</b></td></tr
 
 <p>Reimplemented in <a class="el" href="classic_1_1obj_1_1_c_rigid_body.html#a1d6ff2c87340288ca6d698507d29f928">ic::obj::CRigidBody</a>.</p>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00043">43</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00046">46</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -405,7 +451,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_static</b></td></tr
   </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00058">58</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8cpp_source.html#l00061">61</a> of file <a class="el" href="_entity_8cpp_source.html">Entity.cpp</a>.</p>
 
 </div>
 </div>
@@ -432,7 +478,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_static</b></td></tr
 <p>Default is TRUE, of course. If set to FALSE, the CScene it's attached to will not render this entity.</p>
 <dl class="section return"><dt>Returns:</dt><dd>The old state (TRUE if not rendering, etc). </dd></dl>
 
-<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00153">153</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_entity_8hpp_source.html#l00163">163</a> of file <a class="el" href="_entity_8hpp_source.html">Entity.hpp</a>.</p>
 
 </div>
 </div>
@@ -443,7 +489,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>m_static</b></td></tr
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 12 2013 13:27:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 14 2013 00:15:13 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

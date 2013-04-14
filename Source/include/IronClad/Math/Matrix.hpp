@@ -82,7 +82,7 @@ namespace math
          **/
         static inline matrix4x4_t Projection2D(
             const uint32_t width, const uint32_t height,
-            const int max_z, const int min_z)
+            const int max_z,      const int min_z)
         {
             matrix4x4_t result;
 

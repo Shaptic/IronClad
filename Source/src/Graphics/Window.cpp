@@ -29,6 +29,7 @@ bool CWindow::Create(
     m_fullscreen= false;
 #else
     m_fullscreen= true;
+    glfwDisable(GLFW_MOUSE_CURSOR);
 #endif // _DEBUG
 
     // Create the window.

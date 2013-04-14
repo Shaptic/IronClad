@@ -3,7 +3,7 @@
  *  Asset/Mesh.hpp - Defines the CMesh class.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0.2
+ * @version     1.0.4
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -61,19 +61,11 @@ namespace asset
     class IRONCLAD_API CMesh : public CAsset
     {
     public:
-        CMesh(bool orig=false) : CAsset(orig), m_vcount(0), m_icount(0) {}
+        CMesh(bool orig = false, const void* const own = NULL) :
+            CAsset(orig, own), m_vcount(0), m_icount(0) {}
         ~CMesh();
 
-        CMesh& operator=(const CMesh& Copy)
-        {
-            for(size_t i = 0; i < Copy.mp_Surfaces.size(); ++i)
-                mp_Surfaces.push_back(Copy.mp_Surfaces[i]);
-
-            m_icount = Copy.m_icount;
-            m_vcount = Copy.m_vcount;
-
-            return (*this);
-        }
+        CMesh& operator=(const CMesh& Copy);
 
         /**
          * Loads a mesh from a file.

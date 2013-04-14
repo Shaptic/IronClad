@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6673 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -139,8 +139,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00093"></a><span class="lineno"><a class="code" href="classic_1_1asset_1_1_c_texture.html#a42da7c7a8ac369ebf96c519ab3398ce6">   93</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classic_1_1asset_1_1_c_asset_manager.html" title="Loads, finds, creates, and manages assets.">CAssetManager</a>;</div>
 <div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">CTexture</a>(<span class="keywordtype">bool</span> orig=<span class="keyword">false</span>) : <a class="code" href="classic_1_1asset_1_1_c_asset.html" title="The base class for all in-game assets.">CAsset</a>(orig), m_width(0), m_height(0),</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            m_texture(0) {}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">CTexture</a>(<span class="keywordtype">bool</span> orig = <span class="keyword">false</span>, <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> own = NULL) : </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <a class="code" href="classic_1_1asset_1_1_c_asset.html" title="The base class for all in-game assets.">CAsset</a>(orig, own), m_width(0), m_height(0), m_texture(0) {}</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">CTexture</a>(<span class="keyword">const</span> <a class="code" href="classic_1_1asset_1_1_c_texture.html" title="A basic OpenGL texture asset.">CTexture</a>&amp; Copy);</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordtype">void</span> Release();</div>
@@ -157,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 12 2013 13:27:32 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 14 2013 00:15:12 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

@@ -32,7 +32,7 @@ CScene::CScene(const uint16_t w, const uint16_t h,
                const math::matrix4x4_t& proj,
                const gfx::SceneType scene_type) : 
     m_WindowDim(w, h), m_WindowProj(proj), mp_Window(NULL), 
-    m_postfx(true), m_lighting(true), m_geo_type(GL_TRIANGLES)
+    m_postfx(true),    m_lighting(true),   m_geo_type(GL_TRIANGLES)
 {
     switch(scene_type)
     {

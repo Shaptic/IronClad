@@ -58,8 +58,16 @@ namespace math
 
             return true;
         }
+
         inline bool Collides(const vector2_t& Point) const
         { return this->Collides(rect_t(Point.x, Point.y, 1, 1)); }
+
+        friend std::ostream& operator<<(std::ostream& o, const rect_t& R)
+        {
+            o << "{(" << (int)R.x << ", " << (int)R.y << "): ";
+            o << "["  <<      R.w << ", " <<      R.h << "]} ";
+            return o;
+        }
 
         float x, y;
         int   w, h;

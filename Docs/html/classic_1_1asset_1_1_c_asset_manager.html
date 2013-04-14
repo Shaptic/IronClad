@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6673 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -105,15 +105,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7dca036a87a78323486b19419ac78708"><td class="memTemplParams" colspan="2"><a class="anchor" id="a7dca036a87a78323486b19419ac78708"></a>
+<tr class="memitem:a1c7f7bd67bdf680f0518a2586552f552"><td class="memTemplParams" colspan="2"><a class="anchor" id="a1c7f7bd67bdf680f0518a2586552f552"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a7dca036a87a78323486b19419ac78708"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> (const char *pfilename)</td></tr>
-<tr class="memitem:af9ae5893ef1779c7f18c8594c775e81f"><td class="memTemplParams" colspan="2"><a class="anchor" id="af9ae5893ef1779c7f18c8594c775e81f"></a>
+<tr class="memitem:a1c7f7bd67bdf680f0518a2586552f552"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> (const char *pfilename, const void *powner)</td></tr>
+<tr class="memitem:a6f011087472a22f70cfde8b9dad21704"><td class="memTemplParams" colspan="2"><a class="anchor" id="a6f011087472a22f70cfde8b9dad21704"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af9ae5893ef1779c7f18c8594c775e81f"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> (const std::string &amp;filename)</td></tr>
-<tr class="memitem:ae657842158b108b327a140147c41e521"><td class="memTemplParams" colspan="2"><a class="anchor" id="ae657842158b108b327a140147c41e521"></a>
+<tr class="memitem:a6f011087472a22f70cfde8b9dad21704"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> (const std::string &amp;filename, const void *powner)</td></tr>
+<tr class="memitem:afc9ac771ff7670f9a72f3d493e2e2f17"><td class="memTemplParams" colspan="2"><a class="anchor" id="afc9ac771ff7670f9a72f3d493e2e2f17"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae657842158b108b327a140147c41e521"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> ()</td></tr>
+<tr class="memitem:afc9ac771ff7670f9a72f3d493e2e2f17"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> (const void *powner)</td></tr>
 <tr class="memitem:ab84343414770e7e16f5ba94669e8ef75"><td class="memTemplParams" colspan="2"><a class="anchor" id="ab84343414770e7e16f5ba94669e8ef75"></a>
 template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab84343414770e7e16f5ba94669e8ef75"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Destroy</b> (T *pAsset)</td></tr>
@@ -122,21 +122,21 @@ template&lt;typename T &gt; </td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e91c6b5b88ca902c2e39f34b7e05ad9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4e91c6b5b88ca902c2e39f34b7e05ad9"></a>
 static <a class="el" href="classic_1_1asset_1_1_c_asset_manager.html">CAssetManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>GetInstance</b> ()</td></tr>
-<tr class="memitem:a504512b33d8ed3a8b342ae48d999ae56"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classic_1_1asset_1_1_c_asset.html">CAsset</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset_manager.html#a504512b33d8ed3a8b342ae48d999ae56">Find</a> (const char *pfilename)</td></tr>
-<tr class="memdesc:a504512b33d8ed3a8b342ae48d999ae56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for an asset with a matching filename.  <a href="#a504512b33d8ed3a8b342ae48d999ae56"></a><br/></td></tr>
-<tr class="memitem:a293c866485a1e38664bff0826b5939f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a293c866485a1e38664bff0826b5939f6"></a>
-static <a class="el" href="classic_1_1asset_1_1_c_asset.html">CAsset</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Find</b> (const std::string &amp;filename)</td></tr>
-<tr class="memitem:a64c6e4f587cb144af827c77da586a3ea"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a64c6e4f587cb144af827c77da586a3ea"></a>
-static <a class="el" href="classic_1_1asset_1_1_c_asset.html">CAsset</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Find</b> (const uint32_t asset_id)</td></tr>
-<tr class="memitem:a2f4c01e13a3695141b3328fbebfb9dfe"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2f4c01e13a3695141b3328fbebfb9dfe"><td class="memTemplItemLeft" align="right" valign="top">static T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset_manager.html#a2f4c01e13a3695141b3328fbebfb9dfe">Create</a> (const char *pfilename)</td></tr>
-<tr class="memdesc:a2f4c01e13a3695141b3328fbebfb9dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an asset, using previously loaded data if it exists.  <a href="#a2f4c01e13a3695141b3328fbebfb9dfe"></a><br/></td></tr>
-<tr class="memitem:af12cb1ff70b3638fc3003ed9019d0d10"><td class="memTemplParams" colspan="2"><a class="anchor" id="af12cb1ff70b3638fc3003ed9019d0d10"></a>
+<tr class="memitem:a896e5f322c982f384aea23b74fbed151"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classic_1_1asset_1_1_c_asset.html">CAsset</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset_manager.html#a896e5f322c982f384aea23b74fbed151">Find</a> (const char *pfilename, const void *powner=NULL)</td></tr>
+<tr class="memdesc:a896e5f322c982f384aea23b74fbed151"><td class="mdescLeft">&#160;</td><td class="mdescRight">Searches for an asset with a matching filename.  <a href="#a896e5f322c982f384aea23b74fbed151"></a><br/></td></tr>
+<tr class="memitem:a3f5535efeaa47f9751ec789f66f19bef"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f5535efeaa47f9751ec789f66f19bef"></a>
+static <a class="el" href="classic_1_1asset_1_1_c_asset.html">CAsset</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Find</b> (const std::string &amp;filename, const void *powner=NULL)</td></tr>
+<tr class="memitem:a6ac86980234d46b5c49bc5fac42be97b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6ac86980234d46b5c49bc5fac42be97b"></a>
+static <a class="el" href="classic_1_1asset_1_1_c_asset.html">CAsset</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>Find</b> (const uint32_t asset_id, const void *powner=NULL)</td></tr>
+<tr class="memitem:a719d80835f21b29a1a22c5e44611b8ed"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a719d80835f21b29a1a22c5e44611b8ed"><td class="memTemplItemLeft" align="right" valign="top">static T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset_manager.html#a719d80835f21b29a1a22c5e44611b8ed">Create</a> (const char *pfilename, const void *owner=NULL)</td></tr>
+<tr class="memdesc:a719d80835f21b29a1a22c5e44611b8ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an asset, using previously loaded data if it exists.  <a href="#a719d80835f21b29a1a22c5e44611b8ed"></a><br/></td></tr>
+<tr class="memitem:a0e824d13a4d650a7cddc7befd9414dba"><td class="memTemplParams" colspan="2"><a class="anchor" id="a0e824d13a4d650a7cddc7befd9414dba"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af12cb1ff70b3638fc3003ed9019d0d10"><td class="memTemplItemLeft" align="right" valign="top">static T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> (const std::string &amp;filename)</td></tr>
-<tr class="memitem:ad998e8951abc3ed5d116a435b7e23312"><td class="memTemplParams" colspan="2"><a class="anchor" id="ad998e8951abc3ed5d116a435b7e23312"></a>
+<tr class="memitem:a0e824d13a4d650a7cddc7befd9414dba"><td class="memTemplItemLeft" align="right" valign="top">static T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> (const std::string &amp;filename, const void *owner=NULL)</td></tr>
+<tr class="memitem:adf525ccfa42faefa1acfd8e4e75f54e2"><td class="memTemplParams" colspan="2"><a class="anchor" id="adf525ccfa42faefa1acfd8e4e75f54e2"></a>
 template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad998e8951abc3ed5d116a435b7e23312"><td class="memTemplItemLeft" align="right" valign="top">static T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> ()</td></tr>
+<tr class="memitem:adf525ccfa42faefa1acfd8e4e75f54e2"><td class="memTemplItemLeft" align="right" valign="top">static T *&#160;</td><td class="memTemplItemRight" valign="bottom"><b>Create</b> (const void *owner=NULL)</td></tr>
 <tr class="memitem:ab84343414770e7e16f5ba94669e8ef75"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab84343414770e7e16f5ba94669e8ef75"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classic_1_1asset_1_1_c_asset_manager.html#ab84343414770e7e16f5ba94669e8ef75">Destroy</a> (T *pAsset)</td></tr>
 <tr class="memdesc:ab84343414770e7e16f5ba94669e8ef75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests destruction of an existing asset.  <a href="#ab84343414770e7e16f5ba94669e8ef75"></a><br/></td></tr>
@@ -151,7 +151,7 @@ static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>GetAssetCo
 
 <p>Definition at line <a class="el" href="_asset_manager_8hpp_source.html#l00045">45</a> of file <a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>.</p>
 </div><hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a2f4c01e13a3695141b3328fbebfb9dfe"></a>
+<a class="anchor" id="a719d80835f21b29a1a22c5e44611b8ed"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -164,8 +164,18 @@ template&lt;typename T &gt; </div>
           <td class="memname">T * ic::asset::CAssetManager::Create </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>pfilename</em></td><td>)</td>
+          <td class="paramname"><em>pfilename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>owner</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -175,9 +185,11 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>This method will log an error if the asset fails to load.</p>
+<p>The concept of someone "owning" an asset allows for multiple subsystems to load copies of it. For example, if you load a mesh into one scene, you tell the asset that &amp;Scene1 is the owner. Anyone else that wants to use a reference to that asset must also provide the &amp;Scene1 reference. If a different scene (say Scene2) wants to add the same mesh to its scene, it gives it the &amp;Scene2 parameter, creating a new copy of the mesh rather than a reference to the one belonging to Scene1.</p>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramname">char*</td><td>Asset path/filename </td></tr>
+    <tr><td class="paramname">void*</td><td>Address of asset owner (optional=NULL)</td></tr>
   </table>
   </dd>
 </dl>
@@ -218,7 +230,7 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>TRUE if asset exists, FALSE if not. </dd></dl>
 
-<p>Definition at line <a class="el" href="_asset_manager_8hpp_source.html#l00073">73</a> of file <a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_manager_8hpp_source.html#l00075">75</a> of file <a class="el" href="_asset_manager_8hpp_source.html">AssetManager.hpp</a>.</p>
 
 </div>
 </div>
@@ -244,11 +256,11 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 <p>This should only be called by engine cleanup. </p>
 
-<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00058">58</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00063">63</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a504512b33d8ed3a8b342ae48d999ae56"></a>
+<a class="anchor" id="a896e5f322c982f384aea23b74fbed151"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -256,11 +268,21 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classic_1_1asset_1_1_c_asset.html">asset::CAsset</a> * CAssetManager::Find </td>
+          <td class="memname">static <a class="el" href="classic_1_1asset_1_1_c_asset.html">CAsset</a>* ic::asset::CAssetManager::Find </td>
           <td>(</td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>pfilename</em></td><td>)</td>
+          <td class="paramname"><em>pfilename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>powner</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -273,12 +295,11 @@ template&lt;typename T &gt; </div>
 <dl class="params"><dt>Parameters:</dt><dd>
   <table class="params">
     <tr><td class="paramname">char*</td><td>Filename </td></tr>
+    <tr><td class="paramname">void*</td><td>Address of asset owner (optional=NULL) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns:</dt><dd>NULL if no asset exists, otherwise the asset. </dd></dl>
-
-<p>Definition at line <a class="el" href="_asset_manager_8cpp_source.html#l00028">28</a> of file <a class="el" href="_asset_manager_8cpp_source.html">AssetManager.cpp</a>.</p>
 
 </div>
 </div>
@@ -290,7 +311,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 12 2013 13:27:33 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 14 2013 00:15:12 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

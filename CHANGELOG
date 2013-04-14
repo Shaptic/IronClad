@@ -2,8 +2,16 @@ CHANGELOG
 
 Project         :	IronClad
 Author          :	George Kudrayvtsev
-Current Version	:	1.4.1 beta
-Last Updated	:	04.12.2013
+Current Version	:	1.5.0 beta
+Last Updated	:	04.14.2013
+
+Version 1.5.0b (04.14.2013):
+ *  Assets can have an "owner" now, allowing for copies
+ +  Added support for multiple scenes sharing meshes
+ +  Fonts can render multiple lines of text
+ +  Menus have their own scenes to manage
+ *  Mesh loading optimizations
+ +  Loading images straight from a texture file
 
 Version 1.4.1b (04.12.2013):
  *  On-the-fly mesh loading bugs fixed

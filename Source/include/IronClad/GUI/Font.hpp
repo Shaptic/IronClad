@@ -117,7 +117,7 @@ namespace gui
          * @see GetTextHeight()
          **/
         math::rect_t RenderText(const std::string& text,
-                                const math::vector2_t& Pos);
+                                math::vector2_t Pos);
 
         /**
          * Renders a string stored with CacheText().
@@ -146,7 +146,7 @@ namespace gui
          * @see RenderText()
          **/
         math::rect_t CacheText(const std::string& text,
-                               const math::vector2_t& Pos);
+                               math::vector2_t Pos);
 
         bool IsLoaded() const { return m_loaded; }
 

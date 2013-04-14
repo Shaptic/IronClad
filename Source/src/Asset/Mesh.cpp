@@ -1,3 +1,8 @@
+/**
+ * @todo    Make all of the Load* methods use a single thing so that I 
+ *          don't have to edit them all every time there's an update.
+ **/
+
 #include "IronClad/Asset/Mesh.hpp"
 
 using namespace ic;
@@ -7,6 +12,17 @@ using util::g_Log;
 CMesh::~CMesh()
 {
     this->Release();
+}
+
+CMesh& ic::asset::CMesh::operator=(const CMesh& Copy)
+{
+    for(size_t i = 0; i < Copy.mp_Surfaces.size(); ++i)
+        mp_Surfaces.push_back(Copy.mp_Surfaces[i]);
+
+    m_icount = Copy.m_icount;
+    m_vcount = Copy.m_vcount;
+
+    return (*this);
 }
 
 bool CMesh::LoadFromFile(const char* pfilename)
@@ -153,72 +169,113 @@ bool CMesh::LoadFromStr(const char** data, const int size)
 {
     this->Clear();
 
+    util::CParser Parser;
+
     for(size_t i = 0; i < size; ++i)
     {
-        for(size_t j = 0; data[i][j] != '\0'; ++j)
+        std::string line(data[i]);
+
+        // Skip empty lines or comments.
+        if(line.empty() || line[0] == '/') continue;
+
+        if(line.find("<entity>") != std::string::npos)
         {
-            if(data[i][j] == '/') continue;
-            
-            std::vector<std::string> splitLine = util::split(data[i], '=');
+            std::streampos ent_s = file.tellg();
+            std::streampos ent_e = util::CParser::FindInFile(file, "</entity>");
 
-            // Check for valid key-value line.
-            if(splitLine.size() >= 2)
+            if(ent_e == std::streampos(-1))
             {
-                uint32_t d = 2;
+                g_Log.Flush();
+                g_Log << "[ERROR] Malformed raw mesh file: ";
+                g_Log << "No closing tag found for entity.\n";
+                g_Log.PrintLastLog();
+                return false;
+            }
 
-                if(splitLine[0] == "dim")
+            // Start from beginning of tag.
+            Parser.LoadFromStream(file, ent_s, ent_e);
+            file.seekg(ent_s);
+
+            // Load preliminary mesh data.
+
+            // Vertices.
+            std::vector<std::string> v = Parser.GetValues("vertex", ',');
+            if(v.size() <= 1)
+            {
+                g_Log.Flush();
+                g_Log << "[ERROR] Malformed raw mesh file: ";
+                g_Log << "No vertices found for entity.\n";
+                g_Log.PrintLastLog();
+                return false;
+            }
+
+            m_vBuffer.resize(v.size() / 2);
+            for(size_t i = 0; i < v.size() - 1; i += 2)
+            {
+                m_vBuffer[i/2].Position.x = atof(v[i].c_str());
+                m_vBuffer[i/2].Position.y = atof(v[i+1].c_str());
+            }
+
+            // Texture coordinates.
+            v = Parser.GetValues("texcoords", ',');
+            if(v.size() <= 1)
+            {
+                g_Log.Flush();
+                g_Log << "[INFO] No texture coordinates found for entity ";
+                g_Log << "in raw mesh.\n"
+                g_Log.PrintLastLog();
+            }
+            else
+            {
+                for(size_t i = 0; i < m_vBuffer.size() << 1; i += 2)
                 {
-                    d = atoi(splitLine[1].c_str());
-                }
-                else if(splitLine[0] == "positions")
-                {
-                    std::vector<std::string> vValues = 
-                        util::split(splitLine[1], ',');
-
-                    m_vBuffer.resize(vValues.size() / 2);
-
-                    for(size_t i = 0; i < vValues.size() - 1; i += 2)
-                    {
-                        m_vBuffer[i/2].Position.x = atof(vValues[i].c_str());
-                        m_vBuffer[i/2].Position.y = atof(vValues[i+1].c_str());
-                    }
-
-                    vValues.clear();
-                }
-                else if(splitLine[0] == "texcoords")
-                {
-                    std::vector<std::string> tValues = 
-                        util::split(splitLine[1], ',');
-
-                    for(size_t i = 0; i < tValues.size() - 1; i += 2)
-                    {
-                        m_vBuffer[i/2].TexCoord.x = atof(tValues[i].c_str());
-                        m_vBuffer[i/2].TexCoord.y = atof(tValues[i+1].c_str());
-                    }
-
-                    tValues.clear();
-                }
-                else if(splitLine[0] == "colors")
-                {
-                    std::vector<std::string> cValues = 
-                        util::split(splitLine[1], ',');
-
-                    for(size_t i = 0; i < cValues.size() - 3; i += 4)
-                    {
-                        m_vBuffer[i/4].Color.r = atof(cValues[i].c_str());
-                        m_vBuffer[i/4].Color.g = atof(cValues[i+1].c_str());
-                        m_vBuffer[i/4].Color.b = atof(cValues[i+2].c_str());
-                        m_vBuffer[i/4].Color.a = atof(cValues[i+3].c_str());
-                    }
-
-                    cValues.clear();
+                    m_vBuffer[i/2].TexCoord.x = atof(v[i].c_str());
+                    m_vBuffer[i/2].TexCoord.y = atof(v[i+1].c_str());
                 }
             }
-            else if(splitLine[0] == "[surface]")
+
+            // Colors.
+            v = Parser.GetValues("colors", ',');
+            if(v.size() <= 1)
             {
-                if(!this->LoadSurface(data, size)) return false;
+                g_Log.Flush();
+                g_Log << "[INFO] No color specification found for entity ";
+                g_Log << "in raw mesh.\n";
+                g_Log.PrintLastLog();
+            }
+            else
+            {
+                for(size_t i = 0; i < m_vBuffer.size() << 2; i += 4)
+                {
+                    m_vBuffer[i/4].Color.r = atof(v[i].c_str());
+                    m_vBuffer[i/4].Color.g = atof(v[i+1].c_str());
+                    m_vBuffer[i/4].Color.b = atof(v[i+2].c_str());
+                    m_vBuffer[i/4].Color.a = atof(v[i+3].c_str());
+                }
+            }
+
+            // Done with preliminary vertex data.
+            // Load surfaces now.
+
+            // Search for a surface.
+            std::streampos suf_s, suf_e;
+            suf_s = util::CParser::FindInFile(file, "<surface>");
+
+            // Load surfaces until no more can be found, or the surface tag
+            // is further than the current entity tag.
+            while(suf_s != std::streampos(-1) && suf_s < ent_e)
+            {
+                suf_e = util::CParser::FindInFile(file, "</surface>");
+
+                // Make sure surface end tag isn't further that entity.
+                if(suf_e == std::streampos(-1) || suf_e > ent_e) break;
+
+                // Load surface from file stream.
+                if(!this->LoadSurface(file, suf_s, suf_e)) break;
             }
         }
+
+        Parser.Reset();
     }
 
     // Do merging.
@@ -374,11 +431,11 @@ bool CMesh::LoadFromRaw(
 {
     this->Clear();
 
-    for(size_t i = 0; i < vsize; ++i)
-        m_vBuffer.push_back(pvertices[i]);
-
-    for(size_t i = 0; i < isize; ++i)
-        m_iBuffer.push_back(pindices[i]);
+    m_vBuffer.reserve(vsize);
+    m_iBuffer.reserve(isize);
+    
+    for(size_t i = 0; i < vsize; ++i) m_vBuffer.push_back(pvertices[i]);
+    for(size_t i = 0; i < isize; ++i) m_iBuffer.push_back(pindices[i]);
     
     // Create a single surface with isize indices.
     if(!this->LoadSurface(NULL, 0, 0)) return false;
@@ -427,6 +484,7 @@ bool CMesh::Offload(gfx::CVertexBuffer& VBO)
     m_iBuffer.clear();
     m_vBuffer.clear();
 
+    this->SetOwner(&VBO);
     return true;
 }
 
@@ -558,7 +616,7 @@ bool CMesh::LoadSurface(const char** lines, const uint32_t s,
     }
 
     // Load shaders into mesh.
-    data = Parser.GetValue("vshader");
+    data  = Parser.GetValue("vshader");
     data2 = Parser.GetValue("fshader");
 
     // No shader?
@@ -584,6 +642,12 @@ bool CMesh::LoadSurface(const char** lines, const uint32_t s,
     }
 
     std::vector<std::string> ind = Parser.GetValues("indices", ',');
+
+    if(ind.size() == 1 && ind[0].empty())
+    {
+        mp_Surfaces.push_back(pSurface);
+        return success;
+    }
 
     pSurface->icount = ind.size();
 

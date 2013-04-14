@@ -3,7 +3,7 @@
  *  Asset/Shader.hpp - Individual OpenGL shader objects.
  *
  * @author      George Kudrayvtsev (halcyon)
- * @version     1.0
+ * @version     1.0.1
  * @copyright   Apache License v2.0
  *  Licensed under the Apache License, Version 2.0 (the "License").         \n
  *  You may not use this file except in compliance with the License.        \n
@@ -41,8 +41,9 @@ namespace asset
     class IRONCLAD_API CShader : public CAsset
     {
     public:
-        CShader(bool orig=false) : CAsset(orig), m_shader(0),
-            m_error(GL_NO_ERROR), m_error_str("No error") {}
+        CShader(bool orig = false, const void* const own = NULL) :
+            CAsset(orig), m_shader(0), m_error(GL_NO_ERROR),
+            m_error_str("No error") {}
         ~CShader();
 
         bool LoadFromFile(const char* pfilename);

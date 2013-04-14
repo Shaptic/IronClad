@@ -28,6 +28,9 @@
 
 namespace ic
 {
+    /**
+     * A node within a quad tree object.
+     **/
     class QTNode
     {
         typedef std::list<obj::CRigidBody*>::iterator       QTListIt_t;
@@ -168,6 +171,12 @@ namespace ic
         bool        m_full;
     };
 
+    /**
+     * A quad tree for optimized collision detection.
+     *  Quad trees split areas into 4 (hence quad) equal parts. Then a
+     *  recursive algorithm can speed up collision detection for large
+     *  quantities of objects.
+     **/
     class IRONCLAD_API CQuadTree
     {
     public:
@@ -180,7 +189,8 @@ namespace ic
                 mp_allBodies.push_back(pBody);
                 return true;
             }
-            else return false;
+            
+            return false;
         }
 
         inline bool Remove(obj::CRigidBody* pBody)
@@ -194,7 +204,7 @@ namespace ic
 #ifdef _DEBUG
         void Print() const;
 #else
-        void Print() const{}
+        void Print() const {}
 #endif // _DEBUG
 
         static const uint8_t QT_MAX_OBJECTS = 32;

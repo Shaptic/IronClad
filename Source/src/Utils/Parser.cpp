@@ -73,7 +73,7 @@ bool CParser::LoadFromStream(const char** str, const uint32_t start,
     if(str == NULL)
     {
         util::g_Log.Flush();
-        util::g_Log << "[ERROR] Fragmented raw data.\n";
+        util::g_Log << "[INFO] Fragmented raw data.\n";
         util::g_Log.PrintLastLog();
         return false;
     }

@@ -43,28 +43,28 @@
       <UniqueIdentifier>{078f20d7-f394-42d2-9f20-639afb4182a2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{efb08028-a83e-4ecf-8351-f561d38d2395}</UniqueIdentifier>
+      <UniqueIdentifier>{41101095-85dc-43fa-9ae9-75530d4886af}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Assets">
-      <UniqueIdentifier>{e51003de-8341-4993-af65-e1c7cc16b542}</UniqueIdentifier>
+      <UniqueIdentifier>{c69a5f42-d5b5-48b1-a617-104d74a5233a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Entities">
-      <UniqueIdentifier>{7d1d0322-cf48-4aa0-a136-cd161e231d18}</UniqueIdentifier>
+      <UniqueIdentifier>{58f9bd96-b54e-47bb-bcfd-dc926aeec397}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Graphics">
-      <UniqueIdentifier>{276966e6-ae79-4f37-9da6-74c8a867220a}</UniqueIdentifier>
+      <UniqueIdentifier>{dbf71aaf-75a8-4aee-b7c6-9585ff18801e}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Math">
-      <UniqueIdentifier>{a1aa7283-1fb8-4b65-9ccb-fffc6c7a5d47}</UniqueIdentifier>
+      <UniqueIdentifier>{d0a25073-9842-4807-85b3-b0bb57dfc1e8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Utilities">
-      <UniqueIdentifier>{dc54c46e-3ce9-40db-941e-573c0118200f}</UniqueIdentifier>
+      <UniqueIdentifier>{2629ba3f-7514-4530-b3bf-63b28067f69f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\GUI">
-      <UniqueIdentifier>{2d9e547d-3415-4acc-8f4b-ecb6099424b8}</UniqueIdentifier>
+      <UniqueIdentifier>{b4e4778a-2770-403e-a9a9-723d3fdc2856}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Engine\Audio">
-      <UniqueIdentifier>{f210a9fa-6745-46e6-b07f-50b182921244}</UniqueIdentifier>
+      <UniqueIdentifier>{fbb2bfed-c538-4005-a592-e181a4f34182}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

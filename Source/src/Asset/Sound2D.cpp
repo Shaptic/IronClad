@@ -4,7 +4,8 @@ using namespace ic;
 using asset::CSound2D;
 using util::g_Log;
 
-CSound2D::CSound2D(bool orig) : CAsset(orig), m_buffer(0), m_source(-1),
+CSound2D::CSound2D(bool orig, const void* const own) : 
+    CAsset(orig, own), m_buffer(0), m_source(-1),
     m_volume(1.f), m_lasterror(AL_NO_ERROR)
 {
     CSound2D::s_allSounds.push_back(this);

@@ -25,7 +25,7 @@
    <div id="projectname">IronClad Engine
    &#160;<span id="projectnumber">0.1 pre-release</span>
    </div>
-   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6720 lines of code.</div>
+   <div id="projectbrief">A OpenGL-based 2D engine. Currently at 6673 lines of code.</div>
   </td>
  </tr>
  </tbody>
@@ -99,29 +99,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;uint32_t CAsset::hash_seed;</div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;CAsset::CAsset(<span class="keywordtype">bool</span> original <span class="comment">/*= false*/</span>) : m_original(original),</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;                                            m_last_error(<span class="stringliteral">&quot;No error&quot;</span>),</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;                                            m_id(Hash((char*)this,</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;                                                sizeof(<a class="code" href="classic_1_1asset_1_1_c_asset.html" title="The base class for all in-game assets.">CAsset</a>))) </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{}</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;CAsset::~CAsset()</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="comment">//if(m_original) this-&gt;Release();</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="classic_1_1asset_1_1_c_asset.html#ade7b3753f5ac2889dcca4e83bd457024">   19</a></span>&#160;<span class="keywordtype">void</span> CAsset::Release()</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a0db30eeee76ea4de7515c333530d288a" title="Writes pending data to the file.">Flush</a>();</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a> &lt;&lt; <span class="stringliteral">&quot;[INFO] Deleted asset:     (&quot;</span>;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#ad1585cc8d138ee6ca00084f5386a97bd" title="Sets the width of the next string, filling it with spaces.">SetWidth</a>(10);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a> &lt;&lt; m_id &lt;&lt; <span class="stringliteral">&quot;) &quot;</span> &lt;&lt; m_filename &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>.PrintLastLog();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;CAsset::CAsset(<span class="keywordtype">bool</span> original            <span class="comment">/* = false */</span>,</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;               <span class="keyword">const</span> <span class="keywordtype">void</span>* <span class="keyword">const</span> owner  <span class="comment">/* = NULL  */</span>) :</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    m_last_error(<span class="stringliteral">&quot;No error&quot;</span>),</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    m_id(Hash((char*)this, sizeof(<a class="code" href="classic_1_1asset_1_1_c_asset.html" title="The base class for all in-game assets.">CAsset</a>))),</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    m_original(original), mp_owner(owner)</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{}</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;CAsset::~CAsset()</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="comment">//if(m_original) this-&gt;Release();</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="classic_1_1asset_1_1_c_asset.html#ade7b3753f5ac2889dcca4e83bd457024">   20</a></span>&#160;<span class="keywordtype">void</span> CAsset::Release()</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#a0db30eeee76ea4de7515c333530d288a" title="Writes pending data to the file.">Flush</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a> &lt;&lt; <span class="stringliteral">&quot;[INFO] Deleted asset:     (&quot;</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>.<a class="code" href="classic_1_1util_1_1_c_logging.html#ad1585cc8d138ee6ca00084f5386a97bd" title="Sets the width of the next string, filling it with spaces.">SetWidth</a>(10);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a> &lt;&lt; m_id &lt;&lt; <span class="stringliteral">&quot;) &quot;</span> &lt;&lt; m_filename &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="namespaceic_1_1util.html#aef568659fdcbf8fdbea1d07fb4f7a3cf" title="Provides global access to the singleton instance of the logger.">util::g_Log</a>.PrintLastLog();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Apr 12 2013 13:27:32 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Apr 14 2013 00:15:12 for IronClad Engine by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>
